@@ -11,6 +11,15 @@ export default defineConfig({
             fonts: [
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
+                    preload: false,
+                }),
+                bunny('Space Grotesk', {
+                    weights: [500, 700],
+                    preload: [{ weight: 700 }],
+                }),
+                bunny('IBM Plex Sans', {
+                    weights: [400, 500],
+                    preload: [{ weight: 400 }],
                 }),
             ],
         }),

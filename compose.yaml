@@ -1,0 +1,22 @@
+name: cleaner
+
+services:
+    pgsql:
+        image: postgres:17
+        environment:
+            POSTGRES_USER: cleaner
+            POSTGRES_PASSWORD: cleaner
+            POSTGRES_DB: cleaner
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+            - ./database/init:/docker-entrypoint-initdb.d:ro
+        ports:
+            - "5434:5432"
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U cleaner -d cleaner"]
+            interval: 3s
+            timeout: 3s
+            retries: 10
+
+volumes:
+    pgdata:

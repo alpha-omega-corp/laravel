@@ -1,8 +1,147 @@
-@import 'tailwindcss';
+@import 'tailwindcss' source(none);
 
-@source '../views';
+/*
+ * Sources are registered explicitly rather than scanned wholesale, because
+ * resources/views/components/ui holds the shared UI kit: 364 components of verbatim
+ * Tailwind Plus markup. Scanning those would compile Tailwind's entire default palette
+ * and every dark: variant into this stylesheet — measured at 235 KB versus 67 KB — on a
+ * page that publishes its own byte count. The kit is a reference library: adopting a
+ * component means copying its markup into a view below and re-theming it to these tokens.
+ * Add new application view directories here.
+ */
+@source '../views/components/layouts';
+@source '../views/home.blade.php';
+@source '../views/welcome.blade.php';
+@source '../js';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-canvas: #fcfcfa;
+    --color-canvas-alt: #e9f2ec;
+    --color-ink: #0e241c;
+    --color-ink-soft: #52655c;
+    --color-rule: #c9d6cd;
+    --color-accent: #0b6e4f;
+    --color-accent-strong: #08543c;
+    --color-on-accent: #ffffff;
+    --color-highlight: #f2c230;
+    --color-on-highlight: #0e241c;
+
+    --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-ibm-plex-sans), ui-sans-serif, system-ui, sans-serif;
+
+    --text-display: clamp(2.6rem, 6vw, 4.25rem);
+    --text-display--line-height: 0.98;
+    --text-display--letter-spacing: -0.03em;
+
+    --text-title: clamp(1.9rem, 3.8vw, 3rem);
+    --text-title--line-height: 1.04;
+    --text-title--letter-spacing: -0.02em;
+
+    --text-figure: clamp(2.5rem, 6vw, 4rem);
+    --text-figure--line-height: 0.9;
+    --text-figure--letter-spacing: -0.03em;
+
+    --radius-panel: 1rem;
+    --container-wrap: 76rem;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    main > section[id] {
+        scroll-margin-top: 5.5rem;
+    }
+
+    body {
+        background-color: var(--color-canvas);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 3px;
+    }
+
+    ::selection {
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
+
+@layer components {
+        .wrap {
+        width: 100%;
+        max-width: var(--container-wrap);
+        margin-inline: auto;
+        padding-inline: 1.25rem;
+    }
+
+    @media (min-width: 48rem) {
+        .wrap {
+            padding-inline: 2.5rem;
+        }
+    }
+
+    .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 60;
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+        padding: 0.75rem 1.25rem;
+    }
+
+    .skip:focus {
+        left: 0;
+    }
+
+        .panel {
+        border: 1.5px solid var(--color-ink);
+        border-radius: var(--radius-panel);
+        background: var(--color-canvas);
+        box-shadow: 5px 5px 0 var(--color-ink);
+    }
+
+    .rise {
+        animation: rise 620ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    }
+
+    @keyframes rise {
+        from {
+            opacity: 0;
+            transform: translateY(0.75rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
 }
