@@ -24,21 +24,26 @@ A reference is `category/group/name`. Write it with a leading `::`.
   candidates. Names are not unique once flattened: 6 collide exactly, 17 more after the `NN-`
   prefix is stripped. Never guess — show the candidates and let the user pick.
 
-Resolve references with `App\Support\UiKit`:
+Resolve references with the `uikit` MCP server's three tools:
 
-```php
-use App\Support\UiKit;
-
-UiKit::resolve('::card');   // ['match' => null, 'candidates' => [...]]
-UiKit::tree();              // category => group => count
-UiKit::search('sign in');   // matching components
-UiKit::markup($component);  // the raw Blade
+```
+mcp__uikit__list-ui-components     browse: categories and groups, or one category's components
+mcp__uikit__search-ui-components   find by keyword — "card", "sign in", "pagination"
+mcp__uikit__get-ui-component       read one, by reference or by the shorthand above
 ```
 
-To look one up from the shell:
+The kit **used to live in this application** as `App\Support\UiKit` and a Laravel MCP server
+under `app/Mcp`. It was never really a Laravel thing — it walks a directory of Blade files and
+answers questions about them — so reaching it meant booting a framework, and every project that
+wanted it needed a PHP runtime and a checkout of this one. It is now served by deployer, which is
+a single binary. The components themselves have not moved: they are still generated here, under
+`resources/views/components/ui`, and deployer is pointed at that directory.
+
+To look one up from the shell, with no MCP client in the way:
 
 ```bash
-php artisan tinker --execute 'print_r(App\Support\UiKit::resolve("::card")["candidates"]);'
+printf '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get-ui-component","arguments":{"reference":"::card"}}}\n' \
+  | /home/nanstis/GolandProjects/deployer/build/bin/deployer-mcp -server uikit
 ```
 
 The full list is in `references/index.md` — grep it rather than reading it whole.
@@ -94,19 +99,25 @@ Other projects have their own tokens. Re-theme to the host project, never assume
 
 ## Using the kit from another project
 
-The kit is exposed over MCP by `app/Mcp/Servers/UiKitServer.php`, registered in `routes/ai.php`
-as the local server `uikit`. Register it once in any other project:
+The kit is served by **deployer**, which is one binary serving several MCP servers — `deployer`
+for the deploy pipeline and `uikit` for this library, chosen by argument. Register it once in any
+other project:
 
 ```bash
-claude mcp add uikit -- php /home/nanstis/PhpstormProjects/cleaner/artisan mcp:start uikit
+claude mcp add uikit -- /home/nanstis/GolandProjects/deployer/build/bin/deployer-mcp -server uikit
 ```
+
+Nothing to install and no PHP involved: it is the same binary that deploys, and a project that
+already has the `deployer` server configured reaches this one the same way.
 
 It exposes three read-only tools: `list-ui-components`, `search-ui-components` and
 `get-ui-component`. Outside Laravel the returned markup is plain Tailwind HTML, so the Blade tag
 does not apply — copy the markup instead.
 
-Do not run `php artisan mcp:start uikit` by hand to test it; it blocks waiting on stdio. Use
-`php artisan mcp:inspector uikit`, or the tests in `tests/Feature/UiKitTest.php`.
+Which directory it reads is `claude.uikit` in deployer's settings file, pointed at this project's
+`resources/views/components/ui`. If the tools answer "No UI kit is configured", that key is what
+is missing. The behaviour is covered by `pkg/uikit` in the deployer repository; there is no PHP
+side left to test.
 
 ## Licensing
 
