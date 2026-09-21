@@ -8,12 +8,6 @@ return [
         'intro' => 'Tutti gli elementi del kit condiviso, riportati dalla tavolozza predefinita di Tailwind ai token di questa applicazione. Un elemento per gruppo del kit, non per file: i sei file dei pulsanti sono un solo componente con variante. Cambia tavolozza o chiaro/scuro nella barra di navigazione e l’intera pagina lo segue.',
     ],
 
-    'view' => [
-        'label' => 'Anteprima su',
-        'desktop' => 'Desktop',
-        'mobile' => 'Mobile',
-    ],
-
     'group' => [
         'elements' => 'Elementi',
         'feedback' => 'Riscontri',

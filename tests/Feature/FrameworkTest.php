@@ -359,9 +359,9 @@ it('offers no phone preview, because the framework is itself the preview', funct
     // No view switch, no frame, no iframe — this page does not go through the
     // gallery layout at all. The other two galleries keep theirs; GalleryViewTest
     // is what holds them to it.
-    expect($html)->not->toContain(__('ui_kit.view.mobile'))
-        ->and($html)->not->toContain('<iframe')
-        ->and($html)->not->toContain('view=mobile');
+    expect($html)->not->toContain('<iframe')
+        ->and($html)->not->toContain('view=mobile')
+        ->and($html)->not->toContain('w-[390px]');
 
     // The chosen pairing still arrives, which is what the preview was for.
     expect($html)->toContain('data-palette="harbour"')

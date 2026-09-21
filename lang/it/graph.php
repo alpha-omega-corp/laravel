@@ -20,6 +20,9 @@ return [
         'degree' => 'Gradi',
     ],
 
+    'exposes' => 'espone',
+    'exposure' => 'Le linee tratteggiate vanno da un grado ai componenti che fa comparire. Sobrio non è soltanto l’assenza degli altri due: senza immagini il catalogo del salone ripiega su un elenco che nessun altro disegna.',
+
     'legend' => 'Nodi',
     'note' => 'Una palette senza archi non è vincolata ad alcun layout: resta ovunque la scelta del lettore.',
 ];

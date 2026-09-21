@@ -9,7 +9,6 @@
     'palette' => null,
     'appearance' => null,
     'contrast' => null,
-    'bare' => false,
 ])
 
 @php
@@ -118,21 +117,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="h-full bg-canvas-alt font-body text-ink">
-@if ($bare)
-    {{--
-        No navigation, no page header: the shell reduced to its head and a main,
-        for the gallery pages to load inside a preview frame. The head is what
-        matters there — the palette, the appearance and the fonts all come from
-        it, and the frame reads the same localStorage as the page around it.
-    --}}
-    <main id="content" class="px-4 py-6 sm:px-6">
-        {{ $slot }}
-    </main>
-@else
     <a class="skip" href="#content">{{ $skipTo }}</a>
 
     <div class="min-h-full" data-ref="{{ $ref }}">
-        <nav class="border-b border-rule bg-canvas">
+        <nav class="sticky top-0 z-40 border-b border-rule bg-canvas">
             <div class="mx-auto max-w-wrap px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 justify-between">
                     <div class="flex">
@@ -274,6 +262,5 @@
             </main>
         </div>
     </div>
-@endif
 </body>
 </html>

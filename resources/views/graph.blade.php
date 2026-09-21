@@ -96,23 +96,29 @@
     }
 
     /**
-     * One edge, as a curve leaving the spine's edge and arriving beside the dot
-     * it joins. Every edge starts at a layout, so the direction is decided by
-     * which side of the spine the other end is on.
+     * One edge, as a curve leaving each end beside the mark that draws it: the
+     * spine's pills are wide, every other node is a dot. Direction is decided
+     * by which side the other end is on, so an exposure edge running from the
+     * degrees back across to the components curves the other way and passes
+     * behind the spine.
      */
-    $curve = function (array $edge) use ($at, $spineHalf): string {
+    $curve = function (array $edge) use ($at, $spineX, $spineHalf): string {
         $from = $at[$edge['from']];
         $to = $at[$edge['to']];
 
         $leftwards = $to['x'] < $from['x'];
+        $edgeOf = fn (array $point): float => $point['x'] === $spineX ? $spineHalf : 7;
 
-        $x1 = $leftwards ? $from['x'] - $spineHalf : $from['x'] + $spineHalf;
-        $x2 = $leftwards ? $to['x'] + 7 : $to['x'] - 7;
+        $x1 = $leftwards ? $from['x'] - $edgeOf($from) : $from['x'] + $edgeOf($from);
+        $x2 = $leftwards ? $to['x'] + $edgeOf($to) : $to['x'] - $edgeOf($to);
         $mid = ($x1 + $x2) / 2;
 
         return sprintf('M %.1f %.1f C %.1f %.1f, %.1f %.1f, %.1f %.1f',
             $x1, $from['y'], $mid, $from['y'], $mid, $to['y'], $x2, $to['y']);
     };
+
+    $uses = array_filter($edges, fn (array $edge): bool => $edge['kind'] === 'uses');
+    $exposes = array_filter($edges, fn (array $edge): bool => $edge['kind'] === 'exposes');
 
     /** The dot colour per kind — the palette's three semantic fills, nothing invented. */
     $fill = [
@@ -134,7 +140,8 @@
                 <x-kit.badge tone="outline">{{ __('graph.kind.'.$kind) }} · {{ count($nodes[$kind]) }}</x-kit.badge>
             @endforeach
 
-            <x-kit.badge tone="neutral">{{ count($edges) }} ↔</x-kit.badge>
+            <x-kit.badge tone="neutral">{{ count($uses) }} ↔</x-kit.badge>
+            <x-kit.badge tone="accent">{{ count($exposes) }} {{ __('graph.exposes') }}</x-kit.badge>
         </div>
 
         {{-- The graph scrolls sideways rather than shrinking its type on a phone. --}}
@@ -145,8 +152,16 @@
                 {{-- stroke-rule at half opacity is a hairline at about 1.2:1 on the panel:
                      the relationships this page exists to show were not visible. --}}
                 <g class="stroke-ink-soft" fill="none" stroke-width="1">
-                    @foreach ($edges as $edge)
+                    @foreach ($uses as $edge)
                         <path d="{{ $curve($edge) }}" opacity="0.3" />
+                    @endforeach
+                </g>
+
+                {{-- What a degree exposes runs the other way, from the degrees back to
+                     the components they switch on, so it is dashed and darker. --}}
+                <g class="stroke-accent" fill="none" stroke-width="1.5" stroke-dasharray="4 3">
+                    @foreach ($exposes as $edge)
+                        <path d="{{ $curve($edge) }}" opacity="0.7" />
                     @endforeach
                 </g>
 
@@ -198,6 +213,9 @@
             </svg>
         </div>
 
-        <p class="max-w-prose text-sm text-ink-soft">{{ __('graph.note') }}</p>
+        <div class="max-w-prose space-y-2 text-sm text-ink-soft">
+            <p>{{ __('graph.note') }}</p>
+            <p>{{ __('graph.exposure') }}</p>
+        </div>
     </div>
 </x-layouts.shell>

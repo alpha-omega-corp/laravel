@@ -71,7 +71,12 @@ it('joins every edge to two nodes it actually has', function () {
     foreach ($edges as $edge) {
         expect($ids)->toContain($edge['from'])
             ->and($ids)->toContain($edge['to'])
-            ->and($edge['from'])->toStartWith(DesignGraph::LAYOUT.':');
+            ->and($edge['kind'])->toBeIn(['uses', 'exposes']);
+
+        // A layout uses; a degree exposes. Nothing else is an origin.
+        expect($edge['from'])->toStartWith($edge['kind'] === 'uses'
+            ? DesignGraph::LAYOUT.':'
+            : DesignGraph::DEGREE.':');
     }
 });
 
@@ -153,3 +158,52 @@ it('names the page and every kind in every locale', function (string $locale) {
         expect(__('graph.kind.'.$kind))->not->toContain('graph.kind');
     }
 })->with(['fr', 'de', 'it', 'en']);
+
+it('joins a degree to the components it exposes', function () {
+    /*
+     * A degree is not only something a layout prefers: it switches components
+     * on. The exposure is read from the `$variation->` guards in the section
+     * sources, both sides of them — which is why plain is not simply the
+     * absence of the other two.
+     */
+    $exposures = DesignGraph::exposures();
+
+    expect(array_keys($exposures))->toBe(array_column(Variation::cases(), 'value'))
+        ->and($exposures['standard'])->toContain('badge')
+        ->and($exposures['rich'])->toContain('badge')
+        ->and($exposures['plain'])->not->toContain('badge');
+
+    // Plain exposes the salon catalogue's fallback list, which it alone draws.
+    expect($exposures['plain'])->toContain('stacked-list');
+
+    // Every exposure is a real component node, and reaches it by a real edge.
+    $ids = array_column(array_merge(...array_values(DesignGraph::nodes())), 'id');
+
+    foreach ($exposures as $degree => $components) {
+        foreach ($components as $component) {
+            expect($ids)->toContain(DesignGraph::COMPONENT.':'.$component)
+                ->and(DesignGraph::edges())->toContain([
+                    'from' => DesignGraph::DEGREE.':'.$degree,
+                    'to' => DesignGraph::COMPONENT.':'.$component,
+                    'kind' => 'exposes',
+                ]);
+        }
+    }
+});
+
+it('draws the exposures apart from the rest', function () {
+    $html = $this->get(route('graph'))->assertOk()->getContent();
+
+    // Dashed and accent, so an exposure is not read as a layout using something.
+    expect(array_filter(DesignGraph::edges(), fn (array $edge): bool => $edge['kind'] === 'exposes'))
+        ->not->toBeEmpty()
+        ->and($html)->toContain('stroke-dasharray="4 3"')
+        ->and($html)->toContain('stroke-accent')
+        ->and($html)->toContain(__('graph.exposure'));
+
+    // One path per exposure, all three degrees'.
+    $dashed = (string) str($html)->after('stroke-dasharray="4 3"')->before('</g>');
+
+    expect(substr_count($dashed, '<path'))
+        ->toBe(count(array_filter(DesignGraph::edges(), fn (array $edge): bool => $edge['kind'] === 'exposes')));
+});

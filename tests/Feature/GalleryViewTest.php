@@ -14,61 +14,55 @@ dataset('galleries', [
     'layouts' => fn () => route('layouts'),
 ]);
 
-it('offers a desktop and a mobile view on both galleries', function (string $url) {
-    $html = $this->get($url)->assertOk()->getContent();
-
-    expect($html)->toContain(__('ui_kit.view.desktop'))
-        ->and($html)->toContain(__('ui_kit.view.mobile'))
-        ->and($html)->toContain($url.'?view=mobile')
-        ->and($html)->toContain('data-ref="&lt;x-kit.button-group /&gt;"');
-})->with('galleries');
-
-it('starts on desktop, with the index beside the page', function (string $url) {
+it('shows the page with its index beside it', function (string $url) {
     $html = $this->get($url)->assertOk()->getContent();
 
     expect($html)->toContain('data-ref="&lt;x-kit.side-nav')
-        ->and($html)->not->toContain('<iframe');
+        ->and($html)->toContain('lg:grid-cols-[15rem_minmax(0,1fr)]');
 })->with('galleries');
 
-it('shows the mobile view in a frame of its own, at phone width', function (string $url) {
-    $html = $this->get($url.'?view=mobile')->assertOk()->getContent();
+it('offers no preview of itself at phone width', function (string $url) {
+    /*
+     * There was a desktop/mobile switch that loaded the same route into a
+     * 390px iframe. It is gone, along with the shell's `bare` render that only
+     * ever served it: these pages are responsive in the browser's own window.
+     */
+    $html = $this->get($url)->assertOk()->getContent();
 
-    expect($html)->toContain('<iframe')
-        ->and($html)->toContain('src="'.$url.'?frame=1"')
-        ->and($html)->toContain('w-[390px]');
+    expect($html)->not->toContain('<iframe')
+        ->and($html)->not->toContain('view=mobile')
+        ->and($html)->not->toContain('w-[390px]');
 })->with('galleries');
 
-it('renders the frame without the shell chrome', function (string $url) {
-    $html = $this->get($url.'?frame=1')->assertOk()->getContent();
+it('ignores the query the frame used to be requested with', function (string $url) {
+    // ?frame=1 is now just an unknown parameter: the same chromed page answers.
+    $framed = $this->get($url.'?frame=1')->assertOk()->getContent();
 
-    expect($html)->not->toContain(__('shell.skip_to'))
-        ->and($html)->not->toContain(__('theme.choose'))
-        ->and($html)->not->toContain(__('shell.nav.framework'))
-        ->and($html)->not->toContain('<iframe')
-        ->and($html)->toContain('id="content"');
+    expect($framed)->toContain(__('shell.skip_to'))
+        ->and($framed)->toContain(__('shell.nav.framework'))
+        ->and($framed)->toContain('data-ref="&lt;x-kit.side-nav');
 })->with('galleries');
 
-it('keeps the palette and the appearance in the frame', function (string $url) {
-    $html = $this->get($url.'?frame=1')->assertOk()->getContent();
+it('keeps the shell chrome on every gallery', function (string $url) {
+    $html = $this->get($url)->assertOk()->getContent();
 
-    // The head is what carries them, and the frame reads the same localStorage.
-    expect($html)->toContain('data-palette=')
-        ->and($html)->toContain("localStorage.getItem('ui-palette')")
-        ->and($html)->toContain("localStorage.getItem('ui-theme')");
+    expect($html)->toContain('id="content"')
+        ->and($html)->toContain(__('theme.choose'))
+        ->and($html)->toContain('data-palette=')
+        ->and($html)->toContain("localStorage.getItem('ui-palette')");
 })->with('galleries');
 
-it('still renders every element inside the frame', function () {
-    $html = $this->get(route('ui-kit').'?frame=1')->assertOk()->getContent();
+it('still renders every element of the kit', function () {
+    $html = $this->get(route('ui-kit'))->assertOk()->getContent();
 
     foreach (KitComponent::cases() as $element) {
         expect($html)->toContain('id="'.$element->value.'"');
     }
 });
 
-it('names both views in every locale', function (string $locale) {
-    app()->setLocale($locale);
-
-    foreach (['label', 'desktop', 'mobile'] as $key) {
-        expect(__('ui_kit.view.'.$key))->not->toContain('ui_kit.view');
+it('names no view it no longer has', function () {
+    // The three ui_kit.view.* keys went with the switch, in all four locales.
+    foreach (['fr', 'de', 'it', 'en'] as $locale) {
+        expect(require lang_path($locale.'/ui_kit.php'))->not->toHaveKey('view');
     }
-})->with(['fr', 'de', 'it', 'en']);
+});

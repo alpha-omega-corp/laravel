@@ -8,12 +8,6 @@ return [
         'intro' => 'Every element of the shared kit, re-themed from Tailwind’s default palette to this application’s tokens. One element per group in the kit, not one per file: the six button files are one component with a variant. Switch the palette or the light and dark in the navigation bar and the whole page follows.',
     ],
 
-    'view' => [
-        'label' => 'Preview at',
-        'desktop' => 'Desktop',
-        'mobile' => 'Mobile',
-    ],
-
     'group' => [
         'elements' => 'Elements',
         'feedback' => 'Feedback',

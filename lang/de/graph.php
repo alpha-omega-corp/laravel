@@ -20,6 +20,9 @@ return [
         'degree' => 'Stufen',
     ],
 
+    'exposes' => 'zeigt',
+    'exposure' => 'Die gestrichelten Linien laufen von einer Stufe zu den Komponenten, die sie hervorbringt. Schlicht ist nicht bloss das Fehlen der anderen beiden: ohne Bilder fällt der Katalog des Salons auf eine Liste zurück, die sonst nichts zeichnet.',
+
     'legend' => 'Knoten',
     'note' => 'Eine Palette ohne Kante ist an kein Layout gebunden: sie bleibt überall die Wahl des Lesers.',
 ];

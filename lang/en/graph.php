@@ -20,6 +20,9 @@ return [
         'degree' => 'Degrees',
     ],
 
+    'exposes' => 'exposes',
+    'exposure' => 'The dashed lines run from a degree to the components it brings out. Plain is not merely the absence of the other two: with no pictures, the salon’s catalogue falls back to a list nothing else draws.',
+
     'legend' => 'Nodes',
     'note' => 'A palette with no edge is pinned to no layout: it stays the reader’s to choose, everywhere.',
 ];

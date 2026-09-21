@@ -20,6 +20,9 @@ return [
         'degree' => 'Degrés',
     ],
 
+    'exposes' => 'expose',
+    'exposure' => 'Les traits pointillés vont d’un degré aux composants qu’il fait apparaître. Sobre n’est pas seulement l’absence des deux autres : privé d’images, le catalogue du salon retombe sur une liste que personne d’autre ne dessine.',
+
     'legend' => 'Nœuds',
     'note' => 'Une palette sans lien n’est épinglée à aucune mise en page : elle reste au choix du lecteur, partout.',
 ];

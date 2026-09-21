@@ -142,11 +142,11 @@
         {{--
             Sticky from `lg` up, because the card below can be dragged taller
             than the window and the controls should stay where the pointer left
-            them. Not below it: the four rows wrap to a dozen lines on a phone,
-            and a sticky box taller than the viewport pins nothing and hides
-            everything.
+            them — pinned under the bar, which is sticky too. Not below `lg`:
+            the four rows wrap to a dozen lines on a phone, and a sticky box
+            taller than the viewport pins nothing and hides everything.
         --}}
-        <div class="panel z-10 divide-y divide-rule lg:sticky lg:top-4">
+        <div class="panel z-10 divide-y divide-rule lg:sticky lg:top-20">
             @foreach ($rows as $row)
                 <div class="flex flex-wrap items-center gap-x-3 gap-y-2 px-3 py-2">
                     <span class="w-28 shrink-0 text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ $row['heading'] }}</span>

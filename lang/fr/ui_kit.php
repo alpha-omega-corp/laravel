@@ -8,12 +8,6 @@ return [
         'intro' => 'Tous les éléments du kit partagé, retravaillés de la palette par défaut de Tailwind vers les jetons de cette application. Un élément par groupe du kit, non par fichier : les six fichiers de boutons sont un seul composant à variante. Changez la palette ou le clair/sombre dans la barre de navigation et toute la page suit.',
     ],
 
-    'view' => [
-        'label' => 'Aperçu en',
-        'desktop' => 'Bureau',
-        'mobile' => 'Mobile',
-    ],
-
     'group' => [
         'elements' => 'Éléments',
         'feedback' => 'Retours',

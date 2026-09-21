@@ -8,12 +8,6 @@ return [
         'intro' => 'Alle Elemente des gemeinsamen Kits, von Tailwinds Standardpalette auf die Tokens dieser Anwendung umgestellt. Ein Element je Gruppe im Kit, nicht je Datei: die sechs Schaltflächendateien sind eine Komponente mit Variante. Wechseln Sie Palette oder Hell/Dunkel in der Navigationsleiste, und die ganze Seite zieht mit.',
     ],
 
-    'view' => [
-        'label' => 'Vorschau als',
-        'desktop' => 'Desktop',
-        'mobile' => 'Mobil',
-    ],
-
     'group' => [
         'elements' => 'Elemente',
         'feedback' => 'Rückmeldung',

@@ -18,6 +18,11 @@
      * URL being served — the same rule the application shell uses for its own tabs, so
      * a page never has to say twice where it is.
      *
+     * A group's heading is a section title and is set like one: full ink weight, an
+     * accent tick beside it, and a rule above every group after the first. The kit's
+     * own version is a faint grey line of small caps that a nine-group index — the UI
+     * kit page — reads as one long list with pauses in it.
+     *
      * @var array<int, array{heading?: string, items: array<int, array{label: string, href: string, current?: bool, badge?: string, icon?: string}>}> $groups
      */
     $variant = in_array($variant, ['plain', 'brand'], true) ? $variant : 'plain';
@@ -31,18 +36,30 @@
 
 <nav data-ref="{{ $ref }}"
      {{ $attributes->class([
-         'flex flex-col gap-y-6 overflow-y-auto rounded-panel px-4 py-5',
+         'flex flex-col gap-y-5 overflow-y-auto rounded-panel px-4 py-5',
          'border border-rule bg-canvas' => ! $isBrand,
          'bg-accent text-on-accent' => $isBrand,
      ]) }}>
     @foreach ($groups as $group)
-        <div>
+        <div @class([
+            'border-t pt-5' => ! $loop->first,
+            'border-rule' => ! $loop->first && ! $isBrand,
+            'border-on-accent/25' => ! $loop->first && $isBrand,
+        ])>
             @if ($group['heading'])
                 <p @class([
-                    'px-2 pb-2 text-xs font-semibold tracking-wider uppercase',
-                    'text-ink-soft' => ! $isBrand,
-                    'text-on-accent/70' => $isBrand,
-                ])>{{ $group['heading'] }}</p>
+                    'mb-2.5 flex items-center gap-2 px-2 text-xs font-bold tracking-[0.14em] uppercase',
+                    'text-ink' => ! $isBrand,
+                    'text-on-accent' => $isBrand,
+                ])>
+                    <span aria-hidden="true" @class([
+                        'h-3.5 w-0.5 shrink-0 rounded-full',
+                        'bg-accent' => ! $isBrand,
+                        'bg-on-accent/70' => $isBrand,
+                    ])></span>
+
+                    <span class="min-w-0 truncate">{{ $group['heading'] }}</span>
+                </p>
             @endif
 
             <ul role="list" class="space-y-1">

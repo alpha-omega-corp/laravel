@@ -16,7 +16,7 @@
 <x-layouts.shell :title="$title" :description="$description">
     <div class="lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-10">
         <x-kit.side-nav :groups="KitComponent::navigation()"
-                        class="mb-8 lg:sticky lg:top-8 lg:mb-0 lg:self-start" />
+                        class="mb-8 lg:sticky lg:top-20 lg:mb-0 lg:self-start" />
 
         <div class="min-w-0">
             {{ $slot }}
