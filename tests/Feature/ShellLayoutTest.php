@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Enums\Appearance;
+use App\Enums\Contrast;
+use App\Enums\Theme;
 use Illuminate\Support\Facades\Vite;
 
 beforeEach(function () {
@@ -11,8 +14,8 @@ beforeEach(function () {
 function shell(string $slot = '<p>Contenu</p>', array $data = []): string
 {
     return Blade::render(
-        '<x-layouts.shell :title="$title" :nav="$nav" :user="$user">'.$slot.'</x-layouts.shell>',
-        $data + ['title' => 'Tableau de bord', 'nav' => [], 'user' => null],
+        '<x-layouts.shell :title="$title" :nav="$nav" :user="$user" :palette="$palette" :appearance="$appearance" :contrast="$contrast">'.$slot.'</x-layouts.shell>',
+        $data + ['title' => 'Tableau de bord', 'nav' => [], 'user' => null, 'palette' => null, 'appearance' => null, 'contrast' => null],
     );
 }
 
@@ -58,7 +61,7 @@ it('takes its chrome from the active locale', function (string $locale) {
 
     expect($html)->toContain(__('shell.skip_to'))
         ->and($html)->toContain(__('shell.main_menu'))
-        ->and($html)->toContain(__('shell.nav.dashboard'))
+        ->and($html)->toContain(__('shell.nav.framework'))
         ->and($html)->toContain(__('shell.account.sign_out'));
 })->with(['fr', 'de', 'it', 'en']);
 
@@ -68,4 +71,49 @@ it('carries no leftover kit palette classes or dark variants', function () {
     expect($html)->not->toContain('indigo')
         ->and($html)->not->toContain('dark:')
         ->and($html)->not->toContain('text-gray-');
+});
+
+it('renders the page in the default palette, leaving light or dark to the system', function () {
+    expect(shell())->toContain('data-palette="'.Theme::default()->value.'"')
+        ->and(shell())->not->toContain('data-theme=');
+});
+
+it('offers every palette in the picker, each previewing its own tokens', function () {
+    $html = shell();
+
+    foreach (Theme::cases() as $theme) {
+        expect($html)->toContain('data-theme-option="'.$theme->value.'"')
+            ->and($html)->toContain('data-palette="'.$theme->value.'"')
+            ->and($html)->toContain($theme->summary());
+    }
+});
+
+it('offers system, light and dark on an axis of their own', function () {
+    $html = shell();
+
+    foreach (Appearance::cases() as $appearance) {
+        expect($html)->toContain('data-theme-option="'.$appearance->value.'"')
+            ->and($html)->toContain($appearance->summary());
+    }
+
+    // One checked row per axis, never one overall.
+    expect(substr_count($html, 'aria-checked="true"'))->toBe(3);
+});
+
+it('renders the palette, the appearance and the contrast it is given', function () {
+    $html = shell(data: ['palette' => Theme::Vellum, 'appearance' => Appearance::Dark, 'contrast' => Contrast::High]);
+
+    expect($html)->toContain('<html lang="fr" class="h-full" data-palette="vellum" data-theme="dark" data-contrast="high">');
+});
+
+it('offers normal and raised contrast on an axis of their own', function () {
+    $html = shell();
+
+    foreach (Contrast::cases() as $contrast) {
+        expect($html)->toContain('data-theme-option="'.$contrast->value.'"')
+            ->and($html)->toContain($contrast->summary());
+    }
+
+    expect($html)->toContain('data-theme-axis="contrast"')
+        ->and($html)->not->toContain('data-contrast=');
 });

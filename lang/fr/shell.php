@@ -7,12 +7,13 @@ return [
     'notifications' => 'Voir les notifications',
     'account_menu' => 'Ouvrir le menu du compte',
     'main_menu' => 'Ouvrir le menu principal',
+    'dev' => 'Mode dev',
 
     'nav' => [
-        'dashboard' => 'Tableau de bord',
-        'clients' => 'Clients',
-        'sites' => 'Sites',
-        'invoices' => 'Factures',
+        'ui_kit' => 'Kit UI',
+        'layouts' => 'Mises en page',
+        'framework' => 'Framework',
+        'graph' => 'Graphe',
     ],
 
     'account' => [

@@ -30,7 +30,28 @@ Resolve references with the `uikit` MCP server's three tools:
 mcp__uikit__list-ui-components     browse: categories and groups, or one category's components
 mcp__uikit__search-ui-components   find by keyword — "card", "sign in", "pagination"
 mcp__uikit__get-ui-component       read one, by reference or by the shorthand above
+mcp__uikit__roll-ui-design         a starting point: a theme, a layout, and parts
+mcp__uikit__get-ui-feature         a whole wired piece of a site, files and all
 ```
+
+The first three answer *where is the thing I already have in mind*. The fourth answers the
+other question, and it is the harder one: asked to choose from three hundred and sixty-four
+components, anybody — person or model — reaches for the one they used last or the first entry
+of the first listing, and everything built from the kit comes out the same. `roll-ui-design`
+picks a theme, a layout that theme's own spec rates `best` or `good`, and one component per
+group so the result is a screen rather than five buttons. Roll again for a different answer;
+it is the one tool here that is meant to give one.
+
+Deployer draws the same thing on its **Design** tab, where the pairings are a graph rather
+than the table below and a roll lights the route it took.
+
+`get-ui-feature` is for the things in here that are not a component. The **theme picker** is
+one: a Blade component, two enums, the stylesheet holding every palette, the script that
+remembers the choice, a file of strings, and four edits to the shell — and it ships in every
+new site, so a generated project has it before anybody asks. Call it with no arguments to see
+what there is; call it with a name to get every file, its contents, and the wiring. Never
+assemble one of these out of single components: what gets left out is the half that makes it
+work.
 
 The kit **used to live in this application** as `App\Support\UiKit` and a Laravel MCP server
 under `app/Mcp`. It was never really a Laravel thing — it walks a directory of Blade files and
@@ -42,9 +63,18 @@ a single binary. The components themselves have not moved: they are still genera
 To look one up from the shell, with no MCP client in the way:
 
 ```bash
+# Wherever Deployer is checked out on *this* machine — the path below is not
+# a constant, and a pasted one is the commonest reason this returns nothing.
+DEPLOYER=$(git -C ~/GolandProjects/deployer rev-parse --show-toplevel)
+
 printf '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get-ui-component","arguments":{"reference":"::card"}}}\n' \
-  | /home/nanstis/GolandProjects/deployer/build/bin/deployer-mcp -server uikit
+  | "$DEPLOYER/build/bin/deployer-mcp" -server uikit
 ```
+
+If that binary is not there, `make mcp ARGS="-server uikit"` runs the same
+surface from source, and an installed Deployer serves it as
+`deployer --serve-mcp=uikit` — the installers ship the app and not
+`cmd/mcp`.
 
 The full list is in `references/index.md` — grep it rather than reading it whole.
 
@@ -81,19 +111,23 @@ Components without a slot render fixed demo markup — edit it after inserting.
 ## Re-theme before using kit markup in this app
 
 Kit markup carries Tailwind's default palette and `dark:` variants. This application themes
-itself with its own tokens and three `[data-variant]` palettes, and uses no `dark:` variants at
-all. Dropping kit classes in unchanged breaks the fresh / calm / bold themes.
+itself with its own tokens and seven `[data-theme]` blocks in `resources/css/themes.css` —
+orchard, sandstone, harbour, graphite, blossom, fresh and vellum — switched at runtime from the
+picker in the navigation bar, and it uses no `dark:` variants at all. Dropping kit classes in
+unchanged breaks every one of them at once.
 
 | kit class | use instead |
 | --- | --- |
-| `bg-white`, `bg-gray-50` | `bg-canvas`, `bg-canvas-alt` |
+| `bg-white`, `bg-gray-50` | `bg-canvas`, `bg-canvas-alt` (`bg-raise` for a panel) |
 | `text-gray-900` | `text-ink` |
 | `text-gray-500`, `text-gray-600` | `text-ink-soft` |
 | `bg-indigo-600`, `text-indigo-600` | `bg-accent`, `text-accent` |
 | `text-white` on indigo | `text-on-accent` |
 | `ring-gray-200`, `border-gray-200`, `divide-gray-200` | `border-rule`, `divide-rule` |
-| `rounded-lg` | `rounded-panel` (0 in calm and bold by design) |
-| any `dark:*` | delete — `[data-variant]` already themes the page |
+| `rounded-lg` on a panel | `rounded-panel` (0 in vellum, 1.5rem in blossom, by design) |
+| `rounded-md` on a control | `rounded-control` — a pill in blossom, square in vellum |
+| a whole button | `<x-kit.button>`, never the kit's classes — see `/ui-kit/buttons` |
+| any `dark:*` | delete — the token block is the dark mode |
 
 Other projects have their own tokens. Re-theme to the host project, never assume indigo.
 
@@ -104,7 +138,11 @@ for the deploy pipeline and `uikit` for this library, chosen by argument. Regist
 other project:
 
 ```bash
-claude mcp add uikit -- /home/nanstis/GolandProjects/deployer/build/bin/deployer-mcp -server uikit
+# Point it at the binary this machine actually has: the built MCP server,
+# or the installed app, which serves the same surface under a flag.
+claude mcp add uikit -- "$DEPLOYER/build/bin/deployer-mcp" -server uikit
+# or:
+claude mcp add uikit -- deployer --serve-mcp=uikit
 ```
 
 Nothing to install and no PHP involved: it is the same binary that deploys, and a project that
