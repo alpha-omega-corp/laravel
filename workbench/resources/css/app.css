@@ -1,0 +1,132 @@
+@import 'tailwindcss' source(none);
+@import '../../../resources/css/kit.css';
+
+/*
+ * Sources are registered explicitly rather than scanned wholesale, because the
+ * package's resources/views/components/ui holds the shared UI kit: 364 components of
+ * verbatim Tailwind Plus markup. Scanning those would compile Tailwind's entire default
+ * palette and every dark: variant into this stylesheet — measured at 235 KB versus 67 KB —
+ * on a page that publishes its own byte count. The themed kit is sourced by kit.css.
+ * Add new workbench view directories here.
+ */
+@source '../views/components/layouts';
+@source '../views/home.blade.php';
+@source '../views/layouts.blade.php';
+@source '../views/framework';
+@source '../views/framework.blade.php';
+@source '../views/graph.blade.php';
+@source '../views/ui-kit';
+@source '../views/welcome.blade.php';
+@source '../js';
+@source '../../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@layer components {
+    .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 60;
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+        padding: 0.75rem 1.25rem;
+    }
+
+    .skip:focus {
+        left: 0;
+    }
+
+    /*
+     * Dev mode. Every component root carries data-ref holding the tag it is written
+     * as; data-dev on <html> outlines those roots and names each one, so a
+     * screenshot says which component is meant instead of describing it.
+     *
+     * A **leaf** — a tagged component holding no other tagged component — is covered
+     * by its name rather than labelled in the corner: the page becomes a map of what
+     * it is made of. Hovering one shrinks the plate back to a corner chip, which is
+     * how the actual render is read. Clicking copies the tag; see resources/js/dev.js.
+     *
+     * A **container** keeps the chip at all times. Covering one would bury everything
+     * inside it — the shell is a tagged component, and a full plate on it would paint
+     * over the whole page.
+     *
+     * The plate is positioned against its root, so an element carrying data-ref must
+     * not itself be absolute, fixed or sticky. Component roots here are static or
+     * already relative, and a new one that is not should wrap rather than be tagged.
+     */
+    [data-dev] [data-ref] {
+        position: relative;
+        outline: 1px dashed var(--color-accent);
+        outline-offset: 2px;
+        cursor: copy;
+    }
+
+    [data-dev] [data-ref]::after {
+        content: attr(data-ref);
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        z-index: 60;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 0.125rem 0.25rem;
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+        font-family: ui-monospace, monospace;
+        font-size: 0.625rem;
+        line-height: 1.4;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        pointer-events: none;
+    }
+
+    /* The leaf: the name fills the box it belongs to, out to the border it is outlined on. */
+    [data-dev] [data-ref]:not(:has([data-ref]))::after {
+        display: grid;
+        place-content: center;
+        inset: 0;
+        max-width: none;
+        padding: 0.25rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    /* Hover a leaf and the plate is a chip again, which is the render showing through. */
+    [data-dev] [data-ref]:not(:has([data-ref])):hover::after {
+        display: block;
+        inset: 0 auto auto 0;
+        padding: 0.125rem 0.25rem;
+        white-space: nowrap;
+        text-align: start;
+    }
+
+    /* Adjacent components would otherwise print over each other; read one at a time. */
+    [data-dev] [data-ref]:hover::after {
+        max-width: none;
+        z-index: 61;
+    }
+
+    /* Set for a moment by dev.js once the tag is on the clipboard. */
+    [data-dev] [data-ref][data-copied]::after {
+        content: '✓ ' attr(data-ref);
+        background: var(--color-highlight);
+        color: var(--color-on-highlight);
+        z-index: 62;
+    }
+
+    .rise {
+        animation: rise 620ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    }
+
+    @keyframes rise {
+        from {
+            opacity: 0;
+            transform: translateY(0.75rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}

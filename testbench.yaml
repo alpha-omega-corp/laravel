@@ -1,0 +1,19 @@
+laravel: '@testbench'
+
+providers:
+  - AlphaOmega\UiKit\UiKitServiceProvider
+  - Workbench\App\Providers\WorkbenchServiceProvider
+
+# The showcase stores nothing, so it runs with no database at all.
+env:
+  - APP_LOCALE=fr
+  - APP_FALLBACK_LOCALE=fr
+  - SESSION_DRIVER=file
+  - CACHE_STORE=file
+  - QUEUE_CONNECTION=sync
+
+workbench:
+  start: '/'
+  health: true
+  discovers:
+    web: true

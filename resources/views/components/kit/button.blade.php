@@ -14,7 +14,7 @@
      * The kit ships five sizes, three fills and a rounded copy of each; here the
      * corner belongs to the theme, so `round` is an override for the rare control
      * that must be a pill rather than a second set of variants. Everything visual is
-     * in the .btn classes in resources/css/app.css, which read the theme's tokens —
+     * in the .btn classes in resources/css/kit.css, which read the theme's tokens —
      * the same markup is a stamped ink block in the light scheme and the same block
      * drawn in a pale rule in the dark one.
      */

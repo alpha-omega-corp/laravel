@@ -39,7 +39,7 @@
 
     @if ($dismissible)
         <button type="button" class="-m-1 shrink-0 self-start rounded-control p-1 text-ink-soft hover:bg-canvas-alt hover:text-ink">
-            <span class="sr-only">{{ __('ui_kit.element.notification.dismiss') }}</span>
+            <span class="sr-only">{{ __('kit.dismiss') }}</span>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" class="size-4">
                 <path d="m5 15 10-10M5 5l10 10" stroke-linecap="round" />
             </svg>

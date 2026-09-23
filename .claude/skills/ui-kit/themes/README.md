@@ -24,7 +24,7 @@ It no longer does:
 Every colour in `themes.css` is a `light-dark()` pair, so each palette is one
 block rather than a block plus a `prefers-color-scheme` copy of it. That is why
 no file here says whether its palette is light or dark: all of them are both, and
-the question belongs to the other axis. `App\Enums\Scheme`, which had
+the question belongs to the other axis. `Workbench\App\Enums\Scheme`, which had
 `Light`/`Dark`/`Dual`, is what is left of the old model and nothing reads it.
 
 Which axis a viewer is on is theirs to change at runtime, through the
@@ -72,7 +72,7 @@ The duration and ease tokens are read by JavaScript rather than by CSS, which is
 what makes switching palette also switch the feel.
 
 **`orchard` is the default**, and its values are also the `@theme` block in
-`resources/css/app.css` — which is what generates the utilities. The two have to
+`resources/css/kit.css` — which is what generates the utilities. The two have to
 be kept in step, and the block is repeated in `themes.css` so a nested
 `[data-palette='orchard']` preview resets whatever palette is active around it.
 
@@ -92,8 +92,8 @@ convention.
   matrix lives here, once, on the theme side; nothing reads it off the layouts.
 - `## Tokens`, `## Mood` and `## Costs` are prose for whoever is choosing.
 
-Adding a palette is a block in `themes.css`, a case in `App\Enums\Theme`, a
-summary in `lang/*/theme.php`, a file here, and a row in each of the others'
+Adding a palette is a block in `themes.css`, a case in `Workbench\App\Enums\Theme`, a
+summary in `workbench/lang/*/theme.php`, a file here, and a row in each of the others'
 `## Pairs with`. Nothing lists them in code: deployer's `uikit.ReadCatalogue`
 walks this directory, so a palette exists here the moment its file does.
 

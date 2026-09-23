@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Enums\Appearance;
-use App\Enums\Contrast;
-use App\Enums\Theme;
+use Workbench\App\Enums\Appearance;
+use Workbench\App\Enums\Contrast;
+use Workbench\App\Enums\Theme;
+
+use function Orchestra\Testbench\package_path;
 
 /**
  * The stylesheet with its comments taken out, because they discuss the very
@@ -12,7 +14,7 @@ use App\Enums\Theme;
  */
 function themeRules(): string
 {
-    return preg_replace('#/\*.*?\*/#s', '', file_get_contents(resource_path('css/themes.css')));
+    return preg_replace('#/\*.*?\*/#s', '', file_get_contents(package_path('resources/css/themes.css')));
 }
 
 it('defaults to the palette whose tokens are declared in app.css', function () {

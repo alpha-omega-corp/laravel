@@ -1,57 +1,63 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/blank-livewire-starter-kit",
-    "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
+    "name": "alpha-omega-corp/ui-kit",
+    "type": "library",
+    "description": "The shared UI kit: themed Blade components and the Tailwind Plus reference library, installed with `php artisan ui:kit`.",
     "keywords": [
         "laravel",
-        "framework"
+        "blade",
+        "tailwind"
     ],
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
         "php": "^8.3",
-        "laravel/ai": "^0.11.2",
-        "laravel/framework": "^13.17",
-        "laravel/tinker": "^3.0",
-        "livewire/blaze": "^1.0",
-        "livewire/livewire": "^4.1"
+        "illuminate/console": "^13.23",
+        "illuminate/filesystem": "^13.23",
+        "illuminate/support": "^13.23"
     },
     "require-dev": {
         "fakerphp/faker": "^1.24",
         "larastan/larastan": "^3.9",
+        "laravel/ai": "^0.11.2",
         "laravel/boost": "^2.9",
+        "laravel/framework": "^13.23",
         "laravel/pail": "^1.2.5",
         "laravel/pao": "^1.0.6",
         "laravel/pint": "^1.27",
         "laravel/sail": "^1.53",
+        "laravel/tinker": "^3.0",
+        "livewire/blaze": "^1.0",
+        "livewire/livewire": "^4.1",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.9.3",
+        "orchestra/testbench": "^11.2",
         "pestphp/pest": "^5.2",
         "pestphp/pest-plugin-laravel": "^5.0"
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "AlphaOmega\\UiKit\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
         "setup": [
             "composer install",
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "@php artisan key:generate",
             "npm install",
             "npm run build"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "@php artisan dev"
+            "npx concurrently -c \"#93c5fd,#fdba74\" \"php vendor/bin/testbench serve --ansi\" \"npm run dev\" --names=server,vite --kill-others"
+        ],
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php vendor/bin/testbench serve --ansi"
         ],
         "lint": [
             "pint --parallel"
@@ -67,34 +73,20 @@
             "phpstan analyse"
         ],
         "test": [
-            "@php artisan config:clear --ansi",
+            "@php vendor/bin/testbench config:clear --ansi",
             "@lint:check",
             "@types:check",
-            "@php artisan test"
+            "@php vendor/bin/pest"
         ],
         "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan boost:update --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi",
-            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
-        ],
-        "pre-package-uninstall": [
-            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+            "@php vendor/bin/testbench package:discover --ansi"
         ]
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "providers": [
+                "AlphaOmega\\UiKit\\UiKitServiceProvider"
+            ]
         }
     },
     "config": {

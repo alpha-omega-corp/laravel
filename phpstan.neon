@@ -4,14 +4,8 @@ includes:
 
 parameters:
     paths:
-        - app/
-        - bootstrap/app.php
-        - config/
-        - database/
-        - routes/
+        - src/
+        - workbench/app/
+        - workbench/routes/
 
     level: 7
-
-    configDirectories:
-        - config
-        - /tmp/PHPStantemp_folder*/config

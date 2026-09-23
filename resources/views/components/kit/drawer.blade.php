@@ -35,7 +35,7 @@
 
         <button type="button" @if (! $open) command="close" commandfor="{{ $id }}" @endif
                 class="rounded-control p-1 text-ink-soft hover:bg-canvas-alt hover:text-ink">
-            <span class="sr-only">{{ __('ui_kit.element.drawer.close') }}</span>
+            <span class="sr-only">{{ __('kit.close') }}</span>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" class="size-4">
                 <path d="m5 15 10-10M5 5l10 10" stroke-linecap="round" />
             </svg>

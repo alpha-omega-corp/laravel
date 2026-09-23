@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Enums\Appearance;
-use App\Enums\Contrast;
-use App\Enums\Theme;
 use Illuminate\Support\Facades\Vite;
+use Workbench\App\Enums\Appearance;
+use Workbench\App\Enums\Contrast;
+use Workbench\App\Enums\Theme;
 
 beforeEach(function () {
     Vite::useHotFile(base_path('tests/does-not-exist.hot'))->useBuildDirectory('build');

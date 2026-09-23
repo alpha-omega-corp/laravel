@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use function Orchestra\Testbench\package_path;
+
 /**
  * The application stores nothing, so it must run with no database at all.
  * These tests fail the moment something starts needing one.
@@ -37,18 +39,11 @@ it('keeps a session across requests without one', function () {
     $this->get(route('ui-kit'))->assertOk()->assertSessionHasNoErrors();
 });
 
-it('ships an environment file that needs no database', function () {
-    $env = (string) file_get_contents(base_path('.env.example'));
+it('serves the workbench with an environment that needs no database', function () {
+    $config = (string) file_get_contents(package_path('testbench.yaml'));
 
-    expect($env)->toContain('SESSION_DRIVER=file')
-        ->and($env)->toContain('CACHE_STORE=file')
-        ->and($env)->toContain('QUEUE_CONNECTION=sync');
-
-    /** @var array<int, string> $active */
-    $active = array_filter(
-        explode("\n", $env),
-        fn (string $line): bool => $line !== '' && ! str_starts_with(trim($line), '#'),
-    );
-
-    expect(array_filter($active, fn (string $line): bool => str_ends_with($line, '=database')))->toBe([]);
+    expect($config)->toContain('SESSION_DRIVER=file')
+        ->and($config)->toContain('CACHE_STORE=file')
+        ->and($config)->toContain('QUEUE_CONNECTION=sync')
+        ->and($config)->not->toContain('=database');
 });

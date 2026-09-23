@@ -131,6 +131,26 @@ unchanged breaks every one of them at once.
 
 Other projects have their own tokens. Re-theme to the host project, never assume indigo.
 
+## Installing into a Laravel project
+
+This repository is the Composer package `alpha-omega-corp/ui-kit`. The kit's showcase is its
+Testbench workbench under `workbench/` (`composer dev`). A Laravel application installs the kit
+with `php artisan ui:kit`, which copies files to the same paths they have here. After that the
+files belong to the application.
+
+```bash
+composer config repositories.ui-kit vcs https://github.com/alpha-omega-corp/laravel
+composer require --dev alpha-omega-corp/ui-kit:dev-production
+
+php artisan ui:kit                                 # the 40 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php
+php artisan ui:kit ::layout/cards/01-basic-card    # one raw <x-ui.*> component; re-theme it afterwards
+```
+
+- With no argument, the command imports `kit.css` into `resources/css/app.css`. With a reference,
+  it registers `@source '../views/components/ui'` there.
+- It never overwrites a file the application already has. `--force` overwrites it.
+- A reference that matches more than one component lists the candidates and fails.
+
 ## Using the kit from another project
 
 The kit is served by **deployer**, which is one binary serving several MCP servers — `deployer`

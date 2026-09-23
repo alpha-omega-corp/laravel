@@ -15,9 +15,9 @@
     $ref = '<x-kit.pagination'.($simple ? ' simple' : '').' />';
 @endphp
 
-<nav data-ref="{{ $ref }}" aria-label="{{ __('ui_kit.element.pagination.label') }}"
+<nav data-ref="{{ $ref }}" aria-label="{{ __('kit.pagination') }}"
      {{ $attributes->class(['flex items-center justify-between gap-3 border-t border-rule pt-3']) }}>
-    <x-kit.button variant="secondary" size="sm" href="#">{{ __('ui_kit.element.pagination.previous') }}</x-kit.button>
+    <x-kit.button variant="secondary" size="sm" href="#">{{ __('kit.previous') }}</x-kit.button>
 
     @if ($simple)
         <p class="text-sm text-ink-soft">{{ $page }} / {{ $pages }}</p>
@@ -36,5 +36,5 @@
         </ol>
     @endif
 
-    <x-kit.button variant="secondary" size="sm" href="#">{{ __('ui_kit.element.pagination.next') }}</x-kit.button>
+    <x-kit.button variant="secondary" size="sm" href="#">{{ __('kit.next') }}</x-kit.button>
 </nav>

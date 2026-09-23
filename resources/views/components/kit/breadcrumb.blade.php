@@ -11,7 +11,7 @@
     $ref = '<x-kit.breadcrumb />';
 @endphp
 
-<nav data-ref="{{ $ref }}" aria-label="{{ __('ui_kit.element.breadcrumb.label') }}" {{ $attributes }}>
+<nav data-ref="{{ $ref }}" aria-label="{{ __('kit.breadcrumb') }}" {{ $attributes }}>
     <ol role="list" class="flex flex-wrap items-center gap-1 text-sm">
         @foreach ($items as $item)
             <li class="flex items-center gap-1">

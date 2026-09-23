@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-use App\Enums\KitLayout;
-use App\Enums\Project;
-use App\Enums\Theme;
-use App\Enums\Variation;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Vite;
+use Workbench\App\Enums\KitLayout;
+use Workbench\App\Enums\Project;
+use Workbench\App\Enums\Theme;
+use Workbench\App\Enums\Variation;
+
+use function Orchestra\Testbench\package_path;
 
 beforeEach(function () {
     Vite::useHotFile(base_path('tests/does-not-exist.hot'))->useBuildDirectory('build');
@@ -200,7 +202,7 @@ it('dresses the fitting layout in the palette and the degree its own spec rates 
 });
 
 it('pins each layout to a palette its own spec rates best', function (KitLayout $layout) {
-    $spec = base_path('.claude/skills/ui-kit/themes/'.$layout->palette()->value.'.md');
+    $spec = package_path('.claude/skills/ui-kit/themes/'.$layout->palette()->value.'.md');
 
     expect($spec)->toBeFile()
         ->and(file_get_contents($spec))->toContain('- '.$layout->value.' — best');
@@ -514,7 +516,7 @@ it('leaves a phone a way out of the section it is on', function () {
      * layouts had no navigation at all on a phone once the footer's duplicate
      * list was removed. The fix is in the bar itself, which now wraps.
      */
-    expect(file_get_contents(resource_path('views/components/kit/navbar.blade.php')))
+    expect(file_get_contents(package_path('resources/views/components/kit/navbar.blade.php')))
         ->toContain('<div class="flex flex-wrap items-center gap-1">')
         ->not->toContain('hidden items-center gap-1 sm:flex');
 

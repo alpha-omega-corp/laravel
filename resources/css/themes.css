@@ -14,7 +14,7 @@
  * `[data-palette]` preview panel follows the choice made for the page around it
  * — which is what lets the UI kit show a palette it is not itself rendered in.
  *
- * `orchard` is the default: its values are also the `@theme` block in app.css,
+ * `orchard` is the default: its values are also the `@theme` block in kit.css,
  * which is what generates the utilities. The two must be kept in step, and the
  * block is repeated here so a nested `[data-palette='orchard']` preview resets
  * the tokens of whatever palette is active around it.

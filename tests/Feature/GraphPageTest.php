@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-use App\Enums\KitComponent;
-use App\Enums\KitLayout;
-use App\Enums\Project;
-use App\Enums\Theme;
-use App\Enums\Variation;
-use App\Support\DesignGraph;
 use Illuminate\Support\Facades\Vite;
+use Workbench\App\Enums\KitComponent;
+use Workbench\App\Enums\KitLayout;
+use Workbench\App\Enums\Project;
+use Workbench\App\Enums\Theme;
+use Workbench\App\Enums\Variation;
+use Workbench\App\Support\DesignGraph;
 
 beforeEach(function () {
     Vite::useHotFile(base_path('tests/does-not-exist.hot'))->useBuildDirectory('build');

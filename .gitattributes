@@ -8,3 +8,6 @@
 
 CHANGELOG.md export-ignore
 README.md export-ignore
+/.github export-ignore
+/tests export-ignore
+/workbench export-ignore

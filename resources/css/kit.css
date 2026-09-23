@@ -1,0 +1,266 @@
+/*
+ * The kit's stylesheet: the palette tokens, the base type and the component
+ * classes (.panel, .btn, .wrap) the components in views/components/kit read.
+ * Import it right after Tailwind in resources/css/app.css; `php artisan ui:kit`
+ * does that for you.
+ */
+@import './themes.css';
+
+@source '../views/components/kit';
+
+
+/*
+ * One token set, two schemes.
+ *
+ * light-dark() resolves per the element's color-scheme, and themes.css sets that
+ * from the viewer's choice — or leaves it to the operating system when there is
+ * none. So there is no second block to keep in step, no [data-theme] palette to
+ * scope, and no `dark:` variant anywhere in the application.
+ */
+@theme {
+    --color-canvas: light-dark(#fcfcfa, #16241e);
+    --color-canvas-alt: light-dark(#e9f2ec, #0c1512);
+    --color-raise: light-dark(#fcfcfa, #16241e);
+    --color-ink: light-dark(#0e241c, #e6f0ea);
+    --color-ink-soft: light-dark(#52655c, #92a89d);
+    --color-rule: light-dark(#c9d6cd, #2b3d34);
+    --color-accent: light-dark(#0b6e4f, #3fbf87);
+    --color-accent-strong: light-dark(#08543c, #66d3a3);
+    --color-on-accent: light-dark(#ffffff, #06180f);
+    --color-highlight: #f2c230;
+    --color-on-highlight: #0e241c;
+
+    --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-ibm-plex-sans), ui-sans-serif, system-ui, sans-serif;
+
+    --text-display: clamp(2.6rem, 6vw, 4.25rem);
+    --text-display--line-height: 0.98;
+    --text-display--letter-spacing: -0.03em;
+
+    --text-title: clamp(1.9rem, 3.8vw, 3rem);
+    --text-title--line-height: 1.04;
+    --text-title--letter-spacing: -0.02em;
+
+    --text-figure: clamp(2.5rem, 6vw, 4rem);
+    --text-figure--line-height: 0.9;
+    --text-figure--letter-spacing: -0.03em;
+
+    --radius-panel: 1rem;
+    --radius-control: 1rem;
+    --container-wrap: 76rem;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    main > section[id] {
+        scroll-margin-top: 5.5rem;
+    }
+
+    body {
+        background-color: var(--color-canvas);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        line-height: var(--body-leading, 1.6);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: var(--font-display);
+        font-weight: var(--display-weight, 700);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 3px;
+    }
+
+    ::selection {
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
+
+@layer components {
+    .wrap {
+        width: 100%;
+        max-width: var(--container-wrap);
+        margin-inline: auto;
+        padding-inline: 1.25rem;
+    }
+
+    @media (min-width: 48rem) {
+        .wrap {
+            padding-inline: 2.5rem;
+        }
+    }
+
+    /*
+     * A panel is a surface, an edge and an elevation, and every one of the three is
+     * the theme's to decide: here an ink outline and a hard offset block, which the
+     * dark scheme keeps but draws in a rule colour rather than in near-white.
+     */
+    .panel {
+        background: var(--panel-surface, var(--color-raise));
+        border: var(--panel-border, 1px solid var(--color-rule));
+        border-radius: var(--radius-panel);
+        box-shadow: var(--panel-shadow, none);
+    }
+
+    .panel-raised {
+        box-shadow: var(--panel-shadow-raised, var(--panel-shadow, none));
+    }
+
+    /*
+     * Buttons. One set of classes for all seven themes: the shape, the type, the
+     * padding scale, the shadow and what happens on press are read from tokens, so
+     * switching the theme in the navigation bar restyles every button on the page
+     * without a single class changing.
+     */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 0 solid transparent;
+        border-radius: var(--radius-control);
+        font-family: var(--btn-font, var(--font-body));
+        font-weight: var(--btn-weight, 600);
+        letter-spacing: var(--btn-tracking, normal);
+        text-transform: var(--btn-transform, none);
+        line-height: 1.25;
+        white-space: nowrap;
+        cursor: pointer;
+        transition:
+            background-color var(--dur-fast, 0.15s) ease-out,
+            border-color var(--dur-fast, 0.15s) ease-out,
+            box-shadow var(--dur-fast, 0.15s) ease-out,
+            color var(--dur-fast, 0.15s) ease-out,
+            translate var(--dur-fast, 0.15s) ease-out;
+    }
+
+    .btn:active:not(:disabled) {
+        translate: var(--btn-press, 0 1px);
+    }
+
+    .btn:disabled,
+    .btn[aria-disabled='true'] {
+        opacity: 0.55;
+        cursor: not-allowed;
+        box-shadow: none;
+        translate: none;
+    }
+
+    .btn-xs {
+        padding-block: calc(0.25rem * var(--btn-density, 1));
+        padding-inline: calc(0.5rem * var(--btn-density, 1));
+        font-size: 0.75rem;
+    }
+
+    .btn-sm {
+        padding-block: calc(0.25rem * var(--btn-density, 1));
+        padding-inline: calc(0.5rem * var(--btn-density, 1));
+        font-size: 0.875rem;
+    }
+
+    .btn-md {
+        padding-block: calc(0.375rem * var(--btn-density, 1));
+        padding-inline: calc(0.625rem * var(--btn-density, 1));
+        font-size: 0.875rem;
+    }
+
+    .btn-lg {
+        padding-block: calc(0.5rem * var(--btn-density, 1));
+        padding-inline: calc(0.75rem * var(--btn-density, 1));
+        font-size: 0.875rem;
+    }
+
+    .btn-xl {
+        padding-block: calc(0.625rem * var(--btn-density, 1));
+        padding-inline: calc(0.875rem * var(--btn-density, 1));
+        font-size: 0.875rem;
+    }
+
+    .btn-icon {
+        padding-inline: calc(0.5rem * var(--btn-density, 1));
+        aspect-ratio: 1;
+    }
+
+    .btn-round {
+        border-radius: 9999px;
+    }
+
+    .btn-primary {
+        background-color: var(--color-accent);
+        color: var(--color-on-accent);
+        border: var(--btn-primary-border, 0 solid transparent);
+        box-shadow: var(--btn-primary-shadow, none);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+        background-color: var(--color-accent-strong);
+        border-color: var(--color-accent-strong);
+    }
+
+    .btn-primary:active:not(:disabled) {
+        box-shadow: var(--btn-primary-shadow-active, none);
+    }
+
+    .btn-secondary {
+        background-color: var(--color-raise);
+        color: var(--color-ink);
+        border: var(--btn-secondary-border, 1px solid var(--color-rule));
+        box-shadow: var(--btn-secondary-shadow, none);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+        background-color: var(--color-canvas-alt);
+    }
+
+    .btn-secondary:active:not(:disabled) {
+        box-shadow: var(--btn-secondary-shadow-active, none);
+    }
+
+    .btn-soft {
+        background-color: color-mix(in oklab, var(--color-accent) 12%, var(--color-canvas));
+        color: var(--color-accent);
+    }
+
+    .btn-soft:hover:not(:disabled) {
+        background-color: color-mix(in oklab, var(--color-accent) 22%, var(--color-canvas));
+    }
+
+    .btn-ghost {
+        background-color: transparent;
+        color: var(--color-ink-soft);
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+        background-color: var(--color-canvas-alt);
+        color: var(--color-ink);
+    }
+}

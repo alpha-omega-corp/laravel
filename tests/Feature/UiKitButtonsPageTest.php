@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Enums\KitComponent;
-use App\Enums\Theme;
+use Workbench\App\Enums\KitComponent;
+use Workbench\App\Enums\Theme;
+
+use function Orchestra\Testbench\workbench_path;
 
 it('serves the UI kit page', function () {
     $this->get(route('ui-kit'))->assertOk();
@@ -64,7 +66,7 @@ it('leaves no translation key unresolved on the page', function (string $locale)
 })->with(['fr', 'de', 'it', 'en']);
 
 it('has a demo partial for every element and no orphans', function () {
-    $partials = collect(File::files(resource_path('views/ui-kit/demo')))
+    $partials = collect(File::files(workbench_path('resources/views/ui-kit/demo')))
         ->map(fn ($file): string => str_replace('.blade.php', '', $file->getFilename()))
         ->sort()
         ->values()

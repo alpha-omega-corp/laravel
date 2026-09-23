@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\File;
 
+use function Orchestra\Testbench\package_path;
+
 /**
  * Every reference in the kit's `layout` category, read from the kit itself so that a
  * component added there fails this test until the page shows it.
@@ -12,7 +14,7 @@ use Illuminate\Support\Facades\File;
  */
 function layoutReferences(): array
 {
-    return collect(File::allFiles(resource_path('views/components/ui/layout')))
+    return collect(File::allFiles(package_path('resources/views/components/ui/layout')))
         ->map(fn ($file): string => 'layout/'.str_replace(
             '.blade.php',
             '',
@@ -42,7 +44,7 @@ it('shows every layout component the kit ships', function () {
 it('shows every application shell the kit ships', function () {
     $html = $this->get(route('layouts'))->assertOk()->getContent();
 
-    $shells = collect(File::allFiles(resource_path('views/components/ui/application-shells')))
+    $shells = collect(File::allFiles(package_path('resources/views/components/ui/application-shells')))
         ->map(fn ($file): string => 'application-shells/'.str_replace(
             '.blade.php',
             '',

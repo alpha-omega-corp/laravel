@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Enums\KitComponent;
 use Illuminate\Support\Facades\Vite;
+use Workbench\App\Enums\KitComponent;
 
 beforeEach(function () {
     Vite::useHotFile(base_path('tests/does-not-exist.hot'))->useBuildDirectory('build');

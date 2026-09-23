@@ -6,8 +6,11 @@ import { defineConfig, lazyPlugins } from 'vite-plus';
 export default defineConfig({
     plugins: lazyPlugins(() => [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
+            // The showcase is the package's workbench, served by Testbench: its
+            // assets build into workbench/public, the directory it serves.
+            input: ['workbench/resources/css/app.css', 'workbench/resources/js/app.js'],
+            publicDirectory: 'workbench/public',
+            refresh: ['resources/views/**', 'lang/**', 'workbench/resources/views/**', 'workbench/routes/**', 'workbench/lang/**'],
             fonts: [
                 bunny('Space Grotesk', {
                     weights: [500, 700],
