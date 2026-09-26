@@ -11,4 +11,12 @@ return [
     'next' => 'Next',
     'close' => 'Close',
     'dismiss' => 'Dismiss',
+
+    // The prefabs: opening hours, a map, a catalogue.
+    'closed' => 'Closed',
+    'map' => 'Map of :address',
+    'no_address' => 'No address yet',
+    'directions' => 'Directions',
+    'buy' => 'Buy',
+    'view' => 'View',
 ];

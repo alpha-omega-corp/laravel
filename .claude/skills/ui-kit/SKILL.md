@@ -53,6 +53,13 @@ what there is; call it with a name to get every file, its contents, and the wiri
 assemble one of these out of single components: what gets left out is the half that makes it
 work.
 
+**Prefabs** are the kit components many kinds of business share: `schedule` (opening hours),
+`menu` (dishes or services with prices), `map` (a Google Maps embed of an address, no key) and
+`catalogue` (what it sells, a preview until a `checkout` URL is passed — deployer's `/stripe` wires
+one). Each documents its props at the top of its file. Which business needs which is
+`businesses/<name>.md` — `## Prefabs` and `## Layout`, see `businesses/README.md` — and
+`roll-ui-design` takes a `business` to roll a design around them.
+
 The kit **used to live in this application** as `App\Support\UiKit` and a Laravel MCP server
 under `app/Mcp`. It was never really a Laravel thing — it walks a directory of Blade files and
 answers questions about them — so reaching it meant booting a framework, and every project that
@@ -142,7 +149,7 @@ files belong to the application.
 composer config repositories.ui-kit vcs https://github.com/alpha-omega-corp/laravel
 composer require --dev alpha-omega-corp/ui-kit:dev-production
 
-php artisan ui:kit                                 # the 40 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php
+php artisan ui:kit                                 # the 44 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php
 php artisan ui:kit ::layout/cards/01-basic-card    # one raw <x-ui.*> component; re-theme it afterwards
 ```
 
