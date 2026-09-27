@@ -733,6 +733,15 @@
     background: var(--color-canvas-alt);
 }
 
+/*
+ * Board and carte leave the gap under the hero to the hero's own padding, which
+ * the band paints: their first tiles sat flush on its edge. Under :where(), so
+ * the hours strip joining the band (padding 0, below) still wins.
+ */
+:where([data-direction='counter'] main > section:has(> .wrap [data-kit='hero'])) + .wrap {
+    padding-block-start: 4rem;
+}
+
 /* The hero sits on canvas-alt, where fresh's accent is 4.4:1: the eyebrow takes the stronger one. */
 [data-direction='counter'] [data-kit-part='hero-eyebrow'] {
     color: var(--color-accent-strong);
@@ -855,17 +864,20 @@
  * padding would otherwise be a sliver of the first ground between the two. Both shapes — the tag,
  * and the preview's wrapper around the drawing (`:has()` cannot nest, so they are two selectors).
  */
-[data-direction='counter'] main > .wrap:is(:has(> [data-kit='schedule']:first-child), :has(> :first-child > [data-kit='schedule'])) {
+[data-direction='counter'] main > .wrap:is(:has(> [data-kit='schedule']:first-child), :has(> [data-ref]:first-child > [data-kit='schedule'])) {
     padding-block-start: 0;
 }
 
 /*
  * The strip is the hours as a band across the page, which is what they are in
  * main's frame. Beside an offer or at the foot of a cover — carte's and poster's
- * columns, split's visit half — a band bled out 100vmax runs under everything
- * next to it, so there the schedule stays the kit's own panel.
+ * columns, split's visit half, a tile of board's grid — a band bled out 100vmax
+ * runs under everything next to it, so there the schedule stays the kit's own
+ * panel. The preview's wrapper is named by its data-ref: board's grid is also a
+ * child of the frame holding the schedule, and a bare :has() bled the hours
+ * under the whole board in seven squeezed columns.
  */
-[data-direction='counter'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > :has(> [data-kit='schedule']) > [data-kit='schedule']) {
+[data-direction='counter'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > [data-ref]:has(> [data-kit='schedule']) > [data-kit='schedule']) {
     padding: var(--band-pad) 0;
     border: 0;
     border-radius: 0;
@@ -881,7 +893,7 @@
 }
 
 @media (min-width: 64rem) {
-    [data-direction='counter'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > :has(> [data-kit='schedule']) > [data-kit='schedule']) [data-kit-part='schedule-days'] {
+    [data-direction='counter'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > [data-ref]:has(> [data-kit='schedule']) > [data-kit='schedule']) [data-kit-part='schedule-days'] {
         grid-template-columns: repeat(7, minmax(0, 1fr));
     }
 }
@@ -909,8 +921,13 @@
     text-align: start;
 }
 
-/* The products on a rail that scrolls and snaps. */
+/*
+ * The products on a rail that scrolls and snaps. Each card its own height: in a
+ * tile of board's grid the row is as tall as the tile beside it, and a stretched
+ * card is a column of empty ground with its name at the foot.
+ */
 [data-direction='counter'] [data-kit='catalogue'] {
+    align-items: start;
     grid-template-columns: none;
     grid-auto-flow: column;
     grid-auto-columns: 80%;
@@ -1272,8 +1289,8 @@
     [data-direction='market'] :is(
         main > .wrap > [data-kit='schedule']:has(+ [data-kit='map']),
         main > .wrap > [data-kit='map'] + [data-kit='schedule'],
-        main > .wrap > :has(> [data-kit='schedule']):has(+ * > [data-kit='map']),
-        main > .wrap > :has(> [data-kit='map']) + :has(> [data-kit='schedule'])
+        main > .wrap > [data-ref]:has(> [data-kit='schedule']):has(+ * > [data-kit='map']),
+        main > .wrap > [data-ref]:has(> [data-kit='map']) + :has(> [data-kit='schedule'])
     ) {
         grid-column: span 5;
     }
@@ -1281,8 +1298,8 @@
     [data-direction='market'] :is(
         main > .wrap > [data-kit='map']:has(+ [data-kit='schedule']),
         main > .wrap > [data-kit='schedule'] + [data-kit='map'],
-        main > .wrap > :has(> [data-kit='map']):has(+ * > [data-kit='schedule']),
-        main > .wrap > :has(> [data-kit='schedule']) + :has(> [data-kit='map'])
+        main > .wrap > [data-ref]:has(> [data-kit='map']):has(+ * > [data-kit='schedule']),
+        main > .wrap > [data-ref]:has(> [data-kit='schedule']) + :has(> [data-kit='map'])
     ) {
         grid-column: span 7;
     }

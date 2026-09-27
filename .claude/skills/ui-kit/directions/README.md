@@ -107,11 +107,15 @@ Deployer's preview stands a drawing where each tag would be, wrapped as
 `<div data-ref="&lt;x-kit.NAME /&gt;" class="space-y-1.5"><p>caption</p>DRAWING</div>`.
 So a frame selector is a descendant `:has(> .wrap [data-kit='X'])` and never
 `> .wrap > [data-kit='X']`, and a rule placing a child of the main frame by its
-component matches both shapes:
+component matches both shapes, the wrapper named by its `data-ref`:
 
 ```css
-:is(main > .wrap > [data-kit='X'], main > .wrap > :has(> [data-kit='X']))
+:is(main > .wrap > [data-kit='X'], main > .wrap > [data-ref]:has(> [data-kit='X']))
 ```
+
+Never a bare `:has(> [data-kit='X'])`: board's grid of tiles is a child of the
+main frame too, and a rule meant for one component then styles the whole
+board — counter's hours strip bled under every tile that way.
 
 A rule on the component itself (`[data-kit='menu'] …`) works in both as it is.
 
