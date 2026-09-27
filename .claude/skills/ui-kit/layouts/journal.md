@@ -8,6 +8,10 @@ something written about the place.
 
 `navigation/navbars/*`
 
+## Family
+
+`site`
+
 ## Suits
 
 a winery, a chef's restaurant, a farm or a family business with something to tell

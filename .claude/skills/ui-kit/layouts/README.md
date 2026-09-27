@@ -7,12 +7,23 @@ chosen independently, and a direction is drawn in every layout it lists — so a
 restaurant can come out as a long page, a carte or a poster, in hearth or in
 counter, rather than as one page in four colours.
 
-There are two families. The **site layouts** — `marketing`, `split`, `carte`,
-`poster`, `board`, `journal` — are public pages built from the site components
-(`site-header`, `hero`, `features`, `section`, `media`, `cta-band`,
-`site-footer`) and the prefabs, and they are what a business is drawn in. The
-**app layouts** — `console`, `stacked`, `focus`, `workspace` — are screens of an
-application with a shell, and no direction lists them.
+There are three families, and each layout says which it is in `## Family`:
+
+- **`site`** — `marketing`, `split`, `carte`, `poster`, `board`, `journal`. A
+  website's public pages, built from the site components (`site-header`,
+  `hero`, `features`, `section`, `media`, `cta-band`, `site-footer`) and the
+  prefabs. They are what a business is drawn in, and the only layouts a
+  direction lists.
+- **`admin`** — `console`, and only `console`. **Every website has an admin
+  section by default**, where the owner manages the prefabs — the hours, the
+  menu, the catalogue, the map — and the site's content; `console` is its
+  shape, a sidebar of screens beside dense data. No page a visitor sees is ever
+  drawn in it, so **a roll never picks an admin layout unless it is pinned**,
+  and `/build` does not offer one. The admin comes with the site — on the base
+  package it is `/admin`, drawn by the base itself — so a session never builds
+  one, and a public page never grows admin controls to make up for it.
+- **`app`** — `stacked`, `focus`, `workspace`. Screens of an application that is
+  not a website: a dashboard, a wizard, an inbox.
 
 Every layout works with every palette — nothing here refuses a combination.
 Which ones are worth steering towards is written on the **theme** side, in each
@@ -38,6 +49,8 @@ for — and a business's site is rolled among the ones its directions list.
   ends at the first blank line. Say what the first screen is for.
 - `## Shell` — one backticked kit reference or glob, the application shell this
   layout is built from. `application-shells/sidebar/*`, `navigation/navbars/*`.
+- `## Family` — one backticked word: `site`, `admin` or `app`. A layout with
+  none is read as `app`.
 - `## Suits` — what it is for, in a few words.
 - `## Not for` — when another layout is the better answer, naming it. Prose.
 - `## Regions` — what a roll places in each region of the layout's stub, and what
@@ -56,8 +69,8 @@ for — and a business's site is rolled among the ones its directions list.
 - `## Beyond the recipe` — what a session building the site may add here, and
   what it should not. Prose.
 
-Deployer reads the summary, `## Shell` and `## Regions`; the rest is for whoever
-builds the page.
+Deployer reads the summary, `## Shell`, `## Family` and `## Regions`; the rest
+is for whoever builds the page.
 
 ### The prefabs in a recipe
 
@@ -148,7 +161,8 @@ What it keeps are the rules that make a direction work and a page read well:
 ## Adding a layout
 
 A stub in the worker template's `stubs/layouts/<name>.blade.php`, opening with
-`{{-- <name>: <summary> --}}` and marking its regions; a file here; a row in every
+`{{-- <name>: <summary> --}}` and marking its regions; a file here, with its
+family; a row in every
 theme's `## Pairs with`; and, for a site layout, a line in the `## Layouts` of each
 direction it suits. A layout no theme mentions is one a roll can still pick but
 nothing recommends. A layout with no `## Regions` is one a page roll will not

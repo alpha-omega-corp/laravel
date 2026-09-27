@@ -8,6 +8,10 @@ layouts are for when the business is shaped a particular way.
 
 `navigation/navbars/*`
 
+## Family
+
+`site`
+
 ## Suits
 
 any public site, a landing page, a business with no particular shape

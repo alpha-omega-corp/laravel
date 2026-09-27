@@ -7,6 +7,10 @@ apps.
 
 `application-shells/stacked/*`
 
+## Family
+
+`app`
+
 ## Suits
 
 dashboards, product apps

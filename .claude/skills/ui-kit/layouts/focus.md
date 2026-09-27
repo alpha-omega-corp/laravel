@@ -7,6 +7,10 @@ and wizards.
 
 `layout/containers/05-*`
 
+## Family
+
+`app`
+
 ## Suits
 
 onboarding, checkout, wizards

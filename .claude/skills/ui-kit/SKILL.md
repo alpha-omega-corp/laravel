@@ -74,6 +74,10 @@ holds a photograph and, until there is one, a frame captioned with what belongs 
 a business takes one of the business's directions, then a palette that direction takes, then one
 of its layouts; `direction` pins one, and one the business does not list is refused.
 
+**Every website has an admin section by default**, where its owner manages the prefabs and the
+content; `console` is its layout and nothing else's, so a roll never picks it unless it is pinned
+and no public page is drawn in it (`## Family` in `layouts/`).
+
 **Layouts** are how a page is arranged, and a site has six to be rolled among — `marketing` (the
 long page), `split` (the opening in two halves, the visit beside it), `carte` (no hero: the list
 first, the hours held beside it), `poster` (the whole business on one screen), `board` (tiles

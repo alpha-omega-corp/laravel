@@ -1,15 +1,25 @@
 # console
 
-A persistent sidebar, a page header, and dense data under it. For admin screens,
-back offices and CRUD.
+The admin's layout: a persistent sidebar of the site's screens, a page header, and dense data under
+it. Every website has an admin section, where its owner manages the prefabs — the hours, the menu,
+the catalogue — and the content; this is its shape, and no public page is ever drawn in it.
 
 ## Shell
 
 `application-shells/sidebar/*`
 
+## Family
+
+`admin`
+
 ## Suits
 
-admin, back office, CRUD
+a site's admin section, a back office
+
+## Not for
+
+Any page a visitor sees. A site's public pages are the site layouts — `marketing`, `split`, `carte`,
+`poster`, `board`, `journal` — and a roll never picks this one unless it is pinned.
 
 ## Regions
 

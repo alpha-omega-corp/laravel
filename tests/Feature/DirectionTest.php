@@ -203,6 +203,8 @@ it('has a spec for every direction, each read the way deployer reads it', functi
             expect($layouts)->toContain($layout);
 
             $body = (string) file_get_contents(package_path(".claude/skills/ui-kit/layouts/{$layout}.md"));
+            expect(trim(specSection($body, 'Family')[0] ?? '', '`'))->toBe('site', "{$name} is drawn in {$layout}, which is not a site layout");
+
             $recipe = specRecipe($body);
             expect($recipe)->not->toBeEmpty("{$layout}, which {$name} is drawn in, has no recipe");
 
@@ -472,4 +474,23 @@ it('writes a band\'s text at 4.5:1 in every palette its direction takes', functi
     }
 
     expect($unreadable)->toBe([]);
+});
+
+it('gives every layout a family, and the admin its one layout', function () {
+    $families = [];
+
+    foreach (glob(package_path('.claude/skills/ui-kit/layouts/*.md')) ?: [] as $path) {
+        if (basename($path) !== 'README.md') {
+            $families[basename($path, '.md')] = trim(specSection((string) file_get_contents($path), 'Family')[0] ?? '', '`');
+        }
+    }
+
+    ksort($families);
+
+    // Every website has an admin section, and console is its shape and nothing
+    // else's: no page a visitor sees is drawn in it.
+    expect($families)->toBe([
+        'board' => 'site', 'carte' => 'site', 'console' => 'admin', 'focus' => 'app', 'journal' => 'site',
+        'marketing' => 'site', 'poster' => 'site', 'split' => 'site', 'stacked' => 'app', 'workspace' => 'app',
+    ]);
 });
