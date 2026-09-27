@@ -18,4 +18,7 @@ return [
     'directions' => 'Indicazioni',
     'buy' => 'Acquista',
     'view' => 'Vedi',
+
+    // A site layout's first link, shown only to the keyboard: past the header to the page.
+    'skip' => 'Vai al contenuto',
 ];

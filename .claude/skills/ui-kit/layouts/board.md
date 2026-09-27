@@ -27,7 +27,7 @@ What a roll places in each region of this layout's stub, and what each region is
 
 - nav: the bar across the top
 - nav — site-header
-- hero: a short opening above the board
+- hero: a short opening above the board — a section here is the page's one h1, level="1"
 - hero — hero | section
 - main: the board — a grid of tiles three across on a wide screen, the first tile two columns wide and two rows tall, every other one tile; the prefabs are tiles like everything else
 - main — features | media | nothing, prefabs, section | nothing, cta-band | nothing

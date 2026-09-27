@@ -2,6 +2,7 @@
     'eyebrow' => null,
     'title' => null,
     'lead' => null,
+    'level' => 2,
 ])
 
 @php
@@ -13,7 +14,15 @@
      *
      * One DOM whatever the page looks like: a direction restyles it through
      * `data-kit` and `data-kit-part`, never through a prop.
+     *
+     * **`level` 1 when the section opens the page** — carte's lead, a board's
+     * opening — which then has no hero, and so no other `<h1>`. A page needs
+     * exactly one: it is what a search engine and a screen reader take the page
+     * to be about, and a site whose every page opens on an `<h2>` is one both
+     * read as untitled. Anything but 1 is 2.
      */
+    $heading = (int) $level === 1 ? 'h1' : 'h2';
+
     $ref = '<x-kit.section />';
 @endphp
 
@@ -25,7 +34,7 @@
             @endif
 
             @if (filled($title))
-                <h2 data-kit-part="section-title" class="font-display text-title text-ink">{{ $title }}</h2>
+                <{{ $heading }} data-kit-part="section-title" class="font-display text-title text-ink">{{ $title }}</{{ $heading }}>
                 <span data-kit-part="section-mark" aria-hidden="true" class="block h-[3px] w-14 bg-accent"></span>
             @endif
 

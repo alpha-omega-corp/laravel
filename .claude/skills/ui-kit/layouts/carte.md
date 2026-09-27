@@ -26,7 +26,7 @@ What a roll places in each region of this layout's stub, and what each region is
 
 - nav: the bar across the top — the name, the page's anchors and the one thing to do
 - nav — site-header
-- lead: a short heading where a hero would be — the name and one line, and nothing to scroll past
+- lead: a short heading where a hero would be — the name and one line, and nothing to scroll past; the page's one h1, so the section is level="1"
 - lead — section
 - offer: the menu, the price list or the goods, first, in the widest column
 - offer — menu | catalogue, catalogue | nothing

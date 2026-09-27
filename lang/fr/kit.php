@@ -18,4 +18,7 @@ return [
     'directions' => 'Itinéraire',
     'buy' => 'Acheter',
     'view' => 'Voir',
+
+    // A site layout's first link, shown only to the keyboard: past the header to the page.
+    'skip' => 'Aller au contenu',
 ];

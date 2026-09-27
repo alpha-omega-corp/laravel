@@ -42,7 +42,7 @@
             data-kit-part="map-frame"
             src="https://maps.google.com/maps?q={{ $query }}&amp;z={{ $zoom }}&amp;output=embed"
             title="{{ __('kit.map', ['address' => $address]) }}"
-            class="block aspect-[4/3] w-full border-0 sm:aspect-[16/9]"
+            class="block aspect-[4/3] max-h-[min(70svh,30rem)] w-full border-0 sm:aspect-[16/9]"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
@@ -52,7 +52,7 @@
             <span data-kit-part="map-address" class="text-ink">{{ $title ?: $address }}</span>
 
             <a href="https://www.google.com/maps/search/?api=1&amp;query={{ $query }}" data-kit-part="map-directions" target="_blank" rel="noopener"
-               class="font-medium text-accent hover:text-accent-strong">{{ __('kit.directions') }}</a>
+               class="inline-flex items-center gap-1.5 font-medium text-accent hover:text-accent-strong"><x-kit.icon name="navigation" />{{ __('kit.directions') }}</a>
         </figcaption>
     </figure>
 @endif

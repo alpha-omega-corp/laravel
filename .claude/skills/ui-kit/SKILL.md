@@ -74,6 +74,14 @@ holds a photograph and, until there is one, a frame captioned with what belongs 
 a business takes one of the business's directions, then a palette that direction takes, then one
 of its layouts; `direction` pins one, and one the business does not list is refused.
 
+**Icons are Lucide's, through `<x-kit.icon name="…" />`** — `phone`, `wheat`, `scissors`,
+`map-pin`, lucide.dev's names. The set (`mallardduck/blade-lucide-icons`) is a production
+dependency of every site, the worker's and not only the kit's, because the kit is a dev dependency
+and its components are copies. The kit draws icons where they carry meaning — the header's phone,
+the footer's contact lines, the map's directions, a visit-band detail by its link — and
+`features` items and `cta-band` details take an `icon` key. An unknown name renders nothing rather
+than failing; deployer's `search-ui-icons` answers the names a site has installed.
+
 **Every website has an admin section by default**, where its owner manages the prefabs and the
 content; `console` is its layout and nothing else's, so a roll never picks it unless it is pinned
 and no public page is drawn in it (`## Family` in `layouts/`).

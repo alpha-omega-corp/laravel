@@ -2,6 +2,9 @@ laravel: '@testbench'
 
 providers:
   - AlphaOmega\UiKit\UiKitServiceProvider
+  # The icon set a site installs beside the kit: `<x-kit.icon>` renders nothing without it.
+  - BladeUI\Icons\BladeIconsServiceProvider
+  - MallardDuck\LucideIcons\BladeLucideIconsServiceProvider
   - Workbench\App\Providers\WorkbenchServiceProvider
 
 # The showcase stores nothing, so it runs with no database at all.

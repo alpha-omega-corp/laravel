@@ -23,6 +23,13 @@
      * One DOM whatever the page looks like: the full-bleed photograph, the
      * split and the stacked panorama are directions over this markup.
      *
+     * **Two columns while its own width holds two, and not while the window's
+     * does.** A layout puts the hero in a column as often as across the page —
+     * split's opening is seven twelfths — and a window-wide breakpoint drew the
+     * name and the photograph side by side in half a window, the title three
+     * words a line. `auto-fit` over 24rem is the same answer read off the box
+     * the hero is actually in.
+     *
      * @var array<int, array{label?: string, href?: string}> $links
      * @var array<int, array{value?: string, label?: string}> $facts
      */
@@ -32,7 +39,7 @@
     $ref = '<x-kit.hero />';
 @endphp
 
-<div data-ref="{{ $ref }}" data-kit="hero" {{ $attributes->class(['grid items-center gap-10 lg:grid-cols-[1.15fr_1fr]']) }}>
+<div data-ref="{{ $ref }}" data-kit="hero" {{ $attributes->class(['grid items-center gap-10 grid-cols-[repeat(auto-fit,minmax(min(100%,24rem),1fr))]']) }}>
     <div data-kit-part="hero-copy" class="space-y-6">
         @if (filled($eyebrow))
             <p data-kit-part="hero-eyebrow" class="text-sm font-medium uppercase tracking-[0.14em] text-accent">{{ $eyebrow }}</p>

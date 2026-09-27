@@ -35,11 +35,11 @@ on the dark under a hairline.
 
 - site-header — the brand in the display face at `text-2xl`; the links small and ink-soft with an accent underline on hover; the bar one ink-soft line with a hairline under it; the action a primary button.
 - hero — with a photograph, the photograph fills the frame behind a scrim (`--image-scrim`) and the copy sits low on the left within the reading width, the title at most 16ch with its mark; with none, the frame's glyph goes, a caption stays as a small line at the bottom right, and the hero is the accent's glow at 62svh — a finished look rather than an empty box.
-- features — doors: three columns from `md`, each item a tile of one column, its photograph 4/5 (3/4 from `md`, 16/10 on a phone) with the copy over its foot on the scrim, the title in the display face, the body clamped to two lines, and the whole tile the link; the tile lifts 4px on hover.
+- features — doors: as many columns as the column holds at 15rem each and three at most, each item a tile of one column, its photograph 4/5 (3/4 from `md`, 16/10 on a phone) with the copy over its foot on the scrim, the title in the display face, the body clamped to two lines, and the whole tile the link; the tile lifts 4px on hover.
 - section — the head on the left, the mark a 56×3 accent bar.
 - cta-band — the details in three columns, each label uppercase, tracked and small; the actions on the right.
 - site-footer — three columns, the brand in the display face.
-- menu — the carte: one column of 48rem, centred; each section title in the display face at `text-2xl` over a hairline; no leader; each row the name in the display face and the tabular price at the end, a hairline between items, the description at most 56ch.
-- schedule — no panel, at most 34rem wide and centred, as the carte is, hairlines between the days.
+- menu — the carte: one column of 44rem, centred; each section title in the display face at `text-2xl` over a hairline; no leader; each row the name in the display face and the tabular price at the end, a hairline between items, the description at most 56ch.
+- schedule — no panel, at most 44rem wide and centred, on the carte's own measure so the two start at one edge, hairlines between the days.
 - catalogue — no panel edge and no surface; the photograph and the frame on `--radius-media`; the name in the display face.
 - map — a hairline panel on `--radius-media`, the map darkened to sit on the page, the caption on the second ground.

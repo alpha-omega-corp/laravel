@@ -35,7 +35,7 @@ The frames: the nav with no top padding; the hero on the page's second ground; t
 secondary transparent with a canvas edge; the footer on the second ground.
 
 - site-header — the bar a full-bleed dark strip with canvas text, today's status after an accent dot, the phone bold; the brand bold in the display face at `text-xl`.
-- hero — the split of `1.15fr 1fr` from `lg`, the photograph a 3/4 portrait from `lg` and 4/3 below; the facts under a 2px ink rule, three columns, their values at `text-figure`.
+- hero — the name beside the photograph while the hero's own column holds both, the photograph a 3/4 portrait in the hero band from `lg` and 4/3 anywhere else — in split's column the hero stacks, and a portrait the column's width would be taller than the screen; the facts under a 2px ink rule, three columns, their values at `text-figure`.
 - features — blocks that alternate: from `md` every second item puts its photograph on the right.
 - marks — a 2.5rem by 2px bar of the ink rather than the accent.
 - menu — the carte in rows: a grid of sections, as many 20rem columns as fit, the title across all of them; each section title sans, small, uppercase and tracked over a 2px ink rule; no leader; each row the name at medium weight and the price semibold at the end, a hairline between items.

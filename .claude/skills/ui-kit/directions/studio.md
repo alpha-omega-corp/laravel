@@ -34,7 +34,7 @@ every section's head is centred: the chrome is quiet so the photographs can be l
 
 - site-header — the bar one small ink-soft line; the brand in the display face at `text-2xl`, regular weight; the links small, uppercase and tracked 0.2em; the action drawn as a secondary button, an ink edge on nothing.
 - hero — with a photograph, full-bleed behind the scrim with the copy low on the left in the canvas colour, the secondary button a canvas edge; with none, stacked and centred, the copy at most 40rem over a 21/9 panorama frame across the reading width, its caption kept.
-- features — portraits: three columns from `md`, one column per item and no alternating, the photograph 3/4 with square corners, the title small, uppercase and tracked under it.
+- features — portraits: as many as the column holds at 14rem and three at most, one column per item and no alternating, the photograph 3/4 with square corners, the title small, uppercase and tracked under it.
 - menu — the price list: one centred column of 40rem, each section title centred, small, uppercase and tracked 0.2em over a hairline, the dotted leader kept, the name at regular weight and the price in the display face.
 - schedule — no panel, 26rem, centred; the day names small, uppercase and tracked, hairlines between the days.
 - catalogue — portrait tiles at 3/4 with no panel edge; the name small, uppercase and tracked, the price in the display face.

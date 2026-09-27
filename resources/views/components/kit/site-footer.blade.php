@@ -47,15 +47,15 @@
     @if (filled($address) || filled($phone) || filled($email))
         <address data-kit-part="site-footer-contact" class="space-y-1 text-sm not-italic text-ink-soft">
             @if (filled($address))
-                <p class="whitespace-pre-line">{{ $address }}</p>
+                <p class="flex gap-2"><x-kit.icon name="map-pin" class="mt-[0.2em] size-[1.1em] shrink-0" /><span class="whitespace-pre-line">{{ $address }}</span></p>
             @endif
 
             @if (filled($phone))
-                <a href="tel:{{ preg_replace('/[^+0-9]/', '', $phone) }}" class="block hover:text-ink">{{ $phone }}</a>
+                <a href="tel:{{ preg_replace('/[^+0-9]/', '', $phone) }}" class="flex items-center gap-2 hover:text-ink"><x-kit.icon name="phone" />{{ $phone }}</a>
             @endif
 
             @if (filled($email))
-                <a href="mailto:{{ $email }}" class="block hover:text-ink">{{ $email }}</a>
+                <a href="mailto:{{ $email }}" class="flex items-center gap-2 hover:text-ink"><x-kit.icon name="mail" />{{ $email }}</a>
             @endif
         </address>
     @endif

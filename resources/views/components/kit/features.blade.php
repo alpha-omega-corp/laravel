@@ -11,7 +11,9 @@
      * for — so one tag covers the whole section: a heading over a list, each
      * block a photograph and a few words.
      *
-     * An item is `{title, body?, image?, subject?, href?, label?}`. `image`
+     * An item is `{title, body?, image?, subject?, href?, label?, icon?}`; the
+     * icon is a Lucide name drawn in the accent above the title — a service,
+     * a product line — and never in place of the photograph. `image`
      * and `subject` go to `media`, so a block with no photograph yet shows the
      * frame captioned with what belongs in it. `href` makes the block a link,
      * labelled `label` or else its title.
@@ -19,7 +21,11 @@
      * One DOM whatever the page looks like: doors, alternating blocks,
      * portraits and a bento board are directions over this markup.
      *
-     * @var array<int, array{title?: string, body?: string, image?: string, subject?: string, href?: string, label?: string}> $items
+     * An item puts its photograph beside its words while the item is wide
+     * enough for both, read off its own width rather than the window's: a
+     * board's tile a third of a page wide is a phone's width on a wide screen.
+     *
+     * @var array<int, array{title?: string, body?: string, image?: string, subject?: string, href?: string, label?: string, icon?: string}> $items
      */
     $ref = '<x-kit.features />';
 @endphp
@@ -45,12 +51,16 @@
     @if (count($items))
         <ul data-kit-part="features-list" role="list" class="grid gap-10">
             @foreach ($items as $item)
-                <li data-kit-part="features-item" class="relative grid items-center gap-6 md:grid-cols-2">
+                <li data-kit-part="features-item" class="relative grid items-center gap-6 grid-cols-[repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
                     <div data-kit-part="features-media">
                         <x-kit.media :src="$item['image'] ?? null" :subject="$item['subject'] ?? null" ratio="4/3" />
                     </div>
 
                     <div data-kit-part="features-copy" class="space-y-3">
+                        @if (filled($item['icon'] ?? null))
+                            <x-kit.icon :name="$item['icon']" class="size-6 text-accent" />
+                        @endif
+
                         @if (filled($item['title'] ?? null))
                             <h3 data-kit-part="features-item-title" class="font-display text-xl text-ink">{{ $item['title'] }}</h3>
                         @endif

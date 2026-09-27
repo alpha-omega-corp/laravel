@@ -108,6 +108,19 @@
 }
 
 @layer components {
+    /*
+     * A photograph on its own in a page's flow is never taller than most of a
+     * screen. Its ratio is its author's, and across a whole page a 4/3 frame is
+     * three quarters of a laptop's width tall — a picture somebody scrolls past
+     * rather than looks at. Past the cap the box is wider than its ratio and the
+     * image covers it, which is how a full-width photograph is cropped anyway.
+     * Not inside a component's own part — a hero's, a feature's — where the
+     * component and the direction size the frame together.
+     */
+    [data-kit='media']:not([data-kit-part] *) {
+        max-height: min(75svh, 38rem);
+    }
+
     .wrap {
         width: 100%;
         max-width: var(--container-wrap);
@@ -534,12 +547,15 @@
     text-align: end;
 }
 
-/* The house in doors: a tile per item, the photograph filling it and the words over its foot. */
-@media (min-width: 48rem) {
-    [data-direction='hearth'] [data-kit-part='features-list'] {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.25rem;
-    }
+/*
+ * The house in doors: a tile per item, the photograph filling it and the words
+ * over its foot — three across at most, and as many as the column holds at
+ * 15rem each, so a board's tile or a journal's column gets one or two doors
+ * rather than three slivers.
+ */
+[data-direction='hearth'] [data-kit-part='features-list'] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, max(15rem, calc((100% - 2.5rem) / 3))), 1fr));
+    gap: 1.25rem;
 }
 
 [data-direction='hearth'] [data-kit-part='features-item'] {
@@ -617,9 +633,13 @@
     letter-spacing: 0.14em;
 }
 
-/* afx's carte: one quiet column, a hairline between dishes, no leader. */
+/*
+ * afx's carte: one quiet column, a hairline between dishes, no leader. The
+ * carte and the hours share one measure, so two centred columns one under the
+ * other start at the same edge rather than a hand's width apart.
+ */
 [data-direction='hearth'] [data-kit='menu'] {
-    max-width: 48rem;
+    max-width: 44rem;
     margin-inline: auto;
 }
 
@@ -658,7 +678,7 @@
 }
 
 [data-direction='hearth'] [data-kit='schedule'] {
-    max-width: 34rem;
+    max-width: 44rem;
     margin-inline: auto;
     padding: 0;
     border: 0;
@@ -748,8 +768,13 @@
     font-weight: 700;
 }
 
+/*
+ * The portrait only in the hero band, where the page is wide enough for the
+ * copy beside it: in split's column the hero stacks, and a 3/4 frame the
+ * column's whole width is taller than the screen.
+ */
 @media (min-width: 64rem) {
-    [data-direction='counter'] [data-kit-part='hero-media'] [data-kit='media'] {
+    [data-direction='counter'] main > section:has(> .wrap [data-kit='hero']) [data-kit-part='hero-media'] [data-kit='media'] {
         aspect-ratio: 3 / 4;
     }
 }
@@ -1067,11 +1092,9 @@
     margin-inline: auto;
 }
 
-/* The people in portraits. */
-@media (min-width: 48rem) {
-    [data-direction='studio'] [data-kit-part='features-list'] {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+/* The people in portraits: three across at most, as many as the column holds. */
+[data-direction='studio'] [data-kit-part='features-list'] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, max(14rem, calc((100% - 5rem) / 3))), 1fr));
 }
 
 [data-direction='studio'] [data-kit-part='features-item'] {
@@ -1170,14 +1193,14 @@
 }
 
 [data-direction='studio'] [data-kit='cta-band'] {
-    grid-template-columns: minmax(0, 1fr);
-    justify-items: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-/* The details' own `lg:col-span-2` would open an implicit second column, and the actions would move into it. */
+/* Across the band's width, or a column of centred items shrinks the details to their own. */
 [data-direction='studio'] [data-kit-part='cta-band-details'] {
-    grid-column: 1 / -1;
+    align-self: stretch;
 }
 
 [data-direction='studio'] [data-kit='site-footer'] {
@@ -1240,11 +1263,27 @@
         margin-block-end: 0;
     }
 
-    [data-direction='market'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > :has(> [data-kit='schedule'])) {
+    /*
+     * The hours on five beside the map on seven, only when the two are next to
+     * each other: either alone on seven left five columns of nothing beside it,
+     * and a map without its hours is still the way in, across the board. Both
+     * orders, and both shapes — the tag, and the preview's wrapper around it.
+     */
+    [data-direction='market'] :is(
+        main > .wrap > [data-kit='schedule']:has(+ [data-kit='map']),
+        main > .wrap > [data-kit='map'] + [data-kit='schedule'],
+        main > .wrap > :has(> [data-kit='schedule']):has(+ * > [data-kit='map']),
+        main > .wrap > :has(> [data-kit='map']) + :has(> [data-kit='schedule'])
+    ) {
         grid-column: span 5;
     }
 
-    [data-direction='market'] :is(main > .wrap > [data-kit='map'], main > .wrap > :has(> [data-kit='map'])) {
+    [data-direction='market'] :is(
+        main > .wrap > [data-kit='map']:has(+ [data-kit='schedule']),
+        main > .wrap > [data-kit='schedule'] + [data-kit='map'],
+        main > .wrap > :has(> [data-kit='map']):has(+ * > [data-kit='schedule']),
+        main > .wrap > :has(> [data-kit='schedule']) + :has(> [data-kit='map'])
+    ) {
         grid-column: span 7;
     }
 }
@@ -1303,12 +1342,14 @@
     background: var(--color-highlight);
 }
 
-@media (min-width: 64rem) {
-    /* Two panels side by side share their top and bottom edges; centred, the shorter floats in the other's height. */
-    [data-direction='market'] [data-kit='hero'] {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: stretch;
-    }
+/*
+ * Two panels side by side share their top and bottom edges; centred, the
+ * shorter floats in the other's height. Whether they are side by side is the
+ * hero's own — two while its column holds two — so split's opening column
+ * stacks them rather than squeezing the name into a third of the page.
+ */
+[data-direction='market'] [data-kit='hero'] {
+    align-items: stretch;
 }
 
 /* A bento board: the first item large, the others beside and under it. */
@@ -1347,32 +1388,29 @@
     aspect-ratio: 4 / 3;
 }
 
-@media (min-width: 64rem) {
-    [data-direction='market'] [data-kit='menu'] {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
-    }
+/* The carte's cards as many to a row as fit, wrapped for the reason counter's are. */
+[data-direction='market'] [data-kit='menu'] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
 
-    [data-direction='market'] [data-kit='menu'] > :is([data-kit-part='menu-title'], [data-kit-part='menu-section']) {
-        margin-block: 0;
-    }
+[data-direction='market'] [data-kit='menu'] > :is([data-kit-part='menu-title'], [data-kit-part='menu-section']) {
+    margin-block: 0;
+}
 
-    [data-direction='market'] [data-kit-part='menu-title'] {
-        grid-column: 1 / -1;
-    }
+[data-direction='market'] [data-kit-part='menu-title'] {
+    flex-basis: 100%;
+}
+
+[data-direction='market'] [data-kit-part='menu-section'] {
+    flex: 1 1 min(22rem, 100%);
 }
 
 /* What is for sale as rows: a square photograph, the name, the price at the right. */
 [data-direction='market'] [data-kit='catalogue'] {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
     gap: 1rem;
-}
-
-@media (min-width: 48rem) {
-    [data-direction='market'] [data-kit='catalogue'] {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
 }
 
 [data-direction='market'] [data-kit-part='catalogue-item'] {

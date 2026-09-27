@@ -34,7 +34,7 @@
 @endphp
 
 @if (filled($items))
-    <ul role="list" data-ref="{{ $ref }}" data-kit="catalogue" {{ $attributes->class(['grid gap-6 sm:grid-cols-2 lg:grid-cols-3']) }}>
+    <ul role="list" data-ref="{{ $ref }}" data-kit="catalogue" {{ $attributes->class(['grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,15rem),1fr))]']) }}>
         @foreach ($items as $item)
             <li data-kit-part="catalogue-item" class="panel flex flex-col overflow-hidden">
                 @if (! empty($item['image']))

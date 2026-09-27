@@ -18,6 +18,12 @@
      * its id is a link that goes nowhere. kit.css keeps the target clear of
      * the header when it scrolls there.
      *
+     * **On a phone the links are one strip under the name and the action**, and
+     * it scrolls sideways past its end. Wrapped, four or five labels in the
+     * site's own language were three rows of links between the name and the
+     * page — the one pattern a phone's visitor reads as a site that was not
+     * made for their screen.
+     *
      * The root is a `div` because the layout's stub already wraps this region
      * in a `<header>`, and a header inside a header is not valid HTML. The
      * `nav` carries no label: it is the page's only one, and a label would be
@@ -39,7 +45,7 @@
             @endif
 
             @if (filled($phone))
-                <a data-kit-part="site-header-phone" href="tel:{{ preg_replace('/[^+0-9]/', '', $phone) }}" class="font-medium text-ink">{{ $phone }}</a>
+                <a data-kit-part="site-header-phone" href="tel:{{ preg_replace('/[^+0-9]/', '', $phone) }}" class="font-medium text-ink"><x-kit.icon name="phone" class="me-1.5 inline size-[1em] align-[-0.125em]" />{{ $phone }}</a>
             @endif
         </div>
     @endif
@@ -50,7 +56,7 @@
         @endif
 
         @if (count($items))
-            <ul data-kit-part="site-header-links" role="list" class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <ul data-kit-part="site-header-links" role="list" class="order-last flex basis-full gap-x-6 overflow-x-auto whitespace-nowrap text-sm [scrollbar-width:none] md:order-none md:basis-auto md:flex-wrap md:gap-y-2 md:overflow-visible">
                 @foreach ($items as $item)
                     <li><a href="{{ $item['href'] ?? '#' }}" class="text-ink-soft hover:text-ink">{{ $item['label'] }}</a></li>
                 @endforeach

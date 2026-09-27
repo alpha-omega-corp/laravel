@@ -77,6 +77,9 @@ catalogue    catalogue-item catalogue-image catalogue-frame catalogue-body catal
 map          map-frame map-caption map-address map-directions
 ```
 
+An icon (`<x-kit.icon>`) carries `data-kit="icon"` on its `svg` and draws in `currentColor`,
+so a direction colours it through the text around it or through `[data-kit='icon']`.
+
 The list is shared with deployer, whose prefab drawings carry the same hooks so
 the preview is styled like the page. A look that needs a hook this list does not
 have is a change to the list, never a class added to one direction's markup.
@@ -161,6 +164,12 @@ The directions are the last section of `kit.css`, after `@layer components`.
   axis. The one exception is the band frame, which re-maps the ink, the soft
   ink and the rule — and in hearth the accent — from `--band-ink` and
   `--band-surface`, so the text and the buttons read on the band.
+- **A grid follows the column, not the window.** A component stands across the page in one layout
+  and in a third of it in another — split's opening, carte's offer, a board's tile — so a
+  direction's columns are `repeat(auto-fit, minmax(min(100%, …), 1fr))` or a flex wrap, and a
+  window-wide `@media` breakpoint only sets a layout that is right at any width the component can be
+  given, or is scoped to a frame that is always the page's width (the hero band, main's frame). A
+  rule that capped a count of columns at `md` drew three slivers in a board's tile.
 - **Displays are guarded.** The stub hides a frame nothing was placed in with
   `[&:not(:has(>*))]:hidden`, and an unlayered `display` would undo it — so a
   rule that sets `display` on a frame says `main > .wrap:has(> *)`.

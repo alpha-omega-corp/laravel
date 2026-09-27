@@ -209,6 +209,17 @@ it('links a block when it is given somewhere to go, and says it in the block\'s 
     expect(substr_count($html, 'data-kit-part="features-link"'))->toBe(1);
 });
 
+// A page needs exactly one <h1>, and a layout that opens on a section rather
+// than a hero — carte's lead, a board's opening — has no other to give it.
+it('titles the page when a section opens it, and is a section heading otherwise', function () {
+    expect(Blade::render('<x-kit.section title="La carte" :level="1" />'))
+        ->toContain('<h1 data-kit-part="section-title"')->toContain('>La carte</h1>');
+
+    foreach (['<x-kit.section title="La carte" />', '<x-kit.section title="La carte" level="3" />'] as $tag) {
+        expect(Blade::render($tag))->toContain('<h2 data-kit-part="section-title"')->not->toContain('<h1');
+    }
+});
+
 it('keeps a section\'s slot as its body', function () {
     expect(Blade::render('<x-kit.section title="La maison">Le texte</x-kit.section>'))
         ->toContain('data-kit-part="section-body">Le texte</div>');
@@ -217,9 +228,12 @@ it('keeps a section\'s slot as its body', function () {
 });
 
 it('shares the kit\'s title line and accent mark', function () {
-    foreach (['section', 'features', 'cta-band', 'menu'] as $name) {
+    foreach (['features', 'cta-band', 'menu'] as $name) {
         expect(sectionSource($name))->toContain('<h2 data-kit-part="'.$name.'-title" class="font-display text-title text-ink">');
     }
+
+    // The section's heading is a level of its own, and the same line at either.
+    expect(sectionSource('section'))->toContain('<{{ $heading }} data-kit-part="section-title" class="font-display text-title text-ink">');
 
     foreach (['section', 'hero', 'features', 'cta-band'] as $name) {
         expect(sectionSource($name))->toContain('<span data-kit-part="'.$name.'-mark" aria-hidden="true" class="block h-[3px] w-14 bg-accent"></span>');
