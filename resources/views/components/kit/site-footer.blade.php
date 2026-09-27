@@ -21,6 +21,15 @@
      */
     $links = array_values(array_filter($links, fn ($link) => filled($link['label'] ?? null)));
 
+    /*
+     * Every website has an admin section, and this is its door. The footer
+     * draws it itself whenever the base's admin is installed, so no page is
+     * built without one and no session has to remember it; the label is the
+     * base's own word for it, in the site's language. `nofollow`, because it
+     * is the owner's way in rather than a page for a visitor or a crawler.
+     */
+    $admin = \Illuminate\Support\Facades\Route::has('site.admin.dashboard') ? route('site.admin.dashboard') : null;
+
     $ref = '<x-kit.site-footer />';
 @endphp
 
@@ -61,5 +70,11 @@
 
     @if (filled($note))
         <p data-kit-part="site-footer-note" class="border-t border-rule pt-6 text-xs text-ink-soft md:col-span-3">{{ $note }}</p>
+    @endif
+
+    @if ($admin)
+        <p data-kit-part="site-footer-admin" class="flex justify-end md:col-span-3">
+            <a href="{{ $admin }}" rel="nofollow" class="btn btn-secondary btn-sm">{{ __('site::admin.title') }}</a>
+        </p>
     @endif
 </div>

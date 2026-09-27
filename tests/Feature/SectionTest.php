@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
 use function Orchestra\Testbench\package_path;
@@ -29,7 +30,7 @@ function sectionHooks(): array
         'section' => ['section-head', 'section-eyebrow', 'section-title', 'section-mark', 'section-lead', 'section-body'],
         'hero' => ['hero-copy', 'hero-eyebrow', 'hero-title', 'hero-mark', 'hero-lead', 'hero-actions', 'hero-note', 'hero-facts', 'hero-fact', 'hero-media'],
         'site-header' => ['site-header-bar', 'site-header-status', 'site-header-phone', 'site-header-nav', 'site-header-brand', 'site-header-links', 'site-header-action'],
-        'site-footer' => ['site-footer-about', 'site-footer-brand', 'site-footer-blurb', 'site-footer-contact', 'site-footer-links', 'site-footer-note'],
+        'site-footer' => ['site-footer-about', 'site-footer-brand', 'site-footer-blurb', 'site-footer-contact', 'site-footer-links', 'site-footer-note', 'site-footer-admin'],
         'features' => ['features-head', 'features-eyebrow', 'features-title', 'features-mark', 'features-lead', 'features-list', 'features-item', 'features-media', 'features-copy', 'features-item-title', 'features-body', 'features-link'],
         'cta-band' => ['cta-band-copy', 'cta-band-eyebrow', 'cta-band-title', 'cta-band-mark', 'cta-band-lead', 'cta-band-actions', 'cta-band-details', 'cta-band-detail'],
         'menu' => ['menu-title', 'menu-section', 'menu-section-title', 'menu-list', 'menu-item', 'menu-row', 'menu-name', 'menu-leader', 'menu-price', 'menu-description'],
@@ -224,3 +225,22 @@ it('shares the kit\'s title line and accent mark', function () {
         expect(sectionSource($name))->toContain('<span data-kit-part="'.$name.'-mark" aria-hidden="true" class="block h-[3px] w-14 bg-accent"></span>');
     }
 });
+
+// Every website has an admin section, and its footer is the way in: drawn by
+// the footer itself once the base's admin route exists, bare tag or not, so no
+// page is built without it. Without the base there is no admin to open.
+it('opens the admin from the footer whenever the site has one', function () {
+    expect(Blade::render('<x-kit.site-footer />'))->not->toContain('site-footer-admin');
+
+    Route::get('/admin', fn () => '')->name('site.admin.dashboard');
+    app('router')->getRoutes()->refreshNameLookups();
+
+    [$template, $data] = sectionSamples()['site-footer'];
+
+    foreach ([Blade::render('<x-kit.site-footer />'), Blade::render($template, $data)] as $html) {
+        expect($html)->toContain('data-kit-part="site-footer-admin"')
+            ->toContain('href="'.url('/admin').'"')
+            ->toContain('rel="nofollow"');
+    }
+});
+

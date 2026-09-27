@@ -68,7 +68,7 @@ media        media-image media-frame media-caption
 section      section-head section-eyebrow section-title section-mark section-lead section-body
 hero         hero-copy hero-eyebrow hero-title hero-mark hero-lead hero-actions hero-note hero-facts hero-fact hero-media
 site-header  site-header-bar site-header-status site-header-phone site-header-nav site-header-brand site-header-links site-header-action
-site-footer  site-footer-about site-footer-brand site-footer-blurb site-footer-contact site-footer-links site-footer-note
+site-footer  site-footer-about site-footer-brand site-footer-blurb site-footer-contact site-footer-links site-footer-note site-footer-admin
 features     features-head features-eyebrow features-title features-mark features-lead features-list features-item features-media features-copy features-item-title features-body features-link
 cta-band     cta-band-copy cta-band-eyebrow cta-band-title cta-band-mark cta-band-lead cta-band-actions cta-band-details cta-band-detail
 menu         menu-title menu-section menu-section-title menu-list menu-item menu-row menu-name menu-leader menu-price menu-description
