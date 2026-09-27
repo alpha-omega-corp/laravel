@@ -2,7 +2,8 @@
  * The kit's stylesheet: the palette tokens, the base type and the component
  * classes (.panel, .btn, .wrap) the components in views/components/kit read.
  * Import it right after Tailwind in resources/css/app.css; `php artisan ui:kit`
- * does that for you.
+ * does that for you. Its last section is the directions — how a page looks, as
+ * CSS over the components' `data-kit` hooks, keyed on <html data-direction>.
  */
 @import './themes.css';
 
@@ -30,8 +31,8 @@
     --color-highlight: #f2c230;
     --color-on-highlight: #0e241c;
 
-    --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-    --font-body: var(--font-ibm-plex-sans), ui-sans-serif, system-ui, sans-serif;
+    --font-display: var(--font-space-grotesk, 'Space Grotesk'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-ibm-plex-sans, 'IBM Plex Sans'), ui-sans-serif, system-ui, sans-serif;
 
     --text-display: clamp(2.6rem, 6vw, 4.25rem);
     --text-display--line-height: 0.98;
@@ -56,7 +57,8 @@
         -webkit-text-size-adjust: 100%;
     }
 
-    main > section[id] {
+    /* A nav item's target: the region's frame, or — where a session puts the id — the component's own root inside it. */
+    main :is(section[id], [data-kit][id]) {
         scroll-margin-top: 5.5rem;
     }
 
@@ -263,4 +265,1134 @@
         background-color: var(--color-canvas-alt);
         color: var(--color-ink);
     }
+}
+
+/*
+ * Directions.
+ *
+ * A direction is how a page looks — a dark room by lamplight, a bright counter,
+ * a calm studio, a market stall — over markup that does not change. The build
+ * writes it next to the palette, <html data-palette="…" data-direction="…">,
+ * and everything below restyles the components through their `data-kit` and
+ * `data-kit-part` hooks. No component reads the direction, so switching one is
+ * an attribute rather than a rebuild; the specs, the hook list and the rules
+ * for this section are .claude/skills/ui-kit/directions/README.md.
+ *
+ * Unlayered, like themes.css, so a rule here beats the utilities in the markup
+ * without `!important`; flat, since deployer's preview compiles this in
+ * whatever webview the OS ships. Each direction is one root block declaring
+ * every token the shared rules read, then its own rules. A root block never
+ * redeclares a palette token: the palette is the other axis. The one pin it may
+ * make is the scheme — hearth is dark by design, and coming after themes.css
+ * its `color-scheme` beats `[data-theme]` at the same specificity.
+ *
+ * The stub's frames are found by what they hold, never by position, and a rule
+ * that sets `display` on one is guarded with `:has(> *)`, because the stub
+ * hides a frame nothing was placed in and an unlayered display would undo it.
+ * Deployer's preview wraps every placed drawing in a captioned div, so a rule
+ * placing a child of the main frame matches `> [data-kit]` and `> :has(> [data-kit])`.
+ */
+
+[data-direction='hearth'] {
+    color-scheme: dark;
+
+    --section-gap: clamp(4rem, 9vw, 7.5rem);
+    --band-pad: clamp(4rem, 10vw, 8rem);
+    --band-surface: var(--color-accent);
+    --band-ink: var(--color-on-accent);
+    --hero-min-height: 78svh;
+    --heading-size: calc(var(--text-title) * 1.15);
+    --heading-leading: var(--text-title--line-height);
+    --eyebrow-case: uppercase;
+    --eyebrow-tracking: 0.14em;
+    --radius-media: 0.5rem;
+    --image-scrim: linear-gradient(to top, var(--color-canvas) 4%, color-mix(in oklab, var(--color-canvas) 70%, transparent) 40%, color-mix(in oklab, var(--color-canvas) 10%, transparent));
+    --page-wash: none;
+    --panel-backdrop: none;
+}
+
+[data-direction='counter'] {
+    --section-gap: 4.5rem;
+    --band-pad: 3.5rem;
+    --band-surface: var(--color-ink);
+    --band-ink: var(--color-canvas);
+    --hero-min-height: auto;
+    --heading-size: var(--text-title);
+    --heading-leading: var(--text-title--line-height);
+    --eyebrow-case: uppercase;
+    --eyebrow-tracking: 0.08em;
+    --radius-media: var(--radius-panel);
+    --image-scrim: none;
+    --page-wash: none;
+    --panel-backdrop: none;
+}
+
+[data-direction='studio'] {
+    --section-gap: clamp(5rem, 10vw, 8rem);
+    --band-pad: clamp(5rem, 11vw, 9rem);
+    --band-surface: var(--color-canvas-alt);
+    --band-ink: var(--color-ink);
+    --hero-min-height: 88svh;
+    --heading-size: clamp(1.5rem, 2.6vw, 2.125rem);
+    --heading-leading: 1.2;
+    --eyebrow-case: uppercase;
+    --eyebrow-tracking: 0.2em;
+    --radius-media: 0;
+    --image-scrim: linear-gradient(to top, color-mix(in oklab, var(--color-ink) 64%, transparent), transparent 62%);
+    --page-wash: none;
+    --panel-backdrop: none;
+}
+
+[data-direction='market'] {
+    --section-gap: 1.25rem;
+    --band-pad: 3rem;
+    --band-surface: color-mix(in oklab, var(--color-highlight) 16%, var(--color-canvas));
+    --band-ink: var(--color-ink);
+    --hero-min-height: auto;
+    --heading-size: var(--text-title);
+    --heading-leading: var(--text-title--line-height);
+    --eyebrow-case: none;
+    --eyebrow-tracking: normal;
+    --radius-media: calc(var(--radius-panel) * 0.75);
+    --image-scrim: none;
+    --page-wash: radial-gradient(60rem 40rem at 0% 0%, color-mix(in oklab, var(--color-accent) 14%, transparent), transparent 70%), radial-gradient(50rem 36rem at 100% 12%, color-mix(in oklab, var(--color-highlight) 18%, transparent), transparent 70%);
+    --panel-backdrop: blur(18px);
+}
+
+@media (max-width: 39.9375rem) {
+    [data-direction='hearth'] {
+        --hero-min-height: 62svh;
+    }
+
+    [data-direction='studio'] {
+        --hero-min-height: 78svh;
+    }
+}
+
+/* Shared: every direction draws these with its own values. */
+
+[data-direction] body {
+    background-image: var(--page-wash);
+    background-attachment: fixed;
+}
+
+[data-direction] main > .wrap > :not(:last-child) {
+    margin-block-end: var(--section-gap);
+}
+
+[data-direction] main > section:has(> .wrap [data-kit='hero']) {
+    padding-block: var(--band-pad);
+}
+
+[data-direction] main > section:has(> .wrap [data-kit='cta-band']) {
+    background: var(--band-surface);
+    color: var(--band-ink);
+    padding-block: var(--band-pad);
+
+    --color-ink: var(--band-ink);
+    --color-ink-soft: color-mix(in oklab, var(--band-ink) 72%, var(--band-surface));
+    --color-rule: color-mix(in oklab, var(--band-ink) 24%, var(--band-surface));
+}
+
+/*
+ * hearth's band is the accent and counter's is the ink, and the palette's accent
+ * on either is under 3:1 in every palette (vellum's accent is its ink): so on
+ * them the accent becomes the band's ink — the eyebrow, the marks and the primary
+ * button invert, and the secondary is an outline. On the accent the soft ink is
+ * mixed at 90%: at 72% sandstone's lead and labels are 3.8:1, blossom's 3.9:1.
+ */
+:is([data-direction='hearth'], [data-direction='counter']) main > section:has(> .wrap [data-kit='cta-band']) {
+    --color-accent: var(--band-ink);
+    --color-accent-strong: color-mix(in oklab, var(--band-ink) 82%, var(--band-surface));
+    --color-on-accent: var(--band-surface);
+}
+
+[data-direction='hearth'] main > section:has(> .wrap [data-kit='cta-band']) {
+    --color-ink-soft: color-mix(in oklab, var(--band-ink) 90%, var(--band-surface));
+}
+
+:is([data-direction='hearth'], [data-direction='counter']) main > section:has(> .wrap [data-kit='cta-band']) .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--band-ink);
+    box-shadow: none;
+    color: var(--band-ink);
+}
+
+:is([data-direction='hearth'], [data-direction='counter']) main > section:has(> .wrap [data-kit='cta-band']) .btn-secondary:hover {
+    background: color-mix(in oklab, var(--band-ink) 12%, transparent);
+}
+
+[data-direction] [data-kit-part$='-eyebrow'] {
+    text-transform: var(--eyebrow-case);
+    letter-spacing: var(--eyebrow-tracking);
+}
+
+[data-direction] :is([data-kit-part='section-title'], [data-kit-part='features-title'], [data-kit-part='cta-band-title'], [data-kit-part='menu-title']) {
+    font-size: var(--heading-size);
+    line-height: var(--heading-leading);
+}
+
+[data-direction] [data-kit='media'] {
+    border-radius: var(--radius-media);
+}
+
+/*
+ * hearth — a dark, warm room by lamplight: one full-bleed photograph, the house
+ * in photographed doors, the carte in one quiet column, the visit band in the
+ * accent. The accent is a material here rather than a link colour.
+ */
+
+[data-direction='hearth'] main > section:has(> .wrap [data-kit='hero']) {
+    padding-block: 0;
+}
+
+[data-direction='hearth'] main > section:has(> .wrap [data-kit='hero']) > .wrap {
+    max-width: none;
+    padding-inline: 0;
+}
+
+[data-direction='hearth'] [data-kit-part='site-header-bar'] {
+    border-block-end: 1px solid var(--color-rule);
+    padding-block: 0.5rem;
+}
+
+[data-direction='hearth'] [data-kit-part='site-header-brand'] {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: var(--display-weight, 700);
+}
+
+[data-direction='hearth'] [data-kit-part='site-header-links'] :any-link:hover {
+    text-decoration: underline 2px var(--color-accent);
+    text-underline-offset: 0.4em;
+}
+
+[data-direction='hearth'] [data-kit='hero'] {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: end;
+    min-height: var(--hero-min-height);
+}
+
+[data-direction='hearth'] [data-kit='hero']::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--image-scrim);
+    pointer-events: none;
+}
+
+[data-direction='hearth'] [data-kit-part='hero-media'] {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+[data-direction='hearth'] [data-kit-part='hero-media'] [data-kit='media'] {
+    aspect-ratio: auto;
+    height: 100%;
+    border-radius: 0;
+}
+
+[data-direction='hearth'] [data-kit-part='hero-copy'] {
+    width: 100%;
+    max-width: var(--container-wrap);
+    margin-inline: auto;
+    padding: 4rem 1.25rem;
+}
+
+@media (min-width: 48rem) {
+    [data-direction='hearth'] [data-kit-part='hero-copy'] {
+        padding-inline: 2.5rem;
+    }
+}
+
+/* No photograph yet: the accent's glow, and the frame's caption as one small line — a finished look, not an empty box. */
+[data-direction='hearth'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) {
+    min-height: 62svh;
+    background: radial-gradient(120% 70% at 50% 0%, color-mix(in oklab, var(--color-accent) 28%, transparent), transparent 72%);
+}
+
+[data-direction='hearth'] [data-kit='hero']:not(:has([data-kit-part='media-image']))::after {
+    content: none;
+}
+
+[data-direction='hearth'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit='media'] {
+    background: transparent;
+}
+
+[data-direction='hearth'] [data-kit='hero'] [data-kit-part='media-frame'] {
+    display: none;
+}
+
+[data-direction='hearth'] [data-kit='hero'] [data-kit-part='media-caption'] {
+    padding: 1rem 1.25rem;
+    font-size: 0.75rem;
+    text-align: end;
+}
+
+/* The house in doors: a tile per item, the photograph filling it and the words over its foot. */
+@media (min-width: 48rem) {
+    [data-direction='hearth'] [data-kit-part='features-list'] {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+[data-direction='hearth'] [data-kit-part='features-item'] {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    overflow: hidden;
+    border-radius: var(--radius-media);
+    transition: translate var(--dur-base, 0.35s) ease-out;
+}
+
+[data-direction='hearth'] [data-kit-part='features-item']:has([data-kit-part='features-link']):hover {
+    translate: 0 -4px;
+}
+
+[data-direction='hearth'] :is([data-kit-part='features-media'], [data-kit-part='features-copy']) {
+    grid-area: 1 / 1;
+}
+
+[data-direction='hearth'] [data-kit-part='features-media'] [data-kit='media'] {
+    aspect-ratio: 16 / 10;
+}
+
+@media (min-width: 40rem) {
+    [data-direction='hearth'] [data-kit-part='features-media'] [data-kit='media'] {
+        aspect-ratio: 4 / 5;
+    }
+}
+
+@media (min-width: 48rem) {
+    [data-direction='hearth'] [data-kit-part='features-media'] [data-kit='media'] {
+        aspect-ratio: 3 / 4;
+    }
+}
+
+[data-direction='hearth'] [data-kit-part='features-media'] [data-kit-part='media-caption'] {
+    inset-block: 0 auto;
+}
+
+/* A phone's 16/10 tile is shorter than the words over its foot, which would run over the frame's glyph: the caption says what goes there. */
+@media (max-width: 39.99rem) {
+    [data-direction='hearth'] [data-kit-part='features-media'] [data-kit-part='media-frame'] {
+        color: transparent;
+    }
+}
+
+[data-direction='hearth'] [data-kit-part='features-copy'] {
+    z-index: 1;
+    align-self: end;
+    padding: 4rem 1.25rem 1.25rem;
+    background: var(--image-scrim);
+}
+
+[data-direction='hearth'] [data-kit-part='features-item-title'] {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+[data-direction='hearth'] [data-kit-part='features-body'] {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+[data-direction='hearth'] [data-kit-part='features-link']::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+[data-direction='hearth'] [data-kit-part='cta-band-detail'] > :first-child {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
+/* afx's carte: one quiet column, a hairline between dishes, no leader. */
+[data-direction='hearth'] [data-kit='menu'] {
+    max-width: 48rem;
+    margin-inline: auto;
+}
+
+[data-direction='hearth'] [data-kit-part='menu-section-title'] {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+[data-direction='hearth'] [data-kit-part='menu-leader'] {
+    display: none;
+}
+
+[data-direction='hearth'] [data-kit-part='menu-row'] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1.5rem;
+}
+
+[data-direction='hearth'] [data-kit-part='menu-name'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 700);
+    font-size: 1.125rem;
+}
+
+[data-direction='hearth'] [data-kit-part='menu-price'] {
+    font-variant-numeric: tabular-nums;
+}
+
+[data-direction='hearth'] [data-kit-part='menu-description'] {
+    max-width: 56ch;
+}
+
+[data-direction='hearth'] [data-kit-part='menu-item'] + [data-kit-part='menu-item'] {
+    border-block-start: 1px solid var(--color-rule);
+    padding-block-start: 1rem;
+}
+
+[data-direction='hearth'] [data-kit='schedule'] {
+    max-width: 34rem;
+    margin-inline: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+[data-direction='hearth'] [data-kit-part='catalogue-item'] {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+[data-direction='hearth'] [data-kit-part='catalogue-body'] {
+    padding-inline: 0;
+}
+
+[data-direction='hearth'] :is([data-kit-part='catalogue-image'], [data-kit-part='catalogue-frame']) {
+    border-radius: var(--radius-media);
+}
+
+[data-direction='hearth'] [data-kit-part='catalogue-name'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 700);
+}
+
+[data-direction='hearth'] [data-kit='map'] {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-media);
+    box-shadow: none;
+}
+
+[data-direction='hearth'] [data-kit-part='map-frame'] {
+    filter: invert(0.9) hue-rotate(180deg) saturate(0.6);
+}
+
+[data-direction='hearth'] [data-kit-part='map-caption'] {
+    background: var(--color-canvas-alt);
+}
+
+/*
+ * counter — a bright counter that gets to the point: a trust bar, the name
+ * beside a portrait, the week's hours as a strip, the carte in rows, the
+ * products on a rail, and a dark band asking for the order.
+ */
+
+[data-direction='counter'] body > header:has([data-kit='site-header']) {
+    padding-block-start: 0;
+}
+
+[data-direction='counter'] main > section:has(> .wrap [data-kit='hero']) {
+    background: var(--color-canvas-alt);
+}
+
+/* The hero sits on canvas-alt, where fresh's accent is 4.4:1: the eyebrow takes the stronger one. */
+[data-direction='counter'] [data-kit-part='hero-eyebrow'] {
+    color: var(--color-accent-strong);
+}
+
+[data-direction='counter'] body > footer:has([data-kit='site-footer']) {
+    background: var(--color-canvas-alt);
+}
+
+/* The trust bar: a dark strip bled to both edges of the window. */
+[data-direction='counter'] [data-kit-part='site-header-bar'] {
+    padding-block: 0.5rem;
+    color: var(--color-canvas);
+    border-image: conic-gradient(var(--color-ink) 0 0) fill 0 // 0 100vmax;
+}
+
+[data-direction='counter'] [data-kit-part='site-header-status']::before {
+    content: '';
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-inline-end: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-accent);
+}
+
+[data-direction='counter'] [data-kit-part='site-header-phone'] {
+    color: var(--color-canvas);
+    font-weight: 700;
+}
+
+[data-direction='counter'] [data-kit-part='site-header-brand'] {
+    font-weight: 700;
+}
+
+@media (min-width: 64rem) {
+    [data-direction='counter'] [data-kit-part='hero-media'] [data-kit='media'] {
+        aspect-ratio: 3 / 4;
+    }
+}
+
+[data-direction='counter'] [data-kit-part='hero-facts'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-block-start: 2px solid var(--color-ink);
+}
+
+@media (min-width: 48rem) {
+    [data-direction='counter'] [data-kit-part='features-item']:nth-child(even) [data-kit-part='features-media'] {
+        order: 2;
+    }
+}
+
+[data-direction='counter'] [data-kit-part$='-mark'] {
+    width: 2.5rem;
+    height: 2px;
+    background: var(--color-ink);
+}
+
+/*
+ * The carte in rows: as many columns of sections as fit, the title across them.
+ * Wrapped rather than a grid: a title spanning `1 / -1` fills every auto-fit
+ * track, so none is empty to collapse and two sections sit in a third of the page.
+ */
+[data-direction='counter'] [data-kit='menu'] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem 3rem;
+}
+
+[data-direction='counter'] [data-kit='menu'] > :is([data-kit-part='menu-title'], [data-kit-part='menu-section']) {
+    margin-block: 0;
+}
+
+[data-direction='counter'] [data-kit-part='menu-title'] {
+    flex-basis: 100%;
+}
+
+[data-direction='counter'] [data-kit-part='menu-section'] {
+    flex: 1 1 min(20rem, 100%);
+}
+
+[data-direction='counter'] [data-kit-part='menu-section-title'] {
+    padding-block-end: 0.5rem;
+    border-block-end: 2px solid var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+[data-direction='counter'] [data-kit-part='menu-leader'] {
+    display: none;
+}
+
+[data-direction='counter'] [data-kit-part='menu-row'] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+}
+
+[data-direction='counter'] [data-kit-part='menu-item'] + [data-kit-part='menu-item'] {
+    border-block-start: 1px solid var(--color-rule);
+    padding-block-start: 0.75rem;
+}
+
+[data-direction='counter'] [data-kit-part='menu-price'] {
+    font-weight: 600;
+}
+
+/* The hours standing out: a strip of the second ground bled across the window, the week in a row. */
+
+/*
+ * Opening the main frame, the strip joins the hero, which is on the same ground: the frame's own top
+ * padding would otherwise be a sliver of the first ground between the two. Both shapes — the tag,
+ * and the preview's wrapper around the drawing (`:has()` cannot nest, so they are two selectors).
+ */
+[data-direction='counter'] main > .wrap:is(:has(> [data-kit='schedule']:first-child), :has(> :first-child > [data-kit='schedule'])) {
+    padding-block-start: 0;
+}
+
+/*
+ * The strip is the hours as a band across the page, which is what they are in
+ * main's frame. Beside an offer or at the foot of a cover — carte's and poster's
+ * columns, split's visit half — a band bled out 100vmax runs under everything
+ * next to it, so there the schedule stays the kit's own panel.
+ */
+[data-direction='counter'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > :has(> [data-kit='schedule']) > [data-kit='schedule']) {
+    padding: var(--band-pad) 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    border-image: conic-gradient(var(--color-canvas-alt) 0 0) fill 0 // 0 100vmax;
+}
+
+[data-direction='counter'] [data-kit-part='schedule-days'] {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 64rem) {
+    [data-direction='counter'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > :has(> [data-kit='schedule']) > [data-kit='schedule']) [data-kit-part='schedule-days'] {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+}
+
+[data-direction='counter'] [data-kit-part='schedule-day'] {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding-block: 0;
+    border-width: 0;
+}
+
+[data-direction='counter'] [data-kit-part='schedule-dayname'] {
+    color: var(--color-ink-soft);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+[data-direction='counter'] :is([data-kit-part='schedule-hours'], [data-kit-part='schedule-closed']) {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 700);
+    font-size: 1.125rem;
+    font-variant-numeric: tabular-nums;
+    text-align: start;
+}
+
+/* The products on a rail that scrolls and snaps. */
+[data-direction='counter'] [data-kit='catalogue'] {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 80%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-block-end: 0.75rem;
+}
+
+@media (min-width: 40rem) {
+    [data-direction='counter'] [data-kit='catalogue'] {
+        grid-auto-columns: 16rem;
+    }
+}
+
+[data-direction='counter'] [data-kit-part='catalogue-item'] {
+    scroll-snap-align: start;
+}
+
+[data-direction='counter'] :is([data-kit-part='catalogue-image'], [data-kit-part='catalogue-frame']) {
+    aspect-ratio: 1;
+}
+
+[data-direction='counter'] [data-kit-part='catalogue-price'] {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+[data-direction='counter'] [data-kit='map'] {
+    border: 1.5px solid var(--color-ink);
+}
+
+[data-direction='counter'] [data-kit-part='map-caption'] {
+    background: var(--color-canvas-alt);
+}
+
+/*
+ * studio — calm and editorial: the photograph is loud and the chrome is quiet.
+ * No marks, centred heads, a price list in a narrow column, the people in
+ * portraits, and a lot of air.
+ */
+
+[data-direction='studio'] body > header:has([data-kit='site-header']) {
+    border-block-end: 1px solid var(--color-rule);
+}
+
+[data-direction='studio'] main > section:has(> .wrap [data-kit='hero'] [data-kit-part='media-image']) {
+    padding-block: 0;
+}
+
+[data-direction='studio'] main > section:has(> .wrap [data-kit='hero'] [data-kit-part='media-image']) > .wrap {
+    max-width: none;
+    padding-inline: 0;
+}
+
+[data-direction='studio'] body > footer:has([data-kit='site-footer']) {
+    text-align: center;
+}
+
+[data-direction='studio'] [data-kit-part$='-mark'] {
+    display: none;
+}
+
+[data-direction='studio'] :is([data-kit-part='features-head'], [data-kit-part='section-head'], [data-kit-part='cta-band-copy'], [data-kit-part='menu-title']) {
+    margin-inline: auto;
+    text-align: center;
+}
+
+[data-direction='studio'] [data-kit-part='site-header-brand'] {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: var(--display-weight, 400);
+}
+
+[data-direction='studio'] [data-kit-part='site-header-links'] {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+[data-direction='studio'] [data-kit='site-header'] .btn-primary {
+    background: transparent;
+    border: 1px solid var(--color-ink);
+    box-shadow: none;
+    color: var(--color-ink);
+}
+
+[data-direction='studio'] [data-kit='site-header'] .btn-primary:hover {
+    background: var(--color-canvas-alt);
+}
+
+/* With a photograph: full height, the name low on it in the canvas colour. */
+[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: end;
+    min-height: var(--hero-min-height);
+}
+
+[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image'])::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--image-scrim);
+    pointer-events: none;
+}
+
+[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-media'] {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit='media'] {
+    aspect-ratio: auto;
+    height: 100%;
+}
+
+[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-copy'] {
+    width: 100%;
+    max-width: var(--container-wrap);
+    margin-inline: auto;
+    padding: 4rem 1.25rem;
+    color: var(--color-canvas);
+
+    /* On the photograph the page's ink is the canvas: every text token turns with it, the facts included. */
+    --color-ink: var(--color-canvas);
+    --color-ink-soft: color-mix(in oklab, var(--color-canvas) 80%, transparent);
+    --color-rule: color-mix(in oklab, var(--color-canvas) 40%, transparent);
+}
+
+@media (min-width: 48rem) {
+    [data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-copy'] {
+        padding-inline: 2.5rem;
+    }
+}
+
+[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-eyebrow'] {
+    color: var(--color-canvas);
+}
+
+[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--color-canvas);
+    box-shadow: none;
+    color: var(--color-canvas);
+}
+
+/* No photograph yet: stacked and centred over a panorama frame across the reading width. */
+[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+}
+
+[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit-part='hero-copy'] {
+    max-width: 40rem;
+}
+
+[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit-part='hero-media'] {
+    width: 100%;
+}
+
+[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit='media'] {
+    aspect-ratio: 21 / 9;
+}
+
+[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) :is([data-kit-part='hero-title'], [data-kit-part='hero-lead']) {
+    margin-inline: auto;
+}
+
+[data-direction='studio'] :is([data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit-part='hero-actions'], [data-kit-part='cta-band-actions']) {
+    justify-content: center;
+}
+
+[data-direction='studio'] :is([data-kit-part='features-lead'], [data-kit-part='section-lead'], [data-kit-part='cta-band-lead']) {
+    margin-inline: auto;
+}
+
+/* The people in portraits. */
+@media (min-width: 48rem) {
+    [data-direction='studio'] [data-kit-part='features-list'] {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+[data-direction='studio'] [data-kit-part='features-item'] {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    align-content: start;
+    gap: 1rem;
+    text-align: center;
+}
+
+[data-direction='studio'] [data-kit-part='features-media'] [data-kit='media'] {
+    aspect-ratio: 3 / 4;
+}
+
+[data-direction='studio'] [data-kit-part='features-item-title'] {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+/* The price list: one narrow column, the dotted leaders kept. */
+[data-direction='studio'] [data-kit='menu'] {
+    max-width: 40rem;
+    margin-inline: auto;
+}
+
+[data-direction='studio'] [data-kit-part='menu-section-title'] {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+[data-direction='studio'] [data-kit-part='menu-name'] {
+    font-weight: 400;
+}
+
+[data-direction='studio'] [data-kit-part='menu-price'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 400);
+}
+
+[data-direction='studio'] [data-kit='schedule'] {
+    max-width: 26rem;
+    margin-inline: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+[data-direction='studio'] [data-kit-part='schedule-dayname'] {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+[data-direction='studio'] [data-kit-part='catalogue-item'] {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+[data-direction='studio'] [data-kit-part='catalogue-body'] {
+    padding-inline: 0;
+}
+
+[data-direction='studio'] :is([data-kit-part='catalogue-image'], [data-kit-part='catalogue-frame']) {
+    aspect-ratio: 3 / 4;
+}
+
+[data-direction='studio'] [data-kit-part='catalogue-name'] {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+[data-direction='studio'] [data-kit-part='catalogue-price'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 400);
+}
+
+[data-direction='studio'] [data-kit='map'] {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+[data-direction='studio'] [data-kit-part='map-frame'] {
+    filter: grayscale(1);
+}
+
+[data-direction='studio'] [data-kit='cta-band'] {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+}
+
+/* The details' own `lg:col-span-2` would open an implicit second column, and the actions would move into it. */
+[data-direction='studio'] [data-kit-part='cta-band-details'] {
+    grid-column: 1 / -1;
+}
+
+[data-direction='studio'] [data-kit='site-footer'] {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+}
+
+[data-direction='studio'] [data-kit-part='site-footer-note'] {
+    grid-column: 1 / -1;
+}
+
+/*
+ * market — a stall in the sun: a wash behind the page, the stall's panels as a
+ * board of glass cards, the highlight marking what is in season or open.
+ */
+
+[data-direction='market'] body > header:has([data-kit='site-header']) {
+    position: sticky;
+    top: 0.75rem;
+    z-index: 20;
+}
+
+/* Under a sticky header a nav item's target stops below it, not behind it. */
+[data-direction='market'] main :is(section[id], [data-kit][id]) {
+    scroll-margin-top: 9rem;
+}
+
+/*
+ * On the band's tint fresh's accent is 4.2:1 and sandstone's, dark, 3.9:1: its
+ * links and its button take the stronger one, and a hovered button the ink —
+ * declared a level down, since on the band itself the stronger one is what the
+ * accent was just given and would read as the ink too.
+ */
+[data-direction='market'] main > section:has(> .wrap [data-kit='cta-band']) {
+    --color-accent: var(--color-accent-strong);
+}
+
+[data-direction='market'] [data-kit='cta-band'] {
+    --color-accent-strong: var(--color-ink);
+}
+
+[data-direction='market'] main > section:has(> .wrap [data-kit='hero']) {
+    padding-block-start: 1.25rem;
+}
+
+@media (min-width: 64rem) {
+    [data-direction='market'] main > .wrap:has(> *) {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        align-items: start;
+        gap: var(--section-gap);
+    }
+
+    [data-direction='market'] main > .wrap > * {
+        grid-column: span 12;
+    }
+
+    [data-direction='market'] main > .wrap > :not(:last-child) {
+        margin-block-end: 0;
+    }
+
+    [data-direction='market'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > :has(> [data-kit='schedule'])) {
+        grid-column: span 5;
+    }
+
+    [data-direction='market'] :is(main > .wrap > [data-kit='map'], main > .wrap > :has(> [data-kit='map'])) {
+        grid-column: span 7;
+    }
+}
+
+/* Glass: the panels that stand on the board, and the header and footer over the wash. */
+[data-direction='market'] :is([data-kit='site-header'], [data-kit='site-footer'], [data-kit='schedule'], [data-kit='map'], [data-kit='section'], [data-kit-part='hero-copy'], [data-kit-part='features-item'], [data-kit-part='menu-section'], [data-kit-part='catalogue-item']) {
+    padding: 1.5rem;
+    border: 1px solid color-mix(in oklab, var(--color-rule) 70%, transparent);
+    border-radius: var(--radius-panel);
+    background: color-mix(in oklab, var(--color-raise) 72%, transparent);
+    box-shadow: none;
+    backdrop-filter: var(--panel-backdrop);
+}
+
+[data-direction='market'] [data-kit='site-header'] {
+    padding: 0.5rem 1.25rem;
+}
+
+[data-direction='market'] [data-kit-part='hero-copy'] {
+    padding: 2rem;
+}
+
+[data-direction='market'] [data-kit='map'] {
+    padding: 0;
+    overflow: hidden;
+}
+
+[data-direction='market'] :is([data-kit-part$='-eyebrow'], [data-kit-part='site-header-status']) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--color-highlight) 22%, var(--color-canvas));
+    color: var(--color-ink);
+}
+
+[data-direction='market'] :is([data-kit-part$='-eyebrow'], [data-kit-part='site-header-status'], [data-kit-part='hero-note'])::before {
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-highlight);
+}
+
+[data-direction='market'] [data-kit-part='hero-note']::before {
+    margin-inline-end: 0.5rem;
+}
+
+[data-direction='market'] [data-kit-part$='-mark'] {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background: var(--color-highlight);
+}
+
+@media (min-width: 64rem) {
+    /* Two panels side by side share their top and bottom edges; centred, the shorter floats in the other's height. */
+    [data-direction='market'] [data-kit='hero'] {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+    }
+}
+
+/* A bento board: the first item large, the others beside and under it. */
+[data-direction='market'] [data-kit-part='features-list'] {
+    gap: 1.25rem;
+}
+
+@media (min-width: 64rem) {
+    [data-direction='market'] [data-kit-part='features-list'] {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    [data-direction='market'] [data-kit-part='features-item'] {
+        grid-column: span 5;
+    }
+
+    [data-direction='market'] [data-kit-part='features-item']:first-child {
+        grid-column: span 7;
+        grid-row: span 2;
+    }
+}
+
+[data-direction='market'] [data-kit-part='features-item'] {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    align-content: start;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+[data-direction='market'] [data-kit-part='features-media'] [data-kit='media'] {
+    aspect-ratio: 16 / 9;
+}
+
+[data-direction='market'] [data-kit-part='features-item']:first-child [data-kit='media'] {
+    aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 64rem) {
+    [data-direction='market'] [data-kit='menu'] {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    [data-direction='market'] [data-kit='menu'] > :is([data-kit-part='menu-title'], [data-kit-part='menu-section']) {
+        margin-block: 0;
+    }
+
+    [data-direction='market'] [data-kit-part='menu-title'] {
+        grid-column: 1 / -1;
+    }
+}
+
+/* What is for sale as rows: a square photograph, the name, the price at the right. */
+[data-direction='market'] [data-kit='catalogue'] {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 48rem) {
+    [data-direction='market'] [data-kit='catalogue'] {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+[data-direction='market'] [data-kit-part='catalogue-item'] {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+[data-direction='market'] :is([data-kit-part='catalogue-image'], [data-kit-part='catalogue-frame']) {
+    aspect-ratio: 1;
+    border-radius: var(--radius-media);
+}
+
+[data-direction='market'] [data-kit-part='catalogue-body'] {
+    padding: 0;
+}
+
+[data-direction='market'] [data-kit-part='catalogue-price'] {
+    font-weight: 600;
+    text-align: end;
 }

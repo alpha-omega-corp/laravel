@@ -14,9 +14,10 @@ use Symfony\Component\Finder\SplFileInfo;
  * Copies the kit into the application, at the same paths it has in this package.
  *
  * With no argument that is the themed kit: the x-kit components, the stylesheet
- * holding the palettes they read, and their strings. With a reference it is one
- * raw Tailwind Plus component from resources/views/components/ui, which arrives
- * in the default palette and is the application's to re-theme.
+ * holding the palettes they read, the map of each palette's faces, and their
+ * strings. With a reference it is one raw Tailwind Plus component from
+ * resources/views/components/ui, which arrives in the default palette and is
+ * the application's to re-theme.
  */
 #[Signature('ui:kit
     {reference? : One raw kit component to copy instead, e.g. layout/cards/01-basic-card}
@@ -53,6 +54,7 @@ class InstallCommand extends Command
             ...$this->packageFiles($files, 'resources/views/components/kit'),
             'resources/css/kit.css',
             'resources/css/themes.css',
+            'resources/css/fonts.json',
             ...$this->packageFiles($files, 'lang'),
         ];
 
@@ -65,7 +67,7 @@ class InstallCommand extends Command
         $this->components->info('The UI kit is installed: <x-kit.button>, <x-kit.alert> and the rest are ready to use');
         $this->components->bulletList([
             'Pick a palette with data-palette on <html> (orchard, sandstone, harbour, graphite, blossom, fresh or vellum). Without one it is orchard.',
-            'Each palette names its typefaces as --font-* variables: load them with bunny() in vite.config.js and @fonts in the layout.',
+            'resources/css/fonts.json names each palette\'s two faces: load the ones your palette uses with bunny() in vite.config.js, and @fonts in the layout.',
             '<x-kit.dropdown> needs Tailwind Plus Elements: npm install @tailwindplus/elements, then import it in resources/js/app.js.',
         ]);
 

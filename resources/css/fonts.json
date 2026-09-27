@@ -1,0 +1,30 @@
+{
+    "orchard": {
+        "display": { "family": "Space Grotesk", "weights": [700] },
+        "body": { "family": "IBM Plex Sans", "weights": [400, 500, 600, 700] }
+    },
+    "sandstone": {
+        "display": { "family": "Fraunces", "weights": [600, 700] },
+        "body": { "family": "Source Sans 3", "weights": [400, 500, 600, 700] }
+    },
+    "harbour": {
+        "display": { "family": "Inter Tight", "weights": [600, 700] },
+        "body": { "family": "Inter", "weights": [400, 500, 600, 700] }
+    },
+    "graphite": {
+        "display": { "family": "JetBrains Mono", "weights": [500, 700] },
+        "body": { "family": "Inter", "weights": [400, 500, 600, 700] }
+    },
+    "blossom": {
+        "display": { "family": "Plus Jakarta Sans", "weights": [800, 700] },
+        "body": { "family": "Plus Jakarta Sans", "weights": [400, 500, 600, 700] }
+    },
+    "fresh": {
+        "display": { "family": "Outfit", "weights": [600, 700] },
+        "body": { "family": "Inter", "weights": [400, 500, 600, 700] }
+    },
+    "vellum": {
+        "display": { "family": "Instrument Serif", "weights": [400] },
+        "body": { "family": "Inter", "weights": [400, 500, 600, 700] }
+    }
+}

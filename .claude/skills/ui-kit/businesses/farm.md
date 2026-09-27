@@ -10,6 +10,11 @@ there down a road with no number on it.
 - schedule — when the farm shop and the market stalls are open
 - map — the way in, which on a farm is rarely where the address says
 
+## Directions
+
+- market — what is in season, on a board of glass panels over a wash of the palette
+- counter — a farm shop with a counter: the hours and the produce first
+
 ## Layout
 
 `marketing`

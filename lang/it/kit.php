@@ -15,7 +15,6 @@ return [
     // The prefabs: opening hours, a map, a catalogue.
     'closed' => 'Chiuso',
     'map' => 'Mappa di :address',
-    'no_address' => 'Ancora nessun indirizzo',
     'directions' => 'Indicazioni',
     'buy' => 'Acquista',
     'view' => 'Vedi',

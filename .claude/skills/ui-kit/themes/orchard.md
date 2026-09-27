@@ -21,3 +21,8 @@ Confident, crafted, a little brutalist.
 - console — good
 - focus — good
 - workspace — fair
+- split — best
+- carte — best
+- poster — good
+- board — good
+- journal — good

@@ -34,7 +34,7 @@ function relativeFiles(string $directory): array
         ->all();
 }
 
-it('installs every themed component, the stylesheet they read and their strings', function () {
+it('installs every themed component, the stylesheet they read, the faces it names and their strings', function () {
     $this->artisan('ui:kit')->assertSuccessful();
 
     expect(relativeFiles($this->project.'/resources/views/components/kit'))
@@ -42,6 +42,7 @@ it('installs every themed component, the stylesheet they read and their strings'
         ->and(relativeFiles($this->project.'/lang'))->toBe(relativeFiles(package_path('lang')))
         ->and($this->project.'/resources/css/kit.css')->toBeFile()
         ->and($this->project.'/resources/css/themes.css')->toBeFile()
+        ->and($this->project.'/resources/css/fonts.json')->toBeFile()
         ->and($this->project.'/resources/views/components/ui')->not->toBeDirectory();
 });
 

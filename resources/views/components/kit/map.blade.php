@@ -1,7 +1,7 @@
 @props([
-    'address' => '',
+    'address' => null,
     'title' => null,
-    'zoom' => 15,
+    'zoom' => null,
 ])
 
 @php
@@ -15,19 +15,31 @@
      * wants a pin needs; the Embed API's key is for modes this does not offer,
      * and a key written into markup is one every visitor can copy.
      *
-     * No address is a dashed box saying so, never an embed of an empty search:
-     * that renders the whole world and reads as a map that works.
+     * **Explicit props win, then what the site binds as `kit.map`**, keyed by
+     * these same names — the base package binds it to the site's identity —
+     * taken as a set and only when the tag gives no `address`, so a tag's own
+     * address is never captioned with the site's name. No address from either
+     * renders nothing, never an embed of an empty search: that renders the
+     * whole world and reads as a map that works.
      */
+    if ($address === null) {
+        $bound = app()->bound('kit.map') ? app('kit.map') : [];
+        $address = $bound['address'] ?? '';
+        $title ??= $bound['title'] ?? null;
+        $zoom ??= $bound['zoom'] ?? null;
+    }
+
     $address = trim((string) $address);
-    $zoom = max(1, min(21, (int) $zoom));
+    $zoom = max(1, min(21, (int) ($zoom ?? 15)));
     $query = rawurlencode($address);
 
     $ref = '<x-kit.map />';
 @endphp
 
-<figure data-ref="{{ $ref }}" {{ $attributes->class(['panel overflow-hidden']) }}>
-    @if ($address !== '')
+@if ($address !== '')
+    <figure data-ref="{{ $ref }}" data-kit="map" {{ $attributes->class(['panel overflow-hidden']) }}>
         <iframe
+            data-kit-part="map-frame"
             src="https://maps.google.com/maps?q={{ $query }}&amp;z={{ $zoom }}&amp;output=embed"
             title="{{ __('kit.map', ['address' => $address]) }}"
             class="block aspect-[4/3] w-full border-0 sm:aspect-[16/9]"
@@ -36,15 +48,11 @@
             allowfullscreen
         ></iframe>
 
-        <figcaption class="flex flex-wrap items-center justify-between gap-3 border-t border-rule px-4 py-3 text-sm">
-            <span class="text-ink">{{ $title ?: $address }}</span>
+        <figcaption data-kit-part="map-caption" class="flex flex-wrap items-center justify-between gap-3 border-t border-rule px-4 py-3 text-sm">
+            <span data-kit-part="map-address" class="text-ink">{{ $title ?: $address }}</span>
 
-            <a href="https://www.google.com/maps/search/?api=1&amp;query={{ $query }}" target="_blank" rel="noopener"
+            <a href="https://www.google.com/maps/search/?api=1&amp;query={{ $query }}" data-kit-part="map-directions" target="_blank" rel="noopener"
                class="font-medium text-accent hover:text-accent-strong">{{ __('kit.directions') }}</a>
         </figcaption>
-    @else
-        <div class="flex aspect-[16/9] items-center justify-center border-2 border-dashed border-rule p-6 text-center text-sm text-ink-soft">
-            {{ __('kit.no_address') }}
-        </div>
-    @endif
-</figure>
+    </figure>
+@endif

@@ -20,3 +20,8 @@ Austere, luxury, typographic.
 - console — good
 - stacked — good
 - workspace — fair
+- split — good
+- carte — best
+- poster — good
+- board — fair
+- journal — best

@@ -21,6 +21,11 @@ Friendly, consumer, generous.
 - stacked — good
 - console — fair
 - workspace — fair
+- split — good
+- carte — good
+- poster — best
+- board — good
+- journal — good
 
 ## Costs
 

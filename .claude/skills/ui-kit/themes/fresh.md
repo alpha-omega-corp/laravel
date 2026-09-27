@@ -21,6 +21,11 @@ Bright, energetic, current.
 - focus — good
 - console — fair
 - workspace — fair
+- split — best
+- carte — good
+- poster — good
+- board — best
+- journal — fair
 
 ## Costs
 

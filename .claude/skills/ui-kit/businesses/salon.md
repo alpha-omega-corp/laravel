@@ -9,6 +9,10 @@ a price, by appointment, and need to know when there is somebody in.
 - schedule — the opening hours
 - map — where it is
 
+## Directions
+
+- studio — the work is the loud part: a full-height photograph, a price list, the people
+
 ## Layout
 
 `marketing`

@@ -28,8 +28,11 @@ the question belongs to the other axis. `Workbench\App\Enums\Scheme`, which had
 `Light`/`Dark`/`Dual`, is what is left of the old model and nothing reads it.
 
 Which axis a viewer is on is theirs to change at runtime, through the
-**theme picker** — see `../features/theme-picker.md`, which ships in every new
-site.
+**theme picker** — see `../features/theme-picker.md`. It does not ship in a new
+site: a generated site is built in one palette, the one its mockup chose, and
+leaves the scheme to the operating system until somebody installs the picker —
+unless the page's direction pins one: hearth is dark by design
+(`../directions/README.md`).
 
 ## The token vocabulary
 
@@ -92,10 +95,37 @@ convention.
   matrix lives here, once, on the theme side; nothing reads it off the layouts.
 - `## Tokens`, `## Mood` and `## Costs` are prose for whoever is choosing.
 
-Adding a palette is a block in `themes.css`, a case in `Workbench\App\Enums\Theme`, a
-summary in `workbench/lang/*/theme.php`, a file here, and a row in each of the others'
-`## Pairs with`. Nothing lists them in code: deployer's `uikit.ReadCatalogue`
-walks this directory, so a palette exists here the moment its file does.
+Adding a palette is a block in `themes.css`, its two faces in `resources/css/fonts.json`,
+a case in `Workbench\App\Enums\Theme`, a summary in `workbench/lang/*/theme.php`, a file
+here, and a row in each of the others' `## Pairs with`. Nothing lists them in code:
+deployer's `uikit.ReadCatalogue` walks this directory, so a palette exists here the
+moment its file does.
 
-**A generated project keeps the palette it uses and deletes the rest**, along
-with the palette half of the picker and the font families in `vite.config.js`.
+## Where the faces come from
+
+**`resources/css/fonts.json` is the one list of each palette's faces**, beside
+`themes.css`, and `ui:kit` and `ui:import` copy it into the application with the
+stylesheets. It is JSON because three things read it: a site's `vite.config.js`,
+which loads with `bunny()` the faces of the palettes its `resources/layouts/*.json`
+name; this package's own `vite.config.js`, which loads all of them for the
+showcase; and deployer's mockup preview, which shows the faces a site will have.
+
+```json
+{ "<palette>": { "display": { "family": "Fraunces", "weights": [600, 700] },
+                 "body":    { "family": "Source Sans 3", "weights": [400, 500, 600, 700] } } }
+```
+
+Every palette has both roles. `family` is the name Bunny Fonts serves it under,
+and the CSS variable `@fonts` defines for it is `--font-` plus that name
+lowercased with every run of other characters turned into one `-`
+(`Source Sans 3` is `--font-source-sans-3`). The weights are the ones the kit
+sets the face at: the palette's `--display-weight` and 700 for the display face,
+since a few components put it in bold, and 400 to 700 for the body. Two palettes
+naming one family is ordinary, and so is one palette naming it twice (`blossom`);
+the loader merges them.
+
+In `themes.css` each face is read as `var(--font-<family>, '<Family>')`. The
+fallback is the point: a var() with none that points at nothing makes the whole
+declaration invalid, serif tail included, and every palette rendered in one
+inherited sans. With it, the family is named whether or not `@fonts` ran.
+`tests/Feature/FontsTest.php` holds the file and the stylesheet together.

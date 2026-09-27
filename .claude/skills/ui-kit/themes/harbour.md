@@ -20,3 +20,8 @@ Neutral, professional, dense.
 - workspace — best
 - focus — good
 - marketing — good
+- split — good
+- carte — good
+- poster — fair
+- board — best
+- journal — fair

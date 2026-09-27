@@ -20,6 +20,11 @@ Technical, instrument-panel.
 - stacked — good
 - focus — fair
 - marketing — fair
+- split — fair
+- carte — good
+- poster — fair
+- board — good
+- journal — fair
 
 ## Costs
 

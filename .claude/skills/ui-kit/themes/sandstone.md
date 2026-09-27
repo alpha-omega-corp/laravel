@@ -21,6 +21,11 @@ Considered, printed, unhurried.
 - stacked — good
 - console — fair
 - workspace — fair
+- split — good
+- carte — best
+- poster — best
+- board — fair
+- journal — best
 
 ## Costs
 

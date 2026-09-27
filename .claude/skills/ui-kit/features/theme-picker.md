@@ -2,7 +2,11 @@
 
 Two independent axes in one popover: which of the seven palettes the page is
 rendered in, and whether it is light, dark or whatever the operating system says.
-It ships in every new site, so a generated project has it before anybody asks.
+It does **not** ship in a new site: the worker template carries none of its files
+and `/create` never installs it. A generated site is built in the one palette its
+mockup chose, which the build writes as `data-palette` on `<html>`, and its scheme
+follows the operating system. Install it with `get-ui-feature theme-picker` when a
+site should let its visitors choose; today it runs in this package's showcase.
 
 ## Files
 
@@ -90,7 +94,9 @@ the computed style and writes one `meta[name="theme-color"]`, removing the two
 media-scoped tags: once a choice exists those answer the system rather than the
 viewer, and are wrong.
 
-**A site that wants one palette** keeps that block in `themes.css`, deletes the
-other six, drops the palette `radiogroup` from the picker, and removes the unused
-font families from `vite.config.js`. What is left is the light/dark axis, which
-is worth keeping on its own.
+**A site that wants one palette** drops the palette `radiogroup` from the picker.
+What is left is the light/dark axis, which is worth keeping on its own. A site
+that keeps all seven has to load the other six's faces itself: its
+`vite.config.js` loads only the faces `resources/css/fonts.json` names for the
+palettes its `resources/layouts/*.json` use, and without them the other six
+switch colour and keep a face only where the visitor has it installed.

@@ -100,20 +100,11 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     {{--
-        Every palette's families, because the picker switches type as well as colour and a
-        family that is not loaded falls back silently to the system stack. A project
-        generated from this template keeps one palette, and then keeps only its two faces
-        here and in vite.config.js.
+        Every palette's families, because the picker switches type as well as colour.
+        vite.config.js loads each one resources/css/fonts.json names, so a bare @fonts
+        is all of them with no second list here to keep in step.
     --}}
-    @fonts([
-        'space-grotesk', 'ibm-plex-sans',
-        'fraunces', 'source-sans-3',
-        'inter-tight', 'inter',
-        'jetbrains-mono',
-        'plus-jakarta-sans',
-        'outfit',
-        'instrument-serif',
-    ])
+    @fonts
     @vite(['workbench/resources/css/app.css', 'workbench/resources/js/app.js'])
 </head>
 <body class="h-full bg-canvas-alt font-body text-ink">

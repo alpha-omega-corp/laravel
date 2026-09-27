@@ -9,6 +9,10 @@ onto what is inside, and the reason to walk in.
 - schedule — the opening hours
 - map — where it is
 
+## Directions
+
+- counter — a window onto what is inside: the hours and the products first
+
 ## Layout
 
 `marketing`

@@ -30,7 +30,7 @@ Resolve references with the `uikit` MCP server's three tools:
 mcp__uikit__list-ui-components     browse: categories and groups, or one category's components
 mcp__uikit__search-ui-components   find by keyword — "card", "sign in", "pagination"
 mcp__uikit__get-ui-component       read one, by reference or by the shorthand above
-mcp__uikit__roll-ui-design         a starting point: a theme, a layout, and parts
+mcp__uikit__roll-ui-design         a starting point: a theme, a layout, and parts; with folder, a whole page
 mcp__uikit__get-ui-feature         a whole wired piece of a site, files and all
 ```
 
@@ -47,18 +47,53 @@ than the table below and a roll lights the route it took.
 
 `get-ui-feature` is for the things in here that are not a component. The **theme picker** is
 one: a Blade component, two enums, the stylesheet holding every palette, the script that
-remembers the choice, a file of strings, and four edits to the shell — and it ships in every
-new site, so a generated project has it before anybody asks. Call it with no arguments to see
-what there is; call it with a name to get every file, its contents, and the wiring. Never
-assemble one of these out of single components: what gets left out is the half that makes it
-work.
+remembers the choice, a file of strings, and four edits to the shell. It does not ship in a
+new site — a generated one is built in one palette, with the scheme left to the operating
+system — so it is installed when a site should let its visitors choose. Call it with no
+arguments to see what there is; call it with a name to get every file, its contents, and the
+wiring. Never assemble one of these out of single components: what gets left out is the half
+that makes it work.
 
 **Prefabs** are the kit components many kinds of business share: `schedule` (opening hours),
 `menu` (dishes or services with prices), `map` (a Google Maps embed of an address, no key) and
 `catalogue` (what it sells, a preview until a `checkout` URL is passed — deployer's `/stripe` wires
-one). Each documents its props at the top of its file. Which business needs which is
-`businesses/<name>.md` — `## Prefabs` and `## Layout`, see `businesses/README.md` — and
-`roll-ui-design` takes a `business` to roll a design around them.
+one). Each documents its props at the top of its file, and a bare tag fills itself from what the
+site binds as `kit.<name>` (the base package does), keyed by those same props — props on the tag
+win, and with data from neither it renders nothing. Which business needs which is
+`businesses/<name>.md` — `## Prefabs`, `## Directions` and `## Layout`, see
+`businesses/README.md` — and `roll-ui-design` takes a `business` to roll a design around them.
+
+**Directions** are how a public site looks: `hearth` (a dark room by lamplight), `counter`
+(a bright counter), `studio` (a calm studio) and `market` (a stall in the sun), each a file in
+`directions/` naming the layouts it is drawn in, the palettes it takes and its scheme. A
+direction is CSS over one DOM — a `[data-direction]` section of `kit.css` restyling the
+components through their `data-kit` hooks — so the tags stay bare and the build writes it on
+`<html data-direction>` next to the palette. Its sections are seven kit components: `site-header`,
+`hero`, `features`, `section`, `cta-band`, `site-footer`, and `media`, the one element that
+holds a photograph and, until there is one, a frame captioned with what belongs there. A roll for
+a business takes one of the business's directions, then a palette that direction takes, then one
+of its layouts; `direction` pins one, and one the business does not list is refused.
+
+**Layouts** are how a page is arranged, and a site has six to be rolled among — `marketing` (the
+long page), `split` (the opening in two halves, the visit beside it), `carte` (no hero: the list
+first, the hours held beside it), `poster` (the whole business on one screen), `board` (tiles
+instead of sections) and `journal` (a magazine's column, broken once by pictures). A layout is
+where a page starts, not what it is allowed to be: `layouts/README.md` says what a session may
+add beyond the recipe and the composition rules it keeps.
+`hearth` is dark by design: its root block in `kit.css` sets `color-scheme: dark`, which wins over
+`data-theme` by coming later, so nothing writes `data-theme` for it. A look that needs a part the
+markup does not mark is a new `data-kit-part` hook, never a class or a wrapper added to the page —
+the hook list is shared with deployer's preview drawings, and a class is one the next direction
+cannot undo.
+
+Given an application's `folder`, `roll-ui-design` rolls a whole page instead, every region
+filled from its layout's `## Regions` recipe (`layouts/README.md`) — the business's prefabs where
+the recipe names them, the rest in main — with kit components that application can build: `keep` holds the regions
+to leave exactly as they are, and `prefabs` the ones a brief chose — which outrank the
+business's, an empty list being none. A roll with `keep` knows nothing else about the page, so
+it is passed the first roll's `business`, `direction` and `prefabs` again. `mockup-ui-layout`
+takes the same `business` and `direction`, so the mockup remembers who the page is for and how
+it looks.
 
 The kit **used to live in this application** as `App\Support\UiKit` and a Laravel MCP server
 under `app/Mcp`. It was never really a Laravel thing — it walks a directory of Blade files and
@@ -149,7 +184,7 @@ files belong to the application.
 composer config repositories.ui-kit vcs https://github.com/alpha-omega-corp/laravel
 composer require --dev alpha-omega-corp/ui-kit:dev-production
 
-php artisan ui:kit                                 # the 44 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php
+php artisan ui:kit                                 # the 51 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php
 php artisan ui:kit ::layout/cards/01-basic-card    # one raw <x-ui.*> component; re-theme it afterwards
 ```
 

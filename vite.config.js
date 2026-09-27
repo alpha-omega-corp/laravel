@@ -2,6 +2,17 @@ import tailwindcss from '@tailwindcss/vite';
 import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
 import { defineConfig, lazyPlugins } from 'vite-plus';
+import { readFileSync } from 'node:fs';
+
+// Every palette's faces, off the map a site's own vite.config.js reads, so the
+// showcase and a site cannot load two different lists. Only orchard, the default,
+// is preloaded: the rest are fetched when a palette that uses them is picked.
+const palettes = JSON.parse(readFileSync(new URL('./resources/css/fonts.json', import.meta.url), 'utf8'));
+const fonts = Object.entries(palettes).flatMap(([palette, faces]) =>
+    Object.values(faces).map(({ family, weights }) =>
+        bunny(family, { weights, preload: palette === 'orchard' ? [{ weight: weights[0] }] : false }),
+    ),
+);
 
 export default defineConfig({
     plugins: lazyPlugins(() => [
@@ -11,52 +22,7 @@ export default defineConfig({
             input: ['workbench/resources/css/app.css', 'workbench/resources/js/app.js'],
             publicDirectory: 'workbench/public',
             refresh: ['resources/views/**', 'lang/**', 'workbench/resources/views/**', 'workbench/routes/**', 'workbench/lang/**'],
-            fonts: [
-                bunny('Space Grotesk', {
-                    weights: [500, 700],
-                    preload: [{ weight: 700 }],
-                }),
-                bunny('IBM Plex Sans', {
-                    weights: [400, 500],
-                    preload: [{ weight: 400 }],
-                }),
-                // The faces of the other six palettes. Only orchard, the default, is
-                // preloaded: the rest are fetched when a palette that uses them is
-                // picked. A generated project keeps the families of its own palette
-                // and drops the others from here and from @fonts in the shell.
-                bunny('Fraunces', {
-                    weights: [600],
-                    preload: false,
-                }),
-                bunny('Source Sans 3', {
-                    weights: [400, 500],
-                    preload: false,
-                }),
-                bunny('Inter Tight', {
-                    weights: [600],
-                    preload: false,
-                }),
-                bunny('Inter', {
-                    weights: [400, 500],
-                    preload: false,
-                }),
-                bunny('JetBrains Mono', {
-                    weights: [500],
-                    preload: false,
-                }),
-                bunny('Plus Jakarta Sans', {
-                    weights: [400, 500, 800],
-                    preload: false,
-                }),
-                bunny('Outfit', {
-                    weights: [600],
-                    preload: false,
-                }),
-                bunny('Instrument Serif', {
-                    weights: [400],
-                    preload: false,
-                }),
-            ],
+            fonts,
         }),
         tailwindcss(),
     ]),
