@@ -1,6 +1,6 @@
 # shop
 
-A shop with a counter: a boutique, a bakery, a bookshop. The site is a window
+A shop with a counter: a boutique, a bookshop, a delicatessen. The site is a window
 onto what is inside, and the reason to walk in.
 
 ## Prefabs
@@ -16,3 +16,10 @@ onto what is inside, and the reason to walk in.
 ## Layout
 
 `marketing`
+
+## Pages
+
+- / — home: split | board | marketing; schedule, map
+- /products — offer: carte | marketing; catalogue — Products
+- /our-story — story: marketing — Our story
+- /order — book: split | marketing; schedule, map — Order

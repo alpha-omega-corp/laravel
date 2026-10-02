@@ -30,71 +30,6 @@ function directionSpecs(): array
 }
 
 /**
- * The non-empty lines under one `## heading`, trimmed, up to the next heading.
- *
- * @return list<string>
- */
-function specSection(string $body, string $heading): array
-{
-    $lines = [];
-    $inside = false;
-
-    foreach (preg_split('/\R/', $body) ?: [] as $line) {
-        $line = trim($line);
-
-        if (str_starts_with($line, '#')) {
-            if ($inside) {
-                break;
-            }
-
-            $inside = strcasecmp(trim(ltrim($line, '# ')), $heading) === 0;
-
-            continue;
-        }
-
-        if ($inside && $line !== '') {
-            $lines[] = $line;
-        }
-    }
-
-    return $lines;
-}
-
-/**
- * `- <name> — <rest>` items under one heading, as name to rest.
- *
- * @return array<string, string>
- */
-function specItems(string $body, string $heading): array
-{
-    $items = [];
-
-    foreach (specSection($body, $heading) as $line) {
-        if (preg_match('/^- ([a-z][a-z0-9-]*) — (.+)$/u', $line, $match)) {
-            $items[$match[1]] = trim($match[2]);
-        }
-    }
-
-    return $items;
-}
-
-/**
- * The recipe lines of a `## Regions`: region to the component names it places.
- *
- * @return array<string, list<string>>
- */
-function specRecipe(string $body): array
-{
-    $recipe = [];
-
-    foreach (specItems($body, 'Regions') as $region => $slots) {
-        $recipe[$region] = array_values(array_filter(array_map('trim', preg_split('/[,|+]/', $slots) ?: [])));
-    }
-
-    return $recipe;
-}
-
-/**
  * kit.css's style rules, comments taken out, with whether each sits in an
  * `@media` or `@supports` block. `@theme` and `@layer` are the kit's own and are
  * skipped: a direction is unlayered by rule.
@@ -310,10 +245,19 @@ it('rolls a business only in the directions it lists', function () {
     ksort($lists);
 
     expect($lists)->toBe([
+        'bakery' => ['counter', 'market'],
+        'butcher' => ['counter', 'market'],
+        'cafe' => ['counter', 'studio'],
         'farm' => ['market', 'counter'],
+        'fitness' => ['studio', 'counter'],
+        'florist' => ['studio', 'counter'],
+        'hotel' => ['hearth', 'studio'],
+        'practice' => ['studio', 'counter'],
         'restaurant' => ['hearth', 'counter'],
         'salon' => ['studio'],
         'shop' => ['counter'],
+        'trades' => ['counter', 'studio'],
+        'winery' => ['hearth', 'market'],
     ]);
 
     foreach ($lists as $directions) {

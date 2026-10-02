@@ -14,8 +14,10 @@ use Symfony\Component\Finder\SplFileInfo;
  * Copies the kit into the application, at the same paths it has in this package.
  *
  * With no argument that is the themed kit: the x-kit components, the stylesheet
- * holding the palettes they read, the map of each palette's faces, and their
- * strings. With a reference it is one raw Tailwind Plus component from
+ * holding the palettes they read, the map of each palette's faces, their
+ * strings, and a library of fruit drawings in public/images/fruits — one SVG per
+ * fruit, drawn in orchard's colours, for a catalogue card or a media frame.
+ * With a reference it is one raw Tailwind Plus component from
  * resources/views/components/ui, which arrives in the default palette and is
  * the application's to re-theme.
  */
@@ -56,6 +58,7 @@ class InstallCommand extends Command
             'resources/css/themes.css',
             'resources/css/fonts.json',
             ...$this->packageFiles($files, 'lang'),
+            ...$this->packageFiles($files, 'public/images/fruits'),
         ];
 
         foreach ($paths as $path) {
@@ -69,6 +72,7 @@ class InstallCommand extends Command
             'Pick a palette with data-palette on <html> (orchard, sandstone, harbour, graphite, blossom, fresh or vellum). Without one it is orchard.',
             'resources/css/fonts.json names each palette\'s two faces: load the ones your palette uses with bunny() in vite.config.js, and @fonts in the layout.',
             '<x-kit.dropdown> needs Tailwind Plus Elements: npm install @tailwindplus/elements, then import it in resources/js/app.js.',
+            'public/images/fruits holds a drawing per fruit, in orchard\'s colours: /images/fruits/mangue.svg.',
         ]);
 
         return self::SUCCESS;

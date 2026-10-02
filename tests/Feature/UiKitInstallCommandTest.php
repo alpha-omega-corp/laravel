@@ -34,12 +34,13 @@ function relativeFiles(string $directory): array
         ->all();
 }
 
-it('installs every themed component, the stylesheet they read, the faces it names and their strings', function () {
+it('installs every themed component, the stylesheet they read, the faces it names, their strings and the fruit drawings', function () {
     $this->artisan('ui:kit')->assertSuccessful();
 
     expect(relativeFiles($this->project.'/resources/views/components/kit'))
         ->toBe(relativeFiles(package_path('resources/views/components/kit')))
         ->and(relativeFiles($this->project.'/lang'))->toBe(relativeFiles(package_path('lang')))
+        ->and(relativeFiles($this->project.'/public/images/fruits'))->toBe(relativeFiles(package_path('public/images/fruits')))->not->toBeEmpty()
         ->and($this->project.'/resources/css/kit.css')->toBeFile()
         ->and($this->project.'/resources/css/themes.css')->toBeFile()
         ->and($this->project.'/resources/css/fonts.json')->toBeFile()

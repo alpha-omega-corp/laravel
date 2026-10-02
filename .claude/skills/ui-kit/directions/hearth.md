@@ -23,7 +23,7 @@ with the address and the hours. Dark by design, whatever the visitor's system sa
 
 ## Suits
 
-a restaurant with a room worth photographing, dinner service
+a restaurant with a room worth photographing, dinner service, a cellar door, a small hotel
 
 ## Looks
 

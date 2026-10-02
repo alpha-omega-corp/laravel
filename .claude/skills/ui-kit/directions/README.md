@@ -75,6 +75,11 @@ menu         menu-title menu-section menu-section-title menu-list menu-item menu
 schedule     schedule-title schedule-days schedule-day schedule-dayname schedule-hours schedule-closed schedule-note
 catalogue    catalogue-item catalogue-image catalogue-frame catalogue-body catalogue-row catalogue-name catalogue-price catalogue-description catalogue-action
 map          map-frame map-caption map-address map-directions
+events       events-title events-list events-item events-date events-time events-name events-description events-image
+booking      booking-title booking-intro booking-form booking-field booking-actions booking-sent booking-link
+faq          faq-title faq-list faq-entry faq-question faq-answer
+gallery      gallery-title gallery-grid gallery-item gallery-image gallery-caption
+team         team-title team-list team-member team-image team-frame team-name team-role team-bio
 ```
 
 An icon (`<x-kit.icon>`) carries `data-kit="icon"` on its `svg` and draws in `currentColor`,

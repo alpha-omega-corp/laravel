@@ -26,7 +26,7 @@ asking for the order. Warm paper, framed, practical.
 
 ## Suits
 
-a butcher, a bakery, a shop with a counter, lunch as much as dinner
+a butcher, a bakery, a café, a shop with a counter, lunch as much as dinner, a trade or a practice that keeps it plain
 
 ## Looks
 

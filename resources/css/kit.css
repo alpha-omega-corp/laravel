@@ -440,13 +440,48 @@
     letter-spacing: var(--eyebrow-tracking);
 }
 
-[data-direction] :is([data-kit-part='section-title'], [data-kit-part='features-title'], [data-kit-part='cta-band-title'], [data-kit-part='menu-title']) {
+[data-direction] :is([data-kit-part='section-title'], [data-kit-part='features-title'], [data-kit-part='cta-band-title'], [data-kit-part='menu-title'], [data-kit-part='booking-title'], [data-kit-part='faq-title']) {
+    font-size: var(--heading-size);
+    line-height: var(--heading-leading);
+}
+
+[data-direction] [data-kit-part='team-title'] {
     font-size: var(--heading-size);
     line-height: var(--heading-leading);
 }
 
 [data-direction] [data-kit='media'] {
     border-radius: var(--radius-media);
+}
+
+/* What is on: titled like a menu. */
+[data-direction] [data-kit-part='events-title'] {
+    font-size: var(--heading-size);
+    line-height: var(--heading-leading);
+}
+
+/* The gallery: titled like a menu, its pictures framed like the direction's photographs. */
+[data-direction] [data-kit-part='gallery-title'] {
+    font-size: var(--heading-size);
+    line-height: var(--heading-leading);
+}
+
+[data-direction] [data-kit-part='gallery-image'] {
+    border-radius: var(--radius-media);
+}
+
+[data-direction='counter'] [data-kit-part='gallery-image'] {
+    aspect-ratio: 1;
+}
+
+[data-direction='studio'] [data-kit-part='gallery-image'] {
+    aspect-ratio: 3 / 4;
+}
+
+[data-direction='studio'] [data-kit-part='gallery-caption'] {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
 }
 
 /*
@@ -677,6 +712,17 @@
     padding-block-start: 1rem;
 }
 
+[data-direction='hearth'] [data-kit='faq'] {
+    max-width: 44rem;
+    margin-inline: auto;
+}
+
+[data-direction='hearth'] [data-kit-part='faq-question'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 700);
+    font-size: 1.125rem;
+}
+
 [data-direction='hearth'] [data-kit='schedule'] {
     max-width: 44rem;
     margin-inline: auto;
@@ -701,6 +747,34 @@
 }
 
 [data-direction='hearth'] [data-kit-part='catalogue-name'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 700);
+}
+
+/* What is on as the carte: one quiet column, the names in the display face. */
+[data-direction='hearth'] [data-kit='events'] {
+    max-width: 44rem;
+    margin-inline: auto;
+}
+
+[data-direction='hearth'] [data-kit-part='events-name'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 700);
+    font-size: 1.125rem;
+}
+
+/* The team as the catalogue: portraits with no card around them, names in the display face. */
+[data-direction='hearth'] [data-kit-part='team-member'] {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+[data-direction='hearth'] :is([data-kit-part='team-image'], [data-kit-part='team-frame']) {
+    border-radius: var(--radius-media);
+}
+
+[data-direction='hearth'] [data-kit-part='team-name'] {
     font-family: var(--font-display);
     font-weight: var(--display-weight, 700);
 }
@@ -955,6 +1029,25 @@
     font-weight: 600;
 }
 
+/* What is on as the counter's labels: the date set like a section of the carte, the name in the display face. */
+[data-direction='counter'] [data-kit-part='events-date'] {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+[data-direction='counter'] [data-kit-part='events-name'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 700);
+    font-size: 1.125rem;
+}
+
+[data-direction='counter'] :is([data-kit-part='team-image'], [data-kit-part='team-frame']) {
+    aspect-ratio: 1;
+}
+
 [data-direction='counter'] [data-kit='map'] {
     border: 1.5px solid var(--color-ink);
 }
@@ -990,7 +1083,7 @@
     display: none;
 }
 
-[data-direction='studio'] :is([data-kit-part='features-head'], [data-kit-part='section-head'], [data-kit-part='cta-band-copy'], [data-kit-part='menu-title']) {
+[data-direction='studio'] :is([data-kit-part='features-head'], [data-kit-part='section-head'], [data-kit-part='cta-band-copy'], [data-kit-part='menu-title'], [data-kit-part='booking-title'], [data-kit-part='faq-title']) {
     margin-inline: auto;
     text-align: center;
 }
@@ -1199,6 +1292,44 @@
     font-weight: var(--display-weight, 400);
 }
 
+[data-direction='studio'] [data-kit-part='events-title'] {
+    margin-inline: auto;
+    text-align: center;
+}
+
+[data-direction='studio'] [data-kit-part='events-date'] {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+[data-direction='studio'] [data-kit-part='events-name'] {
+    font-weight: 400;
+}
+
+[data-direction='studio'] [data-kit-part='team-title'] {
+    margin-inline: auto;
+    text-align: center;
+}
+
+[data-direction='studio'] [data-kit-part='team-member'] {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+[data-direction='studio'] :is([data-kit-part='team-image'], [data-kit-part='team-frame']) {
+    aspect-ratio: 3 / 4;
+}
+
+[data-direction='studio'] [data-kit-part='team-name'] {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
 [data-direction='studio'] [data-kit='map'] {
     border: 0;
     border-radius: 0;
@@ -1306,7 +1437,7 @@
 }
 
 /* Glass: the panels that stand on the board, and the header and footer over the wash. */
-[data-direction='market'] :is([data-kit='site-header'], [data-kit='site-footer'], [data-kit='schedule'], [data-kit='map'], [data-kit='section'], [data-kit-part='hero-copy'], [data-kit-part='features-item'], [data-kit-part='menu-section'], [data-kit-part='catalogue-item']) {
+[data-direction='market'] :is([data-kit='site-header'], [data-kit='site-footer'], [data-kit='schedule'], [data-kit='map'], [data-kit='section'], [data-kit-part='hero-copy'], [data-kit-part='features-item'], [data-kit-part='menu-section'], [data-kit-part='catalogue-item'], [data-kit-part='faq-list'], [data-kit-part='events-list']) {
     padding: 1.5rem;
     border: 1px solid color-mix(in oklab, var(--color-rule) 70%, transparent);
     border-radius: var(--radius-panel);
@@ -1450,4 +1581,13 @@
 [data-direction='market'] [data-kit-part='catalogue-price'] {
     font-weight: 600;
     text-align: end;
+}
+
+/* A member is a glass panel on the board, like a catalogue card. */
+[data-direction='market'] [data-kit-part='team-member'] {
+    border: 1px solid color-mix(in oklab, var(--color-rule) 70%, transparent);
+    border-radius: var(--radius-panel);
+    background: color-mix(in oklab, var(--color-raise) 72%, transparent);
+    box-shadow: none;
+    backdrop-filter: var(--panel-backdrop);
 }

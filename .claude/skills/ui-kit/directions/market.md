@@ -23,7 +23,7 @@ footer.
 
 ## Suits
 
-a farm shop, a market stall, a box scheme
+a farm shop, a market stall, a box scheme, a bakery or a butcher with its own produce, a winery
 
 ## Looks
 

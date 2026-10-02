@@ -55,9 +55,11 @@ wiring. Never assemble one of these out of single components: what gets left out
 that makes it work.
 
 **Prefabs** are the kit components many kinds of business share: `schedule` (opening hours),
-`menu` (dishes or services with prices), `map` (a Google Maps embed of an address, no key) and
+`menu` (dishes or services with prices), `map` (a Google Maps embed of an address, no key),
 `catalogue` (what it sells, a preview until a `checkout` URL is passed — deployer's `/stripe` wires
-one). Each documents its props at the top of its file, and a bare tag fills itself from what the
+one), `gallery` (photographs of the work or the place), `team` (the people, with a photograph and
+a role), `events` (what is on and when), `faq` (the questions asked every day) and `booking` (a
+request for a day and a time, or a link to the booking system the business already uses). Each documents its props at the top of its file, and a bare tag fills itself from what the
 site binds as `kit.<name>` (the base package does), keyed by those same props — props on the tag
 win, and with data from neither it renders nothing. Which business needs which is
 `businesses/<name>.md` — `## Prefabs`, `## Directions` and `## Layout`, see
@@ -132,6 +134,27 @@ surface from source, and an installed Deployer serves it as
 
 The full list is in `references/index.md` — grep it rather than reading it whole.
 
+## A site of several pages
+
+A site is more than its home. **`businesses/<name>.md` has a `## Pages`**: the pages its kind of
+site has, home first and five at most, each with its path, its role, the layouts it may be drawn
+in, the prefabs that live on it and its label in the navigation — a list prefab such as the menu on
+exactly one page, which home links to rather than repeats. Deployer's `plan-ui-site` proposes that
+set, one theme and one direction for every page, and a site keeps its actual pages in
+`resources/pages.json`, from which the worker routes them and shares the navigation with every view
+as `$siteNav`. The `site-header` draws `$siteNav` when its tag is given no items, and marks the page
+being shown.
+
+**`components/<name>.md` gives every themed component its rules**: `## Placement`, which regions of
+which layouts it fits (`fits`, `first` or `never`), `## Limits`, how much of it a page takes, and
+`## Behaviour`, what it does once it is there. The factory places a component only where its rules
+let it. `components/README.md` is the grammar and the region classes for whoever writes one — it
+is export-ignored, as every README here is, so it never reaches a site.
+
+**`laws.md` holds the thirty laws of UX** (lawsofux.com) that every rule, page and check cites by
+slug, how this kit applies each, and the thresholds deployer's checks count against: past the first
+number a page fails `check_site`, past the advice it is only told so.
+
 ## Categories
 
 | category | components | groups |
@@ -196,7 +219,7 @@ files belong to the application.
 composer config repositories.ui-kit vcs https://github.com/alpha-omega-corp/laravel
 composer require --dev alpha-omega-corp/ui-kit:dev-production
 
-php artisan ui:kit                                 # the 51 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php
+php artisan ui:kit                                 # the 51 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php, public/images/fruits
 php artisan ui:kit ::layout/cards/01-basic-card    # one raw <x-ui.*> component; re-theme it afterwards
 ```
 

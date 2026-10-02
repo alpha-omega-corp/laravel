@@ -20,6 +20,11 @@ function prefabData(): array
         'menu' => [['title' => 'La carte', 'sections' => [['title' => 'Pizze', 'items' => [['name' => 'Margherita', 'price' => '14.50']]]]], ['La carte', 'Pizze', 'Margherita', '14.50']],
         'catalogue' => [['items' => [['id' => 7, 'name' => 'Œufs', 'price' => '6.–']], 'checkout' => '/checkout'], ['Œufs', '6.–', 'action="/checkout"', 'value="7"']],
         'map' => [['address' => 'Rue du Marché 1, Genève', 'title' => 'Chez Anna', 'zoom' => 12], ['q=Rue%20du%20March%C3%A9%201%2C%20Gen%C3%A8ve', '&amp;z=12', 'Chez Anna']],
+        'booking' => [['title' => 'Réserver', 'intro' => 'Une table ce soir ?', 'url' => null, 'services' => ['Coupe', 'Couleur'], 'action' => '/booking'], ['Réserver', 'Une table ce soir ?', 'action="/booking"', 'Coupe', 'name="website"']],
+        'events' => [['title' => 'Au domaine', 'events' => [['date' => 'samedi 12 octobre', 'time' => '18:00–22:00', 'datetime' => '2026-10-12T18:00', 'name' => 'Caves ouvertes', 'description' => 'Six vins à goûter', 'image' => '/caves.jpg']]], ['Au domaine', 'datetime="2026-10-12T18:00"', 'samedi 12 octobre', '18:00–22:00', 'Caves ouvertes', 'Six vins à goûter', 'src="/caves.jpg"']],
+        'faq' => [['title' => 'Questions', 'entries' => [['question' => 'Où se garer ?', 'answer' => 'Place du Marché']]], ['Questions', 'Où se garer ?', 'Place du Marché']],
+        'gallery' => [['title' => 'Nos réalisations', 'pictures' => [['image' => '/mariage.jpg', 'alt' => 'Un bouquet de pivoines', 'caption' => 'Mariage à Nyon', 'width' => 1200, 'height' => 1600]]], ['Nos réalisations', 'src="/mariage.jpg"', 'alt="Un bouquet de pivoines"', 'width="1200"', 'Mariage à Nyon']],
+        'team' => [['title' => 'L’équipe', 'members' => [['name' => 'Léa Martin', 'role' => 'Coiffeuse', 'bio' => 'Les coupes courtes', 'image' => '/lea.jpg']]], ['L’équipe', 'Léa Martin', 'Coiffeuse', 'Les coupes courtes', 'src="/lea.jpg"']],
     ];
 }
 
@@ -136,4 +141,28 @@ it('is a preview until it is given a checkout, and a form per item after', funct
 
     expect(Blade::render('<x-kit.catalogue :items="$items" checkout="/checkout" />', ['items' => $items]))
         ->toContain('action="/checkout"')->toContain('name="item" value="eggs"')->toContain('name="_token"');
+});
+
+it('opens an answer with no script, keeps its line breaks and prints it as text', function () {
+    app()->instance('kit.faq', prefabData()['faq'][0]);
+
+    $html = Blade::render('<x-kit.faq :entries="$entries" />', ['entries' => [
+        ['question' => 'Parking?', 'answer' => "Behind the station.\n<b>Free</b> at night."],
+    ]]);
+
+    expect($html)->toContain('<details')->toContain('<summary')->toContain('Parking?')
+        ->toContain("Behind the station.\n&lt;b&gt;Free&lt;/b&gt; at night.")
+        ->not->toContain('<script')->not->toContain('Où se garer')->not->toContain('Questions');
+});
+
+it('leads each event with its date, for a machine on the time element and as the business says it', function () {
+    app()->instance('kit.events', prefabData()['events'][0]);
+
+    $html = Blade::render('<x-kit.events :events="$events" />', ['events' => [['date' => 'du 24 au 26 octobre', 'name' => 'Fête des vendanges']]]);
+
+    expect($html)->toContain('Fête des vendanges')->toContain('du 24 au 26 octobre')
+        ->not->toContain('datetime=')->not->toContain('events-time')->not->toContain('events-image')
+        ->not->toContain('Au domaine')->not->toContain('Caves ouvertes');
+
+    expect(Blade::render('<x-kit.events title="Agenda" />'))->toContain('Agenda')->toContain('Caves ouvertes');
 });

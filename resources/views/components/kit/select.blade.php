@@ -12,21 +12,24 @@
      *
      * A native <select>: the kit's listbox versions need a script and a popover
      * to do what the browser already does, and they do not do it on a phone.
+     * As with the input, every attribute but `class` and `style` is the field's:
+     * `autocomplete="country"` or `required` on the wrapper does nothing.
      *
      * @var array<string, string> $options
      */
-    $id = $name !== '' ? $name : 'select-'.uniqid();
+    $id = $attributes->get('id') ?: ($name !== '' ? $name : 'select-'.uniqid());
 
     $ref = '<x-kit.select />';
 @endphp
 
-<div data-ref="{{ $ref }}" {{ $attributes->class(['space-y-1.5']) }}>
+<div data-ref="{{ $ref }}" {{ $attributes->only(['class', 'style'])->class(['space-y-1.5']) }}>
     @if ($label)
         <label for="{{ $id }}" class="block text-sm font-medium text-ink">{{ $label }}</label>
     @endif
 
     <select name="{{ $name }}" id="{{ $id }}"
             @if ($hint) aria-describedby="{{ $id }}-description" @endif
+            {{ $attributes->except(['class', 'style', 'id']) }}
             class="block w-full rounded-control border border-rule bg-canvas px-3 py-2 text-sm text-ink focus:border-accent focus:outline-hidden">
         @foreach ($options as $optionValue => $optionLabel)
             <option value="{{ $optionValue }}" @selected((string) $optionValue === (string) $selected)>{{ $optionLabel }}</option>

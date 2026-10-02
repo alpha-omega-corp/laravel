@@ -24,7 +24,7 @@ air between everything.
 
 ## Suits
 
-a hairdresser, a barber, a beauty or nail studio
+a hairdresser, a barber, a beauty or nail studio, a florist, a practice, a fitness studio, a small hotel
 
 ## Looks
 

@@ -17,14 +17,21 @@
      * The kit ships the label, the hint, the error and the leading add-on as
      * separate files; they are props here, because a field with a label is not a
      * different component from a field without one.
+     *
+     * **Every attribute but `class` and `style` is the field's**, so
+     * `autocomplete`, `inputmode`, `required` or `wire:model` reach the
+     * `<input>`, and an `id` names it and its label. On the wrapper, where they
+     * used to land, the browser never saw them and had nothing to fill a form
+     * in with; the wrapper keeps only what places the field in its form, a
+     * `class="sm:col-span-2"`.
      */
-    $id = $name !== '' ? $name : 'input-'.uniqid();
+    $id = $attributes->get('id') ?: ($name !== '' ? $name : 'input-'.uniqid());
     $describedBy = ($hint || $error) ? $id.'-description' : null;
 
     $ref = '<x-kit.input type="'.$type.'" />';
 @endphp
 
-<div data-ref="{{ $ref }}" {{ $attributes->class(['space-y-1.5']) }}>
+<div data-ref="{{ $ref }}" {{ $attributes->only(['class', 'style'])->class(['space-y-1.5']) }}>
     @if ($label)
         <label for="{{ $id }}" class="block text-sm font-medium text-ink">{{ $label }}</label>
     @endif
@@ -39,6 +46,7 @@
                @if ($placeholder) placeholder="{{ $placeholder }}" @endif
                @if ($error) aria-invalid="true" @endif
                @if ($describedBy) aria-describedby="{{ $describedBy }}" @endif
+               {{ $attributes->except(['class', 'style', 'id']) }}
                class="w-full bg-transparent px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus:outline-hidden" />
 
         @if ($trailing)

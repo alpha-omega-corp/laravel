@@ -16,7 +16,8 @@ There are three families, and each layout says which it is in `## Family`:
   direction lists.
 - **`admin`** — `console`, and only `console`. **Every website has an admin
   section by default**, where the owner manages the prefabs — the hours, the
-  menu, the catalogue, the map — and the site's content; `console` is its
+  menu, the catalogue, the map, the gallery, the team, the events, the
+  questions and the bookings — and the site's content; `console` is its
   shape, a sidebar of screens beside dense data. No page a visitor sees is ever
   drawn in it, so **a roll never picks an admin layout unless it is pinned**,
   and `/build` does not offer one. The admin comes with the site — on the base
@@ -74,7 +75,8 @@ is for whoever builds the page.
 
 ### The prefabs in a recipe
 
-A prefab — `schedule`, `menu`, `map`, `catalogue`, any component a business lists
+A prefab — `schedule`, `menu`, `map`, `catalogue`, `gallery`, `team`, `events`,
+`faq`, `booking`, any component a business lists
 under `## Prefabs` — is placed **only as the page's own**. The page's prefabs are
 the brief's, else the business's.
 

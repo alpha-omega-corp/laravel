@@ -19,6 +19,21 @@ return [
     'buy' => 'Kaufen',
     'view' => 'Ansehen',
 
+    // The booking prefab: its form's labels, the link to an outside system, the thanks.
+    'booking' => [
+        'book' => 'Reservieren',
+        'sent' => 'Danke: Ihre Anfrage ist angekommen. Sie ist bestätigt, sobald wir antworten.',
+        'name' => 'Name',
+        'contact' => 'E-Mail oder Telefon',
+        'date' => 'Datum',
+        'time' => 'Uhrzeit',
+        'party' => 'Personen',
+        'service' => 'Leistung',
+        'choose' => 'Auswählen…',
+        'message' => 'Nachricht',
+        'send' => 'Anfrage senden',
+    ],
+
     // A site layout's first link, shown only to the keyboard: past the header to the page.
     'skip' => 'Zum Inhalt springen',
 ];

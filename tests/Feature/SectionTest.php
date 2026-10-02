@@ -37,6 +37,11 @@ function sectionHooks(): array
         'schedule' => ['schedule-title', 'schedule-days', 'schedule-day', 'schedule-dayname', 'schedule-hours', 'schedule-closed', 'schedule-note'],
         'catalogue' => ['catalogue-item', 'catalogue-image', 'catalogue-frame', 'catalogue-body', 'catalogue-row', 'catalogue-name', 'catalogue-price', 'catalogue-description', 'catalogue-action'],
         'map' => ['map-frame', 'map-caption', 'map-address', 'map-directions'],
+        'booking' => ['booking-title', 'booking-intro', 'booking-form', 'booking-field', 'booking-actions', 'booking-sent', 'booking-link'],
+        'events' => ['events-title', 'events-list', 'events-item', 'events-date', 'events-time', 'events-name', 'events-description', 'events-image'],
+        'faq' => ['faq-title', 'faq-list', 'faq-entry', 'faq-question', 'faq-answer'],
+        'gallery' => ['gallery-title', 'gallery-grid', 'gallery-item', 'gallery-image', 'gallery-caption'],
+        'team' => ['team-title', 'team-list', 'team-member', 'team-image', 'team-frame', 'team-name', 'team-role', 'team-bio'],
     ];
 }
 
@@ -97,6 +102,21 @@ function sectionSamples(): array
             'items' => [['name' => 'Œufs', 'price' => '6.–', 'description' => 'La douzaine', 'image' => '/oeufs.jpg', 'href' => '/oeufs'], ['name' => 'Miel', 'price' => '12.–']],
         ]],
         'map' => ['<x-kit.map address="Rue du Marché 1, Genève" title="Chez Anna" />', []],
+        'booking' => ['<x-kit.booking title="Réserver" intro="Du mardi au samedi." action="/booking" :services="$services" />', [
+            'services' => ['Coupe', 'Couleur'],
+        ]],
+        'events' => ['<x-kit.events title="Au domaine" :events="$events" />', [
+            'events' => [['date' => 'samedi 12 octobre', 'time' => '18:00–22:00', 'datetime' => '2026-10-12T18:00', 'name' => 'Caves ouvertes', 'description' => 'Six vins', 'image' => '/caves.jpg'], ['date' => 'du 24 au 26 octobre', 'name' => 'Fête des vendanges']],
+        ]],
+        'faq' => ['<x-kit.faq title="Questions" :entries="$entries" />', [
+            'entries' => [['question' => 'Où se garer ?', 'answer' => "Place du Marché.\nGratuit le soir."]],
+        ]],
+        'gallery' => ['<x-kit.gallery title="Nos réalisations" :pictures="$pictures" />', [
+            'pictures' => [['image' => '/mariage.jpg', 'alt' => 'Un bouquet', 'caption' => 'Mariage à Nyon', 'width' => 1200, 'height' => 1600], ['image' => '/atelier.jpg']],
+        ]],
+        'team' => ['<x-kit.team title="L’équipe" :members="$members" />', [
+            'members' => [['name' => 'Léa Martin', 'role' => 'Coiffeuse', 'bio' => 'Les coupes courtes', 'image' => '/lea.jpg'], ['name' => 'Marc']],
+        ]],
     ];
 }
 
