@@ -14,6 +14,7 @@ tonight, what is on the menu and what it costs, and how to find the door.
 
 - hearth — a dinner room worth photographing: dark and warm, the photographs doing the talking
 - counter — lunch as much as dinner: bright, the hours and the carte first
+- market — a market kitchen: the day's produce, in the sun, on a board of glass panels
 
 ## Layout
 

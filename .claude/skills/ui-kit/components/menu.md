@@ -29,3 +29,4 @@ A menu or a price list: sections of dishes or services, each with its price read
 - A bare tag draws the menu the owner edits in the admin, and dishes written on the tag are the brief's own: never an invented dish or price. (teslers-law, cognitive-bias)
 - Prices stay as the business writes them, in one form down the whole list, 14.50 or CHF 14.–, never both. (postels-law, law-of-similarity)
 - Linked from the navigation as #carte, it carries id="carte" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="columns"` sets the sections side by side, for a long carte on a wide page; `variant="cards"` makes each dish or service a card, for a short list worth looking at; bare, it is the direction's own. (aesthetic-usability-effect, law-of-common-region)

@@ -1,6 +1,7 @@
 @props([
     'title' => null,
     'entries' => null,
+    'variant' => null,
 ])
 
 @php
@@ -25,18 +26,22 @@
         $title ??= $bound['title'] ?? null;
     }
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['open', 'columns'], true) ? $variant : null;
+
     $ref = '<x-kit.faq />';
 @endphp
 
 @if (filled($entries))
-    <section data-ref="{{ $ref }}" data-kit="faq" {{ $attributes->class(['space-y-6']) }}>
+    <section data-ref="{{ $ref }}" data-kit="faq" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['space-y-6']) }}>
         @if ($title)
             <h2 data-kit-part="faq-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif
 
         <div data-kit-part="faq-list" class="divide-y divide-rule border-y border-rule">
             @foreach ($entries as $entry)
-                <details data-kit-part="faq-entry" class="py-4">
+                <details data-kit-part="faq-entry" class="py-4" @if ($variant === 'open') open @endif>
                     <summary data-kit-part="faq-question" class="cursor-pointer font-medium text-ink marker:text-ink-soft">{{ $entry['question'] }}</summary>
 
                     @if (filled($entry['answer'] ?? null))

@@ -134,28 +134,43 @@ columns only while its second column holds something.
 
 **A layout is where a page starts, not what it is allowed to be.** The roll gives
 a coherent first draft; the session building the site owns what happens next, and
-is expected to change it. It may:
+is expected to change it.
+
+**A site's look is two layers.** The direction and the palette are the base every
+site of that direction shares, drawn by `kit.css` and `themes.css`, which the site
+never edits — `ui:import` replaces them. Over them goes the site's own: a
+`DESIGN.md` saying what it is drawn from, `resources/css/site.css` imported after
+`kit.css` (unlayered, so where the two disagree it wins), its own faces, each
+prefab's arrangement (`variant`), and sections of its own as components in
+`resources/views/components/bespoke/`, placed as `<x-bespoke.<name> />`. A rebuild
+of the page keeps both: the words on each kit tag go back on it, and a bespoke tag
+travels with the kit tag it was written beside. So the session may:
 
 - add sections the brief needs, as kit components (`import-ui-components`, then the
-  tag) or as its own markup in the palette's tokens;
+  tag) or as bespoke components in the palette's tokens;
 - reorder main's sections, drop a region, or move a prefab to where the content
   wants it;
-- write a section no component covers — a timeline for a family business, a pull
-  quote, a gallery — in the kit's tokens, with no `dark:` and no default palette.
+- write a section no component covers — a timeline for a family business, the
+  cuts of a carcass for a butcher, a season strip for a florist, a pull quote — in
+  the kit's tokens, with no `dark:` and no default palette;
+- restyle the kit's components for this site in `site.css`, through their hooks
+  (`[data-kit='hero']`, `[data-kit-part='hero-title']`), including taking away
+  what the direction draws that this site does not want.
 
 What it keeps are the rules that make a direction work and a page read well:
 
-- **The frames.** Never add a class or a wrapper to make a section *look* a
-  certain way — that is the direction's, and a class added here is one the next
-  direction cannot undo. Structure is fine; styling is not.
+- **The frames.** The stub's frames stay as the table above has them: they are how
+  the direction finds what it draws. A look of the site's own is a rule in
+  `site.css`, which styles a component on every page at once, rather than a class
+  on each of its tags; a bespoke section carries its own classes.
 - **The first screen says what this is and how to get there.** Most of the time
   anybody spends on a page is in its first two screenfuls (NN/g), and for a place
   people visit the hours and the address belong there, not at the foot.
 - **One family once.** Two sections of the same shape in a row read as a template.
   Alternate heavy and light — a dense section earns a quiet one.
-- **No filler.** No "why choose us", no team grid, no testimonials nobody gave, no
-  three equal cards to fill the middle. An empty-feeling page is solved with
-  scale, a photograph and space, not invented content.
+- **No filler.** No "why choose us", no people nobody named, no testimonials
+  nobody gave, no three equal cards to fill the middle. An empty-feeling page is
+  solved with scale, a photograph and space, not invented content.
 - **A real close.** The page ends on something a visitor can act on — the way in,
   the booking, the contact — not on a section that trails off.
 - **Every column declares its collapse.** On a phone, say what comes first.

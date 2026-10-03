@@ -17,6 +17,7 @@ of a vineyard track.
 
 - hearth — a cellar by candlelight: dark and warm, the bottles photographed
 - market — the cellar door in summer: this year's bottles on a board of glass panels
+- studio — a natural-wine estate: the labels and the bottles on a pale ground, a quiet column
 
 ## Layout
 

@@ -30,3 +30,4 @@ What is on: dated happenings — a market day, a tasting, a concert night — ea
 - Every row leads with its date as the business says it, samedi 12 octobre, the machine's date kept on the time element, so the list reads in the order a visitor plans in. (serial-position-effect, postels-law)
 - A heading names it when the page's h1 does not already: the agenda's title on its own page, a section above it anywhere else. (chunking)
 - Linked from the navigation as #agenda, it carries id="agenda" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="timeline"` draws the dates down a rule, for a season read in order; `variant="cards"` makes each date a card, for a few events that each deserve a look; bare, it is the direction's own. (law-of-uniform-connectedness, law-of-common-region)

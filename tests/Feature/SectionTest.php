@@ -277,4 +277,3 @@ it('opens the admin from the footer whenever the site has one', function () {
             ->toContain('rel="nofollow"');
     }
 });
-

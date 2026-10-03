@@ -33,3 +33,4 @@ The opening hours: a week of days, each with its hours as the business writes th
 - Its days are one week with a closed day kept as its row, said in words; a holiday or a closure is its note, not another day. (chunking, peak-end-rule)
 - Hours stay as the owner writes them, 11:30–14:00 · 18:30–22:00, never turned into another notation. (postels-law)
 - Linked from the navigation as #horaires, it carries id="horaires" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="strip"` lays the week across, a cell a day, for a page that opens on it; `variant="plain"` draws the days as lines with no panel, for a side column or a quiet page; bare, it is the direction's own. (law-of-proximity, aesthetic-usability-effect)

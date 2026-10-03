@@ -28,3 +28,4 @@ Pictures the business chooses, in its order, each with a caption when it has one
 - Every picture is the same kind of thing at the same size, so the eye reads the grid as one set and the odd one out is the one the owner meant. (law-of-similarity, law-of-common-region)
 - A caption says what the picture shows in the business's words, a word or a line, and a picture whose alt and caption are both empty is decoration. (cognitive-load, postels-law)
 - Linked from the navigation as #galerie, it carries id="galerie" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="mosaic"` draws every fifth picture twice the size, for work worth looking at closely; `variant="strip"` is one row that scrolls, for pictures as a pause in the page; bare, it is the direction's own. (von-restorff-effect, aesthetic-usability-effect)

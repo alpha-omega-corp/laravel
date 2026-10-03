@@ -15,6 +15,7 @@ what is on this week.
 
 - counter — breakfast and lunch at the counter: bright, the hours and the board first
 - studio — a coffee bar of pale wood and air: the cups photographed, the prices in a narrow column
+- hearth — a coffee house in the evening: lamplight, the room as the reason to come
 
 ## Layout
 

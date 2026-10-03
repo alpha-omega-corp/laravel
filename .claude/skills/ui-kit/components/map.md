@@ -31,3 +31,4 @@ Where the business is: a map of its address with the address under it and a link
 - Where the address misleads, as a farm down a road with no number does, its title says how to find the way in, since the pin only brings a visitor near. (mental-model)
 - A bare tag draws the site's own address, the one the footer and the band give, so the site names one place. (teslers-law, law-of-similarity)
 - Linked from the navigation as #acces, it carries id="acces" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="wide"` draws a panorama of the streets around the door, across main and never in a side column; `variant="plain"` draws the map with no panel round it, the address under it; bare, it is the direction's own. (aesthetic-usability-effect, law-of-common-region)

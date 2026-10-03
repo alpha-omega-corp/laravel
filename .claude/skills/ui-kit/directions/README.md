@@ -17,8 +17,16 @@ another is an attribute changed rather than a page rebuilt, and a class somebody
 adds to a section to make it look a certain way is one the next direction
 cannot undo.
 
+**A direction is a base, not a site's whole look.** Every site drawn in it
+shares it, so a site draws its own over it in its `resources/css/site.css` —
+imported after `kit.css`, unlayered, styling the same hooks — with faces of its
+own and sections of its own (`../layouts/README.md`, *Building beyond the
+recipe*). The rules below are the kit's, for `kit.css`; a site's stylesheet keeps
+only the palette's tokens for its colours, so `ui:theme` still re-dresses it.
+
 A direction never names a font: the faces are the palette's, loaded per palette
-from `resources/css/fonts.json`.
+from `resources/css/fonts.json`, until a site sets its own on
+`:root[data-palette]` in its `site.css`.
 
 ## The file format
 
@@ -188,6 +196,31 @@ The directions are the last section of `kit.css`, after `@layer components`.
   at the same specificity, and the page is dark whatever the visitor's system
   says. `data-theme` is left alone: in this kit it means *the viewer chose*, and
   a generated site ships no picker.
+
+## Arrangements
+
+A direction draws each prefab in an arrangement of its own — counter's catalogue
+a scrolling strip, market's a grid of rows — and every site of the direction drew
+it that way. A prefab's **arrangements** are the site's choice instead:
+`variant` on its tag puts `data-variant` on the root, and a rule after the
+directions draws it.
+
+- **Every direction's.** An arrangement's selector never names a direction:
+  `[data-kit='menu'][data-variant='columns']`, and it moves only the arrangement —
+  display, grid, flow, gaps, the shape of a picture. The faces, the colours, the
+  rules and the band's ground stay the direction's.
+- **Weighted to win.** Each selector carries `:is([data-variant], #arrangement)`:
+  the id never matches anything and only raises the weight, so an arrangement
+  beats a direction's rule however many hooks that one chains, with no
+  `!important`.
+- **The same discipline.** Tokens only, no palette token redeclared, and a grid
+  that follows its column — `auto-fit` over a minimum — except where a prefab
+  only ever stands in main at the page's width (`booking`'s split).
+- **Accepted and drawn alike.** The component's own list (`in_array($variant,
+  [...])`) and `kit.css` name the same words; any other word is the direction's
+  drawing. `components/<name>.md` says when each is the one.
+
+`tests/Feature/ArrangementTest.php` holds the two together.
 
 ## Adding a direction
 

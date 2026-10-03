@@ -14,6 +14,7 @@ where to stop the car.
 
 - counter — a counter at seven in the morning: the hours and the bread first
 - market — what came out of the oven today, on a board of glass panels
+- studio — a pâtisserie: the cakes photographed like jewellery, a quiet price list
 
 ## Layout
 

@@ -59,8 +59,11 @@ A column is any region narrower than the page. It has two bounds, and a change k
    sticky there.
 
 A failure is fixed where it comes from. Scope the direction's rule, or move the component to a
-region whose sentence and width fit it. Never add a class or a wrapper to the page to squeeze
-something in: that is the direction's job, and the next direction cannot undo it.
+region whose sentence and width fit it. Never add a class or a wrapper to the page to squeeze a kit
+component in: the fault is in the rule or the region, and a class on one page leaves it broken on
+every other. The same bounds hold for what is drawn over the directions — a prefab's arrangement
+(`data-variant`, in `kit.css` after them) and a site's own `site.css`: a grid of either follows the
+column it lands in, not the window.
 
 ## Check
 

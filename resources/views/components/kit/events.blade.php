@@ -1,6 +1,7 @@
 @props([
     'title' => null,
     'events' => null,
+    'variant' => null,
 ])
 
 @php
@@ -29,11 +30,15 @@
         $title ??= $bound['title'] ?? null;
     }
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['timeline', 'cards'], true) ? $variant : null;
+
     $ref = '<x-kit.events />';
 @endphp
 
 @if (filled($events))
-    <section data-ref="{{ $ref }}" data-kit="events" {{ $attributes->class(['space-y-4']) }}>
+    <section data-ref="{{ $ref }}" data-kit="events" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['space-y-4']) }}>
         @if ($title)
             <h2 data-kit-part="events-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif

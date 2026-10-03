@@ -30,3 +30,4 @@ What the business sells, a card per item with its picture, its name, its price a
 - It is given its checkout on the offer page alone, once /stripe has wired one: there each card's buy button is the page's action, and anywhere else a row of primary buttons competes with the one thing the page asks. (von-restorff-effect, mental-model)
 - Every card carries its price as the business writes it, since a product without one is a question the visitor has to ask. (mental-model, postels-law)
 - Linked from the navigation as #produits, it carries id="produits" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="list"` draws rows with the picture beside the words, for a range read more than looked at; `variant="feature"` draws the first item twice the size, for a range led by one thing; bare, it is the direction's own. (von-restorff-effect, law-of-similarity)

@@ -29,3 +29,4 @@ A request to book a table, an appointment, a stay or a quote, which the owner co
 - A refusal stands under its own field in words that say what would be accepted, and the visitor's answers are kept, so a correction is one field. (postels-law, zeigarnik-effect)
 - Once sent, the thanks stand where the form was and say the request is not yet confirmed, so nobody takes a request for a booking. (peak-end-rule, mental-model)
 - Linked from the navigation as #booking, it carries id="booking" on its own tag, which is also where the base sends the visitor back. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="split"` sets the invitation on one side and the form on the other, in main at its width; `variant="plain"` draws the form on the page with no panel round it; bare, it is the direction's own. (law-of-common-region, goal-gradient-effect)

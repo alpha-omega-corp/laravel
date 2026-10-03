@@ -30,3 +30,4 @@ The people a visitor will meet, a card per person with their photo, their name, 
 - Every member is drawn the same way, a photo or its empty frame, then the name, then the role, so a row reads as one group. (law-of-similarity, law-of-common-region)
 - A heading names it when the page's h1 does not already: the team's title on its own page, a section above it anywhere else. (chunking)
 - Linked from the navigation as #equipe, it carries id="equipe" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="list"` draws each person as a row, the picture beside what they do, for a few people with something to say; bare, it is the direction's own. (law-of-proximity, aesthetic-usability-effect)

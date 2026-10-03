@@ -31,3 +31,4 @@ The questions people phone to ask, parking, allergies, gift cards, the delivery 
 - The most asked question comes first and the one that settles a visit, parking or booking, is never last in a long list. (serial-position-effect, pareto-principle)
 - An answer says what to do, a phone number or an address in full, so the visitor leaves the list with the answer and not another question. (goal-gradient-effect, zeigarnik-effect)
 - Linked from the navigation as #questions, it carries id="questions" on its own tag, or the link lands nowhere. (flow, peak-end-rule)
+- Its arrangement is chosen on its tag and the direction's look stays: `variant="open"` shows every answer, for the few questions everybody asks; `variant="columns"` sets the questions in two columns, for a long list on a wide page; bare, it is the direction's own. (cognitive-load, chunking)

@@ -15,6 +15,7 @@ a price, by appointment, and need to know when there is somebody in.
 ## Directions
 
 - studio — the work is the loud part: a full-height photograph, a price list, the people
+- counter — a neighbourhood salon: the hours, the prices and the way to book first
 
 ## Layout
 

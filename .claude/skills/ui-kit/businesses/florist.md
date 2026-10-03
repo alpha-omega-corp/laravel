@@ -16,6 +16,7 @@ matters.
 
 - studio — the flowers are the loud part: full-height photographs and a quiet price list
 - counter — a shop with a counter: the hours and the day's bouquets first
+- market — a flower stall: the day's bunches, on a board of glass panels in the sun
 
 ## Layout
 

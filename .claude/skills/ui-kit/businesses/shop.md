@@ -12,6 +12,8 @@ onto what is inside, and the reason to walk in.
 ## Directions
 
 - counter — a window onto what is inside: the hours and the products first
+- studio — a boutique: the products photographed with air around them, the prices in a narrow column
+- market — a stall's goods in the sun: what came in this week, on a board of glass panels
 
 ## Layout
 

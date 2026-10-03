@@ -2,6 +2,7 @@
     'address' => null,
     'title' => null,
     'zoom' => null,
+    'variant' => null,
 ])
 
 @php
@@ -33,11 +34,15 @@
     $zoom = max(1, min(21, (int) ($zoom ?? 15)));
     $query = rawurlencode($address);
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['wide', 'plain'], true) ? $variant : null;
+
     $ref = '<x-kit.map />';
 @endphp
 
 @if ($address !== '')
-    <figure data-ref="{{ $ref }}" data-kit="map" {{ $attributes->class(['panel overflow-hidden']) }}>
+    <figure data-ref="{{ $ref }}" data-kit="map" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['panel overflow-hidden']) }}>
         <iframe
             data-kit-part="map-frame"
             src="https://maps.google.com/maps?q={{ $query }}&amp;z={{ $zoom }}&amp;output=embed"

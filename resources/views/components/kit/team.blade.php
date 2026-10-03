@@ -1,6 +1,7 @@
 @props([
     'title' => null,
     'members' => null,
+    'variant' => null,
 ])
 
 @php
@@ -24,11 +25,15 @@
         $title ??= $bound['title'] ?? null;
     }
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['list'], true) ? $variant : null;
+
     $ref = '<x-kit.team />';
 @endphp
 
 @if (filled($members))
-    <section data-ref="{{ $ref }}" data-kit="team" {{ $attributes->class(['space-y-6']) }}>
+    <section data-ref="{{ $ref }}" data-kit="team" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['space-y-6']) }}>
         @if ($title)
             <h2 data-kit-part="team-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif

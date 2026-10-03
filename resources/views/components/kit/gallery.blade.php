@@ -1,6 +1,7 @@
 @props([
     'title' => null,
     'pictures' => null,
+    'variant' => null,
 ])
 
 @php
@@ -28,11 +29,15 @@
         $title ??= $bound['title'] ?? null;
     }
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['mosaic', 'strip'], true) ? $variant : null;
+
     $ref = '<x-kit.gallery />';
 @endphp
 
 @if (filled($pictures))
-    <section data-ref="{{ $ref }}" data-kit="gallery" {{ $attributes }}>
+    <section data-ref="{{ $ref }}" data-kit="gallery" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes }}>
         @if ($title)
             <h2 data-kit-part="gallery-title" class="font-display text-lg text-ink">{{ $title }}</h2>
         @endif

@@ -1,6 +1,7 @@
 @props([
     'items' => null,
     'checkout' => null,
+    'variant' => null,
 ])
 
 @php
@@ -30,11 +31,15 @@
         $checkout ??= $bound['checkout'] ?? null;
     }
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['list', 'feature'], true) ? $variant : null;
+
     $ref = '<x-kit.catalogue'.($checkout ? ' checkout' : '').' />';
 @endphp
 
 @if (filled($items))
-    <ul role="list" data-ref="{{ $ref }}" data-kit="catalogue" {{ $attributes->class(['grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,15rem),1fr))]']) }}>
+    <ul role="list" data-ref="{{ $ref }}" data-kit="catalogue" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,15rem),1fr))]']) }}>
         @foreach ($items as $item)
             <li data-kit-part="catalogue-item" class="panel flex flex-col overflow-hidden">
                 @if (! empty($item['image']))

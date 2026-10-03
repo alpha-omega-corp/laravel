@@ -245,19 +245,19 @@ it('rolls a business only in the directions it lists', function () {
     ksort($lists);
 
     expect($lists)->toBe([
-        'bakery' => ['counter', 'market'],
+        'bakery' => ['counter', 'market', 'studio'],
         'butcher' => ['counter', 'market'],
-        'cafe' => ['counter', 'studio'],
+        'cafe' => ['counter', 'studio', 'hearth'],
         'farm' => ['market', 'counter'],
         'fitness' => ['studio', 'counter'],
-        'florist' => ['studio', 'counter'],
+        'florist' => ['studio', 'counter', 'market'],
         'hotel' => ['hearth', 'studio'],
         'practice' => ['studio', 'counter'],
-        'restaurant' => ['hearth', 'counter'],
-        'salon' => ['studio'],
-        'shop' => ['counter'],
+        'restaurant' => ['hearth', 'counter', 'market'],
+        'salon' => ['studio', 'counter'],
+        'shop' => ['counter', 'studio', 'market'],
         'trades' => ['counter', 'studio'],
-        'winery' => ['hearth', 'market'],
+        'winery' => ['hearth', 'market', 'studio'],
     ]);
 
     foreach ($lists as $directions) {

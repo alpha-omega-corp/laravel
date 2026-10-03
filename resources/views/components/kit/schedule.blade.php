@@ -2,6 +2,7 @@
     'title' => null,
     'days' => null,
     'note' => null,
+    'variant' => null,
 ])
 
 @php
@@ -30,11 +31,15 @@
         $note ??= $bound['note'] ?? null;
     }
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['strip', 'plain'], true) ? $variant : null;
+
     $ref = '<x-kit.schedule />';
 @endphp
 
 @if (filled($days))
-    <section data-ref="{{ $ref }}" data-kit="schedule" {{ $attributes->class(['panel p-5 sm:p-6']) }}>
+    <section data-ref="{{ $ref }}" data-kit="schedule" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['panel p-5 sm:p-6']) }}>
         @if ($title)
             <h2 data-kit-part="schedule-title" class="font-display text-lg text-ink">{{ $title }}</h2>
         @endif

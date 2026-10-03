@@ -4,6 +4,7 @@
     'url' => null,
     'services' => null,
     'action' => null,
+    'variant' => null,
 ])
 
 @php
@@ -55,11 +56,15 @@
 
     $control = 'block w-full rounded-control border bg-canvas px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus:border-accent focus:outline-hidden';
 
+    // Its arrangement, when the tag chooses one of its own: kit.css draws it
+    // over the direction's, and any other word is the direction's own drawing.
+    $variant = in_array($variant, ['split', 'plain'], true) ? $variant : null;
+
     $ref = '<x-kit.booking />';
 @endphp
 
 @if ($url || $action)
-    <section data-ref="{{ $ref }}" data-kit="booking" {{ $attributes->class(['panel p-5 sm:p-6'])->merge(['id' => 'booking']) }}>
+    <section data-ref="{{ $ref }}" data-kit="booking" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['panel p-5 sm:p-6'])->merge(['id' => 'booking']) }}>
         @if ($title)
             <h2 data-kit-part="booking-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif

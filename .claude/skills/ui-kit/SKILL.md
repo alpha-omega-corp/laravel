@@ -64,6 +64,12 @@ site binds as `kit.<name>` (the base package does), keyed by those same props �
 win, and with data from neither it renders nothing. Which business needs which is
 `businesses/<name>.md` — `## Prefabs`, `## Directions` and `## Layout`, see
 `businesses/README.md` — and `roll-ui-design` takes a `business` to roll a design around them.
+**Each prefab takes arrangements of its own** — `variant` on its tag, `<x-kit.menu
+variant="columns" />`, `<x-kit.schedule variant="strip" />` — which `kit.css` draws over any
+direction's arrangement while the direction's look stays: the one prop besides `id` a prefab tag
+takes on the base, since it presents the owner's rows and never replaces them. Its
+`components/<name>.md` names them under `## Behaviour`, and a word it does not take is the
+direction's own drawing.
 
 **Directions** are how a public site looks: `hearth` (a dark room by lamplight), `counter`
 (a bright counter), `studio` (a calm studio) and `market` (a stall in the sun), each a file in
@@ -74,7 +80,9 @@ components through their `data-kit` hooks — so the tags stay bare and the buil
 `hero`, `features`, `section`, `cta-band`, `site-footer`, and `media`, the one element that
 holds a photograph and, until there is one, a frame captioned with what belongs there. A roll for
 a business takes one of the business's directions, then a palette that direction takes, then one
-of its layouts; `direction` pins one, and one the business does not list is refused.
+of its layouts; `direction` pins one, and one the business does not list is refused. A
+direction is the **base** look every site of its kind shares, never the whole of one: a site
+draws its own over it (`layouts/README.md`, *Building beyond the recipe*).
 
 **Icons are Lucide's, through `<x-kit.icon name="…" />`** — `phone`, `wheat`, `scissors`,
 `map-pin`, lucide.dev's names. The set (`mallardduck/blade-lucide-icons`) is a production
@@ -95,10 +103,11 @@ instead of sections) and `journal` (a magazine's column, broken once by pictures
 where a page starts, not what it is allowed to be: `layouts/README.md` says what a session may
 add beyond the recipe and the composition rules it keeps.
 `hearth` is dark by design: its root block in `kit.css` sets `color-scheme: dark`, which wins over
-`data-theme` by coming later, so nothing writes `data-theme` for it. A look that needs a part the
-markup does not mark is a new `data-kit-part` hook, never a class or a wrapper added to the page —
-the hook list is shared with deployer's preview drawings, and a class is one the next direction
-cannot undo.
+`data-theme` by coming later, so nothing writes `data-theme` for it. **In the kit**, a direction
+that needs a part the markup does not mark gets a new `data-kit-part` hook, never a class or a
+wrapper added to the page — the hook list is shared with deployer's preview drawings, and a class is
+one the next direction cannot undo. A site's own look is the site's: its `resources/css/site.css`
+over those same hooks, and sections of its own.
 
 Given an application's `folder`, `roll-ui-design` rolls a whole page instead, every region
 filled from its layout's `## Regions` recipe (`layouts/README.md`) — the business's prefabs where
