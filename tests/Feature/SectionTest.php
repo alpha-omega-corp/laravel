@@ -29,8 +29,8 @@ function sectionHooks(): array
         'media' => ['media-image', 'media-frame', 'media-caption'],
         'section' => ['section-head', 'section-eyebrow', 'section-title', 'section-mark', 'section-lead', 'section-body'],
         'hero' => ['hero-copy', 'hero-eyebrow', 'hero-title', 'hero-mark', 'hero-lead', 'hero-actions', 'hero-note', 'hero-facts', 'hero-fact', 'hero-media'],
-        'site-header' => ['site-header-bar', 'site-header-status', 'site-header-phone', 'site-header-nav', 'site-header-brand', 'site-header-links', 'site-header-action'],
-        'site-footer' => ['site-footer-about', 'site-footer-brand', 'site-footer-blurb', 'site-footer-contact', 'site-footer-links', 'site-footer-note', 'site-footer-admin'],
+        'site-header' => ['site-header-bar', 'site-header-status', 'site-header-phone', 'site-header-nav', 'site-header-brand', 'site-header-links', 'site-header-end', 'site-header-options', 'site-header-action', 'site-header-menu'],
+        'site-footer' => ['site-footer-about', 'site-footer-brand', 'site-footer-blurb', 'site-footer-eyebrow', 'site-footer-contact', 'site-footer-links', 'site-footer-note', 'site-footer-end', 'site-footer-credit', 'site-footer-admin'],
         'features' => ['features-head', 'features-eyebrow', 'features-title', 'features-mark', 'features-lead', 'features-list', 'features-item', 'features-media', 'features-copy', 'features-item-title', 'features-body', 'features-link'],
         'cta-band' => ['cta-band-copy', 'cta-band-eyebrow', 'cta-band-title', 'cta-band-mark', 'cta-band-lead', 'cta-band-actions', 'cta-band-details', 'cta-band-detail'],
         'menu' => ['menu-title', 'menu-section', 'menu-section-title', 'menu-list', 'menu-item', 'menu-row', 'menu-name', 'menu-leader', 'menu-price', 'menu-description'],
@@ -42,6 +42,8 @@ function sectionHooks(): array
         'faq' => ['faq-title', 'faq-list', 'faq-entry', 'faq-question', 'faq-answer'],
         'gallery' => ['gallery-title', 'gallery-grid', 'gallery-item', 'gallery-image', 'gallery-caption'],
         'team' => ['team-title', 'team-list', 'team-member', 'team-image', 'team-frame', 'team-name', 'team-role', 'team-bio'],
+        'language-picker' => ['language-picker-option'],
+        'theme-picker' => ['theme-picker-current', 'theme-picker-list', 'theme-picker-option'],
     ];
 }
 
@@ -79,8 +81,9 @@ function sectionSamples(): array
             'items' => [['label' => 'La carte', 'href' => '#menu']],
             'action' => ['label' => 'Réserver', 'href' => '#visit'],
         ]],
-        'site-footer' => ['<x-kit.site-footer brand="Chez Anna" blurb="Une cuisine de marché." address="Rue du Marché 1, 1204 Genève" phone="+41 22 000 00 00" email="anna@example.org" note="© Chez Anna" :links="$links" />', [
+        'site-footer' => ['<x-kit.site-footer brand="Chez Anna" blurb="Une cuisine de marché." address="Rue du Marché 1, 1204 Genève" phone="+41 22 000 00 00" email="anna@example.org" note="© Chez Anna" :links="$links" :credit="$credit" />', [
             'links' => $links,
+            'credit' => ['name' => 'apdigital.ch', 'href' => 'https://apdigital.ch', 'logo' => '/apdigital.svg'],
         ]],
         'features' => ['<x-kit.features eyebrow="La maison" title="Ce que nous faisons" lead="Trois choses." :items="$items" />', [
             'items' => [
@@ -117,6 +120,10 @@ function sectionSamples(): array
         'team' => ['<x-kit.team title="L’équipe" :members="$members" />', [
             'members' => [['name' => 'Léa Martin', 'role' => 'Coiffeuse', 'bio' => 'Les coupes courtes', 'image' => '/lea.jpg'], ['name' => 'Marc']],
         ]],
+        'language-picker' => ['<x-kit.language-picker current="fr" action="/locale" :locales="$locales" />', [
+            'locales' => ['fr' => 'Français', 'de' => 'Deutsch'],
+        ]],
+        'theme-picker' => ['<x-kit.theme-picker current="dark" />', []],
     ];
 }
 

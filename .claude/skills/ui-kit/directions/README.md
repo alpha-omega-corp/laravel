@@ -75,8 +75,8 @@ with the title.
 media        media-image media-frame media-caption
 section      section-head section-eyebrow section-title section-mark section-lead section-body
 hero         hero-copy hero-eyebrow hero-title hero-mark hero-lead hero-actions hero-note hero-facts hero-fact hero-media
-site-header  site-header-bar site-header-status site-header-phone site-header-nav site-header-brand site-header-links site-header-action
-site-footer  site-footer-about site-footer-brand site-footer-blurb site-footer-contact site-footer-links site-footer-note site-footer-admin
+site-header  site-header-bar site-header-status site-header-phone site-header-nav site-header-brand site-header-links site-header-end site-header-options site-header-action site-header-menu
+site-footer  site-footer-about site-footer-brand site-footer-blurb site-footer-eyebrow site-footer-contact site-footer-links site-footer-note site-footer-end site-footer-credit site-footer-admin
 features     features-head features-eyebrow features-title features-mark features-lead features-list features-item features-media features-copy features-item-title features-body features-link
 cta-band     cta-band-copy cta-band-eyebrow cta-band-title cta-band-mark cta-band-lead cta-band-actions cta-band-details cta-band-detail
 menu         menu-title menu-section menu-section-title menu-list menu-item menu-row menu-name menu-leader menu-price menu-description
@@ -94,7 +94,15 @@ An icon (`<x-kit.icon>`) carries `data-kit="icon"` on its `svg` and draws in `cu
 so a direction colours it through the text around it or through `[data-kit='icon']`.
 
 The list is shared with deployer, whose prefab drawings carry the same hooks so
-the preview is styled like the page. A look that needs a hook this list does not
+the preview is styled like the page.
+
+**A direction draws the hero its own way only when the site laid it out no way
+of its own.** The header, the hero and the footer each take an arrangement the
+site chooses on deployer's mockup (`variant`, drawn at the end of `kit.css`),
+and a direction's rules that lay the hero out — an overlay, a bleed, a portrait —
+are written for `[data-kit='hero']:not([data-variant])`, so an arranged hero
+starts from its own markup. What a direction says about the hero's look — its
+colours, faces, marks and panels — dresses every hero alike. A look that needs a hook this list does not
 have is a change to the list, never a class added to one direction's markup.
 
 ## The five frames, and the preview's wrapper

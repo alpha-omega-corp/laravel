@@ -29,10 +29,11 @@ the question belongs to the other axis. `Workbench\App\Enums\Scheme`, which had
 
 Which axis a viewer is on is theirs to change at runtime, through the
 **theme picker** — see `../features/theme-picker.md`. It does not ship in a new
-site: a generated site is built in one palette, the one its mockup chose, and
-leaves the scheme to the operating system until somebody installs the picker —
-unless the page's direction pins one: hearth is dark by design
-(`../directions/README.md`).
+site: a generated site is built in one palette, the one its mockup chose. The
+scheme is the visitor's: the site-header's `<x-kit.theme-picker>` offers light,
+dark or the operating system's on a site whose mockup asked for it, and the
+operating system decides on every other — unless the page's direction pins one:
+hearth is dark by design (`../directions/README.md`), and hides the menu.
 
 ## The token vocabulary
 

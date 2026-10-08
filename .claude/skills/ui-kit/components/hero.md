@@ -25,6 +25,7 @@ The opening of a page: its name, what it is and the one thing to do, beside the 
 - It opens the page, and nothing in its region comes before it: no alert, badge or promotion ahead of what the page is. (selective-attention, serial-position-effect)
 - Its title is the page's one h1; on a page other than home it names that page, in the words of its navigation label. (chunking, mental-model)
 - Its first link is the page's primary action and goes where the header's action goes, so the first screen has one primary target; a second link is a secondary button. (von-restorff-effect, hicks-law)
-- It carries a photograph, or the subject of the one that is owed, and never an empty frame. (aesthetic-usability-effect, peak-end-rule)
+- It carries a photograph, or the subject of the one that is owed, and never an empty frame — unless it is laid out as a statement, which opens on the words alone and draws no frame at all. (aesthetic-usability-effect, peak-end-rule)
+- Its arrangement is the site's, chosen on deployer's mockup and written by the build as `variant`, the same on every page: `split`, the words beside the photograph; `cover`, the photograph behind the words, bled to the window's edges in a full-width opening; `centred`, the words centred over a wide photograph; `statement`, the words alone, set large. With none, the direction draws it its own way. (law-of-similarity, aesthetic-usability-effect)
 - Its photograph is the page's one eager image, and every other picture on the page loads lazily. (doherty-threshold)
 - The facts, the note and the lead say only what the brief states: an invented figure on a business's page is a false claim. (cognitive-bias)

@@ -5,8 +5,11 @@ rendered in, and whether it is light, dark or whatever the operating system says
 It does **not** ship in a new site: the worker template carries none of its files
 and `/create` never installs it. A generated site is built in the one palette its
 mockup chose, which the build writes as `data-palette` on `<html>`, and its scheme
-follows the operating system. Install it with `get-ui-feature theme-picker` when a
-site should let its visitors choose; today it runs in this package's showcase.
+follows the operating system unless the visitor picks light or dark in the
+header's own menu, `<x-kit.theme-picker>` (`../components/theme-picker.md`), which
+a new site has when its mockup on deployer's /build asked for it. Install this one with `get-ui-feature theme-picker` when a
+site should let its visitors choose the palette too; today it runs in this
+package's showcase.
 
 ## Files
 

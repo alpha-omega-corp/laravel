@@ -7,6 +7,7 @@
     'links' => [],
     'note' => null,
     'facts' => [],
+    'variant' => null,
 ])
 
 @php
@@ -23,6 +24,13 @@
      * One DOM whatever the page looks like: the full-bleed photograph, the
      * split and the stacked panorama are directions over this markup.
      *
+     * **Its arrangement is the site's when the tag chooses one** — `split`,
+     * `cover`, `centred` or `statement`, chosen for the page on deployer's
+     * mockup, which the build writes as `variant` — and kit.css draws it over
+     * the direction's own, keeping the direction's faces and colours. With
+     * none, or a word it does not take, the direction draws it its own way. A
+     * statement opens on the words alone, so it has no photograph to load.
+     *
      * **Two columns while its own width holds two, and not while the window's
      * does.** A layout puts the hero in a column as often as across the page —
      * split's opening is seven twelfths — and a window-wide breakpoint drew the
@@ -36,10 +44,12 @@
     $links = array_values(array_filter($links, fn ($link) => filled($link['label'] ?? null)));
     $facts = array_values(array_filter($facts, fn ($fact) => filled($fact['value'] ?? null)));
 
+    $variant = in_array($variant, ['split', 'cover', 'centred', 'statement'], true) ? $variant : null;
+
     $ref = '<x-kit.hero />';
 @endphp
 
-<div data-ref="{{ $ref }}" data-kit="hero" {{ $attributes->class(['grid items-center gap-10 grid-cols-[repeat(auto-fit,minmax(min(100%,24rem),1fr))]']) }}>
+<div data-ref="{{ $ref }}" data-kit="hero" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['grid items-center gap-10 grid-cols-[repeat(auto-fit,minmax(min(100%,24rem),1fr))]']) }}>
     <div data-kit-part="hero-copy" class="space-y-6">
         @if (filled($eyebrow))
             <p data-kit-part="hero-eyebrow" class="text-sm font-medium uppercase tracking-[0.14em] text-accent">{{ $eyebrow }}</p>
@@ -78,7 +88,9 @@
         @endif
     </div>
 
-    <div data-kit-part="hero-media">
-        <x-kit.media :src="$image" :subject="$subject" ratio="4/3" :priority="true" />
-    </div>
+    @if ($variant !== 'statement')
+        <div data-kit-part="hero-media">
+            <x-kit.media :src="$image" :subject="$subject" ratio="4/3" :priority="true" />
+        </div>
+    @endif
 </div>

@@ -34,6 +34,29 @@ return [
         'send' => 'Invia la richiesta',
     ],
 
+    // The footer's line for who made the site: "Realizzato da apdigital.ch".
+    'credit' => 'Realizzato da',
+
+    // The header's row of language codes, as a screen reader names the group.
+    'language' => 'Lingua',
+
+    // The header's menu button on a phone, as a screen reader says it.
+    'menu' => 'Menu',
+
+    // The footer's column headings: the site's pages, and how to reach the business.
+    'footer' => [
+        'pages' => 'Il sito',
+        'contact' => 'Contatti',
+    ],
+
+    // The theme menu: its button as a screen reader says it ("Theme: Dark"), and its three choices.
+    'theme' => [
+        'label' => 'Tema',
+        'light' => 'Chiaro',
+        'dark' => 'Scuro',
+        'auto' => 'Automatico',
+    ],
+
     // A site layout's first link, shown only to the keyboard: past the header to the page.
     'skip' => 'Vai al contenuto',
 ];

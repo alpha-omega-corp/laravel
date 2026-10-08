@@ -30,6 +30,17 @@ Every layout works with every palette — nothing here refuses a combination.
 Which ones are worth steering towards is written on the **theme** side, in each
 theme's `## Pairs with`, so the matrix lives in one place.
 
+## The four parts of a site page
+
+Whatever its layout, a site page is four parts, top to bottom: the **navigation** (the `nav`
+region's `site-header`), the **opening** (the hero, or a section at level 1 where the layout
+opens on its list), the **content** (every other region — main, visit, offer, story, facts,
+gallery, band) and the **foot** (the `footer` region's `site-footer`). Each has a type, chosen on
+deployer's /build mockup before the site exists: the content's is the layout itself, and the
+header's, the hero's and the footer's are their arrangements (`variant`, see `SKILL.md`), with the
+theme picker the header's own option. The navigation sticks to the top of every site page; that
+is `kit.css`'s, and no stub or session sets it.
+
 ## The failure these exist to prevent
 
 Asked to lay out a page, anybody — a person or a model — reaches for the same

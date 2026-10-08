@@ -57,9 +57,9 @@
         -webkit-text-size-adjust: 100%;
     }
 
-    /* A nav item's target: the region's frame, or — where a session puts the id — the component's own root inside it. */
+    /* A nav item's target: the region's frame, or — where a session puts the id — the component's own root inside it. Stopped below the sticky header, two rows on a phone, rather than behind it. */
     main :is(section[id], [data-kit][id]) {
-        scroll-margin-top: 5.5rem;
+        scroll-margin-top: 9rem;
     }
 
     body {
@@ -108,6 +108,20 @@
 }
 
 @layer components {
+    /*
+     * A site's navigation stays on screen: the header of a site layout sticks to
+     * the top on the page's canvas, bled to both edges of the window with a rule
+     * under it, so the page scrolls beneath it rather than through it. The bleed
+     * is a border image, which clips nothing: the header's menus open below it.
+     * Layered, so a stub's own utilities and a direction's rules both win.
+     */
+    body > header:has([data-kit='site-header']) {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-image: linear-gradient(to top, var(--color-rule) 1px, var(--color-canvas) 1px) fill 0 // 0 100vmax;
+    }
+
     /*
      * A photograph on its own in a page's flow is never taller than most of a
      * screen. Its ratio is its author's, and across a whole page a 4/3 frame is
@@ -304,6 +318,13 @@
  * hides a frame nothing was placed in and an unlayered display would undo it.
  * Deployer's preview wraps every placed drawing in a captioned div, so a rule
  * placing a child of the main frame matches `> [data-kit]` and `> :has(> [data-kit])`.
+ *
+ * A direction's own drawing of the hero is a hero with no arrangement,
+ * `[data-kit='hero']:not([data-variant])`: one the site arranged (the frame's
+ * types, at the end) starts from the hero's own markup, where it would
+ * otherwise have had to undo an overlay, a bleed and a portrait four ways
+ * over. The rest of a direction — its faces, colours, marks and panels —
+ * dresses an arranged hero as it dresses every other part.
  */
 
 [data-direction='hearth'] {
@@ -490,11 +511,11 @@
  * accent. The accent is a material here rather than a link colour.
  */
 
-[data-direction='hearth'] main > section:has(> .wrap [data-kit='hero']) {
+[data-direction='hearth'] main > section:has(> .wrap [data-kit='hero']:not([data-variant])) {
     padding-block: 0;
 }
 
-[data-direction='hearth'] main > section:has(> .wrap [data-kit='hero']) > .wrap {
+[data-direction='hearth'] main > section:has(> .wrap [data-kit='hero']:not([data-variant])) > .wrap {
     max-width: none;
     padding-inline: 0;
 }
@@ -502,6 +523,11 @@
 [data-direction='hearth'] [data-kit-part='site-header-bar'] {
     border-block-end: 1px solid var(--color-rule);
     padding-block: 0.5rem;
+}
+
+/* Dark by design, pinned whatever the visitor picks: a theme menu would change nothing — nor would the options it alone fills, which would leave a gap. */
+[data-direction='hearth'] :is([data-kit='theme-picker'], [data-kit-part='site-header-options']:not(:has(> :not([data-kit='theme-picker'])))) {
+    display: none;
 }
 
 [data-direction='hearth'] [data-kit-part='site-header-brand'] {
@@ -515,7 +541,7 @@
     text-underline-offset: 0.4em;
 }
 
-[data-direction='hearth'] [data-kit='hero'] {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]) {
     position: relative;
     isolation: isolate;
     display: grid;
@@ -524,7 +550,7 @@
     min-height: var(--hero-min-height);
 }
 
-[data-direction='hearth'] [data-kit='hero']::after {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant])::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -533,19 +559,19 @@
     pointer-events: none;
 }
 
-[data-direction='hearth'] [data-kit-part='hero-media'] {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-media'] {
     position: absolute;
     inset: 0;
     z-index: -2;
 }
 
-[data-direction='hearth'] [data-kit-part='hero-media'] [data-kit='media'] {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-media'] [data-kit='media'] {
     aspect-ratio: auto;
     height: 100%;
     border-radius: 0;
 }
 
-[data-direction='hearth'] [data-kit-part='hero-copy'] {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-copy'] {
     width: 100%;
     max-width: var(--container-wrap);
     margin-inline: auto;
@@ -553,30 +579,30 @@
 }
 
 @media (min-width: 48rem) {
-    [data-direction='hearth'] [data-kit-part='hero-copy'] {
+    [data-direction='hearth'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-copy'] {
         padding-inline: 2.5rem;
     }
 }
 
 /* No photograph yet: the accent's glow, and the frame's caption as one small line — a finished look, not an empty box. */
-[data-direction='hearth'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) {
     min-height: 62svh;
     background: radial-gradient(120% 70% at 50% 0%, color-mix(in oklab, var(--color-accent) 28%, transparent), transparent 72%);
 }
 
-[data-direction='hearth'] [data-kit='hero']:not(:has([data-kit-part='media-image']))::after {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image']))::after {
     content: none;
 }
 
-[data-direction='hearth'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit='media'] {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) [data-kit='media'] {
     background: transparent;
 }
 
-[data-direction='hearth'] [data-kit='hero'] [data-kit-part='media-frame'] {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]) [data-kit-part='media-frame'] {
     display: none;
 }
 
-[data-direction='hearth'] [data-kit='hero'] [data-kit-part='media-caption'] {
+[data-direction='hearth'] [data-kit='hero']:not([data-variant]) [data-kit-part='media-caption'] {
     padding: 1rem 1.25rem;
     font-size: 0.75rem;
     text-align: end;
@@ -857,7 +883,7 @@
  * column's whole width is taller than the screen.
  */
 @media (min-width: 64rem) {
-    [data-direction='counter'] main > section:has(> .wrap [data-kit='hero']) [data-kit-part='hero-media'] [data-kit='media'] {
+    [data-direction='counter'] main > section:has(> .wrap [data-kit='hero']) [data-kit='hero']:not([data-variant]) [data-kit-part='hero-media'] [data-kit='media'] {
         aspect-ratio: 3 / 4;
     }
 }
@@ -1062,15 +1088,11 @@
  * portraits, and a lot of air.
  */
 
-[data-direction='studio'] body > header:has([data-kit='site-header']) {
-    border-block-end: 1px solid var(--color-rule);
-}
-
-[data-direction='studio'] main > section:has(> .wrap [data-kit='hero'] [data-kit-part='media-image']) {
+[data-direction='studio'] main > section:has(> .wrap [data-kit='hero']:not([data-variant]) [data-kit-part='media-image']) {
     padding-block: 0;
 }
 
-[data-direction='studio'] main > section:has(> .wrap [data-kit='hero'] [data-kit-part='media-image']) > .wrap {
+[data-direction='studio'] main > section:has(> .wrap [data-kit='hero']:not([data-variant]) [data-kit-part='media-image']) > .wrap {
     max-width: none;
     padding-inline: 0;
 }
@@ -1112,7 +1134,7 @@
 }
 
 /* With a photograph: full height, the name low on it in the canvas colour. */
-[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image']) {
     position: relative;
     isolation: isolate;
     display: grid;
@@ -1121,7 +1143,7 @@
     min-height: var(--hero-min-height);
 }
 
-[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image'])::after {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image'])::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -1130,18 +1152,18 @@
     pointer-events: none;
 }
 
-[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-media'] {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image']) [data-kit-part='hero-media'] {
     position: absolute;
     inset: 0;
     z-index: -2;
 }
 
-[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit='media'] {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image']) [data-kit='media'] {
     aspect-ratio: auto;
     height: 100%;
 }
 
-[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-copy'] {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image']) [data-kit-part='hero-copy'] {
     width: 100%;
     max-width: var(--container-wrap);
     margin-inline: auto;
@@ -1155,16 +1177,16 @@
 }
 
 @media (min-width: 48rem) {
-    [data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-copy'] {
+    [data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image']) [data-kit-part='hero-copy'] {
         padding-inline: 2.5rem;
     }
 }
 
-[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) [data-kit-part='hero-eyebrow'] {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image']) [data-kit-part='hero-eyebrow'] {
     color: var(--color-canvas);
 }
 
-[data-direction='studio'] [data-kit='hero']:has([data-kit-part='media-image']) .btn-secondary {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):has([data-kit-part='media-image']) .btn-secondary {
     background: transparent;
     border: 1px solid var(--color-canvas);
     box-shadow: none;
@@ -1172,29 +1194,29 @@
 }
 
 /* No photograph yet: stacked and centred over a panorama frame across the reading width. */
-[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
     text-align: center;
 }
 
-[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit-part='hero-copy'] {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) [data-kit-part='hero-copy'] {
     max-width: 40rem;
 }
 
-[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit-part='hero-media'] {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) [data-kit-part='hero-media'] {
     width: 100%;
 }
 
-[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit='media'] {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) [data-kit='media'] {
     aspect-ratio: 21 / 9;
 }
 
-[data-direction='studio'] [data-kit='hero']:not(:has([data-kit-part='media-image'])) :is([data-kit-part='hero-title'], [data-kit-part='hero-lead']) {
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) :is([data-kit-part='hero-title'], [data-kit-part='hero-lead']) {
     margin-inline: auto;
 }
 
-[data-direction='studio'] :is([data-kit='hero']:not(:has([data-kit-part='media-image'])) [data-kit-part='hero-actions'], [data-kit-part='cta-band-actions']) {
+[data-direction='studio'] :is([data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) [data-kit-part='hero-actions'], [data-kit-part='cta-band-actions']) {
     justify-content: center;
 }
 
@@ -1357,8 +1379,15 @@
     text-align: center;
 }
 
+/* The bottom bar centred too, the small print a line of its own above the rest. */
+[data-direction='studio'] [data-kit-part='site-footer-end'] {
+    justify-self: stretch;
+    justify-content: center;
+}
+
 [data-direction='studio'] [data-kit-part='site-footer-note'] {
-    grid-column: 1 / -1;
+    flex-basis: 100%;
+    margin-inline-end: 0;
 }
 
 /*
@@ -1366,15 +1395,10 @@
  * board of glass cards, the highlight marking what is in season or open.
  */
 
+/* The header floats as a glass card a little below the top, not a band across it. */
 [data-direction='market'] body > header:has([data-kit='site-header']) {
-    position: sticky;
     top: 0.75rem;
-    z-index: 20;
-}
-
-/* Under a sticky header a nav item's target stops below it, not behind it. */
-[data-direction='market'] main :is(section[id], [data-kit][id]) {
-    scroll-margin-top: 9rem;
+    border-image: none;
 }
 
 /*
@@ -1915,6 +1939,7 @@
 }
 
 /* map — plain: the map on the page with no panel round it, the address under it. */
+/* booking — plain: the request on the page with no panel round it, for a page that is the booking. */
 [data-kit='map'][data-variant='plain']:is([data-variant], #arrangement),
 [data-kit='booking'][data-variant='plain']:is([data-variant], #arrangement) {
     padding: 0;
@@ -1956,4 +1981,256 @@
         grid-row: 1 / span 4;
         margin-top: 0;
     }
+}
+
+/*
+ * The frame's types: how the site-header, the hero and the site-footer are laid
+ * out when the site chooses — `<x-kit.hero variant="cover" />` — on deployer's
+ * mockup, before the site exists. A page is four parts, the navigation, the
+ * opening, the content and the foot; the content's type is its layout, and
+ * these are the other three. The build writes the choice on the tag, and the
+ * header and the footer the same on every page.
+ *
+ * They are arrangements and keep an arrangement's rules: weighed with
+ * `#arrangement`, tokens only. A direction draws the hero its own way only when
+ * it has none (`[data-kit='hero']:not([data-variant])` above), so a type starts
+ * from the component's own markup rather than undoing four directions'
+ * drawings, while the direction's faces, colours, marks and panels still dress
+ * it.
+ */
+
+/* hero — split: the words beside the photograph, two halves while the opening holds two, for a page that shows what it is. */
+[data-kit='hero'][data-variant='split']:is([data-variant], #arrangement) {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+}
+
+/* hero — cover: the photograph behind the words, across the opening, for a place whose picture says it before any word does. */
+[data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement) {
+    position: relative;
+    isolation: isolate;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: end;
+    min-height: min(78svh, 44rem);
+    overflow: hidden;
+    border-radius: var(--radius-media, var(--radius-panel));
+}
+
+/* The canvas rising from the foot, so the words read in the page's own ink in either scheme. */
+[data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, var(--color-canvas) 4%, color-mix(in oklab, var(--color-canvas) 70%, transparent) 40%, color-mix(in oklab, var(--color-canvas) 10%, transparent));
+    pointer-events: none;
+}
+
+[data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement) [data-kit-part='hero-media'] {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+[data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement) [data-kit-part='hero-media'] [data-kit='media'] {
+    aspect-ratio: auto;
+    height: 100%;
+    border-radius: 0;
+}
+
+/* Until there is a photograph, the frame says which one is owed from its top corner, clear of the words at the foot. */
+[data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement) [data-kit-part='media-caption'] {
+    inset: 0 0 auto auto;
+    text-align: end;
+}
+
+[data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement) [data-kit-part='hero-copy'] {
+    width: 100%;
+    max-width: var(--container-wrap);
+    margin-inline: auto;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/*
+ * In the opening's own band it is bled to both edges of the window, as hearth
+ * draws its own; in a column — split's half, poster's cover with the facts
+ * along its foot — it is a panel of that column.
+ */
+main > section:has(> .wrap [data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement)):not(:has(> :not(.wrap))) {
+    padding-block: 0;
+}
+
+main > section:has(> .wrap [data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement)):not(:has(> :not(.wrap))) > .wrap {
+    max-width: none;
+    padding-inline: 0;
+}
+
+main > section:not(:has(> :not(.wrap))) > .wrap [data-kit='hero'][data-variant='cover']:is([data-variant], #arrangement) {
+    border-radius: 0;
+}
+
+/* hero — centred: the words centred over a wide photograph, for an opening that announces the place. */
+[data-kit='hero'][data-variant='centred']:is([data-variant], #arrangement) {
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+}
+
+/* The words a column of their own in the middle, each line of them centred on it whatever its measure. */
+[data-kit='hero'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='hero-copy'] {
+    width: 100%;
+    max-width: 48rem;
+    margin-inline: auto;
+}
+
+[data-kit='hero'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='hero-copy'] > * {
+    margin-inline: auto;
+}
+
+[data-kit='hero'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='hero-actions'] {
+    justify-content: center;
+}
+
+[data-kit='hero'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='hero-media'] [data-kit='media'] {
+    aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 48rem) {
+    [data-kit='hero'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='hero-media'] [data-kit='media'] {
+        aspect-ratio: 21 / 9;
+    }
+}
+
+/* hero — statement: the words alone, set large, for a business whose name and line are the picture. */
+[data-kit='hero'][data-variant='statement']:is([data-variant], #arrangement) {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* The component draws no photograph for it; a drawing of a hero that has one does not show it either. */
+[data-kit='hero'][data-variant='statement']:is([data-variant], #arrangement) [data-kit-part='hero-media'] {
+    display: none;
+}
+
+[data-kit='hero'][data-variant='statement']:is([data-variant], #arrangement) [data-kit-part='hero-title'] {
+    max-width: 18ch;
+    font-size: calc(var(--text-display) * 1.3);
+}
+
+[data-kit='hero'][data-variant='statement']:is([data-variant], #arrangement) [data-kit-part='hero-lead'] {
+    max-width: 40rem;
+    font-size: 1.25rem;
+}
+
+/*
+ * The header's types, from a tablet's width up: on a phone every header is one
+ * row — the name, then its end, the action and the menu that holds the pages.
+ */
+
+/* site-header — centred: the name centred over the pages, for a house whose name is its sign. */
+@media (min-width: 48rem) {
+    [data-kit='site-header'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-header-nav'] {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        grid-template-areas: '. brand end' 'links links links';
+        align-items: center;
+        row-gap: 0.75rem;
+    }
+
+    [data-kit='site-header'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-header-brand'] {
+        grid-area: brand;
+        margin-inline: 0;
+    }
+
+    [data-kit='site-header'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-header-nav'] > [data-kit-part='site-header-links'] {
+        grid-area: links;
+        justify-content: center;
+    }
+
+    [data-kit='site-header'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-header-end'] {
+        grid-area: end;
+        justify-self: end;
+    }
+}
+
+/* site-header — split: the pages at the left, the name in the middle and the action at the right, for a front as even as a shopfront. */
+@media (min-width: 48rem) {
+    [data-kit='site-header'][data-variant='split']:is([data-variant], #arrangement) [data-kit-part='site-header-nav'] {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        grid-template-areas: 'links brand end';
+        align-items: center;
+        column-gap: 1.5rem;
+    }
+
+    [data-kit='site-header'][data-variant='split']:is([data-variant], #arrangement) [data-kit-part='site-header-brand'] {
+        grid-area: brand;
+        margin-inline: 0;
+    }
+
+    [data-kit='site-header'][data-variant='split']:is([data-variant], #arrangement) [data-kit-part='site-header-nav'] > [data-kit-part='site-header-links'] {
+        grid-area: links;
+        justify-self: start;
+    }
+
+    [data-kit='site-header'][data-variant='split']:is([data-variant], #arrangement) [data-kit-part='site-header-end'] {
+        grid-area: end;
+        justify-self: end;
+    }
+}
+
+/* site-footer — centred: everything on one centred column, for a quiet close. */
+[data-kit='site-footer'][data-variant='centred']:is([data-variant], #arrangement) {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+}
+
+[data-kit='site-footer'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-footer-blurb'] {
+    margin-inline: auto;
+}
+
+[data-kit='site-footer'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-footer-contact'] > * {
+    justify-content: center;
+}
+
+/* The bottom bar across the column and centred, the small print a line of its own. */
+[data-kit='site-footer'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-footer-end'] {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    justify-content: center;
+}
+
+[data-kit='site-footer'][data-variant='centred']:is([data-variant], #arrangement) :is([data-kit-part='site-footer-note'], [data-kit-part='site-footer-credit']) {
+    margin-inline-end: 0;
+}
+
+[data-kit='site-footer'][data-variant='centred']:is([data-variant], #arrangement) [data-kit-part='site-footer-note'] {
+    flex-basis: 100%;
+}
+
+/* site-footer — compact: the name, the pages and the contact each on a line, for a page whose close is above it. */
+[data-kit='site-footer'][data-variant='compact']:is([data-variant], #arrangement) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.25rem 2.5rem;
+}
+
+/* Laid out on a line, the pages and the contact need no heading to say what they are. */
+[data-kit='site-footer'][data-variant='compact']:is([data-variant], #arrangement) [data-kit-part='site-footer-eyebrow'] {
+    display: none;
+}
+
+[data-kit='site-footer'][data-variant='compact']:is([data-variant], #arrangement) :is([data-kit-part='site-footer-links'], [data-kit-part='site-footer-contact']) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+}
+
+[data-kit='site-footer'][data-variant='compact']:is([data-variant], #arrangement) :is([data-kit-part='site-footer-links'], [data-kit-part='site-footer-contact']) > * {
+    margin-block: 0;
+}
+
+[data-kit='site-footer'][data-variant='compact']:is([data-variant], #arrangement) [data-kit-part='site-footer-end'] {
+    flex-basis: 100%;
+    padding-block-start: 1.25rem;
 }

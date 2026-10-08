@@ -59,7 +59,7 @@ that makes it work.
 `catalogue` (what it sells, a preview until a `checkout` URL is passed — deployer's `/stripe` wires
 one), `gallery` (photographs of the work or the place), `team` (the people, with a photograph and
 a role), `events` (what is on and when), `faq` (the questions asked every day) and `booking` (a
-request for a day and a time, or a link to the booking system the business already uses). Each documents its props at the top of its file, and a bare tag fills itself from what the
+request for a day and a time, or a link to the booking system the business already uses). Two more are drawn by the header itself rather than placed: `theme-picker`, light, dark or as the device has it, and `language-picker`, the site's languages side by side as their codes, which `site-header` shows before its action — the theme menu when its tag asks for it (`:theme-picker="true"`, written by the build when the site's mockup chose it) and the site binds `kit.theme-picker`, the languages once it binds two or more (the base binds both: the theme off its plain `theme` cookie, the languages from `config('site.locales')`, answering their form; the worker's `resources/js/app.js` applies a theme choice). Each documents its props at the top of its file, and a bare tag fills itself from what the
 site binds as `kit.<name>` (the base package does), keyed by those same props — props on the tag
 win, and with data from neither it renders nothing. Which business needs which is
 `businesses/<name>.md` — `## Prefabs`, `## Directions` and `## Layout`, see
@@ -70,6 +70,15 @@ direction's arrangement while the direction's look stays: the one prop besides `
 takes on the base, since it presents the owner's rows and never replaces them. Its
 `components/<name>.md` names them under `## Behaviour`, and a word it does not take is the
 direction's own drawing.
+
+**A site page is four parts, and each has a type.** The navigation (`site-header`), the hero, the
+content and the footer (`site-footer`): the content's type is the page's layout, and the other
+three take arrangements of their own as `variant` — the header `centred` or `split`, the hero
+`split`, `cover`, `centred` or `statement`, the footer `centred` or `compact` — chosen with the theme
+picker on deployer's /build mockup before the site exists, kept in the mockup's `variants` and
+`themePicker`, written on the tags by the build and the same on every page. The navigation is
+always sticky. A part with no type is drawn as its direction draws it. `kit.css` introduces each
+word's rules with one sentence, `/* hero — cover: … */`, which deployer offers it with.
 
 **Directions** are how a public site looks: `hearth` (a dark room by lamplight), `counter`
 (a bright counter), `studio` (a calm studio) and `market` (a stall in the sun), each a file in
