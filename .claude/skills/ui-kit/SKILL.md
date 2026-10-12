@@ -237,13 +237,17 @@ files belong to the application.
 composer config repositories.ui-kit vcs https://github.com/alpha-omega-corp/laravel
 composer require --dev alpha-omega-corp/ui-kit:dev-production
 
-php artisan ui:kit                                 # the 51 themed <x-kit.*> components, kit.css, themes.css, lang/*/kit.php, public/images/fruits
+php artisan ui:kit                                 # the themed <x-kit.*> components, kit.css, themes.css, fonts.json, lang/*/kit.php
 php artisan ui:kit ::layout/cards/01-basic-card    # one raw <x-ui.*> component; re-theme it afterwards
 ```
 
 - With no argument, the command imports `kit.css` into `resources/css/app.css`. With a reference,
   it registers `@source '../views/components/ui'` there.
 - It never overwrites a file the application already has. `--force` overwrites it.
+- It ships no picture. Every illustration a site takes — the fruits, a bakery's loaves, a florist's
+  bouquets — is in deployer's picture library, drawn once in this kit's tokens and fixed in the
+  site's palette on the way in: `search-ui-pictures` finds one, `get-ui-picture` takes it into
+  `public/images/<collection>/`, and `save-ui-picture` files a new drawing back there.
 - A reference that matches more than one component lists the candidates and fails.
 
 ## Using the kit from another project
