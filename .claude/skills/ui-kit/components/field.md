@@ -13,4 +13,5 @@ The one field every form of a site is drawn with — a line, a long text or a ch
 - A personal field says what it is so the browser can fill it — autocomplete="name", type email with autocomplete="email", type tel with autocomplete="tel" — and every attribute but class, style and data-kit-part reaches the control. (parkinsons-law)
 - Its error is the one the form came back with for its name, in words under it and marked aria-invalid, and what was typed is kept, never a password. (postels-law, von-restorff-effect)
 - A list of options posts the word it shows; a choice that may stay empty takes `choose`, the line it opens on. (postels-law)
+- A hint two fields share — "a phone or an email, either is enough" — is written once and named by each with `describedby`, read before the field's own hint and error. (law-of-proximity)
 - Its id is field-<name> unless one is given, so a second form with the same field on one page gives its own. (fittss-law)

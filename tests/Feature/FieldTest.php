@@ -54,6 +54,11 @@ it('says its error under it, keeps what was typed, and never a password', functi
     View::share('errors', null);
 });
 
+it('is described by a hint it shares with another field, before its own', function () {
+    expect(Blade::render('<x-kit.field name="phone" type="tel" label="Téléphone" describedby="contact-hint" hint="Le portable." />'))
+        ->toContain('aria-describedby="contact-hint field-phone-hint"');
+});
+
 it('refuses a field it would draw half right', function (string $template, array $data, string $refusal) {
     expect(fn () => Blade::render($template, $data))->toThrow(ViewException::class, $refusal);
 })->with([

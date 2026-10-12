@@ -7,6 +7,7 @@
     'hint' => null,
     'choose' => null,
     'rows' => 4,
+    'describedby' => null,
 ])
 
 @php
@@ -23,9 +24,11 @@
      *
      * Its error is the one `$errors` holds for its name (`fields[title]` reads
      * `fields.title`), its value what was typed before the form came back — never a
-     * password. Every attribute but `class`, `style` and `data-kit-part` is the control's;
-     * those three place the field in its form. `data-field` on the control is how
-     * check_site tells a field drawn here from one written by hand.
+     * password. `describedby` names text outside it that describes it too — one hint two
+     * fields share — read before its own hint and error. Every attribute but `class`,
+     * `style` and `data-kit-part` is the control's; those three place the field in its
+     * form. `data-field` on the control is how check_site tells a field drawn here from
+     * one written by hand.
      *
      * @var array<array-key, string>|null $options
      */
@@ -53,7 +56,7 @@
     $id = $attributes->get('id') ?: 'field-'.str_replace('.', '-', $key);
     $error = isset($errors) ? ($errors->first($key) ?: null) : null;
     $current = $type === 'password' ? null : old($key, $value);
-    $described = trim(($hint ? $id.'-hint ' : '').($error ? $id.'-error' : '')) ?: null;
+    $described = implode(' ', array_filter([$describedby, $hint ? $id.'-hint' : null, $error ? $id.'-error' : null])) ?: null;
     // A list is its own values: ['Coupe', 'Couleur'] posts the word it shows.
     $choices = $kind === 'choice' ? (array_is_list($options) ? array_combine($options, $options) : $options) : [];
 
