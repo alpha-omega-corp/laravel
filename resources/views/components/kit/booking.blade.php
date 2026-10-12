@@ -54,8 +54,6 @@
         ['name' => 'party', 'type' => 'number', 'attributes' => ['min' => 1, 'max' => 50, 'inputmode' => 'numeric']],
     ];
 
-    $control = 'block w-full rounded-control border bg-canvas px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus:border-accent focus:outline-hidden';
-
     // Its arrangement, when the tag chooses one of its own: kit.css draws it
     // over the direction's, and any other word is the direction's own drawing.
     $variant = in_array($variant, ['split', 'plain'], true) ? $variant : null;
@@ -88,46 +86,17 @@
                 @endif
 
                 @foreach ($fields as $field)
-                    @php($error = $fault($field['name']))
-                    <div data-kit-part="booking-field" class="space-y-1.5">
-                        <label for="booking-{{ $field['name'] }}" class="block text-sm font-medium text-ink">{{ __('kit.booking.'.$field['name']) }}</label>
-                        <input type="{{ $field['type'] }}" name="{{ $field['name'] }}" id="booking-{{ $field['name'] }}" value="{{ old($field['name']) }}"
-                               {{ new \Illuminate\View\ComponentAttributeBag($field['attributes']) }}
-                               @if ($error) aria-invalid="true" aria-describedby="booking-{{ $field['name'] }}-error" @endif
-                               @class([$control, 'border-accent' => $error, 'border-rule' => ! $error])>
-                        @if ($error)
-                            <p id="booking-{{ $field['name'] }}-error" class="text-xs text-accent">{{ $error }}</p>
-                        @endif
-                    </div>
+                    <x-kit.field :name="$field['name']" :type="$field['type']" :label="__('kit.booking.'.$field['name'])" :id="'booking-'.$field['name']"
+                                 :attributes="new \Illuminate\View\ComponentAttributeBag($field['attributes'])" data-kit-part="booking-field" />
                 @endforeach
 
                 @if ($services !== [])
-                    @php($error = $fault('service'))
-                    <div data-kit-part="booking-field" class="space-y-1.5 sm:col-span-2">
-                        <label for="booking-service" class="block text-sm font-medium text-ink">{{ __('kit.booking.service') }}</label>
-                        <select name="service" id="booking-service" @if ($error) aria-invalid="true" aria-describedby="booking-service-error" @endif
-                                @class([$control, 'border-accent' => $error, 'border-rule' => ! $error])>
-                            <option value="">{{ __('kit.booking.choose') }}</option>
-                            @foreach ($services as $service)
-                                <option value="{{ $service }}" @selected(old('service') === $service)>{{ $service }}</option>
-                            @endforeach
-                        </select>
-                        @if ($error)
-                            <p id="booking-service-error" class="text-xs text-accent">{{ $error }}</p>
-                        @endif
-                    </div>
+                    <x-kit.field name="service" :label="__('kit.booking.service')" :options="$services" :choose="__('kit.booking.choose')" id="booking-service"
+                                 data-kit-part="booking-field" class="sm:col-span-2" />
                 @endif
 
-                @php($error = $fault('message'))
-                <div data-kit-part="booking-field" class="space-y-1.5 sm:col-span-2">
-                    <label for="booking-message" class="block text-sm font-medium text-ink">{{ __('kit.booking.message') }}</label>
-                    <textarea name="message" id="booking-message" rows="3" maxlength="2000"
-                              @if ($error) aria-invalid="true" aria-describedby="booking-message-error" @endif
-                              @class([$control, 'border-accent' => $error, 'border-rule' => ! $error])>{{ old('message') }}</textarea>
-                    @if ($error)
-                        <p id="booking-message-error" class="text-xs text-accent">{{ $error }}</p>
-                    @endif
-                </div>
+                <x-kit.field name="message" type="long" :label="__('kit.booking.message')" rows="3" maxlength="2000" id="booking-message"
+                             data-kit-part="booking-field" class="sm:col-span-2" />
 
                 {{-- The decoy: off-screen and out of the tab order, so only a script fills it. --}}
                 <div aria-hidden="true" class="absolute -left-[9999px] size-px overflow-hidden">

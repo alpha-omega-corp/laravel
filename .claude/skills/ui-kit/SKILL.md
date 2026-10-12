@@ -222,6 +222,7 @@ unchanged breaks every one of them at once.
 | `rounded-lg` on a panel | `rounded-panel` (0 in vellum, 1.5rem in blossom, by design) |
 | `rounded-md` on a control | `rounded-control` — a pill in blossom, square in vellum |
 | a whole button | `<x-kit.button>`, never the kit's classes — see `/ui-kit/buttons` |
+| a form field | `@field('name', label: …)` — a line, `type: 'long'` or `options:`, never a hand-written `<input>`, `<textarea>` or `<select>` in a form; `<x-kit.field>` inside a kit component (`components/field.md`) |
 | any `dark:*` | delete — the token block is the dark mode |
 
 Other projects have their own tokens. Re-theme to the host project, never assume indigo.
