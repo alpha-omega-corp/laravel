@@ -30,6 +30,13 @@ return [
         'lagoon' => 'Acqua turchese e un sole corallo, caratteri ariosi, ombre lunghe e morbide.',
         'nocturne' => 'Viola e magenta che brillano al buio, un display geometrico.',
         'ember' => 'Sangue di bue e oro su carta calda, un display con grazie, etichette da carta dei vini.',
+        'concrete' => 'Grigio cemento e arancione segnaletico, un display stretto e pesante, lastre squadrate dal bordo netto.',
+        'quill' => 'Carta avorio e inchiostro blu-nero, un serif da lettura, filetti sottili e un po’ di ottone.',
+        'alpine' => 'Neve, ghiacciaio e blu di lago, tondo e rapido, un arancione da soccorso per ciò che è urgente.',
+        'clay' => 'Terracotta e oliva su carta calda, un serif scolpito, piastrelle con un’ombra corta di terra.',
+        'plum' => 'Melanzana su bianco rosato con oro antico, un serif ad alto contrasto, bottoni a pillola in maiuscoletto.',
+        'denim' => 'Indaco su pagina slavata con ruggine di rivetto, un grottesco largo e serrato, pannelli impunturati.',
+        'sorbet' => 'Carta pesca, lampone e un blu fresco, un carattere tondo, adesivi al posto dei pannelli.',
 
         'system' => 'Seguire il sistema operativo, anche quando cambia idea.',
         'light' => 'Fissare la metà chiara di ogni tavolozza, checché dica il sistema.',

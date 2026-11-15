@@ -59,7 +59,7 @@ that makes it work.
 `catalogue` (what it sells, a preview until a `checkout` URL is passed — deployer's `/stripe` wires
 one), `gallery` (photographs of the work or the place), `team` (the people, with a photograph and
 a role), `events` (what is on and when), `faq` (the questions asked every day) and `booking` (a
-request for a day and a time, or a link to the booking system the business already uses). Two more are drawn by the header itself rather than placed: `theme-picker`, light, dark or as the device has it, and `language-picker`, the site's languages side by side as their codes, which `site-header` shows before its action — the theme menu when its tag asks for it (`:theme-picker="true"`, written by the build when the site's mockup chose it) and the site binds `kit.theme-picker`, the languages once it binds two or more (the base binds both: the theme off its plain `theme` cookie, the languages from `config('site.locales')`, answering their form; the worker's `resources/js/app.js` applies a theme choice). Each documents its props at the top of its file, and a bare tag fills itself from what the
+request for a day and a time, or a link to the booking system the business already uses). A second set serves the businesses nobody walks into: `projects` (work done, each with where, when and the one figure that sizes it), `services` (what the business does, a card each with an icon and one line), `process` (how it goes, in numbered steps), `testimonials` (what customers said, signed, never written for them), `pricing` (plans side by side, never a checkout), `listings` (things offered one at a time, a flat or a car, with the facts they are chosen by), `credentials` (certifications, memberships and client marks, only what can be checked), `jobs` (the positions open), `quote` (a request for a figure: the kind of work, where, a budget band, by when), `donate` (a way out to the association's own giving page and its account, never a till) and `courses` (dated sessions with the places left). Two more are drawn by the header itself rather than placed: `theme-picker`, light, dark or as the device has it, and `language-picker`, the site's languages side by side as their codes, which `site-header` shows before its action — the theme menu when its tag asks for it (`:theme-picker="true"`, written by the build when the site's mockup chose it) and the site binds `kit.theme-picker`, the languages once it binds two or more (the base binds both: the theme off its plain `theme` cookie, the languages from `config('site.locales')`, answering their form; the worker's `resources/js/app.js` applies a theme choice). Each documents its props at the top of its file, and a bare tag fills itself from what the
 site binds as `kit.<name>` (the base package does), keyed by those same props — props on the tag
 win, and with data from neither it renders nothing. Which business needs which is
 `businesses/<name>.md` — `## Prefabs`, `## Directions` and `## Layout`, see
@@ -81,7 +81,10 @@ always sticky. A part with no type is drawn as its direction draws it. `kit.css`
 word's rules with one sentence, `/* hero — cover: … */`, which deployer offers it with.
 
 **Directions** are how a public site looks: `hearth` (a dark room by lamplight), `counter`
-(a bright counter), `studio` (a calm studio) and `market` (a stall in the sun), each a file in
+(a bright counter), `studio` (a calm studio) and `market` (a stall in the sun), and six for the
+businesses that are none of those — `yard` (an industrial site in daylight), `ledger` (a quiet
+office of paper and ink), `atelier` (work on white walls), `civic` (a notice board people trust),
+`launch` (a product's front page) and `trail` (the outdoors in season) — each a file in
 `directions/` naming the layouts it is drawn in, the palettes it takes and its scheme. A
 direction is CSS over one DOM — a `[data-direction]` section of `kit.css` restyling the
 components through their `data-kit` hooks — so the tags stay bare and the build writes it on
@@ -163,6 +166,17 @@ set, one theme and one direction for every page, and a site keeps its actual pag
 as `$siteNav`. The `site-header` draws `$siteNav` when its tag is given no items, and marks the page
 being shown.
 
+**`designs/<business>.md` holds the worked designs of each kind of business**: three or more, each
+one settled roll — a direction the business lists, a palette that direction takes, a layout for
+every page and the arrangements its components take — under the sentence that says who it is for
+and what its first screen leads with. They are examples, not limits: what is allowed is still the
+business's, the direction's and the page's own lists. **Read your business's designs before
+rolling or building, and start from the one nearest the brief**; the reason under each is what
+tells you which brief it answers. The package's showcase draws every page of every one of them
+(its framework tab, `/framework/businesses` and the contact sheet at `/framework/sheet`), with the
+regions each page fills and the files it read, so a design can be looked at before it is chosen.
+`designs/README.md` is the format.
+
 **`components/<name>.md` gives every themed component its rules**: `## Placement`, which regions of
 which layouts it fits (`fits`, `first` or `never`), `## Limits`, how much of it a page takes, and
 `## Behaviour`, what it does once it is there. The factory places a component only where its rules
@@ -206,9 +220,9 @@ Components without a slot render fixed demo markup — edit it after inserting.
 ## Re-theme before using kit markup in this app
 
 Kit markup carries Tailwind's default palette and `dark:` variants. This application themes
-itself with its own tokens and eleven `[data-palette]` blocks in `resources/css/themes.css` —
-orchard, sandstone, harbour, graphite, blossom, fresh, vellum, marigold, lagoon, nocturne and
-ember — switched at runtime from the picker in the navigation bar, and it uses no `dark:` variants at all. Dropping kit classes in
+itself with its own tokens and eighteen `[data-palette]` blocks in `resources/css/themes.css` —
+orchard, sandstone, harbour, graphite, blossom, fresh, vellum, marigold, lagoon, nocturne,
+ember, concrete, quill, alpine, clay, plum, denim and sorbet — switched at runtime from the picker in the navigation bar, and it uses no `dark:` variants at all. Dropping kit classes in
 unchanged breaks every one of them at once.
 
 | kit class | use instead |

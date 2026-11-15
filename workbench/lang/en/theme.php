@@ -30,6 +30,13 @@ return [
         'lagoon' => 'Teal water and a coral sun, airy type, long soft shadows.',
         'nocturne' => 'Violet and magenta that glow in the dark, a geometric display face.',
         'ember' => 'Oxblood and gold on warm paper, a serif display, a wine-list label.',
+        'concrete' => 'Poured grey and signal orange, a condensed heavy face, square slabs with a hard top edge.',
+        'quill' => 'Bone paper and a blue-black ink, a reading serif, hairlines and a little brass.',
+        'alpine' => 'Snow, glacier and a lake blue, rounded and quick, a rescue orange for what is urgent.',
+        'clay' => 'Terracotta and olive on warm paper, a chiselled serif, tiles with a short earthen shadow.',
+        'plum' => 'Aubergine on blush white with antique gold, a high-contrast serif, pill buttons in small capitals.',
+        'denim' => 'Indigo on a washed page with rivet rust, a wide grotesque set tight, stitched panels.',
+        'sorbet' => 'Peach paper, raspberry and a cool blue, a rounded face, stickers for panels.',
 
         'system' => 'Follow the operating system, and follow it when it changes.',
         'light' => 'Pin the light half of every palette, whatever the system says.',

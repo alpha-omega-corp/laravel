@@ -107,7 +107,7 @@ it('has a spec for every direction, each read the way deployer reads it', functi
     $layouts = array_map(fn (string $path): string => basename($path, '.md'), glob(package_path('.claude/skills/ui-kit/layouts/*.md')) ?: []);
     $components = array_map(fn (string $path): string => basename($path, '.blade.php'), glob(package_path('resources/views/components/kit/*.blade.php')) ?: []);
 
-    expect(array_keys(directionSpecs()))->toEqualCanonicalizing(['counter', 'hearth', 'market', 'studio']);
+    expect(array_keys(directionSpecs()))->toEqualCanonicalizing(['counter', 'hearth', 'market', 'studio', 'yard', 'ledger', 'atelier', 'civic', 'launch', 'trail']);
 
     foreach (directionSpecs() as $name => $spec) {
         expect($spec)->toStartWith("# {$name}\n\n")
@@ -245,18 +245,45 @@ it('rolls a business only in the directions it lists', function () {
     ksort($lists);
 
     expect($lists)->toBe([
+        'agency' => ['launch', 'atelier', 'studio'],
+        'architect' => ['atelier', 'studio'],
+        'artisan' => ['atelier', 'market', 'studio'],
+        'association' => ['civic', 'market'],
         'bakery' => ['counter', 'market', 'studio'],
+        'band' => ['hearth', 'atelier'],
         'butcher' => ['counter', 'market'],
         'cafe' => ['counter', 'studio', 'hearth'],
+        'caterer' => ['hearth', 'studio', 'market'],
+        'club' => ['civic', 'trail', 'market'],
+        'commune' => ['civic', 'ledger'],
+        'construction' => ['yard', 'counter'],
+        'consultant' => ['ledger', 'launch', 'studio'],
+        'coworking' => ['launch', 'studio'],
         'farm' => ['market', 'counter'],
+        'festival' => ['launch', 'hearth', 'trail'],
         'fitness' => ['studio', 'counter'],
         'florist' => ['studio', 'counter', 'market'],
+        'garage' => ['yard', 'counter'],
+        'guide' => ['trail', 'studio'],
         'hotel' => ['hearth', 'studio'],
+        'landscaper' => ['trail', 'market', 'yard'],
+        'legal' => ['ledger', 'studio'],
+        'museum' => ['atelier', 'civic', 'studio'],
+        'portfolio' => ['atelier', 'studio'],
         'practice' => ['studio', 'counter'],
+        'realestate' => ['counter', 'atelier', 'studio'],
+        'recruitment' => ['launch', 'ledger', 'counter'],
+        'rental' => ['counter', 'trail', 'yard'],
         'restaurant' => ['hearth', 'counter', 'market'],
         'salon' => ['studio', 'counter'],
+        'school' => ['civic', 'studio', 'counter'],
         'shop' => ['counter', 'studio', 'market'],
+        'software' => ['launch', 'studio'],
+        'spa' => ['studio', 'hearth', 'trail'],
+        'theatre' => ['hearth', 'atelier', 'civic'],
         'trades' => ['counter', 'studio'],
+        'transport' => ['yard', 'counter', 'launch'],
+        'venue' => ['studio', 'hearth', 'atelier'],
         'winery' => ['hearth', 'market', 'studio'],
     ]);
 

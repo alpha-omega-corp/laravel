@@ -22,7 +22,9 @@ no re-theming.
 - `## Prefabs` — one `- <kit component> — <why>` per line, in the order a
   visitor meets them. Only names in `resources/views/components/kit` count:
   `schedule`, `menu`, `map`, `catalogue`, `gallery`, `team`, `events`, `faq`,
-  `booking`, or any other kit component.
+  `booking`, and the second set — `projects`, `services`, `process`,
+  `testimonials`, `pricing`, `listings`, `credentials`, `jobs`, `quote`,
+  `donate`, `courses` — or any other kit component.
 - `## Directions` — one `- <direction> — <why>` per line, in order of
   preference: the looks this kind of site may be drawn in, each a file in
   `../directions/`. A roll takes one of them and never one outside the list, and
@@ -48,7 +50,8 @@ no re-theming.
     site's direction is drawn in.
   - The prefabs are the business's own, placed on that page and nowhere the
     line does not name them. A list — `menu`, `catalogue`, `gallery`, `team`,
-    `events`, `faq` — and the `booking` form each sit on exactly one page,
+    `events`, `faq`, `projects`, `services`, `listings`, `pricing`, `courses`,
+    `jobs` — and a form, `booking` or `quote`, each sit on exactly one page,
     which home links to rather than repeats, and every prefab sits on some
     page; the hours and the map may sit on two, home and the visit.
   - `<label>` is the page's item in the site header, a word or two. A page
@@ -66,7 +69,19 @@ no re-theming.
   added after them — bakery, cafe, butcher, florist, winery, trades, hotel,
   practice, fitness — follow the same shapes. The laws they answer are in `../laws.md`.
 
-Adding a business type is a file here. Adding a direction to one is a line
+  A third set is businesses nobody walks into, or that sell no goods over a
+  counter: construction, legal, architect, realestate, garage, school,
+  association, venue, coworking, software, portfolio, guide and band. Their
+  pages follow what such a visitor comes for instead — the work done and a
+  figure asked for, the fields and the people, the plans and a demo, the dates
+  and the places left — and each has a direction of its own to be drawn in
+  (`yard`, `ledger`, `atelier`, `civic`, `launch`, `trail`) beside one of the
+  first four.
+
+Adding a business type is a file here, its worked designs in
+`../designs/<name>.md` (`../designs/README.md`: at least three, one or more per
+direction it lists) and, for the showcase, its demo content in
+`workbench/content/<name>.php`. Adding a direction to one is a line
 under its `## Directions`, naming a file in `../directions/`. Adding a prefab is
 a kit component, its entry in the worker template's `resources/components.php`,
 and its drawing in deployer's `pkg/uikit/parts.go` — the mockup draws a name it

@@ -1,5 +1,5 @@
 /*
- * The eleven palettes of the shared UI kit, each in two schemes.
+ * The eighteen palettes of the shared UI kit, each in two schemes.
  *
  * Two axes, and they are independent: `data-palette` on <html> chooses the
  * palette, `data-theme` chooses light or dark, and the absence of `data-theme`
@@ -702,6 +702,454 @@
     --btn-secondary-shadow-active: none;
 }
 
+[data-palette='concrete'] {
+    /*
+     * concrete — a site in daylight: poured grey, near-black type set condensed and
+     * heavy, one signal orange and the hazard yellow of a barrier. Square, edged,
+     * nothing soft. The yellow is a ground and never a text colour: on the light
+     * canvas it is 1.5:1, so it carries ink and marks what must be seen.
+     */
+    --color-canvas: light-dark(#f3f3f0, #15171a);
+    --color-canvas-alt: light-dark(#e7e8e4, #0d0e10);
+    --color-raise: light-dark(#ffffff, #1e2125);
+    --color-ink: light-dark(#14161a, #eceeee);
+    --color-ink-soft: light-dark(#50555b, #a3a9af);
+    --color-rule: light-dark(#c3c6c6, #353a40);
+    --color-accent: light-dark(#a83a08, #ff8f47);
+    --color-accent-strong: light-dark(#822b04, #ffad75);
+    --color-on-accent: light-dark(#ffffff, #1c0c03);
+    --color-highlight: #f7c600;
+    --color-on-highlight: #14161a;
+
+    --font-display: var(--font-barlow-condensed, 'Barlow Condensed'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-barlow, 'Barlow'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 700;
+    --body-leading: 1.55;
+
+    --text-display: clamp(3rem, 8.5vw, 6rem);
+    --text-display--line-height: 0.92;
+    --text-display--letter-spacing: -0.005em;
+    --text-title: clamp(2rem, 4.4vw, 3.25rem);
+    --text-title--line-height: 1;
+    --text-title--letter-spacing: 0;
+    --text-figure: clamp(3rem, 7vw, 5rem);
+    --text-figure--line-height: 0.88;
+    --text-figure--letter-spacing: -0.01em;
+
+    --radius-panel: 0.125rem;
+    --radius-control: 0.125rem;
+    --container-wrap: 80rem;
+
+    --dur-fast: 0.1s;
+    --dur-base: 0.25s;
+    --dur-slow: 0.5s;
+    --ease-out: power2.out;
+    --ease-inout: power1.inOut;
+    --move: 10px;
+
+    /* A slab: a full edge in the rule and a heavier one along the top, no shadow in either scheme. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid var(--color-rule);
+    --panel-shadow: inset 0 3px 0 var(--color-ink);
+    --panel-shadow-raised: inset 0 3px 0 var(--color-accent);
+
+    --btn-font: var(--font-display);
+    --btn-weight: 700;
+    --btn-tracking: 0.06em;
+    --btn-transform: uppercase;
+    --btn-density: 1;
+    --btn-press: 0 1px;
+    --btn-primary-border: 2px solid transparent;
+    --btn-primary-shadow: none;
+    --btn-primary-shadow-active: none;
+    --btn-secondary-border: 2px solid var(--color-ink);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
+[data-palette='quill'] {
+    /*
+     * quill — a quiet office: bone paper, a blue-black ink, the navy of a bound
+     * volume and a little brass. A serif that was cut for reading, hairlines, small
+     * corners, and nothing that moves more than it has to.
+     */
+    --color-canvas: light-dark(#f7f3ea, #10151f);
+    --color-canvas-alt: light-dark(#efe9db, #0a0e16);
+    --color-raise: light-dark(#fcfaf4, #171e2c);
+    --color-ink: light-dark(#18202f, #ece7db);
+    --color-ink-soft: light-dark(#545d72, #a4acbd);
+    --color-rule: light-dark(#d4cab5, #2b3446);
+    --color-accent: light-dark(#1e3a6b, #a3bdea);
+    --color-accent-strong: light-dark(#132a52, #c3d4f3);
+    --color-on-accent: light-dark(#f7f3ea, #0c1424);
+    --color-highlight: light-dark(#85550f, #dcae55);
+    --color-on-highlight: light-dark(#ffffff, #1c1405);
+
+    --font-display: var(--font-newsreader, 'Newsreader'), ui-serif, Georgia, serif;
+    --font-body: var(--font-public-sans, 'Public Sans'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 500;
+    --body-leading: 1.7;
+
+    --text-display: clamp(2.5rem, 5.4vw, 4rem);
+    --text-display--line-height: 1.06;
+    --text-display--letter-spacing: -0.02em;
+    --text-title: clamp(1.75rem, 3vw, 2.375rem);
+    --text-title--line-height: 1.15;
+    --text-title--letter-spacing: -0.012em;
+    --text-figure: clamp(2.25rem, 4.4vw, 3.25rem);
+    --text-figure--line-height: 1;
+    --text-figure--letter-spacing: -0.02em;
+
+    --radius-panel: 0.25rem;
+    --radius-control: 0.25rem;
+    --container-wrap: 70rem;
+
+    --dur-fast: 0.15s;
+    --dur-base: 0.3s;
+    --dur-slow: 0.6s;
+    --ease-out: power2.out;
+    --ease-inout: sine.inOut;
+    --move: 8px;
+
+    /* A sheet on a desk: a hairline all round and the faintest lift. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid var(--color-rule);
+    --panel-shadow: 0 1px 2px light-dark(rgb(24 32 47 / 0.08), rgb(0 0 0 / 0.4));
+    --panel-shadow-raised: 0 6px 18px light-dark(rgb(24 32 47 / 0.12), rgb(0 0 0 / 0.5));
+
+    --btn-font: var(--font-body);
+    --btn-weight: 600;
+    --btn-tracking: 0.01em;
+    --btn-transform: none;
+    --btn-density: 1;
+    --btn-press: 0 1px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: none;
+    --btn-primary-shadow-active: none;
+    --btn-secondary-border: 1px solid light-dark(#18202f, #2b3446);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
+[data-palette='alpine'] {
+    /*
+     * alpine — the outdoors in clear weather: snow and glacier grounds, a lake blue
+     * that reads from far off, and the orange of a rescue jacket for what is urgent
+     * — a closed route, the last places on a date. Round, legible, quick.
+     */
+    --color-canvas: light-dark(#f5f9fa, #0c191e);
+    --color-canvas-alt: light-dark(#e2edf0, #071115);
+    --color-raise: light-dark(#ffffff, #13252e);
+    --color-ink: light-dark(#0f252b, #e6f1f3);
+    --color-ink-soft: light-dark(#476068, #9cb3ba);
+    --color-rule: light-dark(#c4d5da, #253a43);
+    --color-accent: light-dark(#17598a, #70c2ee);
+    --color-accent-strong: light-dark(#0f436b, #9bd6f6);
+    --color-on-accent: light-dark(#ffffff, #05131b);
+    --color-highlight: light-dark(#e2600f, #ff8f52);
+    --color-on-highlight: #1a0d04;
+
+    --font-display: var(--font-red-hat-display, 'Red Hat Display'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-red-hat-text, 'Red Hat Text'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 700;
+    --body-leading: 1.6;
+
+    --text-display: clamp(2.6rem, 6.4vw, 4.5rem);
+    --text-display--line-height: 1;
+    --text-display--letter-spacing: -0.03em;
+    --text-title: clamp(1.75rem, 3.4vw, 2.5rem);
+    --text-title--line-height: 1.1;
+    --text-title--letter-spacing: -0.02em;
+    --text-figure: clamp(2.25rem, 5vw, 3.5rem);
+    --text-figure--line-height: 0.95;
+    --text-figure--letter-spacing: -0.03em;
+
+    --radius-panel: 0.875rem;
+    --radius-control: 0.625rem;
+    --container-wrap: 78rem;
+
+    --dur-fast: 0.15s;
+    --dur-base: 0.35s;
+    --dur-slow: 0.8s;
+    --ease-out: power3.out;
+    --ease-inout: power2.inOut;
+    --move: 14px;
+
+    /* Snow on a ledge: no edge in the light, a long cold shadow; an edge in the dark, where a shadow shows nothing. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid light-dark(transparent, #253a43);
+    --panel-shadow: 0 1px 2px light-dark(rgb(15 37 43 / 0.08), rgb(0 0 0 / 0)), 0 8px 24px light-dark(rgb(15 37 43 / 0.08), rgb(0 0 0 / 0));
+    --panel-shadow-raised: 0 2px 4px light-dark(rgb(15 37 43 / 0.1), rgb(0 0 0 / 0)), 0 16px 40px light-dark(rgb(15 37 43 / 0.14), rgb(0 0 0 / 0));
+
+    --btn-font: var(--font-display);
+    --btn-weight: 700;
+    --btn-tracking: 0;
+    --btn-transform: none;
+    --btn-density: 1.05;
+    --btn-press: 0 1px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: 0 6px 16px light-dark(rgb(23 89 138 / 0.25), rgb(0 0 0 / 0));
+    --btn-primary-shadow-active: 0 2px 6px light-dark(rgb(23 89 138 / 0.25), rgb(0 0 0 / 0));
+    --btn-secondary-border: 1px solid var(--color-rule);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
+[data-palette='clay'] {
+    /*
+     * clay — fired earth: a terracotta that reads as a link, an olive for what is in
+     * season, warm paper and a serif cut with a chisel. Round but not soft, hand-
+     * made but not rustic.
+     */
+    --color-canvas: light-dark(#f8f1e7, #1c1512);
+    --color-canvas-alt: light-dark(#f1e6d6, #130e0c);
+    --color-raise: light-dark(#fdf9f2, #261d19);
+    --color-ink: light-dark(#2a1c14, #f3e8dc);
+    --color-ink-soft: light-dark(#6a5446, #bfa998);
+    --color-rule: light-dark(#dcc9b3, #3b2d26);
+    --color-accent: light-dark(#a3411f, #e8946d);
+    --color-accent-strong: light-dark(#7f2f14, #f2b393);
+    --color-on-accent: light-dark(#fff8f0, #2a1108);
+    --color-highlight: light-dark(#59682a, #b7c77a);
+    --color-on-highlight: light-dark(#ffffff, #1a1f08);
+
+    --font-display: var(--font-young-serif, 'Young Serif'), ui-serif, Georgia, serif;
+    --font-body: var(--font-karla, 'Karla'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 400;
+    --body-leading: 1.65;
+
+    --text-display: clamp(2.5rem, 5.8vw, 4.25rem);
+    --text-display--line-height: 1.04;
+    --text-display--letter-spacing: -0.02em;
+    --text-title: clamp(1.75rem, 3.2vw, 2.5rem);
+    --text-title--line-height: 1.12;
+    --text-title--letter-spacing: -0.012em;
+    --text-figure: clamp(2.25rem, 4.6vw, 3.5rem);
+    --text-figure--line-height: 1;
+    --text-figure--letter-spacing: -0.02em;
+
+    --radius-panel: 0.75rem;
+    --radius-control: 0.5rem;
+    --container-wrap: 74rem;
+
+    --dur-fast: 0.18s;
+    --dur-base: 0.4s;
+    --dur-slow: 0.8s;
+    --ease-out: power2.out;
+    --ease-inout: sine.inOut;
+    --move: 12px;
+
+    /* A tile: a warm edge all round and a short shadow in the earth's own colour. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid var(--color-rule);
+    --panel-shadow: 0 2px 0 light-dark(rgb(163 65 31 / 0.14), rgb(0 0 0 / 0.5));
+    --panel-shadow-raised: 0 4px 0 light-dark(rgb(163 65 31 / 0.2), rgb(0 0 0 / 0.6));
+
+    --btn-font: var(--font-body);
+    --btn-weight: 700;
+    --btn-tracking: 0.01em;
+    --btn-transform: none;
+    --btn-density: 1.05;
+    --btn-press: 0 1px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: 0 2px 0 light-dark(rgb(127 47 20 / 0.55), rgb(0 0 0 / 0.5));
+    --btn-primary-shadow-active: none;
+    --btn-secondary-border: 1px solid var(--color-rule);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
+[data-palette='plum'] {
+    /*
+     * plum — an evening palette that also works by day: aubergine on a blush-white
+     * page, a little antique gold, a high-contrast garalde and a geometric sans
+     * under it. Elegant, quiet, a little theatrical.
+     */
+    --color-canvas: light-dark(#faf5f4, #1a1017);
+    --color-canvas-alt: light-dark(#f1e6e6, #110a0f);
+    --color-raise: light-dark(#ffffff, #251822);
+    --color-ink: light-dark(#2b1425, #f4e9f0);
+    --color-ink-soft: light-dark(#6b5265, #bfa9b9);
+    --color-rule: light-dark(#e0cfd6, #3b2935);
+    --color-accent: light-dark(#6d2358, #e09ccb);
+    --color-accent-strong: light-dark(#511641, #ecbbdc);
+    --color-on-accent: light-dark(#ffffff, #2b0f22);
+    --color-highlight: light-dark(#8f5a1e, #e0b06a);
+    --color-on-highlight: light-dark(#ffffff, #241503);
+
+    --font-display: var(--font-cormorant-garamond, 'Cormorant Garamond'), ui-serif, Georgia, serif;
+    --font-body: var(--font-jost, 'Jost'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 600;
+    --body-leading: 1.65;
+
+    --text-display: clamp(2.9rem, 6.6vw, 5rem);
+    --text-display--line-height: 1;
+    --text-display--letter-spacing: -0.015em;
+    --text-title: clamp(2rem, 3.8vw, 3rem);
+    --text-title--line-height: 1.08;
+    --text-title--letter-spacing: -0.01em;
+    --text-figure: clamp(2.5rem, 5vw, 4rem);
+    --text-figure--line-height: 0.95;
+    --text-figure--letter-spacing: -0.015em;
+
+    --radius-panel: 0.125rem;
+    --radius-control: 9999px;
+    --container-wrap: 72rem;
+
+    --dur-fast: 0.2s;
+    --dur-base: 0.5s;
+    --dur-slow: 1s;
+    --ease-out: power3.out;
+    --ease-inout: sine.inOut;
+    --move: 14px;
+
+    /* A card on velvet: a hairline and a long soft shadow in the plum itself. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid var(--color-rule);
+    --panel-shadow: 0 1px 2px light-dark(rgb(43 20 37 / 0.05), rgb(0 0 0 / 0.4)), 0 14px 36px -18px light-dark(rgb(109 35 88 / 0.28), rgb(0 0 0 / 0.7));
+    --panel-shadow-raised: 0 2px 6px -2px light-dark(rgb(43 20 37 / 0.08), rgb(0 0 0 / 0.5)), 0 26px 52px -22px light-dark(rgb(109 35 88 / 0.36), rgb(0 0 0 / 0.8));
+
+    --btn-font: var(--font-body);
+    --btn-weight: 500;
+    --btn-tracking: 0.08em;
+    --btn-transform: uppercase;
+    --btn-density: 1.1;
+    --btn-press: 0 1px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: none;
+    --btn-primary-shadow-active: none;
+    --btn-secondary-border: 1px solid light-dark(#2b1425, #3b2935);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
+[data-palette='denim'] {
+    /*
+     * denim — workwear: indigo on a washed page, the rust of a rivet for what
+     * matters, a wide grotesque set tight. Sturdy, plain-spoken, made to be used.
+     */
+    --color-canvas: light-dark(#f4f6fa, #0f1524);
+    --color-canvas-alt: light-dark(#e4e9f3, #090d18);
+    --color-raise: light-dark(#ffffff, #172036);
+    --color-ink: light-dark(#111b33, #e8edf8);
+    --color-ink-soft: light-dark(#4d5a78, #a3afc8);
+    --color-rule: light-dark(#c5cee0, #2a3652);
+    --color-accent: light-dark(#27408b, #93b0f5);
+    --color-accent-strong: light-dark(#1a2d68, #b6cafa);
+    --color-on-accent: light-dark(#ffffff, #0a1330);
+    --color-highlight: light-dark(#b0491a, #f29a62);
+    --color-on-highlight: light-dark(#ffffff, #2a1105);
+
+    --font-display: var(--font-archivo, 'Archivo'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-archivo-narrow, 'Archivo Narrow'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 800;
+    --body-leading: 1.55;
+
+    --text-display: clamp(2.6rem, 6.4vw, 4.5rem);
+    --text-display--line-height: 0.98;
+    --text-display--letter-spacing: -0.035em;
+    --text-title: clamp(1.75rem, 3.4vw, 2.625rem);
+    --text-title--line-height: 1.06;
+    --text-title--letter-spacing: -0.025em;
+    --text-figure: clamp(2.4rem, 5.2vw, 3.75rem);
+    --text-figure--line-height: 0.92;
+    --text-figure--letter-spacing: -0.04em;
+
+    --radius-panel: 0.375rem;
+    --radius-control: 0.25rem;
+    --container-wrap: 80rem;
+
+    --dur-fast: 0.12s;
+    --dur-base: 0.28s;
+    --dur-slow: 0.55s;
+    --ease-out: power2.out;
+    --ease-inout: power1.inOut;
+    --move: 10px;
+
+    /* A patch pocket: a stitched edge, two lines of it, and no shadow. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid var(--color-rule);
+    --panel-shadow: 0 0 0 3px var(--color-raise), 0 0 0 4px var(--color-rule);
+    --panel-shadow-raised: 0 0 0 3px var(--color-raise), 0 0 0 4px var(--color-accent);
+
+    --btn-font: var(--font-display);
+    --btn-weight: 700;
+    --btn-tracking: 0.01em;
+    --btn-transform: none;
+    --btn-density: 1;
+    --btn-press: 0 1px;
+    --btn-primary-border: 2px solid transparent;
+    --btn-primary-shadow: none;
+    --btn-primary-shadow-active: none;
+    --btn-secondary-border: 2px solid light-dark(#111b33, #2a3652);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
+[data-palette='sorbet'] {
+    /*
+     * sorbet — peach paper, a raspberry that reads as a link and a cool blue beside
+     * it, in a rounded face that smiles. Playful and clear: for children, clubs and
+     * anything on a Saturday.
+     */
+    --color-canvas: light-dark(#fff8f3, #1b1620);
+    --color-canvas-alt: light-dark(#ffe9dc, #120e16);
+    --color-raise: light-dark(#ffffff, #26202d);
+    --color-ink: light-dark(#2a1f33, #f6eef8);
+    --color-ink-soft: light-dark(#665a70, #bdb0c6);
+    --color-rule: light-dark(#f0d5c6, #3a3144);
+    --color-accent: light-dark(#b8325a, #ff9db8);
+    --color-accent-strong: light-dark(#8f2244, #ffbfd1);
+    --color-on-accent: light-dark(#ffffff, #3a0d1c);
+    --color-highlight: light-dark(#1f6f8c, #7fd4ee);
+    --color-on-highlight: light-dark(#ffffff, #062430);
+
+    --font-display: var(--font-baloo-2, 'Baloo 2'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-nunito, 'Nunito'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 700;
+    --body-leading: 1.65;
+
+    --text-display: clamp(2.7rem, 6.6vw, 4.75rem);
+    --text-display--line-height: 1;
+    --text-display--letter-spacing: -0.02em;
+    --text-title: clamp(1.875rem, 3.6vw, 2.75rem);
+    --text-title--line-height: 1.1;
+    --text-title--letter-spacing: -0.012em;
+    --text-figure: clamp(2.5rem, 5.4vw, 4rem);
+    --text-figure--line-height: 0.95;
+    --text-figure--letter-spacing: -0.02em;
+
+    --radius-panel: 1.5rem;
+    --radius-control: 9999px;
+    --container-wrap: 76rem;
+
+    --dur-fast: 0.18s;
+    --dur-base: 0.5s;
+    --dur-slow: 0.9s;
+    --ease-out: back.out(1.4);
+    --ease-inout: power2.inOut;
+    --move: 18px;
+
+    /* A sticker: no edge in the light and a soft drop in the raspberry; an edge in the dark. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid light-dark(transparent, #3a3144);
+    --panel-shadow: 0 2px 0 light-dark(rgb(184 50 90 / 0.1), rgb(0 0 0 / 0)), 0 12px 28px -14px light-dark(rgb(184 50 90 / 0.3), rgb(0 0 0 / 0));
+    --panel-shadow-raised: 0 3px 0 light-dark(rgb(184 50 90 / 0.14), rgb(0 0 0 / 0)), 0 22px 44px -18px light-dark(rgb(184 50 90 / 0.4), rgb(0 0 0 / 0));
+
+    --btn-font: var(--font-display);
+    --btn-weight: 700;
+    --btn-tracking: 0;
+    --btn-transform: none;
+    --btn-density: 1.15;
+    --btn-press: 0 2px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: 0 4px 0 light-dark(#8f2244, #b8325a);
+    --btn-primary-shadow-active: 0 1px 0 light-dark(#8f2244, #b8325a);
+    --btn-secondary-border: 1px solid var(--color-rule);
+    --btn-secondary-shadow: 0 3px 0 light-dark(#f0d5c6, #120e16);
+    --btn-secondary-shadow-active: 0 1px 0 light-dark(#f0d5c6, #120e16);
+}
+
 /*
  * A chosen appearance, last so it beats the :root default whatever palette is on
  * the same element. color-scheme inherits, so this settles nested previews too.
@@ -719,7 +1167,7 @@
  *
  * Not an eighth palette and not a second set of values: the tokens below are
  * derived from the ones already in force with color-mix, so one rule covers all
- * eleven palettes in both schemes. The page moves further from the panel, the
+ * eighteen palettes in both schemes. The page moves further from the panel, the
  * rule gets stronger, muted text comes back toward the ink, and every panel is
  * given an edge — which is what sandstone, blossom and fresh gain most, since
  * they draw none and separate by shadow alone.

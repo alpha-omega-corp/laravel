@@ -42,5 +42,33 @@
     "ember": {
         "display": { "family": "DM Serif Display", "weights": [400] },
         "body": { "family": "Work Sans", "weights": [400, 500, 600, 700] }
+    },
+    "concrete": {
+        "display": { "family": "Barlow Condensed", "weights": [700] },
+        "body": { "family": "Barlow", "weights": [400, 500, 600, 700] }
+    },
+    "quill": {
+        "display": { "family": "Newsreader", "weights": [500, 700] },
+        "body": { "family": "Public Sans", "weights": [400, 500, 600, 700] }
+    },
+    "alpine": {
+        "display": { "family": "Red Hat Display", "weights": [700] },
+        "body": { "family": "Red Hat Text", "weights": [400, 500, 600, 700] }
+    },
+    "clay": {
+        "display": { "family": "Young Serif", "weights": [400] },
+        "body": { "family": "Karla", "weights": [400, 500, 600, 700] }
+    },
+    "plum": {
+        "display": { "family": "Cormorant Garamond", "weights": [600, 700] },
+        "body": { "family": "Jost", "weights": [400, 500, 600, 700] }
+    },
+    "denim": {
+        "display": { "family": "Archivo", "weights": [800, 700] },
+        "body": { "family": "Archivo Narrow", "weights": [400, 500, 600, 700] }
+    },
+    "sorbet": {
+        "display": { "family": "Baloo 2", "weights": [700] },
+        "body": { "family": "Nunito", "weights": [400, 500, 600, 700] }
     }
 }

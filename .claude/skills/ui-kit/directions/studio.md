@@ -24,6 +24,8 @@ air between everything.
 - ember — good
 - lagoon — good
 - nocturne — fair
+- clay — good
+- plum — good
 
 ## Suits
 
@@ -44,3 +46,14 @@ every section's head is centred: the chrome is quiet so the photographs can be l
 - map — no panel edge, square corners, the map in greyscale.
 - cta-band — the copy and the actions centred.
 - site-footer — one centred column.
+- projects — portrait tiles at 3/4 with no panel edge, as the catalogue's, three across at most and as many as the column holds at 17rem; the title centred, the name small, uppercase and tracked over what the job was, the figure in the display face over its hairline.
+- services — no panel: each service centred under its icon in the ink with air round it, as many as the column holds at 13rem; the title centred, the name small, uppercase and tracked, the price in the display face as the price list sets one; arranged, a hairline round each on nothing.
+- process — the title and the intro centred; each step centred under a hairline in place of the ink rule, its number quiet in the display face in the soft ink, the name small, uppercase and tracked, the duration in the display face.
+- testimonials — no panel: the title centred, the words centred in the display face at regular weight over who said them, the portrait a small 3/4 with square corners above the name, the name small, uppercase and tracked as the team's.
+- pricing — the title, the intro and the note centred; each plan centred inside a hairline on nothing with square corners, the one put forward inside an ink edge with its flag a small tracked label set on that line; the name small, uppercase and tracked, the price in the display face, the ticks gone.
+- listings — portrait tiles at 3/4 with no panel edge, three across at most, as the catalogue's; the title centred, the name small, uppercase and tracked, the price in the display face, the status a small tracked slip of the canvas on the photograph's edge.
+- credentials — the title a small, uppercase, tracked label, centred, not a section's head; the credentials one centred row that wraps, each 13rem at most and no rule over it, the logos in greyscale as the map is, the name at regular weight.
+- jobs — the title and the intro centred over the ruled rows; the name at regular weight as an event's, the place and the hours small, uppercase, tracked labels in the soft ink with no chip, the arrow in the ink.
+- quote — the booking's panel kept, since a form stands in one; the title at the section's size and the invitation centred over the form.
+- donate — no panel, one centred column of 40rem as the hours are; the title and the button centred, the account's details one centred row under a hairline, their labels small, uppercase and tracked.
+- courses — the events' rows: the title centred, the date small, uppercase and tracked, the name at regular weight, the price in the display face, the seats a small tracked label in the soft ink with no chip.

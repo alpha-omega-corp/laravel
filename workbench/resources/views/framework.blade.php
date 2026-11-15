@@ -139,6 +139,13 @@
 
 <x-layouts.shell :title="__('framework.title')" :description="__('framework.intro')">
     <div class="space-y-4">
+        {{-- The tab's two halves: the nine projects written by hand, here, and every kind of business read from the skill. --}}
+        <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+            <span aria-current="page" class="font-semibold text-ink">{{ __('framework.projects') }}</span>
+            <a href="{{ route('framework.businesses') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.title') }}</a>
+            <a href="{{ route('framework.sheet') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.sheet') }}</a>
+        </p>
+
         {{--
             Sticky from `lg` up, because the card below can be dragged taller
             than the window and the controls should stay where the pointer left

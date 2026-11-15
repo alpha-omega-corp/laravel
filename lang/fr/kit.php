@@ -34,6 +34,25 @@ return [
         'send' => 'Envoyer la demande',
     ],
 
+    // The quote prefab: its form's labels and the thanks. What happens next is the owner's `note`.
+    'quote' => [
+        'sent' => 'Merci : votre demande est arrivée. Nous les lisons toutes et répondons avec un chiffre.',
+        'name' => 'Nom',
+        'contact' => 'E-mail ou téléphone',
+        'scope' => 'Type de travaux',
+        'place' => 'Lieu',
+        'budget' => 'Budget',
+        'deadline' => 'Souhaité pour le',
+        'choose' => 'Choisir…',
+        'message' => 'Décrivez les travaux',
+        'send' => 'Demander un devis',
+    ],
+
+    // What a plan's, a gift's and a course's button says when the owner gave it no words, and a course with no room left.
+    'pricing' => ['choose' => 'Choisir'],
+    'donate' => ['give' => 'Faire un don'],
+    'courses' => ['full' => 'Complet', 'enrol' => 'S’inscrire'],
+
     // The footer's line for who made the site: "Réalisé par apdigital.ch".
     'credit' => 'Réalisé par',
 

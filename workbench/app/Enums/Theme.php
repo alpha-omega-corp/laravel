@@ -26,6 +26,13 @@ enum Theme: string
     case Lagoon = 'lagoon';
     case Nocturne = 'nocturne';
     case Ember = 'ember';
+    case Concrete = 'concrete';
+    case Quill = 'quill';
+    case Alpine = 'alpine';
+    case Clay = 'clay';
+    case Plum = 'plum';
+    case Denim = 'denim';
+    case Sorbet = 'sorbet';
 
     public static function default(): self
     {

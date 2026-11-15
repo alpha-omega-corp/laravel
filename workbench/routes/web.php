@@ -23,6 +23,25 @@ Route::view('/layouts', 'layouts')->name('layouts');
 Route::view('/framework', 'framework')->name('framework');
 
 /*
+ * The framework tab's business views: one page of one kind of business, drawn
+ * from the skill's own files (businesses, directions, layouts, palettes and the
+ * worked designs) by Workbench\App\Framework\Site. `site` is the page alone, a
+ * document whose <html> carries the palette and the direction as a built site's
+ * does; `businesses` is the tab that frames it with every axis above it; `sheet`
+ * lays every design of a business out page by page.
+ */
+Route::view('/framework/site', 'framework.site.document')->name('framework.site');
+Route::view('/framework/businesses', 'framework.businesses')->name('framework.businesses');
+Route::view('/framework/sheet', 'framework.sheet')->name('framework.sheet');
+
+// The photograph a demo business has not got: the kit's own frame, as an image, captioned with what belongs there.
+Route::get('/framework/picture', fn () => response(
+    Workbench\App\Framework\Picture::svg(request()->string('subject')->toString(), request()->integer('w', 1200), request()->integer('h', 900)),
+    200,
+    ['Content-Type' => 'image/svg+xml', 'Cache-Control' => 'public, max-age=86400'],
+))->name('framework.picture');
+
+/*
  * The graph tab: the four enums and the kit's components drawn as one graph,
  * from Workbench\App\Support\DesignGraph. Every edge is read out of the views rather
  * than declared, and every node links to the page that shows it.

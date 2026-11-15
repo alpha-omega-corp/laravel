@@ -22,6 +22,8 @@ with the address and the hours. Dark by design, whatever the visitor's system sa
 - blossom — fair
 - ember — best
 - nocturne — good
+- plum — best
+- clay — good
 
 ## Suits
 
@@ -45,3 +47,14 @@ on the dark under a hairline.
 - schedule — no panel, at most 44rem wide and centred, on the carte's own measure so the two start at one edge, hairlines between the days.
 - catalogue — no panel edge and no surface; the photograph and the frame on `--radius-media`; the name in the display face.
 - map — a hairline panel on `--radius-media`, the map darkened to sit on the page, the caption on the second ground.
+- projects — as the catalogue: no panel edge and no surface; the photograph and the frame on `--radius-media` at the component's own 4/3, the words at the photograph's edge; the place and the year a small uppercase tracked label, the name in the display face at `text-2xl`, the figure over its hairline in the display face at its weight with what it counts as a label; a card that opens lifts 4px on hover, as a door does.
+- services — the carte: one column of 44rem, centred; no panel; each service a row, the name in the display face and the price at the row's end set as the menu's, the line under the name at most 56ch, a hairline between rows; the icon at 1.5rem in a narrow column before the names, kept for every row once one row has it so the names share an edge; a name that opens takes the header's accent underline on hover.
+- process — the steps across the column as the kit lays them, each under a hairline rather than an ink rule; the number the accent's, in the display face at its weight; the duration a small uppercase tracked label in ink-soft.
+- testimonials — as the team: no card round a voice; each quotation down a hairline at its start, the words in the display face at 1.25rem, the portrait a small 4/5 plate on `--radius-media`, the name in the display face; 2.5rem between quotations.
+- pricing — each plan a hairline panel on `--radius-media` with no surface and no shadow, as the map's; the name in the display face at `text-2xl`, the price in the display face at its weight; the plan the owner marks stands in the lamplight, the accent's glow from its top and the accent mixed into its edge, in place of a ring; the flag a small uppercase tracked chip.
+- listings — as the catalogue: no panel edge and no surface; the photograph and the frame on `--radius-media`, the words at the photograph's edge; the status a small uppercase tracked chip, each fact's label uppercase and tracked, the price in the display face at its weight; a card that opens lifts 4px on hover.
+- credentials — a quiet strip between two hairlines: the title a small uppercase tracked label in ink-soft rather than a heading, no rule over a name, the names in the display face at 1.125rem.
+- jobs — on the carte's measure, 44rem and centred, so it starts at the edge of what is on; hairlines between the positions and none round the list; the place and the hours plain uppercase tracked labels in ink-soft rather than chips; the arrow ink-soft, sliding 4px on hover, and a name that opens taking the accent underline.
+- quote — a hairline panel on `--radius-media`, on the second ground and with no shadow, 44rem wide and centred when the page did not arrange it; the title at the heading size.
+- donate — the quote's panel, lit: the accent's glow from its top over the second ground, 44rem wide and centred; each detail's label uppercase, tracked and small, as the band's.
+- courses — what is on, with a price: 44rem and centred, hairlines between the sessions and none round the list; the date and the name in the display face on one line, the price at the row's end, and the places and the button under the price, so a row holds on the carte's measure.

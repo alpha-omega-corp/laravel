@@ -157,7 +157,7 @@ it('puts the chosen arrangement on the root and keeps the owner\'s rows, and not
     // name, or none at all.
     expect(Blade::render("<x-kit.{$name} variant=\"anything\" />"))->not->toContain('data-variant')->toContain('data-kit="'.$name.'"')
         ->and(Blade::render("<x-kit.{$name} />"))->not->toContain('data-variant');
-})->with(['schedule', 'menu', 'catalogue', 'map', 'booking', 'events', 'faq', 'gallery', 'team']);
+})->with(['schedule', 'menu', 'catalogue', 'map', 'booking', 'events', 'faq', 'gallery', 'team', 'projects', 'services', 'process', 'testimonials', 'pricing', 'listings', 'credentials', 'jobs', 'quote', 'donate', 'courses']);
 
 it('opens every answer when the questions are laid out open', function () {
     app()->instance('kit.faq', prefabData()['faq'][0]);

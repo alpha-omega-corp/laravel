@@ -42,6 +42,17 @@ function sectionHooks(): array
         'faq' => ['faq-title', 'faq-list', 'faq-entry', 'faq-question', 'faq-answer'],
         'gallery' => ['gallery-title', 'gallery-grid', 'gallery-item', 'gallery-image', 'gallery-caption'],
         'team' => ['team-title', 'team-list', 'team-member', 'team-image', 'team-frame', 'team-name', 'team-role', 'team-bio'],
+        'projects' => ['projects-title', 'projects-list', 'projects-item', 'projects-image', 'projects-frame', 'projects-body', 'projects-meta', 'projects-name', 'projects-link', 'projects-kind', 'projects-summary', 'projects-figure', 'projects-figure-value', 'projects-figure-label'],
+        'services' => ['services-title', 'services-list', 'services-item', 'services-icon', 'services-name', 'services-link', 'services-line', 'services-price'],
+        'process' => ['process-title', 'process-intro', 'process-list', 'process-step', 'process-number', 'process-name', 'process-line', 'process-duration'],
+        'testimonials' => ['testimonials-title', 'testimonials-list', 'testimonials-item', 'testimonials-quote', 'testimonials-author', 'testimonials-image', 'testimonials-name', 'testimonials-role'],
+        'pricing' => ['pricing-title', 'pricing-intro', 'pricing-list', 'pricing-plan', 'pricing-name', 'pricing-flag', 'pricing-price', 'pricing-period', 'pricing-line', 'pricing-includes', 'pricing-include', 'pricing-action', 'pricing-note'],
+        'listings' => ['listings-title', 'listings-list', 'listings-item', 'listings-picture', 'listings-image', 'listings-frame', 'listings-status', 'listings-body', 'listings-name', 'listings-link', 'listings-place', 'listings-facts', 'listings-fact', 'listings-price'],
+        'credentials' => ['credentials-title', 'credentials-list', 'credentials-item', 'credentials-logo', 'credentials-name', 'credentials-link', 'credentials-detail'],
+        'jobs' => ['jobs-title', 'jobs-intro', 'jobs-list', 'jobs-item', 'jobs-name', 'jobs-link', 'jobs-line', 'jobs-meta', 'jobs-arrow'],
+        'quote' => ['quote-copy', 'quote-title', 'quote-intro', 'quote-sent', 'quote-form', 'quote-field', 'quote-actions', 'quote-note'],
+        'donate' => ['donate-copy', 'donate-title', 'donate-intro', 'donate-action', 'donate-details', 'donate-detail', 'donate-note'],
+        'courses' => ['courses-title', 'courses-list', 'courses-item', 'courses-date', 'courses-time', 'courses-name', 'courses-meta', 'courses-end', 'courses-price', 'courses-seats', 'courses-action'],
         'language-picker' => ['language-picker-option'],
         'theme-picker' => ['theme-picker-current', 'theme-picker-list', 'theme-picker-option'],
     ];
@@ -119,6 +130,40 @@ function sectionSamples(): array
         ]],
         'team' => ['<x-kit.team title="L’équipe" :members="$members" />', [
             'members' => [['name' => 'Léa Martin', 'role' => 'Coiffeuse', 'bio' => 'Les coupes courtes', 'image' => '/lea.jpg'], ['name' => 'Marc']],
+        ]],
+        'projects' => ['<x-kit.projects title="Nos chantiers" :projects="$projects" />', [
+            'projects' => [['name' => 'Halle de production', 'place' => 'Bussigny', 'year' => 2024, 'kind' => 'Structure béton', 'figure' => '4 200 m²', 'figure_label' => 'de surface', 'summary' => 'Livrée en quatorze mois', 'image' => '/halle.jpg', 'href' => '/chantiers/halle'], ['name' => 'Passerelle']],
+        ]],
+        'services' => ['<x-kit.services title="Nos domaines" :services="$services" />', [
+            'services' => [['name' => 'Droit du bail', 'line' => 'Résiliations, loyers', 'icon' => 'scale', 'price' => 'dès CHF 250', 'href' => '/bail'], ['name' => 'Successions']],
+        ]],
+        'process' => ['<x-kit.process title="Comment ça se passe" intro="En quatre temps." :steps="$steps" />', [
+            'steps' => [['name' => 'Visite', 'line' => 'Nous venons voir', 'duration' => 'une heure'], ['name' => 'Devis']],
+        ]],
+        'testimonials' => ['<x-kit.testimonials title="Ils en parlent" :testimonials="$testimonials" />', [
+            'testimonials' => [['quote' => 'Livré à la date dite.', 'name' => 'Anne Rochat', 'role' => 'Maître d’ouvrage', 'image' => '/anne.jpg'], ['quote' => 'Sans surprise.', 'name' => 'Marc']],
+        ]],
+        'pricing' => ['<x-kit.pricing title="Tarifs" intro="Sans engagement." note="Prix hors TVA." :plans="$plans" />', [
+            'plans' => [['name' => 'Poste fixe', 'price' => 'CHF 480', 'period' => 'par mois', 'line' => 'Votre bureau', 'includes' => ['Accès 24 h sur 24'], 'href' => '/contact', 'label' => 'Visiter', 'featured' => true, 'flag' => 'Le plus choisi'], ['name' => 'Nomade', 'price' => 'CHF 190']],
+        ]],
+        'listings' => ['<x-kit.listings title="À louer" :listings="$listings" />', [
+            'listings' => [['name' => '3,5 pièces', 'place' => 'Vevey', 'price' => 'CHF 1 850.–', 'status' => 'Nouveau', 'facts' => [['label' => 'Surface', 'value' => '78 m²']], 'image' => '/vevey.jpg', 'href' => '/biens/vevey'], ['name' => 'Studio']],
+        ]],
+        'credentials' => ['<x-kit.credentials title="Certifications" :credentials="$credentials" />', [
+            'credentials' => [['name' => 'ISO 9001', 'detail' => 'Depuis 2012', 'logo' => '/iso.svg', 'href' => 'https://example.org/iso'], ['name' => 'SIA']],
+        ]],
+        'jobs' => ['<x-kit.jobs title="Nous recrutons" intro="Trois postes." :jobs="$jobs" />', [
+            'jobs' => [['name' => 'Conducteur de travaux', 'place' => 'Lausanne', 'hours' => '80–100 %', 'line' => 'Deux chantiers', 'href' => '/emplois/conducteur'], ['name' => 'Apprenti']],
+        ]],
+        'quote' => ['<x-kit.quote title="Demander un devis" intro="Décrivez votre projet." note="Réponse sous deux jours." action="/quote" :scopes="$scopes" :budgets="$budgets" />', [
+            'scopes' => ['Gros œuvre', 'Rénovation'],
+            'budgets' => ['Moins de CHF 50 000'],
+        ]],
+        'donate' => ['<x-kit.donate title="Nous soutenir" intro="Un don finance une saison." url="https://example.org/don" note="Dons déductibles." :details="$details" />', [
+            'details' => [['label' => 'IBAN', 'value' => 'CH93 0076 2011 6238 5295 7']],
+        ]],
+        'courses' => ['<x-kit.courses title="Cours" :courses="$courses" />', [
+            'courses' => [['name' => 'Initiation', 'date' => 'du 9 au 14 février', 'datetime' => '2027-02-09', 'time' => '9:00–16:00', 'level' => 'Débutants', 'place' => 'Verbier', 'price' => 'CHF 690', 'seats' => '2 places', 'href' => '/cours/initiation'], ['name' => 'Perfectionnement', 'date' => 'mars', 'full' => true, 'href' => '/cours/perf']],
         ]],
         'language-picker' => ['<x-kit.language-picker current="fr" action="/locale" :locales="$locales" />', [
             'locales' => ['fr' => 'Français', 'de' => 'Deutsch'],

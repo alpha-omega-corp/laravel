@@ -26,6 +26,9 @@ asking for the order. Warm paper, framed, practical.
 - marigold — best
 - lagoon — good
 - ember — fair
+- denim — good
+- clay — good
+- sorbet — fair
 
 ## Suits
 
@@ -47,3 +50,14 @@ secondary transparent with a canvas edge; the footer on the second ground.
 - map — the panel edged in 1.5px of ink, the caption on the second ground.
 - cta-band — the title and the text on the ink ground.
 - site-footer — three columns, small text.
+- projects — the rail's cards in the kit's own grid: square photographs and frames, the place and the year a label over the name, small, uppercase and tracked, and the figure under a 2px ink rule as the hero's facts are, its value at the display face's weight.
+- services — the carte again: no panel, a 2px ink rule over the list and a hairline under each service, as many 20rem columns as fit; each row the icon small in the accent, the name at medium weight in the body face and the price semibold at the end of its line, the line under the name. The row is drawn only where the tag chose no arrangement.
+- process — each step keeps its own 2px ink rule; the number a figure in the ink rather than the accent, at 2.25rem and the display face's weight, the duration a label, small, uppercase and tracked.
+- testimonials — the kit's panels, as the team's are; the mark, a 2.5rem by 2px bar of the ink, over each quotation, and the portrait a square with the photographs' corner rather than a circle.
+- pricing — each plan's name set like a section of the carte, sans, small, uppercase and tracked over a 2px ink rule, the flag at the end of that line; the price at the display face's weight, the period a label beside it. The plan put forward keeps the kit's ring of the accent, since a palette whose panels are edged in ink would draw an ink edge fainter than the plans beside it.
+- listings — a catalogue card with its facts: square photographs and frames, the status an uppercase tracked chip, the facts under a 2px ink rule, each a small uppercase label over its value in the display face, and the price in the accent at the display face's weight.
+- credentials — one section of the carte: the title its label, sans, small, uppercase and tracked, a 2px ink rule over the list, and the credentials under it with no line of their own.
+- jobs — the list opens on a 2px ink rule, hairlines between the positions; the place and the hours uppercase tracked chips on the second ground.
+- quote — the kit's panel, as booking's; the form under a 2px ink rule, as the facts are under the name. An arrangement draws no rule.
+- donate — a block of the second ground with no edge, as the hours are; the account under a 2px ink rule, each label small, uppercase and tracked over its value in the display face at `text-lg`.
+- courses — what is on, with a price: the list opens on a 2px ink rule; the date set like a section of the carte, the name in the display face at `text-lg`, the price semibold, the places left an uppercase tracked chip.

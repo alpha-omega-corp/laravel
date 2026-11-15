@@ -30,6 +30,13 @@ return [
         'lagoon' => 'Türkises Wasser und eine Korallensonne, luftige Schrift, lange weiche Schatten.',
         'nocturne' => 'Violett und Magenta, die im Dunkeln leuchten, eine geometrische Display-Schrift.',
         'ember' => 'Ochsenblut und Gold auf warmem Papier, eine Serifen-Display, Etiketten wie auf einer Weinkarte.',
+        'concrete' => 'Betongrau und Signalorange, eine schmale, fette Display, eckige Platten mit harter Oberkante.',
+        'quill' => 'Knochenweisses Papier und blauschwarze Tinte, eine Leseserife, Haarlinien und etwas Messing.',
+        'alpine' => 'Schnee, Gletscher und Seeblau, rund und flink, ein Rettungsorange für das Dringende.',
+        'clay' => 'Terrakotta und Oliv auf warmem Papier, eine gemeisselte Serife, Kacheln mit kurzem Erdschatten.',
+        'plum' => 'Aubergine auf Roséweiss mit Altgold, eine kontrastreiche Serife, Pillenknöpfe in Kapitälchen.',
+        'denim' => 'Indigo auf gewaschener Seite mit Nietenrost, eine breite, eng gesetzte Grotesk, abgesteppte Flächen.',
+        'sorbet' => 'Pfirsichpapier, Himbeere und ein kühles Blau, eine runde Schrift, Aufkleber als Flächen.',
 
         'system' => 'Dem Betriebssystem folgen, auch wenn es seine Meinung ändert.',
         'light' => 'Die helle Hälfte jeder Palette festhalten, was das System auch sagt.',

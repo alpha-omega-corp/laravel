@@ -81,7 +81,7 @@
                 @foreach ($facts as $fact)
                     <div data-kit-part="hero-fact">
                         <dt class="text-sm text-ink-soft">{{ $fact['label'] ?? '' }}</dt>
-                        <dd class="font-display text-figure text-ink">{{ $fact['value'] }}</dd>
+                        <dd class="font-display text-figure whitespace-nowrap text-ink">{{ $fact['value'] }}</dd>
                     </div>
                 @endforeach
             </dl>

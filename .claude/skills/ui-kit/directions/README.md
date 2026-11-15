@@ -88,6 +88,17 @@ booking      booking-title booking-intro booking-form booking-field booking-acti
 faq          faq-title faq-list faq-entry faq-question faq-answer
 gallery      gallery-title gallery-grid gallery-item gallery-image gallery-caption
 team         team-title team-list team-member team-image team-frame team-name team-role team-bio
+projects     projects-title projects-list projects-item projects-image projects-frame projects-body projects-meta projects-name projects-link projects-kind projects-summary projects-figure projects-figure-value projects-figure-label
+services     services-title services-list services-item services-icon services-name services-link services-line services-price
+process      process-title process-intro process-list process-step process-number process-name process-line process-duration
+testimonials testimonials-title testimonials-list testimonials-item testimonials-quote testimonials-author testimonials-image testimonials-name testimonials-role
+pricing      pricing-title pricing-intro pricing-list pricing-plan pricing-name pricing-flag pricing-price pricing-period pricing-line pricing-includes pricing-include pricing-action pricing-note
+listings     listings-title listings-list listings-item listings-picture listings-image listings-frame listings-status listings-body listings-name listings-link listings-place listings-facts listings-fact listings-price
+credentials  credentials-title credentials-list credentials-item credentials-logo credentials-name credentials-link credentials-detail
+jobs         jobs-title jobs-intro jobs-list jobs-item jobs-name jobs-link jobs-line jobs-meta jobs-arrow
+quote        quote-copy quote-title quote-intro quote-sent quote-form quote-field quote-actions quote-note
+donate       donate-copy donate-title donate-intro donate-action donate-details donate-detail donate-note
+courses      courses-title courses-list courses-item courses-date courses-time courses-name courses-meta courses-end courses-price courses-seats courses-action
 ```
 
 An icon (`<x-kit.icon>`) carries `data-kit="icon"` on its `svg` and draws in `currentColor`,
@@ -234,7 +245,8 @@ directions draws it.
 
 1. A file here.
 2. Its root block and rules in `resources/css/kit.css`.
-3. A row in any business's `## Directions` (`../businesses/README.md`).
+3. A row in any business's `## Directions` (`../businesses/README.md`), and a design drawn in it
+   for that business (`../designs/README.md`).
 4. A fixture in deployer's preview plugin (`client/app/plugins/preview.client.ts`).
 
 `tests/Feature/DirectionTest.php` holds the specs and the stylesheet together:

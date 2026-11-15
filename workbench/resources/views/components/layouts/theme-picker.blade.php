@@ -57,7 +57,7 @@
     <el-popover id="appearance-menu" anchor="bottom end" popover aria-label="{{ __('theme.choose') }}"
                 class="panel panel-raised w-[22rem] max-w-[calc(100vw-1.5rem)] max-h-[calc(100svh-5rem)] overflow-y-auto overscroll-contain origin-top-right p-1.5 backdrop:bg-transparent transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
         {{--
-            Eleven palettes do not fit as rows in a popover a laptop can show
+            Eighteen palettes do not fit as rows in a popover a laptop can show
             whole, so they are tiles: a miniature of the palette's page — its
             canvas, a line of its ink, a button in its accent and a dot of its
             highlight, set in its own corner radius — and its name. The summary

@@ -1,6 +1,6 @@
 # theme-picker
 
-Two independent axes in one popover: which of the eleven palettes the page is
+Two independent axes in one popover: which of the eighteen palettes the page is
 rendered in, and whether it is light, dark or whatever the operating system says.
 It does **not** ship in a new site: the worker template carries none of its files
 and `/create` never installs it. A generated site is built in the one palette its
@@ -14,7 +14,7 @@ package's showcase.
 ## Files
 
 - `resources/views/components/layouts/theme-picker.blade.php` — the picker: a native `<el-popover>`, two `radiogroup`s, and a swatch per palette that previews the real tokens
-- `app/Enums/Theme.php` — the eleven palettes, and which one is the default
+- `app/Enums/Theme.php` — the eighteen palettes, and which one is the default
 - `app/Enums/Appearance.php` — system, light, dark, and the `data-theme` value each implies
 - `resources/css/themes.css` — every palette's tokens, one `[data-palette='…']` block each, in both schemes
 - `resources/js/theme.js` — applying a choice, remembering it, and keeping the buttons in step
@@ -99,7 +99,7 @@ viewer, and are wrong.
 
 **A site that wants one palette** drops the palette `radiogroup` from the picker.
 What is left is the light/dark axis, which is worth keeping on its own. A site
-that keeps all eleven has to load the other ten's faces itself: its
+that keeps all eighteen has to load the other seventeen's faces itself: its
 `vite.config.js` loads only the faces `resources/css/fonts.json` names for the
 palettes its `resources/layouts/*.json` use, and without them the other ten
 switch colour and keep a face only where the visitor has it installed.

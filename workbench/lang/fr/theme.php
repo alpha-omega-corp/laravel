@@ -30,6 +30,13 @@ return [
         'lagoon' => 'Eau turquoise et soleil corail, typographie aérée, longues ombres douces.',
         'nocturne' => 'Violet et magenta qui luisent dans le sombre, une display géométrique.',
         'ember' => 'Bordeaux et or sur papier chaud, une display à empattements, des libellés de carte des vins.',
+        'concrete' => 'Gris béton et orange de signalisation, une display étroite et grasse, des dalles carrées au bord franc.',
+        'quill' => 'Papier ivoire et encre bleu-noir, une sérif de lecture, des filets fins et un peu de laiton.',
+        'alpine' => 'Neige, glacier et bleu de lac, rond et vif, un orange de secours pour ce qui presse.',
+        'clay' => 'Terre cuite et olive sur papier chaud, une sérif taillée au ciseau, des carreaux à l’ombre courte.',
+        'plum' => 'Aubergine sur blanc rosé avec un or ancien, une sérif très contrastée, des boutons-pilules en petites capitales.',
+        'denim' => 'Indigo sur page délavée et rouille de rivet, une grotesque large serrée, des panneaux surpiqués.',
+        'sorbet' => 'Papier pêche, framboise et bleu frais, une face ronde, des autocollants en guise de panneaux.',
 
         'system' => 'Suivre le système, et le suivre encore quand il change d’avis.',
         'light' => 'Fixer la moitié claire de chaque palette, quoi que dise le système.',
