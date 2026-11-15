@@ -56,7 +56,7 @@
             <p data-kit-part="pricing-intro" class="max-w-prose text-ink-soft">{{ $intro }}</p>
         @endif
 
-        <ul data-kit-part="pricing-list" role="list" class="grid items-stretch gap-5 grid-cols-[repeat(auto-fit,minmax(min(100%,16rem),1fr))]">
+        <ul data-kit-part="pricing-list" role="list" class="flex flex-wrap items-stretch gap-5 [--row-item:16rem]">
             @foreach ($plans as $plan)
                 <li data-kit-part="pricing-plan" @class(['panel flex flex-col gap-4 p-6', 'panel-raised ring-2 ring-accent' => ! empty($plan['featured'])])>
                     <div class="flex items-center justify-between gap-3">

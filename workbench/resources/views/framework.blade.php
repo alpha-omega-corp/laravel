@@ -144,6 +144,7 @@
             <span aria-current="page" class="font-semibold text-ink">{{ __('framework.projects') }}</span>
             <a href="{{ route('framework.businesses') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.title') }}</a>
             <a href="{{ route('framework.sheet') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.sheet') }}</a>
+            <a href="{{ route('framework.record') }}" class="text-accent hover:text-accent-strong">{{ __('framework.record.title') }}</a>
         </p>
 
         {{--

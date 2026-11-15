@@ -47,7 +47,7 @@
             <h2 data-kit-part="testimonials-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif
 
-        <ul data-kit-part="testimonials-list" role="list" class="grid gap-5 grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))]">
+        <ul data-kit-part="testimonials-list" role="list" class="flex flex-wrap gap-5 [--row-item:18rem]">
             @foreach ($testimonials as $said)
                 <li data-kit-part="testimonials-item" class="panel p-6">
                     <figure class="flex h-full flex-col gap-5">

@@ -78,6 +78,13 @@ no re-theming.
   (`yard`, `ledger`, `atelier`, `civic`, `launch`, `trail`) beside one of the
   first four.
 
+  A fourth set widens the reach to kinds that are plainly none of the above,
+  each one's opening paragraph saying which neighbour it is not: museum,
+  festival, theatre, consultant, agency, caterer, transport, commune, club,
+  spa, rental, artisan, landscaper and recruitment. They list whichever
+  directions suit them, of the first four or of the six: a caterer only the
+  first four, a commune only two of the new.
+
 Adding a business type is a file here, its worked designs in
 `../designs/<name>.md` (`../designs/README.md`: at least three, one or more per
 direction it lists) and, for the showcase, its demo content in

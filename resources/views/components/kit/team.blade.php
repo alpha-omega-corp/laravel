@@ -38,7 +38,7 @@
             <h2 data-kit-part="team-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif
 
-        <ul data-kit-part="team-list" role="list" class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,13rem),1fr))]">
+        <ul data-kit-part="team-list" role="list" class="flex flex-wrap gap-6 [--row-item:13rem]">
             @foreach ($members as $member)
                 <li data-kit-part="team-member" class="panel flex flex-col overflow-hidden">
                     @if (! empty($member['image']))

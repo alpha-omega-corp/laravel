@@ -87,7 +87,7 @@ A fair or a market weekend rather than a concert: stalls, tastings and a few dem
 - /volunteer — split
 - hero — cover
 - site-header — split
-- map — wide
+- map — plain
 - gallery — mosaic
 - pricing — rows
 - faq — columns
@@ -174,7 +174,7 @@ An open-air festival on a mountain pasture: one landscape with the dates over it
 - /tickets — split
 - /volunteer — marketing
 - hero — cover
-- map — wide
+- map — plain
 - events — timeline
 - gallery — mosaic
 - faq — open

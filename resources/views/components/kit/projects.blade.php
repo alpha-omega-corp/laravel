@@ -48,7 +48,7 @@
             <h2 data-kit-part="projects-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif
 
-        <ul data-kit-part="projects-list" role="list" class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,18rem),1fr))]">
+        <ul data-kit-part="projects-list" role="list" class="flex flex-wrap gap-6 [--row-item:18rem]">
             @foreach ($projects as $project)
                 @php
                     $meta = implode(' · ', array_filter([$project['place'] ?? null, $project['year'] ?? null], 'filled'));

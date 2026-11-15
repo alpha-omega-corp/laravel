@@ -206,6 +206,19 @@ The directions are the last section of `kit.css`, after `@layer components`.
   window-wide `@media` breakpoint only sets a layout that is right at any width the component can be
   given, or is scoped to a frame that is always the page's width (the hero band, main's frame). A
   rule that capped a count of columns at `md` drew three slivers in a board's tile.
+- **A row of grouped items is always full, or stands centred.** The cards of a catalogue, the
+  people of a team, the plans, the projects, the steps: where fewer come than a row would hold, or a
+  last row is short, they never sit at the left beside a hole. The kit's ten lists of that kind
+  (catalogue, gallery, team, projects, services, process, testimonials, pricing, listings,
+  credentials) are flex rows that wrap, and `--row-item` on the list is the least width one item
+  takes: a row's items grow from it until the row is filled, a short last row grows by three
+  quarters at most and is centred. A direction sets `--row-item` to change how many stand across —
+  `--row-item: max(15rem, calc((100% - 2.5rem) / 3))` is three across at most — and never
+  `grid-template-columns` on those lists, which does nothing on a row. A rule that lays one out some
+  other way (a rail that scrolls, one column) says `display` itself, and hands the items back their
+  own widths first: `… > * { flex: 0 1 auto; max-width: none; }`. Any other row a direction lays
+  out itself — the hero's facts, the band's details, the footer's columns — keeps the same rule:
+  `repeat(auto-fit, …)` rather than a fixed count of columns, items that grow, or the row centred.
 - **Displays are guarded.** The stub hides a frame nothing was placed in with
   `[&:not(:has(>*))]:hidden`, and an unlayered `display` would undo it — so a
   rule that sets `display` on a frame says `main > .wrap:has(> *)`.

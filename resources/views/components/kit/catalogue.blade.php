@@ -39,7 +39,7 @@
 @endphp
 
 @if (filled($items))
-    <ul role="list" data-ref="{{ $ref }}" data-kit="catalogue" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,15rem),1fr))]']) }}>
+    <ul role="list" data-ref="{{ $ref }}" data-kit="catalogue" @if ($variant) data-variant="{{ $variant }}" @endif {{ $attributes->class(['flex flex-wrap gap-6 [--row-item:15rem]']) }}>
         @foreach ($items as $item)
             <li data-kit-part="catalogue-item" class="panel flex flex-col overflow-hidden">
                 @if (! empty($item['image']))

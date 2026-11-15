@@ -16,6 +16,29 @@ return [
         'layout' => 'Layout',
     ],
 
+    // The record of the run that made the business views: what was asked, decided and seen.
+    'record' => [
+        'title' => 'Diario del lavoro',
+        'intro' => 'Come sono nate le viste per tipo di attività di questa pagina: che cosa è stato chiesto, che cosa è stato deciso a ogni passo e perché, le immagini inviate durante il lavoro e ciò che ogni redattore ha riferito alla fine.',
+        'asked' => 'Che cosa è stato chiesto',
+        'steps' => 'Il lavoro, passo per passo',
+        'see' => 'Da vedere oggi',
+        'picture' => 'Aprire l’immagine',
+        'writers' => 'Che cosa ha riferito ogni redattore',
+        'writer' => 'Le note del redattore',
+        'writers_intro' => 'Un agente ha scritto ogni attività: il suo contenuto dimostrativo e i suoi design, in un solo passaggio con una verifica. Queste sono le sue note sul kit, come le ha lasciate. Alcune sono state corrette in seguito; il passo qui sopra dice quali.',
+        'designs' => 'design',
+        'notes' => 'note',
+        'directions' => 'Le direzioni',
+        'specs' => 'Scritte dal loro CSS',
+        'dressed' => 'Le prime quattro, vestite per i nuovi prefabbricati',
+        'open' => 'Noto e non corretto',
+        'owed' => 'Ancora dovuto',
+        'tab' => 'Nella scheda',
+        'sheet' => 'Il suo provino',
+        'rules' => 'righe di regole',
+    ],
+
     // The business views: every kind of business the skill describes, drawn from its own files.
     'businesses' => [
         'title' => 'Tipi di attività',
@@ -40,6 +63,12 @@ return [
         'open' => 'La pagina da sola',
         'why' => 'Perché:',
         'pulls' => 'Cosa ne trae una build',
+        'reasons' => 'Le ragioni, nelle parole dello skill',
+        'why_direction' => 'Perché questa direzione, per questa attività',
+        'why_prefabs' => 'Perché questa pagina porta ogni prefabbricato',
+        'how_drawn' => 'Come la direzione disegna ciò che è sulla pagina',
+        'behaviour' => 'Che cosa fa ogni componente una volta collocato',
+        'costs' => 'Che cosa costa la palette',
         'regions' => 'Cosa contiene ogni regione',
         'arrangements' => 'Disposizioni',
         'own' => 'Quello della direzione',

@@ -419,6 +419,36 @@
 }
 
 /*
+ * Rows of grouped items: the cards of a catalogue, the people of a team, the
+ * plans, the projects, the steps. A row is always full. Each list is a flex
+ * row that wraps, and `--row-item` on the list is the least width one item
+ * takes: the items of a row grow from it until the row is filled, so three
+ * cards where four would fit are three wider cards and not three cards and a
+ * hole. A last row that is short grows too, by three quarters of that width at
+ * most, and what is left over is shared between its two sides: the odd card
+ * out stands in the middle at a size that is still a card's.
+ *
+ * A component gives its list the width in its own markup (`[--row-item:18rem]`)
+ * and a direction that wants another gives it another, `--row-item: 20rem`, or
+ * a share of the row, `max(15rem, calc((100% - 2.5rem) / 3))`, three across at
+ * most. A rule that lays one of these lists out some other way, as a rail that
+ * scrolls, one column, a mosaic, says `display` itself and is left alone: the
+ * rule before it hands its items back their own widths.
+ */
+@layer components {
+    /* `safe`: a row whose items overflow it, a rail that scrolls, starts on its first item rather than cutting it off at the left. */
+    :is([data-kit='catalogue'], [data-kit-part='gallery-grid'], [data-kit-part='team-list'], [data-kit-part='projects-list'], [data-kit-part='services-list'], [data-kit-part='process-list'], [data-kit-part='testimonials-list'], [data-kit-part='pricing-list'], [data-kit-part='listings-list'], [data-kit-part='credentials-list']) {
+        justify-content: safe center;
+    }
+
+    :is([data-kit='catalogue'], [data-kit-part='gallery-grid'], [data-kit-part='team-list'], [data-kit-part='projects-list'], [data-kit-part='services-list'], [data-kit-part='process-list'], [data-kit-part='testimonials-list'], [data-kit-part='pricing-list'], [data-kit-part='listings-list'], [data-kit-part='credentials-list']) > * {
+        flex: 1 1 var(--row-item, 16rem);
+        min-width: 0;
+        max-width: calc(var(--row-item, 16rem) * 1.75);
+    }
+}
+
+/*
  * Directions.
  *
  * A direction is how a page looks — a dark room by lamplight, a bright counter,
@@ -1253,7 +1283,13 @@
  * tile of board's grid the row is as tall as the tile beside it, and a stretched
  * card is a column of empty ground with its name at the foot.
  */
+[data-direction='counter'] [data-kit='catalogue'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-direction='counter'] [data-kit='catalogue'] {
+    display: grid;
     align-items: start;
     grid-template-columns: none;
     grid-auto-flow: column;
@@ -1808,7 +1844,7 @@
 
 /* What is for sale as rows: a square photograph, the name, the price at the right. */
 [data-direction='market'] [data-kit='catalogue'] {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    --row-item: 20rem;
     gap: 1rem;
 }
 
@@ -2000,8 +2036,10 @@
     border-block-start: 4px solid var(--color-ink);
 }
 
+/* The figures share the rule they stand under: each grows from its own width until the row is full. */
 [data-direction='yard'] [data-kit-part='hero-fact'] {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column-reverse;
     justify-content: flex-end;
     gap: 0.375rem;
@@ -2164,7 +2202,7 @@
 
 /* The trades: one board of cells, their edges shared. */
 [data-direction='yard'] [data-kit='services']:not([data-variant]) [data-kit-part='services-list'] {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    --row-item: 15rem;
     gap: 0;
     padding: 0 2px 2px 0;
 }
@@ -3266,7 +3304,13 @@
 }
 
 /* What was said: letters of reference, each down an ink rule, the words in the display face and the name under them. */
+[data-direction='ledger'] [data-kit='testimonials']:not([data-variant]) [data-kit-part='testimonials-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-direction='ledger'] [data-kit='testimonials']:not([data-variant]) [data-kit-part='testimonials-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
 }
@@ -3325,7 +3369,7 @@
 
 /* The people: a register too — a small portrait, the name, what they do. */
 [data-direction='ledger'] [data-kit='team']:not([data-variant]) [data-kit-part='team-list'] {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    --row-item: 18rem;
     gap: 1rem 2.5rem;
 }
 
@@ -3439,7 +3483,7 @@
 }
 
 [data-direction='ledger'] [data-kit='catalogue']:not([data-variant]) {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr));
+    --row-item: 12.5rem;
     gap: 1rem;
 }
 
@@ -3742,7 +3786,8 @@
 }
 
 [data-direction='atelier'] :is([data-kit-part='projects-list'], [data-kit-part='listings-list']) {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, max(14rem, calc((100% - 5rem) / 3))), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, max(14rem, calc((100% - 5rem) / 3))), 1fr));
+    --row-item: max(14rem, calc((100% - 5rem) / 3));
     gap: clamp(2.5rem, 5vw, 4rem) 2.5rem;
     counter-reset: plate;
 }
@@ -3839,7 +3884,7 @@
  * pictures of every shape shares one line as it would on a wall.
  */
 [data-direction='atelier'] [data-kit-part='gallery-grid'] {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, max(13rem, calc((100% - 7.5rem) / 4))), 1fr));
+    --row-item: max(13rem, calc((100% - 7.5rem) / 4));
     gap: clamp(1.5rem, 3vw, 2.5rem) 2.5rem;
     counter-reset: plate;
 }
@@ -3861,7 +3906,7 @@
 
 /* What is for sale, as plates: the name in the display face, the price beside it. */
 [data-direction='atelier'] [data-kit='catalogue']:not([data-variant]) {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, max(14rem, calc((100% - 5rem) / 3))), 1fr));
+    --row-item: max(14rem, calc((100% - 5rem) / 3));
 }
 
 /* Rows at their own height: a tile of board's grid is as tall as its neighbour, and stretched rows part a plate from its button. */
@@ -3894,7 +3939,7 @@
  * so a page of work never reads as a page of faces.
  */
 [data-direction='atelier'] [data-kit-part='team-list'] {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+    --row-item: 10rem;
     gap: 2.5rem;
 }
 
@@ -3990,7 +4035,13 @@
     box-shadow: none;
 }
 
+[data-direction='atelier'] [data-kit='services']:not([data-variant]) [data-kit-part='services-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-direction='atelier'] [data-kit='services']:not([data-variant]) [data-kit-part='services-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
     border-block-end: 1px solid var(--color-rule);
@@ -4935,7 +4986,7 @@
 
 /* The services: as many across as the column holds and no empty place at the end, the icon on a tile of the accent's tint. */
 [data-direction='civic'] [data-kit-part='services-list'] {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    --row-item: 15rem;
 }
 
 [data-direction='civic'] [data-kit-part='services-icon'] {
@@ -5038,6 +5089,7 @@
 /* The work done and the stock: the palette's cards filling their row, their facts at a reading size and their figure in the strong accent. */
 [data-direction='civic'] :is([data-kit-part='projects-list'], [data-kit-part='listings-list']) {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    --row-item: 17rem;
 }
 
 [data-direction='civic'] :is([data-kit-part='projects-image'], [data-kit-part='projects-frame'], [data-kit-part='listings-image'], [data-kit-part='listings-frame']) {
@@ -5058,7 +5110,7 @@
 
 /* The credentials as plaques: a framed cell each, as many across as fit. */
 [data-direction='civic'] [data-kit-part='credentials-list'] {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    --row-item: 13rem;
 }
 
 [data-direction='civic'] [data-kit-part='credentials-item'] {
@@ -5075,7 +5127,7 @@
 
 /* The people as contact cards: a square portrait at the start, the name and what they do beside it. */
 [data-direction='civic'] [data-kit-part='team-list'] {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    --row-item: 19rem;
     gap: 1rem;
 }
 
@@ -5824,6 +5876,11 @@
     font-size: 0.8125rem;
     font-weight: 500;
     text-align: center;
+}
+
+[data-direction='launch'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
 }
 
 [data-direction='launch'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-list'] {
@@ -6789,7 +6846,7 @@
  * weight in the body face, the price semibold at the end of its line.
  */
 [data-direction='counter'] [data-kit-part='services-list'] {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    --row-item: 20rem;
     gap: 0 3rem;
     border-block-start: 2px solid var(--color-ink);
 }
@@ -7003,7 +7060,8 @@
 
 /* Three across at most, as the portraits: a fourth would make the photographs quiet. */
 [data-direction='studio'] :is([data-kit='projects'], [data-kit='listings']):not([data-variant]) :is([data-kit-part='projects-list'], [data-kit-part='listings-list']) {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, max(17rem, calc((100% - 3rem) / 3))), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, max(17rem, calc((100% - 3rem) / 3))), 1fr));
+    --row-item: max(17rem, calc((100% - 3rem) / 3));
 }
 
 /* What a listing is marked with: a slip of the page on the photograph's edge. */
@@ -7028,7 +7086,7 @@
 }
 
 [data-direction='studio'] [data-kit='services']:not([data-variant]) [data-kit-part='services-list'] {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    --row-item: 13rem;
     gap: 3rem 2.5rem;
 }
 
@@ -7144,6 +7202,11 @@
 }
 
 /* Who vouches: a small tracked label over one centred row, the marks in greyscale as the map is. */
+[data-direction='studio'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-direction='studio'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-list'] {
     display: flex;
     flex-wrap: wrap;
@@ -7367,7 +7430,7 @@
  * Laid out so only when the site chose no arrangement.
  */
 [data-direction='market'] [data-kit-part='services-list'] {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    --row-item: 20rem;
     gap: 1rem;
 }
 
@@ -7582,7 +7645,13 @@
     box-shadow: none;
 }
 
+[data-direction='hearth'] [data-kit='services']:not([data-variant]) [data-kit-part='services-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-direction='hearth'] [data-kit='services']:not([data-variant]) [data-kit-part='services-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
 }
@@ -7815,6 +7884,557 @@
 }
 
 /*
+ * counter, symmetry: the rows counter lays out itself, filled. The facts under
+ * the name stand three across at most, and fewer share the whole of their rule:
+ * two are two halves, four are two and two. The week's hours take as many
+ * columns as there are lines, seven at most in the strip and two anywhere else,
+ * and a last day on its own takes its row. The rail starts on its first card:
+ * it is centred only where every card fits, since a row centred while it
+ * overflows is cut at the start and cannot be scrolled back to. The footer's
+ * columns keep their shares and take the place of one that is not there.
+ */
+
+[data-direction='counter'] [data-kit-part='hero-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='counter'] [data-kit-part='hero-fact'] {
+    flex: 1 1 calc((100% - 3rem) / 3);
+    min-width: 0;
+}
+
+[data-direction='counter'] [data-kit-part='hero-fact']:first-child:nth-last-child(4),
+[data-direction='counter'] [data-kit-part='hero-fact']:first-child:nth-last-child(4) ~ [data-kit-part='hero-fact'] {
+    flex-basis: calc((100% - 1.5rem) / 2);
+}
+
+[data-direction='counter'] [data-kit-part='schedule-days'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='counter'] [data-kit-part='schedule-day'] {
+    flex: 1 1 calc((100% - 1.5rem) / 2);
+    min-width: 0;
+}
+
+@media (min-width: 64rem) {
+    [data-direction='counter'] :is(main > .wrap > [data-kit='schedule'], main > .wrap > [data-ref]:has(> [data-kit='schedule']) > [data-kit='schedule']) [data-kit-part='schedule-day'] {
+        flex-basis: calc((100% - 9rem) / 7);
+    }
+}
+
+[data-direction='counter'] [data-kit='catalogue']:not([data-variant]) {
+    justify-content: safe center;
+}
+
+@media (min-width: 48rem) {
+    [data-direction='counter'] [data-kit='site-footer']:not([data-variant]) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    [data-direction='counter'] [data-kit='site-footer']:not([data-variant]) > * {
+        flex: 1 1 0%;
+    }
+
+    [data-direction='counter'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-about'] {
+        flex-grow: 1.4;
+    }
+
+    [data-direction='counter'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-end'] {
+        flex-basis: 100%;
+    }
+}
+
+/*
+ * studio, symmetry: the rows the lists' own rule does not reach. The portraits
+ * of the features were a grid of three at most, so a fourth, or a third where
+ * two fit, stood at the left of a row of its own: they are a row that wraps,
+ * three across at most as before, and a short row is centred with its
+ * portraits grown by three quarters of their 14rem at most, as the people of
+ * a team are. The facts under a centred opening and the details of the closing
+ * band wrap the same way, so a last one fills its row under the centred words,
+ * and a detail's label is centred over its value. The footer is the one
+ * centred column its rule asks for: the bottom bar spanned three columns,
+ * which drew two more beside the name from the medium width up.
+ */
+
+[data-direction='studio'] [data-kit-part='features-list'] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+[data-direction='studio'] [data-kit-part='features-item'] {
+    flex: 1 1 max(14rem, calc((100% - 5rem) / 3));
+    min-width: 0;
+    max-width: max(24.5rem, calc((100% - 5rem) / 3));
+}
+
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) [data-kit-part='hero-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='studio'] [data-kit='hero']:not([data-variant]):not(:has([data-kit-part='media-image'])) [data-kit-part='hero-fact'] {
+    flex: 1 1 7rem;
+}
+
+[data-direction='studio'] [data-kit-part='cta-band-details'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='studio'] [data-kit-part='cta-band-detail'] {
+    flex: 1 1 11rem;
+}
+
+[data-direction='studio'] [data-kit-part='cta-band-detail'] > :first-child {
+    justify-content: center;
+}
+
+[data-direction='studio'] [data-kit='site-footer']:not([data-variant]) [data-kit-part='site-footer-end'] {
+    grid-column: 1 / -1;
+}
+
+[data-direction='studio'] [data-kit='site-footer']:not([data-variant]) [data-kit-part='site-footer-contact'] > * {
+    justify-content: center;
+}
+
+/*
+ * market, symmetry: the rows the rule of rows does not reach, since market or
+ * the markup lays them out with a count of columns of its own. The board, the
+ * rows of glass cards and the band are left as they stand: these only say
+ * where the space a row has left over goes, at the counts that left a hole.
+ */
+
+/*
+ * The opening's two panels share their edges, which the photograph did not
+ * when the copy was the taller of the two: it stopped at its four by three and
+ * left the glass beside it standing alone. It takes the row's height; stacked,
+ * the row is its own and nothing changes. Both sizes are said: a height alone
+ * goes through the ratio and widens the picture out of its column.
+ */
+[data-direction='market'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-media'] [data-kit='media'] {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+ * Four figures stood three and one in the copy's panel. They stand four across
+ * where the panel holds four, and two and two where it does not.
+ */
+[data-direction='market'] [data-kit-part='hero-facts']:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(7rem, calc((32.5rem - 100%) * 999), 34%), 1fr));
+}
+
+/*
+ * The bento is drawn for three blocks. One stands in the middle of the board;
+ * the second of two takes both rows, so the pair share their edges; from the
+ * fourth on the blocks go two to a row under the bento, and the odd one out
+ * stands in the middle at the same width.
+ */
+@media (min-width: 64rem) {
+    [data-direction='market'] [data-kit-part='features-item']:only-child {
+        grid-column: 3 / span 8;
+    }
+
+    [data-direction='market'] [data-kit-part='features-item']:nth-child(2):last-child {
+        grid-row: span 2;
+    }
+
+    [data-direction='market'] [data-kit-part='features-item']:nth-child(n + 4) {
+        grid-column: span 6;
+    }
+
+    [data-direction='market'] [data-kit-part='features-item']:nth-child(2n + 4):last-child {
+        grid-column: 4 / span 6;
+    }
+}
+
+/*
+ * A card's facts. Three on a card that stands four to a row were two and one:
+ * they are three across. Four on a wider card were three and one: as the
+ * opening's figures, four across where the card holds four, two and two where
+ * it does not.
+ */
+[data-direction='market'] [data-kit-part='listings-facts']:has(> :nth-child(3):last-child) {
+    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+}
+
+[data-direction='market'] [data-kit-part='listings-facts']:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(5.5rem, calc((25rem - 100%) * 999), 34%), 1fr));
+}
+
+/*
+ * A footer with no pages, or no way to reach the place, kept its third column
+ * empty. Its two columns share the glass, and the bottom bar runs under both.
+ */
+@media (min-width: 48rem) {
+    [data-direction='market'] [data-kit='site-footer']:not([data-variant]):not(:has(> :nth-child(3):not([data-kit-part='site-footer-end']))) {
+        grid-template-columns: 1.4fr 1fr;
+    }
+
+    [data-direction='market'] [data-kit='site-footer']:not([data-variant]) [data-kit-part='site-footer-end'] {
+        grid-column: 1 / -1;
+    }
+}
+
+/*
+ * hearth, symmetry: the rows the kit's own rule for grouped items does not
+ * reach. The doors were a grid of equal columns, so three doors in a column
+ * that holds two left the third at the left of a row of its own, and a fourth
+ * under three did the same. They are a flex row on the same measure (15rem
+ * each, three across at most, 1.25rem between): a row of doors grows until it
+ * is full, and a door alone on the last row stands in the middle at the width
+ * of the doors over it. 31.25rem is the narrowest column that holds two doors
+ * and 47.5rem the narrowest that holds three; a length times 999 is a switch,
+ * far under every other term on one side of that width and far over on the
+ * other. The facts of the opening, the details of the band, of a donation and
+ * of a listing were grids too: a last one alone takes its row. The header's
+ * links, when the bar is too narrow for one line of them, wrap about their
+ * middle.
+ */
+[data-direction='hearth'] [data-kit-part='features-list'] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Half the row at most, two doors filling a row of three; the whole row where one door fits. */
+[data-direction='hearth'] [data-kit-part='features-item'] {
+    flex: 1 1 max(15rem, calc((100% - 2.5rem) / 3 - 1px));
+    min-width: 0;
+    max-width: max(calc((100% - 1.25rem) / 2), min(100%, calc((31.25rem - 100%) * 999)));
+}
+
+/* The fourth door, the seventh: alone under rows of three it keeps a third, and under rows of two a half. */
+[data-direction='hearth'] [data-kit-part='features-item']:last-child:nth-child(3n + 1) {
+    max-width: max(calc((100% - 2.5rem) / 3), min(calc((100% - 1.25rem) / 2), calc((47.5rem - 100%) * 999)), min(100%, calc((31.25rem - 100%) * 999)));
+}
+
+[data-direction='hearth'] :is([data-kit-part='hero-facts'], [data-kit-part='cta-band-details'], [data-kit-part='listings-facts'], [data-kit='donate']:not([data-variant]) [data-kit-part='donate-details']) {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='hearth'] [data-kit-part='hero-fact'] {
+    flex: 1 1 7rem;
+}
+
+[data-direction='hearth'] [data-kit-part='cta-band-detail'] {
+    flex: 1 1 11rem;
+}
+
+[data-direction='hearth'] [data-kit-part='listings-fact'] {
+    flex: 1 1 5.5rem;
+}
+
+[data-direction='hearth'] [data-kit='donate']:not([data-variant]) [data-kit-part='donate-detail'] {
+    flex: 1 1 13rem;
+}
+
+[data-direction='hearth'] [data-kit='site-header']:not([data-variant]) [data-kit-part='site-header-links'] {
+    justify-content: center;
+}
+
+/*
+ * yard, symmetry: the two rows the general rule could not reach, both of them
+ * text whose cell has no edge to show that it was filled. The marks lost the
+ * rule over each cell when yard stamped their names on plates, so a row of
+ * them ended in a hole and a short last row stood left of the centre it was
+ * given. A listing's facts kept two columns in a narrow card, the third fact
+ * alone under the first. Only with no arrangement chosen.
+ */
+
+/* The marks: the plate runs the width of its cell, an ink strip as the tariff board's are, so a row is ink from edge to edge and the last one stands in the middle. */
+[data-direction='yard'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-name'] {
+    align-self: stretch;
+}
+
+/* A listing's facts share the rule they stand under, as the opening's figures do: three short ones are one row, each grown from its own width. */
+[data-direction='yard'] [data-kit='listings']:not([data-variant]) [data-kit-part='listings-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='yard'] [data-kit='listings']:not([data-variant]) [data-kit-part='listings-fact'] {
+    flex: 1 1 auto;
+}
+
+/*
+ * ledger, symmetry: a register is one column, so every entry is a row of its
+ * own and a full one. The steps, the services, the projects, the plans, the
+ * listings and the credentials were given their single column as a grid's, and
+ * the kit's rows are flex rows that wrap: the entries stood two and three
+ * across, the odd one out alone in the middle, each too narrow for its leader
+ * and its figure. The column says `display` itself again, after the rule that
+ * hands the entries back their own widths.
+ *
+ * A photograph that has gone under its words, in a feature, a project, a
+ * listing and the opening, takes the whole row there: its 14rem (22rem in the
+ * opening) is its width beside the words and no longer a plate at the left of
+ * an empty row under them. The lengths are where each pair wraps: the two
+ * bases and the gap between them.
+ *
+ * The pages of the letterhead, when they wrap, stand centred between the name
+ * and the action.
+ */
+[data-direction='ledger'] :is([data-kit='projects'], [data-kit='services'], [data-kit='process'], [data-kit='pricing'], [data-kit='listings'], [data-kit='credentials']):not([data-variant]) :is([data-kit-part='projects-list'], [data-kit-part='services-list'], [data-kit-part='process-list'], [data-kit-part='pricing-list'], [data-kit-part='listings-list'], [data-kit-part='credentials-list']) > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
+[data-direction='ledger'] :is([data-kit='projects'], [data-kit='services'], [data-kit='process'], [data-kit='pricing'], [data-kit='listings'], [data-kit='credentials']):not([data-variant]) :is([data-kit-part='projects-list'], [data-kit-part='services-list'], [data-kit-part='process-list'], [data-kit-part='pricing-list'], [data-kit-part='listings-list'], [data-kit-part='credentials-list']) {
+    display: grid;
+}
+
+[data-direction='ledger'] [data-kit-part='features-media'],
+[data-direction='ledger'] :is([data-kit='projects'], [data-kit='listings']):not([data-variant]) :is([data-kit-part='projects-image'], [data-kit-part='projects-frame'], [data-kit-part='listings-picture']) {
+    max-width: max(14rem, calc((27rem - 100%) * 999));
+}
+
+[data-direction='ledger'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-media'] {
+    max-width: max(22rem, calc((44.5rem - 100%) * 999));
+}
+
+[data-direction='ledger'] [data-kit='site-header']:not([data-variant]) [data-kit-part='site-header-nav'] > [data-kit-part='site-header-links'] {
+    justify-content: center;
+}
+
+/*
+ * atelier, symmetry: the rows the direction still drew on a grid of tracks,
+ * where a short last row left a track open at its right. The facts of the
+ * opening, the facts of a listing and the details of a gift wrap as the title
+ * block's details already do: each grows from its least width until its row is
+ * full, so the odd one out runs to the edge and stands in the middle wherever
+ * the words are centred. The plates, the index and the reading columns are
+ * left as they were.
+ */
+
+/* The opening's facts: as many 9rem columns as fit, and the last row shares the whole label. */
+[data-direction='atelier'] [data-kit-part='hero-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='atelier'] [data-kit-part='hero-fact'] {
+    flex: 1 1 9rem;
+}
+
+/* A listing's facts: 4rem at least, so three stand across the label of the narrowest plate, where two stood over one. */
+[data-direction='atelier'] [data-kit-part='listings-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='atelier'] [data-kit-part='listings-fact'] {
+    flex: 1 1 4rem;
+}
+
+/* A gift's details, where the direction draws them across: one arranged beside the words keeps its column. */
+[data-direction='atelier'] [data-kit='donate']:not([data-variant]) [data-kit-part='donate-details'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='atelier'] [data-kit='donate']:not([data-variant]) [data-kit-part='donate-detail'] {
+    flex: 1 1 13rem;
+}
+
+/*
+ * The colophon's columns share the row whatever it holds: the name's column
+ * keeps its 1.4 parts to one for each of the others, and with no pages, or no
+ * contact, the two that are left take the whole width in place of two thirds.
+ * From the width the component sets them side by side; under it they stack.
+ */
+@media (min-width: 48rem) {
+    [data-direction='atelier'] [data-kit='site-footer']:not([data-variant]) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    [data-direction='atelier'] [data-kit='site-footer']:not([data-variant]) > * {
+        flex: 1 1 0%;
+    }
+
+    [data-direction='atelier'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-about'] {
+        flex-grow: 1.4;
+    }
+
+    [data-direction='atelier'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-end'] {
+        flex-basis: 100%;
+    }
+}
+
+/*
+ * civic, symmetry: the rows the notice board still drew with a hole at their
+ * end. The lists of cards are the kit's and already fill; these are the rows
+ * civic lays out itself, or frames so that an empty place shows.
+ *
+ * The week, a listing's facts and the band's cells were grids of equal
+ * columns, so seven days in four columns left the eighth place empty, a third
+ * fact stood alone under two, and a third cell on the band stood beside a
+ * hole. Each is a row that wraps now: the days and the cells grow from the
+ * width they had until their row is full, the odd one out across the whole
+ * row as an odd notice with a photograph already is.
+ */
+[data-direction='civic'] :is([data-kit-part='schedule-days'], [data-kit-part='listings-facts'], [data-kit-part='cta-band-details']) {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='civic'] [data-kit-part='schedule-day'] {
+    flex: 1 1 17rem;
+}
+
+[data-direction='civic'] [data-kit-part='cta-band-detail'] {
+    flex: 1 1 11rem;
+}
+
+/* A listing has three to five facts: three stand across at most, in thirds whatever the card's width, four are two rows of two, five are three over two halves. */
+[data-direction='civic'] [data-kit-part='listings-fact'] {
+    flex: 1 1 28%;
+}
+
+[data-direction='civic'] [data-kit-part='listings-facts']:has(> :nth-child(4):last-child) > [data-kit-part='listings-fact'] {
+    flex-basis: 40%;
+}
+
+/* The pages that wrap to a second line in the bar stand centred under the first, not at its start. */
+[data-direction='civic'] [data-kit-part='site-header-links'] {
+    justify-content: center;
+}
+
+/* A position's row ends on its arrow in a narrow column too: wrapped under the words, the chips keep the start and the arrow takes the end. */
+[data-direction='civic'] [data-kit-part='jobs-arrow'] {
+    margin-inline-start: auto;
+}
+
+/*
+ * The footer's blocks share its width: the name's block 1.4 parts and each
+ * other one part, as its three columns were, so a footer with no pages or no
+ * contact is two blocks across the page and not two columns and an empty
+ * third. From the width its columns start at; the footer is the page's width
+ * at every size.
+ */
+@media (min-width: 48rem) {
+    [data-direction='civic'] body > footer [data-kit='site-footer']:not([data-variant]) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    [data-direction='civic'] body > footer [data-kit='site-footer']:not([data-variant]) > * {
+        flex: 1 1 0%;
+    }
+
+    [data-direction='civic'] body > footer [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-about'] {
+        flex-grow: 1.4;
+    }
+
+    [data-direction='civic'] body > footer [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-end'] {
+        flex-basis: 100%;
+    }
+}
+
+/*
+ * launch, symmetry: the three rows the direction still drew with a hole.
+ * Its cards, tiles, plans, voices and marks, and the opening's actions and
+ * facts, were centred rows already. What was left stands on the kit's own
+ * grids, whose tracks stay where they are when a row is short: the details of
+ * the closing panel, whose words launch centres, the facts of a listing's
+ * card, and the footer's columns.
+ */
+
+/* The closing panel's details: a last row that is short is shared by what stands in it, so the odd detail is centred under the others and not under the first of them. */
+[data-direction='launch'] [data-kit-part='cta-band-details'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='launch'] [data-kit-part='cta-band-detail'] {
+    flex: 1 1 11rem;
+}
+
+/* A listing's facts share the card's width: three stand across a card of any width and not two over one, and whatever row is still short is filled by what stands in it. */
+[data-direction='launch'] [data-kit='listings']:not([data-variant]) [data-kit-part='listings-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='launch'] [data-kit='listings']:not([data-variant]) [data-kit-part='listings-fact'] {
+    flex: 1 1 4rem;
+}
+
+/*
+ * The footer's columns share its width in the kit's own proportions, however
+ * many there are: with no contact, the name and the pages are the whole row
+ * and not two thirds of it. Under 43rem, the frame's width where the kit sets
+ * its columns, the basis is the whole row and each stands on a row of its own.
+ */
+[data-direction='launch'] [data-kit='site-footer']:not([data-variant]) {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='launch'] [data-kit='site-footer']:not([data-variant]) > * {
+    flex: 1 1 calc((43rem - 100%) * 999);
+}
+
+[data-direction='launch'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-about'] {
+    flex-grow: 1.4;
+}
+
+[data-direction='launch'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-end'] {
+    flex-basis: 100%;
+}
+
+/*
+ * trail, symmetry: the three rows trail still drew with a hole at their end.
+ * The blocks were a grid, whose odd one out stood at the left of its row: they
+ * are a row that wraps now, as the kit's own lists are, still three across at
+ * most and never narrower than 16rem, a short last row grown by three quarters
+ * at most and centred. The band's details wrap the same way and each grows, so
+ * a last detail fills its line and the hairline over it runs the band's width.
+ * And a footer with no pages, or no contact, was two columns in a grid of
+ * three: there the two stand at the two edges, the bottom bar under both.
+ */
+[data-direction='trail'] [data-kit-part='features-list'] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+[data-direction='trail'] [data-kit-part='features-item'] {
+    flex: 1 1 max(16rem, calc((100% - 3rem) / 3));
+    min-width: 0;
+    max-width: calc(max(16rem, (100% - 3rem) / 3) * 1.75);
+}
+
+[data-direction='trail'] [data-kit-part='cta-band-details'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='trail'] [data-kit-part='cta-band-detail'] {
+    flex: 1 1 11rem;
+}
+
+@media (min-width: 48rem) {
+    [data-direction='trail'] body > footer [data-kit='site-footer']:not([data-variant]):not(:has([data-kit-part='site-footer-links'])),
+    [data-direction='trail'] body > footer [data-kit='site-footer']:not([data-variant]):not(:has([data-kit-part='site-footer-contact'])) {
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+    }
+
+    [data-direction='trail'] body > footer [data-kit='site-footer']:not([data-variant]) [data-kit-part='site-footer-end'] {
+        grid-column: 1 / -1;
+    }
+}
+
+/*
  * Arrangements: how a prefab is laid out when its tag chooses one —
  * `<x-kit.menu variant="columns" />`, `<x-kit.schedule variant="strip" />`.
  *
@@ -7856,7 +8476,7 @@
 
 [data-kit='menu'][data-variant='cards']:is([data-variant], #arrangement) [data-kit-part='menu-list'] {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
     gap: 1rem;
 }
 
@@ -7925,6 +8545,11 @@
 }
 
 /* catalogue — list: rows with the picture beside the words, for a range read more than looked at. */
+[data-kit='catalogue'][data-variant='list']:is([data-variant], #arrangement) > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='catalogue'][data-variant='list']:is([data-variant], #arrangement) {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -7958,9 +8583,14 @@
 }
 
 /* catalogue — feature: the first item large, for a range led by one thing. */
+[data-kit='catalogue'][data-variant='feature']:is([data-variant], #arrangement) > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='catalogue'][data-variant='feature']:is([data-variant], #arrangement) {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
     grid-auto-flow: row dense;
     align-items: stretch;
     overflow: visible;
@@ -8000,8 +8630,14 @@
 }
 
 /* gallery — mosaic: every fifth picture twice the size, for work worth looking at closely. */
+[data-kit='gallery'][data-variant='mosaic']:is([data-variant], #arrangement) [data-kit-part='gallery-grid'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='gallery'][data-variant='mosaic']:is([data-variant], #arrangement) [data-kit-part='gallery-grid'] {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
     grid-auto-flow: row dense;
 }
 
@@ -8022,7 +8658,13 @@
 }
 
 /* gallery — strip: one row that scrolls, for a page with the pictures as a pause. */
+[data-kit='gallery'][data-variant='strip']:is([data-variant], #arrangement) [data-kit-part='gallery-grid'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='gallery'][data-variant='strip']:is([data-variant], #arrangement) [data-kit-part='gallery-grid'] {
+    flex-wrap: nowrap;
     display: flex;
     gap: 1rem;
     padding-bottom: 0.5rem;
@@ -8037,6 +8679,11 @@
 }
 
 /* team — list: each person a row, the picture beside what they do, for a few people with something to say. */
+[data-kit='team'][data-variant='list']:is([data-variant], #arrangement) [data-kit-part='team-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='team'][data-variant='list']:is([data-variant], #arrangement) [data-kit-part='team-list'] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
@@ -8084,7 +8731,7 @@
 /* events — cards: each date a card, for a few events that each deserve a look. */
 [data-kit='events'][data-variant='cards']:is([data-variant], #arrangement) [data-kit-part='events-list'] {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
     gap: 1rem;
 }
 
@@ -8189,7 +8836,13 @@
  */
 
 /* projects — rows: each project across the column, the photograph beside its facts, for a few large jobs. */
+[data-kit='projects'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='projects-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='projects'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='projects-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
 }
 
@@ -8212,7 +8865,13 @@
 }
 
 /* projects — index: the photographs dropped and the record listed as ruled rows, for a long one. */
+[data-kit='projects'][data-variant='index']:is([data-variant], #arrangement) [data-kit-part='projects-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='projects'][data-variant='index']:is([data-variant], #arrangement) [data-kit-part='projects-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0.75rem;
 }
@@ -8244,7 +8903,13 @@
 }
 
 /* services — rows: the services ruled as a list, the name beside its line, for a dozen read down. */
+[data-kit='services'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='services-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='services'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='services-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0.5rem;
 }
@@ -8273,8 +8938,9 @@
 }
 
 /* services — tiles: a large icon centred over each name, for four or five that are the whole offer. */
-[data-kit='services'][data-variant='tiles']:is([data-variant], #arrangement) [data-kit-part='services-list'] {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+[data-kit='services'][data-variant='tiles']:is([data-variant], #arrangement) [data-kit-part='services-list'] > * {
+    flex-basis: 12rem;
+    max-width: calc(12rem * 1.75);
 }
 
 [data-kit='services'][data-variant='tiles']:is([data-variant], #arrangement) [data-kit-part='services-item'] {
@@ -8288,7 +8954,13 @@
 }
 
 /* process — timeline: the steps down one rule, for a road with unequal stages. */
+[data-kit='process'][data-variant='timeline']:is([data-variant], #arrangement) [data-kit-part='process-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='process'][data-variant='timeline']:is([data-variant], #arrangement) [data-kit-part='process-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
     padding-inline-start: 1.5rem;
@@ -8317,7 +8989,13 @@
 }
 
 /* process — row: the steps joined across the column by one line, for three or four of equal weight. */
+[data-kit='process'][data-variant='row']:is([data-variant], #arrangement) [data-kit-part='process-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='process'][data-variant='row']:is([data-variant], #arrangement) [data-kit-part='process-list'] {
+    display: grid;
     grid-template-columns: none;
     grid-auto-flow: column;
     grid-auto-columns: minmax(11rem, 1fr);
@@ -8340,6 +9018,11 @@
 }
 
 /* testimonials — wall: the quotations down columns at their own heights, for many short ones. */
+[data-kit='testimonials'][data-variant='wall']:is([data-variant], #arrangement) [data-kit-part='testimonials-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='testimonials'][data-variant='wall']:is([data-variant], #arrangement) [data-kit-part='testimonials-list'] {
     display: block;
     columns: 18rem;
@@ -8352,7 +9035,13 @@
 }
 
 /* pricing — rows: each plan across the column, its price at the end of its row, for plans that differ by one thing. */
+[data-kit='pricing'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='pricing-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='pricing'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='pricing-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
 }
 
@@ -8381,7 +9070,13 @@
 }
 
 /* listings — rows: each listing across the column, the photograph beside its facts, for a short stock read closely. */
+[data-kit='listings'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='listings-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='listings'][data-variant='rows']:is([data-variant], #arrangement) [data-kit-part='listings-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
 }
 
@@ -8432,6 +9127,11 @@
 }
 
 /* credentials — logos: only the marks, in one muted row, for clients known by their logo. */
+[data-kit='credentials'][data-variant='logos']:is([data-variant], #arrangement) [data-kit-part='credentials-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='credentials'][data-variant='logos']:is([data-variant], #arrangement) [data-kit-part='credentials-list'] {
     display: flex;
     flex-wrap: wrap;
@@ -8460,7 +9160,13 @@
 }
 
 /* credentials — list: the credentials ruled as rows, the name beside its detail, for licences read by their number. */
+[data-kit='credentials'][data-variant='list']:is([data-variant], #arrangement) [data-kit-part='credentials-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
 [data-kit='credentials'][data-variant='list']:is([data-variant], #arrangement) [data-kit-part='credentials-list'] {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
 }

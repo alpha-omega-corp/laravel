@@ -47,7 +47,7 @@
             <h2 data-kit-part="services-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif
 
-        <ul data-kit-part="services-list" role="list" class="grid gap-5 grid-cols-[repeat(auto-fill,minmax(min(100%,16rem),1fr))]">
+        <ul data-kit-part="services-list" role="list" class="flex flex-wrap gap-5 [--row-item:16rem]">
             @foreach ($services as $service)
                 <li data-kit-part="services-item" class="panel relative flex flex-col gap-3 p-5">
                     @if (! empty($service['icon']))

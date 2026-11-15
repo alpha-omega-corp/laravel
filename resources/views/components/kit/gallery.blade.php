@@ -42,7 +42,7 @@
             <h2 data-kit-part="gallery-title" class="font-display text-lg text-ink">{{ $title }}</h2>
         @endif
 
-        <ul role="list" data-kit-part="gallery-grid" @class(['grid gap-4 grid-cols-[repeat(auto-fill,minmax(min(100%,14rem),1fr))]', 'mt-4' => $title])>
+        <ul role="list" data-kit-part="gallery-grid" @class(['flex flex-wrap gap-4 [--row-item:14rem]', 'mt-4' => $title])>
             @foreach ($pictures as $picture)
                 <li data-kit-part="gallery-item">
                     <figure>

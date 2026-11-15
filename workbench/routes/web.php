@@ -34,6 +34,20 @@ Route::view('/framework/site', 'framework.site.document')->name('framework.site'
 Route::view('/framework/businesses', 'framework.businesses')->name('framework.businesses');
 Route::view('/framework/sheet', 'framework.sheet')->name('framework.sheet');
 
+/*
+ * The record of the run that made the business views: what was asked, what was
+ * decided at each step and why, and the pictures sent back while it ran
+ * (Workbench\App\Framework\Record, workbench/record/<date>).
+ */
+Route::view('/framework/record', 'framework.record')->name('framework.record');
+Route::get('/framework/record/{run}/{file}', function (string $run, string $file) {
+    $path = Workbench\App\Framework\Record::picture($run, $file);
+
+    abort_if($path === null, 404);
+
+    return response()->file($path, ['Content-Type' => 'image/webp', 'Cache-Control' => 'public, max-age=86400']);
+})->name('framework.record.picture');
+
 // The photograph a demo business has not got: the kit's own frame, as an image, captioned with what belongs there.
 Route::get('/framework/picture', fn () => response(
     Workbench\App\Framework\Picture::svg(request()->string('subject')->toString(), request()->integer('w', 1200), request()->integer('h', 900)),

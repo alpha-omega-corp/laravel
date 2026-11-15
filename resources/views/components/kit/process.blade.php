@@ -48,7 +48,7 @@
             <p data-kit-part="process-intro" class="max-w-prose text-ink-soft">{{ $intro }}</p>
         @endif
 
-        <ol data-kit-part="process-list" role="list" class="grid gap-5 grid-cols-[repeat(auto-fit,minmax(min(100%,14rem),1fr))]">
+        <ol data-kit-part="process-list" role="list" class="flex flex-wrap gap-5 [--row-item:14rem]">
             @foreach ($steps as $step)
                 <li data-kit-part="process-step" class="flex flex-col gap-2 border-t-2 border-ink pt-4">
                     <p data-kit-part="process-number" class="font-display text-3xl tabular-nums text-accent">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>

@@ -47,7 +47,7 @@
             <h2 data-kit-part="listings-title" class="font-display text-title text-ink">{{ $title }}</h2>
         @endif
 
-        <ul data-kit-part="listings-list" role="list" class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,17rem),1fr))]">
+        <ul data-kit-part="listings-list" role="list" class="flex flex-wrap gap-6 [--row-item:17rem]">
             @foreach ($listings as $listing)
                 <li data-kit-part="listings-item" class="panel relative flex flex-col overflow-hidden">
                     <div data-kit-part="listings-picture" class="relative">

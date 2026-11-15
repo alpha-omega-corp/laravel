@@ -23,10 +23,10 @@ use function Orchestra\Testbench\package_path;
  *
  * @phpstan-type Page array{path: string, role: string, layouts: list<string>, prefabs: list<string>, label: ?string}
  * @phpstan-type Business array{name: string, summary: string, prefabs: array<string, string>, directions: array<string, string>, pages: list<Page>, file: string}
- * @phpstan-type Direction array{name: string, summary: string, layouts: array<string, string>, scheme: string, palettes: array<string, string>, suits: string, file: string}
+ * @phpstan-type Direction array{name: string, summary: string, layouts: array<string, string>, scheme: string, palettes: array<string, string>, suits: string, frames: string, looks: array<string, string>, file: string}
  * @phpstan-type Layout array{name: string, summary: string, family: string, regions: array<string, string>, recipe: array<string, string>, file: string}
- * @phpstan-type Palette array{name: string, summary: string, pairs: array<string, string>, file: string}
- * @phpstan-type Component array{name: string, summary: string, variants: array<string, string>, placement: array<string, string>, file: string}
+ * @phpstan-type Palette array{name: string, summary: string, pairs: array<string, string>, costs: string, file: string}
+ * @phpstan-type Component array{name: string, summary: string, variants: array<string, string>, placement: array<string, string>, behaviour: list<string>, file: string}
  * @phpstan-type Design array{name: string, slug: string, why: string, direction: string, palette: string, scheme: ?string, pages: array<string, string>, variants: array<string, string>}
  */
 final class Kit
@@ -74,6 +74,9 @@ final class Kit
             'scheme' => trim(self::section($body, 'Scheme')[0] ?? 'any', '`'),
             'palettes' => self::items($body, 'Palettes'),
             'suits' => implode(' ', self::section($body, 'Suits')),
+            // `## Looks`: a paragraph on the frames, then how the direction draws each component.
+            'frames' => self::plain(implode(' ', array_filter(self::section($body, 'Looks'), fn (string $line): bool => ! str_starts_with($line, '- ')))),
+            'looks' => array_map(self::plain(...), self::items($body, 'Looks')),
             'file' => "directions/{$name}.md",
         ]);
     }
@@ -115,6 +118,8 @@ final class Kit
             'name' => $name,
             'summary' => self::summary($body),
             'pairs' => self::items($body, 'Pairs with'),
+            // `## Costs`: where the palette is the wrong one, in its own words.
+            'costs' => self::plain(implode(' ', self::section($body, 'Costs'))),
             'file' => "themes/{$name}.md",
         ]);
     }
@@ -163,6 +168,11 @@ final class Kit
                     'summary' => self::summary($body),
                     'variants' => $variants,
                     'placement' => $placement,
+                    // `## Behaviour`: what it does once placed, each line ending on the laws it serves.
+                    'behaviour' => array_values(array_map(
+                        fn (string $line): string => self::plain(substr($line, 2)),
+                        array_filter(self::section($body, 'Behaviour'), fn (string $line): bool => str_starts_with($line, '- ')),
+                    )),
                     'file' => "components/{$name}.md",
                 ];
             });
@@ -324,6 +334,16 @@ final class Kit
         ksort($found);
 
         return $found;
+    }
+
+    /**
+     * Prose of the skill as a page prints it: the marks Markdown reads — the
+     * backticks round a name, the asterisks round a stressed word — taken off,
+     * the words kept. An asterisk that is part of a name (`*-title`) stays.
+     */
+    private static function plain(string $prose): string
+    {
+        return str_replace('`', '', (string) preg_replace('/(?<![\w*-])\*{1,2}(\w[^*]*?)\*{1,2}(?![\w*-])/u', '$1', $prose));
     }
 
     /**

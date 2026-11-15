@@ -138,9 +138,9 @@ return [
                 'eyebrow' => 'Bon à savoir',
                 'title' => 'Allergies, régimes et enfants',
                 'items' => [
-                    ['title' => 'Allergies', 'body' => 'Dites-le à la réservation : la cuisine adapte la plupart des plats, et la salle connaît les quatorze allergènes ligne par ligne.', 'icon' => 'wheat-off'],
-                    ['title' => 'Végétarien', 'body' => 'La carte compte toujours deux entrées et deux plats sans viande ni poisson.', 'icon' => 'leaf'],
-                    ['title' => 'Enfants', 'body' => 'Demi-portions sur tous les plats, et des pâtes au beurre sans discuter.', 'icon' => 'baby'],
+                    ['title' => 'Allergies', 'body' => 'Dites-le à la réservation : la cuisine adapte la plupart des plats, et la salle connaît les quatorze allergènes ligne par ligne.', 'subject' => 'Le cahier des allergènes ouvert sur le passe', 'icon' => 'wheat-off'],
+                    ['title' => 'Végétarien', 'body' => 'La carte compte toujours deux entrées et deux plats sans viande ni poisson.', 'subject' => 'Un risotto aux champignons dans une assiette creuse', 'icon' => 'leaf'],
+                    ['title' => 'Enfants', 'body' => 'Demi-portions sur tous les plats, et des pâtes au beurre sans discuter.', 'subject' => 'Une chaise haute au bout d’une table', 'icon' => 'baby'],
                 ],
             ],
             'story' => [
@@ -196,9 +196,9 @@ return [
                 'eyebrow' => 'Jusqu’à la porte',
                 'title' => 'En métro, en voiture, en bateau',
                 'items' => [
-                    ['title' => 'En métro', 'body' => 'M2 jusqu’à Ouchy-Olympique, puis quatre minutes à pied le long du quai.', 'icon' => 'tram-front'],
-                    ['title' => 'En voiture', 'body' => 'Parking de la Navigation, à deux cents mètres. Le quai lui-même est piéton.', 'icon' => 'square-parking'],
-                    ['title' => 'En bateau', 'body' => 'Le débarcadère de la CGN est en face : on voit notre porte depuis le pont.', 'icon' => 'ship'],
+                    ['title' => 'En métro', 'body' => 'M2 jusqu’à Ouchy-Olympique, puis quatre minutes à pied le long du quai.', 'subject' => 'La sortie du métro Ouchy, le quai derrière', 'icon' => 'tram-front'],
+                    ['title' => 'En voiture', 'body' => 'Parking de la Navigation, à deux cents mètres. Le quai lui-même est piéton.', 'subject' => 'L’entrée du parking de la Navigation', 'icon' => 'square-parking'],
+                    ['title' => 'En bateau', 'body' => 'Le débarcadère de la CGN est en face : on voit notre porte depuis le pont.', 'subject' => 'Un bateau de la CGN à quai, vu de la porte', 'icon' => 'ship'],
                 ],
             ],
             'story' => [

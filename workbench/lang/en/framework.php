@@ -16,6 +16,29 @@ return [
         'layout' => 'Layout',
     ],
 
+    // The record of the run that made the business views: what was asked, decided and seen.
+    'record' => [
+        'title' => 'Record of the run',
+        'intro' => 'How the business views of this page came to be: what was asked, what was decided at each step and why, the pictures sent back while the work ran, and what each writer reported when it finished.',
+        'asked' => 'What was asked',
+        'steps' => 'The run, step by step',
+        'see' => 'See it today',
+        'picture' => 'Open the picture',
+        'writers' => 'What each writer reported',
+        'writer' => 'Its writer’s notes',
+        'writers_intro' => 'One agent wrote each business: its demo content and its designs, in one pass with one check. These are its notes on the kit, as it left them. Some were mended afterwards; the step above says which.',
+        'designs' => 'designs',
+        'notes' => 'notes',
+        'directions' => 'The directions',
+        'specs' => 'Written from their CSS',
+        'dressed' => 'The first four, dressed for the new prefabs',
+        'open' => 'Known and not mended',
+        'owed' => 'Still owed',
+        'tab' => 'On the tab',
+        'sheet' => 'Its contact sheet',
+        'rules' => 'lines of rules',
+    ],
+
     // The business views: every kind of business the skill describes, drawn from its own files.
     'businesses' => [
         'title' => 'Business types',
@@ -40,6 +63,12 @@ return [
         'open' => 'The page alone',
         'why' => 'Why:',
         'pulls' => 'What a build pulls',
+        'reasons' => 'The reasons, in the skill’s own words',
+        'why_direction' => 'Why this direction, for this business',
+        'why_prefabs' => 'Why this page holds each prefab',
+        'how_drawn' => 'How the direction draws what is on the page',
+        'behaviour' => 'What each component does once it is placed',
+        'costs' => 'What the palette costs',
         'regions' => 'What each region holds',
         'arrangements' => 'Arrangements',
         'own' => 'The direction’s own',

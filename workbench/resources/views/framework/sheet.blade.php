@@ -34,6 +34,8 @@
             <a href="{{ route('framework') }}" class="text-ink-soft hover:text-ink">{{ __('framework.projects') }}</a>
             <a href="{{ route('framework.businesses', $business ? ['business' => $business['name']] : []) }}" class="text-ink-soft hover:text-ink">{{ __('framework.businesses.title') }}</a>
 
+            <a href="{{ route('framework.record') }}" class="text-ink-soft hover:text-ink">{{ __('framework.record.title') }}</a>
+
             @if ($business)
                 <a href="{{ route('framework.sheet') }}" class="text-ink-soft hover:text-ink">{{ __('framework.businesses.sheet') }}</a>
                 <span aria-current="page" class="font-semibold text-ink">{{ ucfirst($business['name']) }}</span>
@@ -45,7 +47,7 @@
         </p>
 
         @if (! $business)
-            <ul role="list" data-ref="framework.sheet.index" class="grid gap-x-6 gap-y-8 grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
+            <ul role="list" data-ref="framework.sheet.index" class="flex flex-wrap justify-center gap-x-6 gap-y-8">
                 @foreach ($businesses as $other)
                     @php
                         $first = Site::designs($other['name'])[0] ?? null;
@@ -87,7 +89,7 @@
                             @endif
                         </div>
 
-                        <div class="flex flex-wrap gap-5">
+                        <div class="flex flex-wrap justify-center gap-5">
                             @foreach ($business['pages'] as $page)
                                 @php
                                     $query = array_filter(['business' => $business['name'], 'design' => $design['slug'], 'page' => $page['path'] === '/' ? null : $page['path']]);
@@ -118,7 +120,7 @@
                             <p class="max-w-prose text-sm text-ink-soft">{{ $business['directions'][$direction] }}</p>
                         </div>
 
-                        <div class="flex flex-wrap gap-5">
+                        <div class="flex flex-wrap justify-center gap-5">
                             @foreach ($views as $view)
                                 @include('framework.site.thumb', [
                                     'src' => $site($view),

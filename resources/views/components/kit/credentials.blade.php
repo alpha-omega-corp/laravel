@@ -46,7 +46,7 @@
             <h2 data-kit-part="credentials-title" class="font-display text-lg text-ink">{{ $title }}</h2>
         @endif
 
-        <ul data-kit-part="credentials-list" role="list" class="grid gap-4 grid-cols-[repeat(auto-fill,minmax(min(100%,13rem),1fr))]">
+        <ul data-kit-part="credentials-list" role="list" class="flex flex-wrap gap-4 [--row-item:13rem]">
             @foreach ($credentials as $credential)
                 <li data-kit-part="credentials-item" class="relative flex flex-col gap-2 border-t border-rule pt-4">
                     @if (! empty($credential['logo']))

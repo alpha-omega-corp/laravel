@@ -77,7 +77,7 @@
         @endif
 
         @if (count($facts))
-            <dl data-kit-part="hero-facts" class="grid grid-cols-2 gap-6 border-t border-rule pt-6 sm:grid-cols-3">
+            <dl data-kit-part="hero-facts" class="grid gap-6 border-t border-rule pt-6 grid-cols-[repeat(auto-fit,minmax(min(100%,7rem),1fr))]">
                 @foreach ($facts as $fact)
                     <div data-kit-part="hero-fact">
                         <dt class="text-sm text-ink-soft">{{ $fact['label'] ?? '' }}</dt>

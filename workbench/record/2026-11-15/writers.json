@@ -1,0 +1,3038 @@
+{
+ "businesses": {
+  "agency": {
+   "brand": "Trame, Neuchâtel (a design and web agency of eight people in an old printing shop, Rue des Moulins 21)",
+   "designs": [
+    {
+     "name": "Agence web",
+     "direction": "launch",
+     "palette": "graphite"
+    },
+    {
+     "name": "Studio de nuit",
+     "direction": "launch",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Cabinet conseil",
+     "direction": "launch",
+     "palette": "harbour"
+    },
+    {
+     "name": "Jeune pousse",
+     "direction": "launch",
+     "palette": "fresh"
+    },
+    {
+     "name": "Campagne",
+     "direction": "launch",
+     "palette": "blossom"
+    },
+    {
+     "name": "Murs blancs",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Maison de marque",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "Bureau technique",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Collectif",
+     "direction": "atelier",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Rédaction",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Prix affichés",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Salle de montage",
+     "direction": "studio",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "directions/launch.md: its `## Looks` section is unwritten. It reads 'The frames: placeholder.' and 'hero — placeholder.', with no line for any other component, so a design under launch cannot tell what a component with no arrangement line will look like. Five of the twelve agency designs are launch.",
+    "directions/studio.md: `## Looks` covers only site-header, hero, features, menu, schedule, catalogue, map, cta-band and site-footer. None of the agency's seven prefabs (projects, services, process, team, testimonials, credentials, quote) has a line, and `## Suits` does not name an agency, although businesses/agency.md lists studio as one of its directions.",
+    "split layout on an agency (`/` and `/brief`): the second half is filled only from schedule and map (Site::SIDE in workbench/app/Framework/Site.php), and an agency places neither. Read from the code and the split stub, not checked at full size: the opening collapses to the hero alone at full width, so split should draw as a marketing page without its closing band. On /brief the quote form stands under the opening, not beside it.",
+    "poster layout on an agency (`/`): the same cause. Its `facts` region also takes only schedule and map, so the foot of the first screen ('the hours and the way in') should be empty for this business; the three figures shown are the hero's own. Also read from the code, not checked at full size.",
+    "The contact sheet was looked at once, at about a fifth of its size (1440 x 10755 shown at 268 x 2000). At that scale all sixty design views are drawn and the twelve designs are plainly different in colour and opening; type, spacing and whether each arrangement reads well were not legible and were not checked."
+   ],
+   "designs_now": 12
+  },
+  "architect": {
+   "brand": "Morand Rey architectes, Vevey (a practice of six in a former printing works, Rue du Simplon 18)",
+   "designs": [
+    {
+     "name": "Murs blancs",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Maison primée",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Concours",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Carnet de chantier",
+     "direction": "atelier",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Lumière du soir",
+     "direction": "atelier",
+     "palette": "harbour"
+    },
+    {
+     "name": "Bureau du bourg",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "En ville",
+     "direction": "atelier",
+     "palette": "harbour"
+    },
+    {
+     "name": "Revue",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Deux associées",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Vallée",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Grande agence",
+     "direction": "studio",
+     "palette": "harbour"
+    },
+    {
+     "name": "Jardins",
+     "direction": "studio",
+     "palette": "lagoon"
+    }
+   ],
+   "noticed": [
+    "On /projects drawn as a board (Murs blancs, Concours, Lumière du soir), the page's own features ('Trois familles de projets') take the large first tile and the projects prefab, which the page is for, gets one narrow tile beside it. On the work page the projects should lead the board; the features-first rule suits home only.",
+    "Unverified, seen only at contact-sheet scale: with hero — cover and no photograph (Maison primée, Lumière du soir, Deux associées, Vallée), the owed photograph's caption is drawn as a thin line at the top right of the opening, directly under the header and running to the window's edge, where it reads as a stray line of the nav.",
+    "The contact sheet shows only the first screen of each page, so the prefab arrangements (projects rows/index, process timeline/row, team list, credentials logos/list, quote plain/split, map wide/plain) cannot be judged from it; the kit's test confirmed only that each arrangement is applied.",
+    "With no photographs, studio's default, centred and statement heroes all come out as a block of words on the ground, so Revue, Grande agence and Jardins have near-identical first screens apart from palette and alignment; the sheet under-shows how different those designs are."
+   ],
+   "designs_now": 12
+  },
+  "artisan": {
+   "brand": "Atelier Jaccoud, a potter's workshop (grès tourné) at Rue Ancienne 27, 1227 Carouge",
+   "designs": [
+    {
+     "name": "L’étagère",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Pièce unique",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "Sur fond noir",
+     "direction": "atelier",
+     "palette": "harbour"
+    },
+    {
+     "name": "Carnet d’atelier",
+     "direction": "atelier",
+     "palette": "sandstone"
+    },
+    {
+     "name": "La forge",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Jour de marché",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Portes ouvertes",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Petits prix",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Marché de Noël",
+     "direction": "market",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Vitrine",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Maison de famille",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Sur commande",
+     "direction": "studio",
+     "palette": "clay"
+    }
+   ],
+   "noticed": [],
+   "designs_now": 12
+  },
+  "association": {
+   "brand": "Association du Pré-Fleuri, Yverdon-les-Bains (a neighbourhood association of 240 households, founded in 1987, meeting at the Maison de quartier, Rue du Pré-Fleuri 8)",
+   "designs": [
+    {
+     "name": "Maison de quartier",
+     "direction": "civic",
+     "palette": "fresh"
+    },
+    {
+     "name": "Fondation",
+     "direction": "civic",
+     "palette": "harbour"
+    },
+    {
+     "name": "Paroisse",
+     "direction": "civic",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Club de montagne",
+     "direction": "civic",
+     "palette": "alpine"
+    },
+    {
+     "name": "Société de village",
+     "direction": "civic",
+     "palette": "orchard"
+    },
+    {
+     "name": "Jeune collectif",
+     "direction": "civic",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Atelier ouvert",
+     "direction": "civic",
+     "palette": "denim"
+    },
+    {
+     "name": "Comité des fêtes",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Jardin partagé",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Groupe scout",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Société d’histoire",
+     "direction": "market",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Ciné-club",
+     "direction": "market",
+     "palette": "nocturne"
+    }
+   ],
+   "noticed": [
+    "Board on a page other than home: the features block takes the board's large first tile and the page's own list (events on /agenda, jobs on /get-involved) is one narrow tile beside it, so the list the page exists for is the smallest thing on it. Seen on the contact sheet in both civic and market. Left as is, not worked around.",
+    "Split on home for a business with no schedule: the side half holds the map alone, and on the sheet's thumbnails it sits at the foot of that half, leaving the top of the right half empty beside the hero (Paroisse, Club de montagne, Atelier ouvert, Groupe scout, Ciné-club). Seen on thumbnails only, not checked at full size.",
+    "Hero 'cover' under market on a board home (Comité des fêtes): on the thumbnail the photograph's frame cannot be told from the page wash, so the opening reads as words on nothing. The same cover on that design's /about (split) shows a visible frame. Low confidence, thumbnail only.",
+    "/donate has no navigation label in businesses/association.md, so the contact sheet captions it with the English role word 'Give' among French labels (Agenda, L’association, Participer).",
+    "Note, not a defect: the directions' palette lists changed while I worked. civic now also lists denim and sorbet, market clay and sorbet. I used denim and sorbet under civic; clay and blossom are in no design, and marigold is used only under market, so the one 'fair' palette in the set is nocturne (Ciné-club). The contact sheet was photographed a second time after that palette change so the picture matches the files; I did not look at the second picture."
+   ],
+   "designs_now": 12
+  },
+  "bakery": {
+   "brand": "Fournil des Fossés, Morges (Rue des Fossés 14, 1110 Morges): a boulangerie-pâtisserie in the old town with a wood-fired oven of 1962",
+   "designs": [
+    {
+     "name": "Comptoir du matin",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Fournée de midi",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Four du village",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Pain quotidien",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Fournil de nuit",
+     "direction": "counter",
+     "palette": "ember"
+    },
+    {
+     "name": "Planche du four",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Étal du samedi",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Quatre-heures",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Nouvelle fournée",
+     "direction": "market",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Vitrine",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Salon de thé",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Écrin",
+     "direction": "studio",
+     "palette": "plum"
+    }
+   ],
+   "noticed": [
+    "Hero facts: a value with spaces wraps inside a narrow hero column. On a board home the fact '5 h 45' broke onto two lines ('5 h' / '45') beside '24 h' and '1962' on one line, in counter/orchard and in market under orchard, marigold, sandstone, lagoon, clay and sorbet (the sheet's palette section shows it too; fresh fits). I replaced the value in the content with a shorter one joined by a no-break space, after the sheet was photographed, so the picture still shows the wrap. The kit's fact value does not keep a figure on one line.",
+    "Hero `cover` with no photograph (the framework's captioned frame), seen at contact-sheet size only and not confirmed at full size: the frame's caption is set as one small line at the top right of the opening and appears to run to or past the right edge, and the frame's placeholder glyph is drawn in the middle of the copy, beside the lead. Seen on studio/vellum (Vitrine), counter/ember dark (Fournil de nuit) and market/sorbet (Nouvelle fournée).",
+    "The studio direction is drawn in only one layout that the bakery's home and story pages list (marketing), so every studio design of this business has the same page layouts (marketing, carte, marketing): the alternative, /bread in marketing, would be marketing on every page. The three studio designs therefore differ by palette, scheme, hero, header, footer and prefab arrangements only. Not a defect, but the business file gives studio less room than counter (9 layout combinations) or market (6).",
+    "Some arrangements equal a direction's own drawing and add no visible difference there: `hero — split` on counter and market, `schedule — strip` on counter, `catalogue — list` on market, `site-footer — centred` on studio. I placed each arrangement only where it changes the picture; the designs README does not say which are no-ops per direction."
+   ],
+   "designs_now": 12
+  },
+  "band": {
+   "brand": "Bise Noire, Neuchâtel (a fictional quintet of gypsy swing and French song, playing since 2014)",
+   "designs": [
+    {
+     "name": "Soir de concert",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Bal du samedi",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Cave à jazz",
+     "direction": "hearth",
+     "palette": "plum"
+    },
+    {
+     "name": "Nuit électrique",
+     "direction": "hearth",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Saison du chœur",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Fanfare du village",
+     "direction": "hearth",
+     "palette": "clay"
+    },
+    {
+     "name": "Cabaret rose",
+     "direction": "hearth",
+     "palette": "blossom"
+    },
+    {
+     "name": "Pochettes au mur",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Petit label",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "Ensemble contemporain",
+     "direction": "atelier",
+     "palette": "harbour"
+    },
+    {
+     "name": "Platines de nuit",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Soliste en récital",
+     "direction": "atelier",
+     "palette": "sandstone"
+    }
+   ],
+   "noticed": [
+    "split has nothing to put in its second half for a band: Site::SIDE fills `visit` only with schedule and map, and band has neither, so /music and /booking in split are the hero at full width, then main, with no closing band. businesses/band.md still offers split on both pages, and five of the twelve designs use it (Soir de concert, Bal du samedi, Cave à jazz, Nuit électrique, Fanfare du village). Either the booking form or the catalogue should be allowed into `visit`, or split should come off those two pages.",
+    "directions/hearth.md describes how hearth draws menu, schedule, catalogue and map, but has no Looks line for events, team, gallery or booking, which are four of band's five prefabs. The seven hearth designs therefore rely on a drawing the direction never states; I did not check kit.css for whether hearth rules for them exist.",
+    "Limit of my own check, not a kit fault: the contact sheet is 1440 by 10629 px and this machine has no image tool to cut it (no PIL, ImageMagick or PHP gd), so I saw it only reduced to about a fifth. At that size all twelve designs show five drawn pages each and their palettes are plainly different, but I could not read detail, so fine rendering faults on individual pages are unchecked."
+   ],
+   "designs_now": 12
+  },
+  "butcher": {
+   "brand": "Boucherie Jaquier, Échallens (Grand-Rue 18, 1040 Échallens): a fictional family boucherie-charcuterie since 1954 whose beef comes from the family farm at Villars-le-Terroir",
+   "designs": [
+    {
+     "name": "Boucherie du bourg",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Viande de la ferme",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Samedi matin",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Le troupeau",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Vieille enseigne",
+     "direction": "counter",
+     "palette": "vellum"
+    },
+    {
+     "name": "Colis du mois",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Prix au kilo",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Banc du marché",
+     "direction": "market",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Braise",
+     "direction": "counter",
+     "palette": "ember"
+    },
+    {
+     "name": "La relève",
+     "direction": "market",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Charcutier traiteur",
+     "direction": "counter",
+     "palette": "clay"
+    },
+    {
+     "name": "Pas de porte",
+     "direction": "counter",
+     "palette": "orchard"
+    }
+   ],
+   "noticed": [
+    "features: an item given an `icon` and no `subject` still draws an empty, uncaptioned picture frame beside its icon (confirmed in the HTML of /framework/site?business=butcher&design=samedi-matin&page=/our-meat: each `features-item` has a `features-media` holding a bare `x-kit.media` frame, then the icon in `features-copy`). This is the same item shape as restaurant.php's /menu 'Bon à savoir', so the example content draws it too. Left as is in butcher's /our-meat features, not worked around.",
+    "board on a page that is not home: the page's `features` lead main and the catalogue follows (order in the HTML: section, features, catalogue, cta-band). On the offer page /our-meat this opens the board on the 'Bon à savoir' notes as the large tile, with the cuts (the list the page is for) in one tile's width beside or under them. Seen in every design that draws /our-meat as a board (Viande de la ferme, Samedi matin, Le troupeau, Banc du marché, Braise).",
+    "schedule `plain` in split's side column under counter (seen at thumbnail size on the contact sheet, home of Boucherie du bourg and Pas de porte): the days are set in two narrow columns, so a two-shift day's hours break in the middle of a range ('07:00–12:15 · 14:00–' / '18:30').",
+    "hero `cover` with no photograph (seen at thumbnail size, Braise and Le troupeau): the caption of the photograph owed sits alone, small, in the top right corner of the opening, away from any frame; under market the /our-story opening is a tall empty band with the copy panel pushed under it.",
+    "hero facts: a value with a space ('4 sem.') wraps onto two lines at `text-figure` in the narrower hero columns (Samedi matin home, Banc du marché home). Changed in the content to '28 j' after the sheet was taken, so sheet.png still shows the old value; reported in case the facts row should not wrap a value."
+   ],
+   "designs_now": 12
+  },
+  "cafe": {
+   "brand": "Café Loupiote, Rue des Moulins 14, 2000 Neuchâtel (a thirty-eight seat neighbourhood café in a former chemist's shop of 1924; breakfast, dish of the day, cakes, and a concert, quiz or reading three nights a week)",
+   "designs": [
+    {
+     "name": "Café du coin",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Pause de midi",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Salon de thé",
+     "direction": "counter",
+     "palette": "blossom"
+    },
+    {
+     "name": "Buvette du lac",
+     "direction": "counter",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Café du village",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Bar à café",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Brûlerie",
+     "direction": "studio",
+     "palette": "clay"
+    },
+    {
+     "name": "Café-galerie",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Café-concert",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Grand café",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Coin du feu",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Café littéraire",
+     "direction": "hearth",
+     "palette": "plum"
+    }
+   ],
+   "noticed": [
+    "hero — cover with no photograph (seen on the contact sheet thumbnails only, not checked at full size): the caption of the missing photograph is drawn as a small line at the top right, directly under the navigation bar, in both counter (Café du village) and hearth (Café-concert). Hearth's own hero (Coin du feu, no hero line) puts the same caption at the foot of the hero on the right, which is what directions/hearth.md describes.",
+    "counter with hero — cover and no photograph (Café du village, /menu and /about): the cover is a nearly blank pale band filling the top half of the first screen, with the words low in it and no frame glyph, so the page reads as unfinished. The other hero types on counter keep a visible frame for the missing photograph. Same caveat: judged from the sheet's thumbnails.",
+    "Observation on the contact sheet rather than a defect: /framework/sheet draws only the first screen of each page, so a prefab's arrangement below the fold (menu cards or columns, events cards or timeline, map wide or plain, schedule strip on a marketing home) cannot be judged from it. Those arrangements passed the kit's rules through put.sh but were not looked at."
+   ],
+   "designs_now": 12
+  },
+  "caterer": {
+   "brand": "La Tablée, traiteur à Rolle (La Côte, Vaud)",
+   "designs": [
+    {
+     "name": "Table du soir",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Maison de famille",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Chef à domicile",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Fête du personnel",
+     "direction": "hearth",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Noces au château",
+     "direction": "hearth",
+     "palette": "blossom"
+    },
+    {
+     "name": "Belle assiette",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Vernissage",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Grande brigade",
+     "direction": "studio",
+     "palette": "harbour"
+    },
+    {
+     "name": "Fêtes de famille",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Cuisine de saison",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Midi au bureau",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Feu de bois",
+     "direction": "market",
+     "palette": "marigold"
+    }
+   ],
+   "noticed": [
+    "Read from the code, not confirmed on the sheet: a caterer has no schedule and no map, and those are the only prefabs Site::plan puts in split's `visit` column and poster's `facts` foot (Site::SIDE). So on every caterer page drawn in `split` the side column is empty and hidden, and the page is the hero in one column followed by the sections: close to `marketing` without its closing band. Poster's home likewise has nothing along the foot of its first screen. caterer.md lists `split` on four pages and `poster` on home, so seven of the twelve designs use a layout whose defining region this business cannot fill. Either the business should not list them, or the plan should put something else there (the hero's facts, the site band's details, the quote form on /quote).",
+    "The contact sheet for twelve designs is 1440 x 11197 px, so the one look I took was at about a fifth of its size. At that size all 60 design views are drawn, none is empty and the twelve designs are visibly different in colour and opening. I could not check the individual arrangements (menu cards and columns, gallery mosaic and strip, faq open and columns, testimonials lead and wall, quote plain and split) at that scale; the only evidence for them is that put.sh passed."
+   ],
+   "designs_now": 12
+  },
+  "club": {
+   "brand": "FC Vallon du Nozon, Croy (Vaud): a fictional village football club founded in 1947, 240 members, fourteen teams, ground at the Vernes",
+   "designs": [
+    {
+     "name": "Panneau du club",
+     "direction": "civic",
+     "palette": "harbour"
+    },
+    {
+     "name": "École de foot",
+     "direction": "civic",
+     "palette": "fresh"
+    },
+    {
+     "name": "Club omnisports",
+     "direction": "civic",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Jaune et noir",
+     "direction": "civic",
+     "palette": "marigold"
+    },
+    {
+     "name": "Sous les projecteurs",
+     "direction": "civic",
+     "palette": "alpine"
+    },
+    {
+     "name": "Lisière",
+     "direction": "trail",
+     "palette": "alpine"
+    },
+    {
+     "name": "Club nautique",
+     "direction": "trail",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Cabane",
+     "direction": "trail",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Tournoi d’été",
+     "direction": "trail",
+     "palette": "fresh"
+    },
+    {
+     "name": "Fête au village",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Troisième mi-temps",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Sport pour tous",
+     "direction": "market",
+     "palette": "fresh"
+    }
+   ],
+   "noticed": [
+    "A prefab row's link cannot name a page of the business: Site::plan (workbench/app/Framework/Site.php) resolves `to` only in hero and band links and in feature items, never inside prefab rows. A course's `href` (the row's 'Essayer' button) therefore cannot lead to /join in the showcase. I wrote '#booking', which lands nowhere on /trainings because the booking form is on /join.",
+    "Read in the direction files, not checked by eye: directions/trail.md still gives its looks as 'The frames: draft.' and 'hero — draft.', and directions/civic.md gives 'site-header — placeholder'. Four of the twelve designs are drawn in trail and five in civic, so those designs rest on unfinished styling notes.",
+    "Note, not a kit fault: the contact sheet is 1440 x 10997 px and no cropping tool is installed here, so I looked at it once at reduced scale. Every design shows five filled page thumbnails and no two designs look alike, but individual arrangements (hero types, gallery mosaic or strip, map wide or plain, the two dark schemes) were not checked in detail by eye. put.sh passed on its first run (7 tests, 1182 assertions)."
+   ],
+   "designs_now": 12
+  },
+  "commune": {
+   "brand": "Commune de Soleymont, a fictional Vaud commune of 2 840 residents at the foot of the Jorat (Place du Village 2, 1099 Soleymont)",
+   "designs": [
+    {
+     "name": "Maison de commune",
+     "direction": "civic",
+     "palette": "harbour"
+    },
+    {
+     "name": "Pilier public",
+     "direction": "civic",
+     "palette": "fresh"
+    },
+    {
+     "name": "Guichet en ville",
+     "direction": "civic",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Village en fête",
+     "direction": "civic",
+     "palette": "marigold"
+    },
+    {
+     "name": "Commune de montagne",
+     "direction": "civic",
+     "palette": "alpine"
+    },
+    {
+     "name": "Service de piquet",
+     "direction": "civic",
+     "palette": "harbour"
+    },
+    {
+     "name": "Rentrée des classes",
+     "direction": "civic",
+     "palette": "orchard"
+    },
+    {
+     "name": "Hôtel de ville",
+     "direction": "ledger",
+     "palette": "quill"
+    },
+    {
+     "name": "Feuille des avis",
+     "direction": "ledger",
+     "palette": "vellum"
+    },
+    {
+     "name": "Préfecture",
+     "direction": "ledger",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Commune fusionnée",
+     "direction": "ledger",
+     "palette": "harbour"
+    },
+    {
+     "name": "Bourgeoisie",
+     "direction": "ledger",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "Board on a page other than home (/services, /agenda, /council): the page's features take the large two-column first tile and the prefab the page exists for (services, events, team) is squeezed into one narrow tile column on the right, its heading wrapping onto two or three lines ('Démarches et prestations', 'La Municipalité et l'administration'). Seen in Pilier public, Commune de montagne, Service de piquet, Rentrée des classes and Maison de commune's /council. The list the page is for should lead the board, or take the wide tile.",
+    "On a board, a features item that has an icon and no subject is still given an empty photograph frame beside its text (the 'Trois choses à savoir' tiles on /services and 'Les décisions, noir sur blanc' on /council): an uncaptioned grey frame next to an item that already carries its icon.",
+    "Hero arrangement 'cover' with no photograph: the empty frame's placeholder icon shows through beside the words (next to the title or the lead) in civic (Commune de montagne, / and /jobs) and in ledger (Bourgeoisie, every page that draws a hero).",
+    "civic, hero arrangement 'split' on a marketing home (Guichet en ville): the three facts sit in columns so narrow that a value of more than about five characters breaks mid-figure ('18 h 30' drew as '18 h' over '30', '2 jours' as '2' over 'jours'). A fact's value should not wrap. I shortened the demo values to '2 840', '5', '2 j' in content.php so the page reads; the component still wraps longer values. That last change was not re-photographed.",
+    "directions/civic.md and directions/ledger.md are stubs under '## Looks': civic lists only 'site-header — placeholder' and ledger only 'The frames.' and 'hero — tbd', so neither says how it draws each component. The arrangements in these designs were chosen from the components' own rules, not from the direction's.",
+    "The map embeds a Google search of the address; for a fictional commune (as a demo commune must be) the address resolves to nothing in particular, so the pin on every home page is arbitrary. A demo-content way to name a real place for the pin, separate from the invented address, would fix it."
+   ],
+   "designs_now": 12
+  },
+  "construction": {
+   "brand": "Corthay Construction, Bulle (Gruyère, canton de Fribourg)",
+   "designs": [
+    {
+     "name": "Entreprise générale",
+     "direction": "yard",
+     "palette": "concrete"
+    },
+    {
+     "name": "Palissade",
+     "direction": "yard",
+     "palette": "marigold"
+    },
+    {
+     "name": "Génie civil",
+     "direction": "yard",
+     "palette": "graphite"
+    },
+    {
+     "name": "Le groupe",
+     "direction": "yard",
+     "palette": "harbour"
+    },
+    {
+     "name": "Vieilles pierres",
+     "direction": "yard",
+     "palette": "vellum"
+    },
+    {
+     "name": "On embauche",
+     "direction": "yard",
+     "palette": "marigold"
+    },
+    {
+     "name": "Halles et hangars",
+     "direction": "yard",
+     "palette": "concrete"
+    },
+    {
+     "name": "Maçon du village",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Artisans réunis",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Prix annoncé",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Villas clés en main",
+     "direction": "counter",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Atelier béton",
+     "direction": "counter",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "Board on a page that is not home: workbench/app/Framework/Site.php fills it as [features, ...prefabs, story, band], so a page's own features take the large first tile and the prefab the page is for gets one narrow tile. Seen on /projects drawn as a board: 'Vérifiez par vous-même' was the two-column slab and the projects record a single tile after it. Marketing already switches order for non-home pages; the board does not. I took the features block off /projects (its substance is in the story) so the work leads; the other pages are never drawn on a board.",
+    "Features always draw a photograph frame per item (features.blade.php calls <x-kit.media> unconditionally), so an item written with an icon and no subject shows an empty frame. The content README's own example (restaurant /menu, icon-only items) does exactly that, and the README does not say subject is required. I gave every item a subject as well as its icon.",
+    "carte never draws a page's story: Site.php has 'carte' => [...prefabs, features], while workbench/content/README.md says story closes main. /projects and /careers lose their prose in the designs that draw them in carte (Maçon du village, Prix annoncé, Villas clés en main).",
+    "split on /how-we-work and /careers has nothing for its visit half (those pages hold no schedule or map), so the hero takes the full width and the page differs from marketing only by having no closing band. businesses/construction.md lists split for both pages; it reads as a weak layout there rather than a second real one.",
+    "The map prefab is a blank white panel on the contact sheet (seen on /quote in split): the Google Maps embed does not load in the sheet's frames and has no stand-in. Probably the environment's network rather than the component, but every /quote thumbnail shows it.",
+    "Note on the sheet picture: I looked at it once, before the last content fix (dropping /projects features, adding subjects); the file at the returned path was re-shot afterwards so it matches the final files, but that second shot was not viewed. put.sh passed after the fix (7 tests, 1206 assertions)."
+   ],
+   "designs_now": 12
+  },
+  "consultant": {
+   "brand": "Cabinet Berthoud, Neuchâtel (a fictional two-person organisation consultancy for the small industrial firms of the Jura arc: Hélène Berthoud and Luc Aellen, Rue du Seyon 18)",
+   "designs": [
+    {
+     "name": "Cabinet établi",
+     "direction": "ledger",
+     "palette": "quill"
+    },
+    {
+     "name": "Lettre aux dirigeants",
+     "direction": "ledger",
+     "palette": "vellum"
+    },
+    {
+     "name": "Mandats publics",
+     "direction": "ledger",
+     "palette": "harbour"
+    },
+    {
+     "name": "Intérim de direction",
+     "direction": "ledger",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Maisons de famille",
+     "direction": "ledger",
+     "palette": "ember"
+    },
+    {
+     "name": "Forfait dix jours",
+     "direction": "launch",
+     "palette": "graphite"
+    },
+    {
+     "name": "Ateliers pour cadres",
+     "direction": "launch",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Nouveau départ",
+     "direction": "launch",
+     "palette": "blossom"
+    },
+    {
+     "name": "Transition énergétique",
+     "direction": "launch",
+     "palette": "fresh"
+    },
+    {
+     "name": "Coach de dirigeants",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Séminaire au vert",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Prise de parole",
+     "direction": "studio",
+     "palette": "nocturne"
+    }
+   ],
+   "noticed": [
+    "Side regions stay empty for a business with no hours or map (read in workbench/app/Framework/Site.php, SIDE = ['schedule', 'map']): split's `visit`, poster's `facts` and carte's side column take only those two prefabs, and the consultant has neither. Its split, poster and carte pages therefore have no second half; the sheet's thumbnails show no visible hole, but split's own promise (who they are beside how to reach them) is not met for this business.",
+    "On a board that is not home, the page's features lead and the list the page is for comes second (Site.php recipe `board => [features, ...rest, story, band]`): on /services under launch the first, large tile is 'Ce que chaque mandat comprend' and the services follow it, though the page's role is the offer.",
+    "features always draws a media frame, even for an item that has an icon and no subject (features.blade.php: the icon is 'never in place of the photograph'). An icon-only item, as the restaurant example writes on /menu, gets an uncaptioned empty frame; seen on the launch board. I gave every feature item a subject in this content so each frame is captioned, but the README's example pattern produces the empty frame.",
+    "hero `cover` with no real photograph: the placeholder frame's small picture icon shows through beside the title and lead, and its caption sits alone at the top right (seen at thumbnail scale on ledger/ember, launch/fresh and studio/vellum).",
+    "directions/ledger.md and directions/launch.md have stub `## Looks` sections ('hero — tbd', 'The frames: placeholder'), so nothing says how those two directions draw a component when a design leaves its arrangement out; only studio.md describes its own drawing.",
+    "The contact sheet's thumbnails show only each page's first screen, so prefab arrangements lower on a page (credentials, testimonials, process, faq, booking) cannot be judged from it; they are held only by the test's data-variant check."
+   ],
+   "designs_now": 12
+  },
+  "coworking": {
+   "brand": "L’Établi, La Chaux-de-Fonds (a thirty-eight desk coworking on the second floor of a 1908 dial factory, Rue du Parc 41, six minutes on foot from the station)",
+   "designs": [
+    {
+     "name": "Atelier partagé",
+     "direction": "launch",
+     "palette": "graphite"
+    },
+    {
+     "name": "Ouverture",
+     "direction": "launch",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Tarif net",
+     "direction": "launch",
+     "palette": "fresh"
+    },
+    {
+     "name": "Côté gare",
+     "direction": "launch",
+     "palette": "harbour"
+    },
+    {
+     "name": "Bureaux d’équipe",
+     "direction": "launch",
+     "palette": "denim"
+    },
+    {
+     "name": "La tablée",
+     "direction": "launch",
+     "palette": "blossom"
+    },
+    {
+     "name": "Pépinière",
+     "direction": "launch",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Lumière du nord",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Maison de village",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Métiers d’image",
+     "direction": "studio",
+     "palette": "clay"
+    },
+    {
+     "name": "Veilleuse",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Salon d’affaires",
+     "direction": "studio",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "directions/launch.md: its `## Looks` section is still a placeholder ('The frames: placeholder. - hero — placeholder.'), so a design cannot know which header, footer, hero or prefab drawing is launch's own default; arrangements on launch designs were chosen blind to that.",
+    "pricing `rows` in studio's carte (the narrow offer column), seen on /plans in 'Lumière du nord' (vellum) and 'Salon d’affaires' (ember): the plan's button does not fit its row. In vellum the uppercase tracked label ('RÉSERVER UNE JOURNÉE', 'DEMANDER UN POSTE FLEX') runs over the row's right edge and is clipped; in ember the first plan's button drops under the plan's name on the left instead of staying at the end of the row. Labels are 20 to 22 characters, left as written.",
+    "pricing with no arrangement in studio's carte ('Maison de village', /plans): four plans are set as cards side by side in the narrow column; the third (featured) card appears to reach the column's edge and the fourth is not beside the others. Judged from the contact sheet only, not confirmed at full size.",
+    "hero `cover` under launch with no photograph ('Côté gare' /events, 'La tablée' /plans and /visit): the owed-photograph frame is a near-white wash with its caption tiny at the top right, so the upper half of the first screen reads as empty and the copy starts low. Studio's cover frame is visibly a frame; launch's is not.",
+    "poster with hero `statement` ('Ouverture', 'Veilleuse', both home pages): the statement title is set so large (three lines for a 52-character title) that the poster's facts row along the foot is cut by the bottom of a 1440x900 first screen, against poster's own promise of the whole business on one screen.",
+    "Contact sheet captions: a page the business gives no label (/visit here) is captioned with its role in English ('Book'), and home as 'Home', beside the French labels of the other pages (Formules, L’espace, Agenda)."
+   ],
+   "designs_now": 12
+  },
+  "farm": {
+   "brand": "Ferme des Trois Noyers, Gollion (VD): the Jaquier family's eighteen-hectare organic farm, with a shop in the yard, a Saturday stall at the Morges market and a weekly vegetable box",
+   "designs": [
+    {
+     "name": "Étal de saison",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Verger",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Paniers du vendredi",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Marché du soir",
+     "direction": "market",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Alpage",
+     "direction": "market",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Cueillette",
+     "direction": "market",
+     "palette": "blossom"
+    },
+    {
+     "name": "Domaine",
+     "direction": "market",
+     "palette": "clay"
+    },
+    {
+     "name": "Magasin de la ferme",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Vente directe",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Libre-service",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Laiterie",
+     "direction": "counter",
+     "palette": "harbour"
+    },
+    {
+     "name": "Fumoir",
+     "direction": "counter",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "All of these were seen on the contact sheet's thumbnails only (one picture, no page opened on its own), so each is a likely fault to confirm, not a measured one.",
+    "market + `hero — cover` (Marché du soir, Cueillette): on /products and /our-story the upper half of the first screen is an empty band of the page colour with the words pushed to its foot. The photograph frame behind the words shows no edge and no icon, only a tiny caption at the top right, so the opening reads as blank where a split hero's frame is clearly a frame.",
+    "counter's own hero (no arrangement) on marketing pages under harbour (Laiterie, /products and /our-story): the opening is a tall band that is mostly empty, the words low on the left, and the portrait frame is nearly the same colour as the ground, so the first screen looks unfinished.",
+    "market + `hero — centred` (Paniers du vendredi, Domaine): the wide photograph under the centred words is a flat block of one colour with no visible frame icon or caption, unlike the frames the other hero types draw.",
+    "counter + carte + `catalogue — feature` (Vente directe, /products): the first item appears as a tall empty frame with the next cards squeezed into narrow columns beside it. The rail and the feature arrangement may not agree inside carte's offer column.",
+    "The market direction is not drawn in carte, and a farm's /products takes only carte or marketing, so every market design of a farm has /products and /our-story in marketing. That leaves nine layout combinations under the farm's first direction (eight once the all-marketing one is excluded), which is what limits the spread there.",
+    "The contact sheet lays pages three to a row, so a business with four pages (the farm) leaves one thumbnail alone on a second row under every design."
+   ],
+   "designs_now": 12
+  },
+  "festival": {
+   "brand": "Les Feux de la Combe, Sainte-Croix (VD): a fictional three-night open-air festival of music and cooking on embers, on a Jura pasture, 13-15 août 2027",
+   "designs": [
+    {
+     "name": "Rendez-vous d’août",
+     "direction": "launch",
+     "palette": "graphite"
+    },
+    {
+     "name": "Prévente",
+     "direction": "launch",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Jour J",
+     "direction": "launch",
+     "palette": "harbour"
+    },
+    {
+     "name": "Première édition",
+     "direction": "launch",
+     "palette": "blossom"
+    },
+    {
+     "name": "Marché de jour",
+     "direction": "launch",
+     "palette": "fresh"
+    },
+    {
+     "name": "Nuit de feu",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Trentième édition",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Tête d’affiche",
+     "direction": "hearth",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Veillée",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Pâturage",
+     "direction": "trail",
+     "palette": "alpine"
+    },
+    {
+     "name": "Fête de village",
+     "direction": "trail",
+     "palette": "orchard"
+    },
+    {
+     "name": "Bord du lac",
+     "direction": "trail",
+     "palette": "lagoon"
+    }
+   ],
+   "noticed": [
+    "Two of the three directions festival lists have no written look: directions/launch.md says 'The frames: placeholder. - hero — placeholder.' and directions/trail.md says 'The frames: draft. - hero — draft.'. Eight of the twelve designs (five launch, three trail) are therefore drawn in directions the kit itself marks unfinished; only hearth describes how it draws each component.",
+    "Not a confirmed defect, a limit of my check: the contact sheet is 1440x10593 and no image tool was available here to crop it, so I saw it once at about 272px wide. At that size every one of the 60 views draws a first screen, none is empty, and the twelve designs are told apart by palette and scheme; whether each hero type, header, footer and prefab arrangement is visibly distinct below the first screen was not checked by eye (the kit's test confirms each arranged component carries its data-variant)."
+   ],
+   "designs_now": 12
+  },
+  "fitness": {
+   "brand": "La Verrière, Carouge (a yoga, pilates and strength studio in a former printing works, Rue Ancienne 42, 1227 Carouge)",
+   "designs": [
+    {
+     "name": "Studio de yoga",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Atelier pilates",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "École de danse",
+     "direction": "studio",
+     "palette": "plum"
+    },
+    {
+     "name": "Yoga chaud",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Yoga au lac",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Vélo en salle",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Dojo",
+     "direction": "studio",
+     "palette": "clay"
+    },
+    {
+     "name": "Fitness de quartier",
+     "direction": "counter",
+     "palette": "fresh"
+    },
+    {
+     "name": "Salle de bloc",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "La box",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Société de gym",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Gym douce",
+     "direction": "counter",
+     "palette": "sandstone"
+    }
+   ],
+   "noticed": [
+    "Counter direction, `schedule — plain` in split's visit column (home of Fitness de quartier, La box, Gym douce): on the contact sheet the week still reads as a two-column grid of days, the same as the direction's own drawing in the unarranged counter rolls at the foot of the sheet, rather than as seven lines; a split-day string such as '06:45–13:30 · 16:30–21:00' wraps onto two lines in each cell. Seen at thumbnail size only, not checked at full size.",
+    "Not a defect but a limit on variety: under counter, /teachers can only be `marketing` (journal is not a counter layout, and no fitness page lists `board`), and team has one arrangement (`list`), so the five counter designs can differ on that page only by `team — list` or not."
+   ],
+   "designs_now": 12
+  },
+  "florist": {
+   "brand": "Maison Églantine, a florist in Carouge (Rue Saint-Joseph 22, 1227 Carouge), open since 1987, with an atelier behind the counter and a cutting field at Bardonnex",
+   "designs": [
+    {
+     "name": "Maison de fleurs",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Atelier de mariage",
+     "direction": "studio",
+     "palette": "plum"
+    },
+    {
+     "name": "Fleurs de deuil",
+     "direction": "studio",
+     "palette": "harbour"
+    },
+    {
+     "name": "Bouquets à offrir",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Clair-obscur",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Comptoir du matin",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Fleuriste du village",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Kiosque de la gare",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Enseigne de ville",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Étal du marché",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Chez l’horticulteur",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Champ à cueillir",
+     "direction": "market",
+     "palette": "marigold"
+    }
+   ],
+   "noticed": [
+    "businesses/florist.md describes the market direction as 'the day's bunches, on a board of glass panels in the sun', but no florist page lists the `board` layout. Under market, /bouquets and /our-work can only be `marketing`, and / and /occasions only `split` or `marketing`, so a market florist can never be drawn on the board its own line promises and has only three layout combinations that are not all-marketing. Read from the sources, not seen in a picture.",
+    "workbench/content/README.md asks for a `story` on every page that would otherwise be one prefab alone and says `story` closes `main`, but Site.php's carte recipe is `[...$rest, $features]`: the story is never drawn in carte. The florist's /bouquets (catalogue alone) therefore loses its story in the six designs that draw it in carte. Either the README should name the exception or carte should place the story. Read from the sources, not seen in a picture.",
+    "The contact sheet for twelve designs is 1440 by 11619 px, and this machine has no image library (no PIL, no PHP GD) to cut it up, so the one permitted picture could only be read heavily downscaled. At that size all 48 views show content and the twelve designs are visibly distinct in colour and opening, but the individual arrangements (catalogue list/feature, gallery mosaic/strip, booking split/plain, header and footer variants) were not checked by eye."
+   ],
+   "designs_now": 12
+  },
+  "garage": {
+   "brand": "Garage Pittet, Romont (FR): a fictional all-makes workshop at Route de Fribourg 48, opened in 1974, with four lifts, a tyre hotel and nine used cars on its forecourt",
+   "designs": [
+    {
+     "name": "Atelier du village",
+     "direction": "yard",
+     "palette": "concrete"
+    },
+    {
+     "name": "Tarif affiché",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Parc d’occasions",
+     "direction": "yard",
+     "palette": "marigold"
+    },
+    {
+     "name": "De père en fille",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Carrosserie",
+     "direction": "yard",
+     "palette": "concrete"
+    },
+    {
+     "name": "Pneus express",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Atelier moto",
+     "direction": "yard",
+     "palette": "graphite"
+    },
+    {
+     "name": "Atelier vélo",
+     "direction": "counter",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Concession",
+     "direction": "yard",
+     "palette": "vellum"
+    },
+    {
+     "name": "Anciennes",
+     "direction": "counter",
+     "palette": "ember"
+    },
+    {
+     "name": "Route cantonale",
+     "direction": "yard",
+     "palette": "harbour"
+    },
+    {
+     "name": "Flotte et utilitaires",
+     "direction": "yard",
+     "palette": "graphite"
+    }
+   ],
+   "noticed": [
+    "No kit defect confirmed. The contact sheet was looked at once, whole (1440x10091, read at about a fifth of its size, no cropping tool on this machine): all 48 frames are filled and the twelve designs are told apart by palette and layout, but component-level detail was not legible at that size, so arrangements that sit in a narrow region were not inspected (hero statement in split's half on Flotte et utilitaires, hero cover above a board on Anciennes, listings feature in a board tile on Atelier moto).",
+    "The task brief points to 'the docblock at the top of' each prefab's Blade file for the shape of its data, but the six files (schedule, menu, listings, testimonials, booking, map) open on @props with no docblock above it; the row keys (listings: name, price, status, place, facts[label,value], href, image, alt; testimonials: quote, name, role, image; booking services: list of strings) had to be read off the template body.",
+    "yard's direction file describes only site-header under '## Looks' (counter describes ten components), so how yard draws schedule, menu, listings, testimonials, booking and map by default is not written down; arrangements on yard designs were chosen from the components' own Behaviour lines."
+   ],
+   "designs_now": 12
+  },
+  "guide": {
+   "brand": "Haute Trace, a mountain guides' office in Evolène (val d'Hérens, Valais)",
+   "designs": [
+    {
+     "name": "Bureau des guides",
+     "direction": "trail",
+     "palette": "alpine"
+    },
+    {
+     "name": "École de neige",
+     "direction": "trail",
+     "palette": "lagoon"
+    },
+    {
+     "name": "École de grimpe",
+     "direction": "trail",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Camp de base",
+     "direction": "trail",
+     "palette": "orchard"
+    },
+    {
+     "name": "Vol biplace",
+     "direction": "trail",
+     "palette": "fresh"
+    },
+    {
+     "name": "Peau de phoque",
+     "direction": "trail",
+     "palette": "alpine"
+    },
+    {
+     "name": "Eaux vives",
+     "direction": "trail",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Grandes courses",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Guide privé",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Haute Route",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Marche lente",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Bout du monde",
+     "direction": "studio",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "A `statement` hero on a `poster` page leaves the first screen nearly empty when the page has no map or hours for the cover's foot: on /gallery it drew the title, the lead and one button over a blank screen (seen on Vol biplace and Haute Route). I moved those two gallery pages to marketing and journal in the designs; the kit still allows the combination.",
+    "Trail's `hero — cover` with no photograph draws a tall, almost blank panel: the owed photograph's placeholder icon sits in the middle of the lead text and its caption is tiny in the top-right corner. In the dark scheme (Peau de phoque) the frame cannot be told from the page. The direction's hero is marked draft.",
+    "A prefab row cannot link to a page of the business: `Site::plan` resolves `to` only in hero and band links and in feature items, so a course's `href` cannot lead to /book in the showcase. The course rows use a `mailto:` to the office instead, where a real site would link to its booking page.",
+    "With `hero — split`, the home hero's three facts are squeezed into the copy half as narrow cells and their labels wrap (seen on École de neige). I shortened the labels in the content; the strip itself is still narrow.",
+    "The contact sheet photographs only each page's first screen, so designs that differ by a prefab's arrangement below the fold (courses cards, faq open or columns, gallery mosaic or strip, booking, map) cannot be compared there. Those arrangements were checked only by the kit's rules, not by eye."
+   ],
+   "designs_now": 12
+  },
+  "hotel": {
+   "brand": "Hôtel de la Lanterne, Evolène (val d'Hérens, Valais): nine rooms in a larch house of 1904, a former climbers' pension",
+   "designs": [
+    {
+     "name": "Maison de village",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Vieille maison",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Table et chambres",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Nuit à deux",
+     "direction": "hearth",
+     "palette": "plum"
+    },
+    {
+     "name": "Chambres à la ferme",
+     "direction": "hearth",
+     "palette": "clay"
+    },
+    {
+     "name": "Pension de famille",
+     "direction": "hearth",
+     "palette": "blossom"
+    },
+    {
+     "name": "Étape du soir",
+     "direction": "hearth",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Maison claire",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Bord du lac",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Pied-à-terre",
+     "direction": "studio",
+     "palette": "harbour"
+    },
+    {
+     "name": "Semaine au calme",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Belle étoile",
+     "direction": "studio",
+     "palette": "nocturne"
+    }
+   ],
+   "noticed": [
+    "Nothing seen broken: put.sh passed on its first run (7 tests, 1146 assertions) and the one contact sheet shows all 60 views (12 designs x 5 pages) filled and no two designs alike. The sheet was read once at reduced size (1440x10711 shown at about a fifth), so only first screens and overall colour were judged, not detail. The two notes below come from reading the rules, not from a picture.",
+    "Not tried, inferred from the rules: `map — wide` is described in components/map.md as 'across main and never in a side column', but the drawing test in FrameworkSitesTest only checks that the variant is applied, so nothing appears to refuse a design that pairs `map — wide` with a poster or split page, where the map sits in the facts/visit column. I kept `wide` to designs whose / and /book are both marketing (Chambres à la ferme, Bord du lac).",
+    "Not checked at full size: hotel has no schedule and /rooms holds no map, so on /rooms in carte (Bord du lac, Pied-à-terre) the layout's `visit` column has nothing to hold. Whether the offer then takes the full width or leaves an empty side column could not be told from the sheet.",
+    "Observation, not a fault: studio draws its footer as one centred column by default, so `site-footer — centred` is not a visible choice on studio designs; only `compact` changes anything there. I used `centred` on hearth designs only."
+   ],
+   "designs_now": 12
+  },
+  "landscaper": {
+   "brand": "Bovard Jardins, Aubonne (La Côte, Vaud): a family firm of eighteen gardeners, pavers and arborists with its own two-hectare nursery, founded 1974",
+   "designs": [
+    {
+     "name": "Jardins de saison",
+     "direction": "trail",
+     "palette": "alpine"
+    },
+    {
+     "name": "Bassins et baignades",
+     "direction": "trail",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Pierre sèche",
+     "direction": "trail",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Atelier de paysage",
+     "direction": "trail",
+     "palette": "clay"
+    },
+    {
+     "name": "Jardin vivant",
+     "direction": "trail",
+     "palette": "fresh"
+    },
+    {
+     "name": "La pépinière",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Potagers et vergers",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Cours et balcons",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Jardin du soir",
+     "direction": "market",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Terrasses et murs",
+     "direction": "yard",
+     "palette": "concrete"
+    },
+    {
+     "name": "Élagage et abattage",
+     "direction": "yard",
+     "palette": "marigold"
+    },
+    {
+     "name": "Régies et copropriétés",
+     "direction": "yard",
+     "palette": "denim"
+    }
+   ],
+   "noticed": [
+    "directions/trail.md: its `## Looks` is still a draft (`The frames: draft.` and `- hero — draft.`), so nothing says how trail draws services, testimonials, projects, faq, quote or map when a design leaves them unarranged. The five trail designs' paragraphs therefore describe only the arrangements they set themselves.",
+    "directions/yard.md: its `## Looks` names only `site-header`; how yard draws the hero types and the prefabs by default is not written down, so the same limit applies to the three yard designs.",
+    "Not checked beyond the one sheet picture: the sheet was looked at once at full-page scale (1440x11395, no image tool here to cut it up), which shows that all 48 frames are filled and the twelve designs differ, but not fine detail inside a frame. In particular I could not confirm how `map — wide` or `quote — split` actually sit in their layouts, or how legible fresh is on trail in the light scheme (Jardin vivant looked pale at that scale)."
+   ],
+   "designs_now": 12
+  },
+  "legal": {
+   "brand": "Étude Morard & Tissot, Fribourg (three lawyers, a notary and a tax expert, rue de Lausanne 38, founded 1998)",
+   "designs": [
+    {
+     "name": "Étude de la vieille ville",
+     "direction": "ledger",
+     "palette": "quill"
+    },
+    {
+     "name": "Notaire de bourg",
+     "direction": "ledger",
+     "palette": "vellum"
+    },
+    {
+     "name": "Permanence de quartier",
+     "direction": "ledger",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Fiduciaire",
+     "direction": "ledger",
+     "palette": "harbour"
+    },
+    {
+     "name": "Groupe romand",
+     "direction": "ledger",
+     "palette": "quill"
+    },
+    {
+     "name": "Avocat de la défense",
+     "direction": "ledger",
+     "palette": "ember"
+    },
+    {
+     "name": "Médiation",
+     "direction": "ledger",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Jeune barreau",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "De mère en fille",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Avocate seule",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Droit du numérique",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Bord du lac",
+     "direction": "studio",
+     "palette": "lagoon"
+    }
+   ],
+   "noticed": [
+    "legal's home in `split` has an empty side half: businesses/legal.md lets `/` take split, but home holds only `credentials` (no map, no hours), so the layout's aside is empty and hidden and the page opens full width like marketing. The 'when and where' half split promises is never drawn (seen on Permanence de quartier and Fiduciaire; confirmed in the rendered page, which has no prefab in the aside). Either home should also hold `map`, or `/` should not list split for this business.",
+    "directions/ledger.md `## Looks` is a stub (`- hero — tbd`) while kit.css draws the direction in full. A session has no written account of how ledger draws each component, e.g. that its own hero is a small photograph at the left of the words.",
+    "studio draws `services` on a carte page as a four-across grid of small cards under a centred heading, not the narrow price list its carte line promises ('the price list first, in its narrow column'); that look is written for `menu` only. A legal /practice in studio carte reads as a list only with `services — rows` (seen on De mère en fille, left as the direction's own).",
+    "With `hero — cover` and no photograph, the empty frame's picture glyph appears beside or over the heading and lead instead of staying clear of the copy (seen in the sheet on Groupe romand, Jeune barreau and Bord du lac).",
+    "The contact sheet captions /appointment 'Book' and / 'Home' (the role in English) beside French labels for the other pages: businesses/legal.md gives /appointment no label, so it is in no navigation and is reached only through the header's action.",
+    "The direction files changed during this pass: studio gained clay and plum (good), ledger gained plum and denim (fair), after they were read. No design here uses them; the sheet's palette rolls already show studio's two."
+   ],
+   "designs_now": 12
+  },
+  "museum": {
+   "brand": "Musée Paccaud, Orbe (Place du Marché 3, 1350 Orbe): a fictional museum of art in the town's old grain hall, born of a painter's bequest, with one temporary exhibition at a time and a permanent collection in six rooms",
+   "designs": [
+    {
+     "name": "Cimaises",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Fonds permanent",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "Chambre claire",
+     "direction": "atelier",
+     "palette": "harbour"
+    },
+    {
+     "name": "Friche",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Vieilles pierres",
+     "direction": "atelier",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Musée communal",
+     "direction": "civic",
+     "palette": "harbour"
+    },
+    {
+     "name": "Maison de la nature",
+     "direction": "civic",
+     "palette": "fresh"
+    },
+    {
+     "name": "Sortie de classe",
+     "direction": "civic",
+     "palette": "marigold"
+    },
+    {
+     "name": "Musée de vallée",
+     "direction": "civic",
+     "palette": "alpine"
+    },
+    {
+     "name": "Galerie",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Nocturne",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Villa",
+     "direction": "studio",
+     "palette": "blossom"
+    }
+   ],
+   "noticed": [
+    "atelier: the home page opens on the same first screen in poster and in marketing (the plate, then its label), and harbour's tint is barely visible on atelier. Cimaises (vellum, poster) and Chambre claire (harbour, marketing) were near-twins above the fold on the sheet; I gave Chambre claire `hero — centred` to tell them apart, but the layouts themselves do not differ on the first screen.",
+    "hero `cover`: the photograph's caption sits flush against the top right edge and looks clipped by the window on the full-width pages. Seen at thumbnail scale only, on atelier/sandstone (Vieilles pierres, /collection and /visit) and studio/nocturne (Nocturne, /collection and /visit); not confirmed at full size.",
+    "carte on /exhibitions: the page holds neither hours nor map, so the events list takes the offer and the visit column beside it stays empty. On civic (Musée communal) the list stands at the left with a blank column to its right; seen at thumbnail scale.",
+    "civic: `directions/civic.md` still says `- site-header — placeholder` under Looks and describes no component, so a design on civic cannot be reasoned from the direction's own text the way atelier's and studio's can.",
+    "Note, not a kit issue: the sheet picture was taken before the one fix (Chambre claire's `hero — centred`). put.sh passed again after it (7 tests, 1069 assertions), but the picture shows the earlier Chambre claire and was not retaken."
+   ],
+   "designs_now": 12
+  },
+  "portfolio": {
+   "brand": "Line Bovard, photographe — Rue du Simplon 18, 1800 Vevey",
+   "designs": [
+    {
+     "name": "Accrochage",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Tirages signés",
+     "direction": "atelier",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Grand reportage",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "Salle de projection",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Établi",
+     "direction": "atelier",
+     "palette": "harbour"
+    },
+    {
+     "name": "Carnet de croquis",
+     "direction": "atelier",
+     "palette": "clay"
+    },
+    {
+     "name": "Caractères",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Long format",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Jour de noces",
+     "direction": "studio",
+     "palette": "plum"
+    },
+    {
+     "name": "Scènes de nuit",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Studio de quartier",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Tables et maisons",
+     "direction": "studio",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "Board layout on a page other than home: the page's features are the first, large tile and the prefab the page exists for comes after it as one ordinary tile (markup order on /work in board: section, features, gallery, section, cta-band). On /work and /series the twelve plates and the six series therefore stand in a one-column tile beside 'features' instead of being the wall, which is not what atelier's 'board — the work as plates on one wall' promises. Read from the sheet's first screens and the page's markup, not from a full-page picture. I kept the features on both pages rather than removing them to work around it.",
+    "studio has no look of its own for any of portfolio's five prefabs: its ## Looks covers only site-header, hero, features, menu, schedule, catalogue, map, cta-band and site-footer. Under studio, gallery, projects, services, testimonials and booking are the base's panels in a card grid (seen on /commissions and /series in carte), which sits oddly with 'calm and editorial, a lot of air', although portfolio lists studio as a direction.",
+    "In the Framework views studio's hero always takes its 'no photograph' branch (copy stacked and centred over a 21/9 frame), because a demo hero has only a `subject`. The direction's own opening (a full-height photograph with the name low on it) is never drawn there, and `hero — centred` looks the same as no hero line on the sheet (Tables et maisons). Pinning `hero — cover` is the only way a studio design shows the photograph behind the words; I did so on Jour de noces and Scènes de nuit.",
+    "services — tiles does not balance a count above five: six services drew as five tiles and one alone on a second row in carte's offer column. I cut the demo content to five services, which is what the component's own rule says tiles are for.",
+    "The contact sheet captions a page the business gives no label with its role's English word ('Home', and 'Book' for /contact) beside the French labels of the other pages. businesses/portfolio.md gives /contact no label, so it is also absent from the navigation and reached only through the header's action.",
+    "Note, not a kit fault: the sheet picture was taken once, after the first passing put.sh. After looking at it I changed both files (Tirages signés to sandstone, Caractères to vellum, hero — cover on the two studio designs, services — rows on Long format, the centred header dropped from Carnet de croquis, five services instead of six) and put.sh passed again, but the picture was not retaken, so it shows the first pass."
+   ],
+   "designs_now": 12
+  },
+  "practice": {
+   "brand": "Cabinet des Tilleuls, Neuchâtel (physiothérapie et ostéopathie, Rue du Seyon 14, 2e étage)",
+   "designs": [
+    {
+     "name": "Cabinet de quartier",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Heure de parole",
+     "direction": "studio",
+     "palette": "plum"
+    },
+    {
+     "name": "Mains d’ostéopathe",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Autour de la naissance",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Fauteuil du dentiste",
+     "direction": "studio",
+     "palette": "harbour"
+    },
+    {
+     "name": "Séances du soir",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Cabinet de famille",
+     "direction": "studio",
+     "palette": "clay"
+    },
+    {
+     "name": "Sur ordonnance",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Physio du sport",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Cabinet du village",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Permanence",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Petits patients",
+     "direction": "counter",
+     "palette": "sorbet"
+    }
+   ],
+   "noticed": [],
+   "designs_now": 12
+  },
+  "realestate": {
+   "brand": "Régie Vernay, Vevey (a fictional family régie at Rue du Simplon 18, selling, letting and managing between Vevey and Lavaux since 1964)",
+   "designs": [
+    {
+     "name": "Régie de quartier",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Guichet des locations",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Gérance",
+     "direction": "counter",
+     "palette": "harbour"
+    },
+    {
+     "name": "Courtier de village",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Courtage au forfait",
+     "direction": "counter",
+     "palette": "fresh"
+    },
+    {
+     "name": "Maisons de caractère",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Promotion neuve",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Domaines",
+     "direction": "atelier",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Cabinet de courtage",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "Quelques adresses",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Prestige",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Maison de famille",
+     "direction": "studio",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [],
+   "designs_now": 12
+  },
+  "recruitment": {
+   "brand": "Jalon Recrutement, Neuchâtel (Rue du Seyon 18): six consultants placing permanent and temporary staff across the Arc jurassien, plus executive search, since 2009",
+   "designs": [
+    {
+     "name": "Agence régionale",
+     "direction": "launch",
+     "palette": "graphite"
+    },
+    {
+     "name": "Profils numériques",
+     "direction": "launch",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Relève soignante",
+     "direction": "launch",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Premier emploi",
+     "direction": "launch",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Forfait PME",
+     "direction": "launch",
+     "palette": "denim"
+    },
+    {
+     "name": "Chasseur de têtes",
+     "direction": "ledger",
+     "palette": "vellum"
+    },
+    {
+     "name": "Vieille maison",
+     "direction": "ledger",
+     "palette": "quill"
+    },
+    {
+     "name": "Finance et droit",
+     "direction": "ledger",
+     "palette": "harbour"
+    },
+    {
+     "name": "Mandats confidentiels",
+     "direction": "ledger",
+     "palette": "plum"
+    },
+    {
+     "name": "Guichet temporaire",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Gens de chantier",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Saisonniers",
+     "direction": "counter",
+     "palette": "orchard"
+    }
+   ],
+   "noticed": [
+    "directions/launch.md and directions/ledger.md have placeholder `## Looks` sections (`The frames: placeholder.` / `- hero — placeholder.` and `- hero — tbd`), so they do not say how they draw any component. A design that leaves a component without an arrangement line cannot know what the direction's own drawing is; only counter.md describes its components.",
+    "Seen on the contact sheet thumbnails only: with `hero — cover` under a pinned dark scheme (Mandats confidentiels: ledger, plum, dark) the frame of the photograph owed is near-black on the dark ground, so the first screen of every page reads as a large empty dark panel above the title, with only a small icon in it. The same cover on a light ground (sorbet on launch, marigold on counter) shows a visible wash.",
+    "The contact sheet captions a page that has no label in the business file with its role in English: /contact is captioned `Book` (and / is `Home`) beside the French labels `Emplois`, `Employeurs`, `Consultants`, under a French page title (`Planche-contact`).",
+    "The contact sheet shows only the first screen of each page, so arrangements that sit below the fold (process row/timeline, services rows/tiles, testimonials lead/wall, team list, booking split/plain, map wide/plain) could not be checked by eye there; the kit's rules accepted them (put.sh passed, 7 tests, 1190 assertions).",
+    "Component blade files carry their data-shape docblock inside the `@php` block after `@props`, not at the top of the file as the brief describes; the shapes are there and were used as written."
+   ],
+   "designs_now": 12
+  },
+  "rental": {
+   "brand": "Dubuis Location, Martigny (Rue du Simplon 28, 1920 Martigny): a fictional family rental house that lends vans, a minibus, a camper van, a trailer and a mini-digger, e-bikes and, in winter, skis and snowshoes from one counter",
+   "designs": [
+    {
+     "name": "Comptoir de ville",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Jour de fête",
+     "direction": "counter",
+     "palette": "blossom"
+    },
+    {
+     "name": "Vélos de la gare",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Prix du jour",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Pied des pistes",
+     "direction": "trail",
+     "palette": "alpine"
+    },
+    {
+     "name": "Ponton",
+     "direction": "trail",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Grande traversée",
+     "direction": "trail",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Nuit dehors",
+     "direction": "trail",
+     "palette": "clay"
+    },
+    {
+     "name": "Dépôt",
+     "direction": "yard",
+     "palette": "concrete"
+    },
+    {
+     "name": "Grand volume",
+     "direction": "yard",
+     "palette": "marigold"
+    },
+    {
+     "name": "Régie",
+     "direction": "yard",
+     "palette": "graphite"
+    },
+    {
+     "name": "Trois générations",
+     "direction": "yard",
+     "palette": "vellum"
+    }
+   ],
+   "noticed": [
+    "directions/trail.md: its `## Looks` is unfinished. It reads 'The frames: draft.' and '- hero — draft.' and describes no component, so the four trail designs (Pied des pistes, Ponton, Grande traversée, Nuit dehors) rest on a direction whose drawing is not written down. Read in the file; I did not judge the trail pages' styling from the sheet.",
+    "directions/yard.md: its `## Looks` describes the frames and only one component (site-header). How yard draws listings, pricing, schedule, faq, booking and map is not stated, so the yard designs' arrangement lines were chosen from the components' own rules, not from the direction.",
+    "booking component vs businesses/rental.md: the business describes its booking as 'a request for dates: what, from when to when, how many', but the form posts one `date` and one `time` only. A rental has no field for the return day. The demo content's booking intro asks the visitor to write the return day in the message, which is a stopgap in the words, not a fix.",
+    "pricing component vs businesses/rental.md: the business asks for 'the rates: the half day, the day, the weekend, the week', which for a rental is a grid of object by duration. The component has one price per plan, so the content writes four plans (one per duration, price 'dès …') and puts each object's rate in the plan's `includes` lines. It also needs four plans where the component's advice is three.",
+    "listings component: a listing's `place` is the only free line besides the facts, and a rental has no place per object; the content uses it for where the object is collected (Dans la cour, Atelier vélos, Au comptoir). A rental's mixed stock (a van, a digger, skis) also strains the rule of the same facts in the same order: the content uses Taille, Permis, Caution, Compris for all nine.",
+    "Contact sheet: with twelve designs of four pages the sheet is 1440 by 11075 px, so the one photograph shows each frame at thumbnail size. From it I could confirm only that all 48 frames are filled and that the twelve designs are visibly different from one another (ground, scheme, opening); I could not check text, side columns or any arrangement in detail, for instance whether carte's visit column is empty on /fleet and /rates, which hold no schedule or map."
+   ],
+   "designs_now": 12
+  },
+  "restaurant": {
+   "brand": "Osteria Verd, Lausanne (Rue du Port 12, by the port of Ouchy)",
+   "designs": [
+    {
+     "name": "Salle du soir",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Grande table",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Cave à manger",
+     "direction": "hearth",
+     "palette": "plum"
+    },
+    {
+     "name": "Auberge de campagne",
+     "direction": "hearth",
+     "palette": "clay"
+    },
+    {
+     "name": "Bistrot du coin",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Comptoir de midi",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Plat du jour",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Dernier service",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Table des familles",
+     "direction": "counter",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Cuisine de marché",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Table à la ferme",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Guinguette",
+     "direction": "market",
+     "palette": "marigold"
+    }
+   ],
+   "noticed": [
+    "counter, schedule in split's side column (seen on the sheet's thumbnails, not inspected further): `schedule — plain` makes no visible change. The week still stands as the direction's two-column cells, and each day's hours (`11:30–14:00 · 18:00–22:00`) break over two lines in that narrow column. Seen on Comptoir de midi's home and contact pages (plain), and the same on Dernier service's contact page, which has no schedule line.",
+    "market with `hero — cover` and no photograph (Table à la ferme, /menu and /the-house): the opening is about half a screen of bare wash with only the subject's caption at the top right, and the glass copy panel pushed under it. It reads as a missing picture; hearth and counter fill the same cover with their ground. The home page of the same design is fine.",
+    "`map — wide` is not refused where the map sits in a side column, though components/map.md says wide is 'across main and never in a side column'. The map is on / and /contact, so any design with either page in split or poster puts a wide map in a side column. The kit's previous example design, Cuisine de marché, did exactly that (map — wide with / and /contact both split). I dropped that line and used wide only on the two designs where both map pages are marketing (Auberge de campagne, Plat du jour).",
+    "businesses/restaurant.md gives no page the `board` layout, although market is described as a board of glass panels and lists board first, and counter lists it too. A restaurant on market therefore has only three layout combinations (/ and /contact each split or marketing, never both marketing; /menu and /the-house always marketing), which is why market carries three designs, and no restaurant design can show the layout market is named for.",
+    "The contact sheet frames show only the first screen of each page, so arrangements below the fold (menu columns or cards, booking split or plain, map wide or plain, schedule strip in main, both footers) cannot be judged from it. Designs that differ mainly there look closer on the sheet than they are, and I have not seen those arrangements drawn."
+   ],
+   "designs_now": 12
+  },
+  "salon": {
+   "brand": "Atelier Colette, Fribourg (coiffure, barbier et ongles, Rue de Romont 17)",
+   "designs": [
+    {
+     "name": "Salon de ville",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Coloriste",
+     "direction": "studio",
+     "palette": "plum"
+    },
+    {
+     "name": "Barbier",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Jour de noces",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Onglerie",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Coiffure végétale",
+     "direction": "studio",
+     "palette": "clay"
+    },
+    {
+     "name": "Maître coiffeur",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Salon du quartier",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Sans rendez-vous",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Coiffeur des familles",
+     "direction": "counter",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Coupe du soir",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Salon du village",
+     "direction": "counter",
+     "palette": "orchard"
+    }
+   ],
+   "noticed": [
+    "businesses/salon.md leaves the counter direction one layout on four of its five pages: / lists poster | marketing, /team and /portfolio list journal | marketing, /book lists poster | marketing, and counter is drawn in split, carte, board and marketing. Only /services can vary (carte or marketing), and all-marketing is ruled out, so all five counter designs have identical page layouts (marketing, carte, marketing, marketing, marketing) and differ only by palette, scheme and arrangements. Counter's own opening, split ('the name and the facts first'), cannot be used for the salon's home although the business file describes counter as 'the hours, the prices and the way to book first'.",
+    "/services in carte has an empty visit column for a salon: the page holds only menu, and the schedule and map belong to / alone. Read from workbench/app/Framework/Site.php (the side column takes only the page's own schedule and map), not confirmed on the picture. So carte's 'hours held beside the list' never happens for this business in either direction.",
+    "Some arrangement words probably draw the same as the direction's own, so a design line using them may change nothing visible: site-footer — centred and hero — cover in studio (its footer is already one centred column, its hero with a photograph already full-bleed behind the words), schedule — strip and menu — columns in counter (already a strip and a grid of sections). Inferred from directions/studio.md and directions/counter.md, not checked visually; I left site-footer — centred off the studio designs for that reason.",
+    "Note on the check, not a kit fault: the contact sheet is 1440 x 11253 and this machine has no image library (no PIL, no PHP GD) to cut it up, so I saw it once at about one sixth scale. At that size all twelve designs show five drawn pages each and the twelve palettes are plainly different; nothing looked empty or broken, but I could not read text or judge individual arrangements (mosaic, strip, list, cards) from it."
+   ],
+   "designs_now": 12
+  },
+  "school": {
+   "brand": "La Portée, a music school in Yverdon-les-Bains",
+   "designs": [
+    {
+     "name": "École du quartier",
+     "direction": "civic",
+     "palette": "harbour"
+    },
+    {
+     "name": "Programme annuel",
+     "direction": "civic",
+     "palette": "fresh"
+    },
+    {
+     "name": "Stages de saison",
+     "direction": "civic",
+     "palette": "alpine"
+    },
+    {
+     "name": "Petite enfance",
+     "direction": "civic",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Ateliers du mercredi",
+     "direction": "civic",
+     "palette": "marigold"
+    },
+    {
+     "name": "Salle de musique",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Atelier de dessin",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Scène de nuit",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Vieille académie",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Auto-école",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Soutien scolaire",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Tableau noir",
+     "direction": "counter",
+     "palette": "orchard"
+    }
+   ],
+   "noticed": [
+    "A prefab row cannot link to a page of the business: Site::plan (workbench/app/Framework/Site.php) resolves `to` only in hero, features, band and the header's action, and the courses component reads a raw `href`. Each course row's 'S'inscrire' button therefore carries `#booking`, which lands nowhere on /courses, since the form is on /enrol.",
+    "Board on a page other than home leads with the page's features, not the list the page is for: on /teachers the rooms ('Là où ils enseignent') take the large first tile and the team is one narrow tile, its member cards stacked in a single column (Site::plan's board recipe is `[$features, ...$rest, $story, $band]` on every page). Seen in École du quartier, Stages de saison, Petite enfance, Auto-école and Tableau noir.",
+    "The contact sheet captions /enrol as 'Book', the role's English word, because the business gives that page no navigation label; every other caption is the content's French label (Home is English too).",
+    "With `map — plain` the map has no panel edge, so until the Google embed loads (it did not in the headless picture) the side column shows only the caption strip and reads as an empty column: Stages de saison's home (split). With the direction's own panel, the unloaded map is still a visible frame."
+   ],
+   "designs_now": 12
+  },
+  "shop": {
+   "brand": "Le Bocal, épicerie fine in the old droguerie of the rue de Rive, Nyon (Rue de Rive 22, 1260 Nyon)",
+   "designs": [
+    {
+     "name": "Épicerie de quartier",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Bonnes affaires",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Vieille enseigne",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Épicerie de nuit",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Librairie",
+     "direction": "counter",
+     "palette": "vellum"
+    },
+    {
+     "name": "Boutique de créateurs",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Savonnerie",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Caviste",
+     "direction": "studio",
+     "palette": "plum"
+    },
+    {
+     "name": "Étal de saison",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Épicerie en vrac",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Magasin du village",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Confiserie",
+     "direction": "market",
+     "palette": "sorbet"
+    }
+   ],
+   "noticed": [
+    "businesses/shop.md lists studio as a direction, but studio is drawn in none of the layouts / (split | board | marketing) and /order (split | marketing) offer except marketing, and /our-story lists marketing alone. So a studio shop has exactly one set of page layouts that is not marketing on every page (/products in carte). The three studio designs therefore share their page layouts and differ only by palette, scheme and arrangements; studio's journal and poster can never be used by a shop.",
+    "businesses/shop.md gives /our-story the role 'story' but only the layout marketing (no journal), so the story page is the same long page in all twelve designs whatever the direction.",
+    "market is not drawn in carte, so under market /products can only be marketing: a market shop avoids marketing on every page only through / (split or board) or /order (split).",
+    "Not verified in detail: the contact sheet for twelve designs is 1440 x 11739 px, so one picture of it reads at about a sixth of its size. Every frame was filled and the twelve designs were told apart by colour and structure, but small defects could not be judged at that scale. In particular these combinations were not inspected closely: map 'wide' and schedule 'strip' on a market board (Confiserie), hero 'centred' on a counter board (Épicerie de nuit), and hero 'cover' on studio's marketing home (Boutique de créateurs)."
+   ],
+   "designs_now": 12
+  },
+  "software": {
+   "brand": "Ardoise (Ardoise Logiciels SA), Yverdon-les-Bains: a planning, site-report and invoicing tool for finishing trades, sold by monthly plan",
+   "designs": [
+    {
+     "name": "Page produit",
+     "direction": "launch",
+     "palette": "graphite"
+    },
+    {
+     "name": "Lancement",
+     "direction": "launch",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Côte à côte",
+     "direction": "launch",
+     "palette": "harbour"
+    },
+    {
+     "name": "Prix affichés",
+     "direction": "launch",
+     "palette": "fresh"
+    },
+    {
+     "name": "Grands comptes",
+     "direction": "launch",
+     "palette": "denim"
+    },
+    {
+     "name": "Appli de poche",
+     "direction": "launch",
+     "palette": "blossom"
+    },
+    {
+     "name": "Suite complète",
+     "direction": "launch",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Papier blanc",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Deux associés",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Mode nuit",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Cabinet",
+     "direction": "studio",
+     "palette": "harbour"
+    },
+    {
+     "name": "Manifeste",
+     "direction": "studio",
+     "palette": "ember"
+    }
+   ],
+   "noticed": [
+    "directions/launch.md: its `## Looks` is still a placeholder (`The frames: placeholder.` / `- hero — placeholder.`), so the direction does not say how it draws any component and a design cannot tell what leaving a component bare means under launch.",
+    "Hero `cover` with no photograph under launch (seen on Grands comptes and Appli de poche, all four pages each): the placeholder frame is the canvas colour with only a tiny caption at its top right, so the first screen reads as blank with the words low on it. Studio's cover (Papier blanc, vellum) tints the frame and reads as a picture owed.",
+    "The `split` layout's `visit` half is never filled for software: Site::SIDE is only schedule and map, and the business has neither, so `/` and `/demo` in split are a full-width hero with the prefabs underneath, differing from marketing only by the missing band. On `/demo` (role book) the booking form is the natural other half.",
+    "A prefab's rows cannot link to a page of the business: Site::plan resolves `to` only in hero links, band links and feature items, while a pricing plan's `href` is passed through raw. The demo content's plans therefore point at `#booking` and a `tel:` link instead of the /demo page the component's own rule asks for.",
+    "Hero facts in studio with hero `split` (Deux associés, sandstone, home): the values are set so large in the narrow copy column that `20 min` breaks onto two lines and the row of three is cut at the fold.",
+    "Contact sheet captions: a page the business gives no label is captioned with its role in English (`Book`, `Home`) beside the French labels of the others (`Comment ça marche`, `Tarifs`).",
+    "The direction files changed during this run: launch gained denim, plum and sorbet, studio gained clay and plum. The first read listed neither; the designs use denim (Grands comptes) and none of the other four, so plum, sorbet and clay have no worked software design yet.",
+    "The contact sheet was photographed twice, not once: the second time only to keep the file accurate after Grands comptes moved from graphite to denim. The second picture was not inspected."
+   ],
+   "designs_now": 12
+  },
+  "spa": {
+   "brand": "Bains de l’Arolle, Les Diablerets (VD): baths in a former sawmill on the Grande Eau, with an indoor pool, an outdoor bath facing the massif, two saunas, a hammam and five treatment cabins",
+   "designs": [
+    {
+     "name": "Maison de bains",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Cabinet de massage",
+     "direction": "studio",
+     "palette": "clay"
+    },
+    {
+     "name": "Institut de jour",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Bains de quartier",
+     "direction": "studio",
+     "palette": "harbour"
+    },
+    {
+     "name": "Nocturnes",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Bains du soir",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Vieux bains",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Spa de l’hôtel",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Hammam",
+     "direction": "hearth",
+     "palette": "plum"
+    },
+    {
+     "name": "Bains d’altitude",
+     "direction": "trail",
+     "palette": "alpine"
+    },
+    {
+     "name": "Bains nordiques",
+     "direction": "trail",
+     "palette": "orchard"
+    },
+    {
+     "name": "Sauna du lac",
+     "direction": "trail",
+     "palette": "lagoon"
+    }
+   ],
+   "noticed": [
+    "hero, arrangement `cover`, with no photograph: the frame's picture glyph stays in the middle of the cover and lands on or right beside the title and lead (seen on Hammam, hearth/plum, on /passes and /book, and on Nocturnes, studio/nocturne dark, on home), and the subject caption is set at the top right, tight under the header and running to the window's edge. hearth's own no-photograph hero drops the glyph and keeps the caption at the bottom right; `cover` does neither.",
+    "directions/trail.md: `## Looks` is still a stub (\"The frames: draft.\" and \"hero — draft.\"), so the file does not say how trail draws the header, footer, schedule, menu, map or any prefab. A design on trail cannot tell which arrangement lines change anything from the direction's own drawing.",
+    "The directions' palette lists changed while this pass was running: `clay` and `plum` were added to studio and hearth (plum as a hearth best) and `clay` to trail, after the task text and the first read. The spa set was revised to match (Hammam is now hearth/plum, Cabinet de massage studio/clay), but sets written from the earlier lists will lack hearth's plum. hearth now has four best palettes, so a business with four hearth designs cannot both use every best and keep a good or fair one there: the spa set uses ember, sandstone, vellum and plum on hearth and has no hearth/nocturne.",
+    "The contact sheet was photographed twice, not once: the first picture showed the palette lists had changed, three designs were re-homed, and the picture was retaken so it matches the files in place. put.sh ran twice and passed both times (7 tests)."
+   ],
+   "designs_now": 12
+  },
+  "theatre": {
+   "brand": "Théâtre de la Tannerie, Morges (a 212-seat house in a former tannery, Quai des Tanneurs 4, 1110 Morges; season of twenty-two evenings, September to May)",
+   "designs": [
+    {
+     "name": "Rideau rouge",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Grande maison",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Cabaret",
+     "direction": "hearth",
+     "palette": "blossom"
+    },
+    {
+     "name": "Dernière séance",
+     "direction": "hearth",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Caveau",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Affiches",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Boîte noire",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Cahier de saison",
+     "direction": "atelier",
+     "palette": "quill"
+    },
+    {
+     "name": "Salle de musique",
+     "direction": "atelier",
+     "palette": "harbour"
+    },
+    {
+     "name": "Théâtre municipal",
+     "direction": "civic",
+     "palette": "harbour"
+    },
+    {
+     "name": "Troupe du village",
+     "direction": "civic",
+     "palette": "fresh"
+    },
+    {
+     "name": "Castelet",
+     "direction": "civic",
+     "palette": "marigold"
+    }
+   ],
+   "noticed": [
+    "directions/civic.md: its `## Looks` list holds a single line, `- site-header — placeholder`. The direction is styled (the sheet draws it with its stripe, framed notice and date tiles), but the file does not say how civic draws any component, so the three civic designs were chosen from the frames paragraph alone and a later session cannot tell what an arrangement replaces.",
+    "Showcase, prefab links: `Workbench\\App\\Framework\\Site` resolves `to` only in hero, features and band links. A prefab row cannot name a page of the business, so a pricing plan's `href` (its one thing to do) cannot lead to /book. I did not work around it: the subscription plan carries a `tel:` link and the three per-seat plans have no action.",
+    "Board on a page that is not home (`/season` under atelier and civic): the recipe puts `features` first, so the large first tile goes to the page's features and `events`, the list the agenda page is for, gets one narrow tile. Seen on the sheet in Troupe du village and Affiches, where `events — cards` stacks in a third of the width.",
+    "businesses/theatre.md allows `carte` on /season and /tickets, but places `schedule` and `map` only on `/`. Carte's `visit` column is therefore always empty for this business and the list runs full width with nothing held beside it (Théâtre municipal). The page is not broken, but the layout's point (hours and the way in beside the list) never happens here.",
+    "hearth with `hero — centred` and no photograph (Grande maison, vellum): at the sheet's thumbnail scale the frame under the centred words is a near-black box on the black ground, hard to tell from the page. Not checked at full size."
+   ],
+   "designs_now": 12
+  },
+  "trades": {
+   "brand": "Rapin & Fils, a sanitary and heating firm in Payerne (Route de Grandcour 12, 1530 Payerne)",
+   "designs": [
+    {
+     "name": "Artisan du quartier",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Urgence de nuit",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Entreprise familiale",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Grands travaux",
+     "direction": "counter",
+     "palette": "harbour"
+    },
+    {
+     "name": "Prix affichés",
+     "direction": "counter",
+     "palette": "denim"
+    },
+    {
+     "name": "Tournée des villages",
+     "direction": "counter",
+     "palette": "clay"
+    },
+    {
+     "name": "Petits travaux",
+     "direction": "counter",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Ébénisterie",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Bains sur mesure",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Poêles et cheminées",
+     "direction": "studio",
+     "palette": "ember"
+    },
+    {
+     "name": "Mise en lumière",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Peintre décorateur",
+     "direction": "studio",
+     "palette": "plum"
+    }
+   ],
+   "noticed": [
+    "Read in workbench/app/Framework/Site.php (plan), not seen rendered: in split and poster the map always goes to the side column (visit / facts) and keeps whatever arrangement the design chose, so a design with a split or poster home and `map — wide` would draw the panorama in a side column, which components/map.md says never happens. Nothing refuses such a design. I kept `map — wide` to the three designs whose home is marketing, so no trades design triggers it.",
+    "Not a kit issue, a limit of this check: the contact sheet is 1440 x 10953 and no image tool was available here to slice it, so I read it once at about 263 px wide. At that size all 48 views (12 designs x 4 pages) are filled and the designs are distinguishable by palette, scheme and opening, but fine detail was not inspected: in particular how the gallery tile looks on a board, and how a statement or centred hero sits in a split home."
+   ],
+   "designs_now": 12
+  },
+  "transport": {
+   "brand": "Girod Transports, Yverdon-les-Bains (a family carrier and removal firm: fourteen vehicles, thirty-two people, since 1958)",
+   "designs": [
+    {
+     "name": "Dépôt",
+     "direction": "yard",
+     "palette": "concrete"
+    },
+    {
+     "name": "Quai de charge",
+     "direction": "yard",
+     "palette": "marigold"
+    },
+    {
+     "name": "Longue distance",
+     "direction": "yard",
+     "palette": "graphite"
+    },
+    {
+     "name": "Transfert de bureaux",
+     "direction": "yard",
+     "palette": "harbour"
+    },
+    {
+     "name": "Vieille maison",
+     "direction": "yard",
+     "palette": "vellum"
+    },
+    {
+     "name": "Tarif affiché",
+     "direction": "counter",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Vélo-cargo",
+     "direction": "counter",
+     "palette": "orchard"
+    },
+    {
+     "name": "Taxi de la gare",
+     "direction": "counter",
+     "palette": "marigold"
+    },
+    {
+     "name": "Autocar",
+     "direction": "counter",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Fret en ligne",
+     "direction": "launch",
+     "palette": "graphite"
+    },
+    {
+     "name": "Navette aéroport",
+     "direction": "launch",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Premier déménagement",
+     "direction": "launch",
+     "palette": "blossom"
+    }
+   ],
+   "noticed": [
+    "directions/launch.md still has placeholder looks: its `## Looks` reads 'The frames: placeholder.' and '- hero — placeholder.', so the three launch designs are drawn in a direction whose frames and components are not written down.",
+    "transport places no schedule or map, so the side region is always empty for this business (`visit` in split and carte, `facts` in poster). Read from Site.php and the layout recipes, and consistent with the sheet's first screens: a split page is the hero at full width, then the sections, with no band, so it differs from marketing only by the missing band; carte has nothing pinned beside the price list; poster has no hours or way in along its foot. Either the business needs something for that column (contact details, credentials, the quote) or Site needs a fallback for it.",
+    "On the contact sheet, a page with no navigation label is captioned with its role in English ('Home', 'Book') while the rest of the sheet's chrome is French ('Tarifs', 'Emplois', 'Planche-contact').",
+    "themes/graphite.md describes the palette as 'Near-black and blue', but with no scheme pinned it draws a white page with blue accents (seen under both launch and yard on the sheet). The description only holds in the dark scheme.",
+    "Hero `cover` with no photograph, on graphite pinned dark (Longue distance, poster): the frame owed is a dark panel on a dark ground with its caption small in the top corner, so on the sheet's thumbnail the cover reads as an empty dark block behind the words."
+   ],
+   "designs_now": 12
+  },
+  "venue": {
+   "brand": "Domaine des Aulnes, Féchy (a wine estate on La Côte hired for weddings, seminars and family parties: four rooms, a garden, one reception a day)",
+   "designs": [
+    {
+     "name": "Domaine des noces",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Orangerie au jardin",
+     "direction": "studio",
+     "palette": "blossom"
+    },
+    {
+     "name": "Salle du village",
+     "direction": "studio",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Séminaire au vert",
+     "direction": "studio",
+     "palette": "lagoon"
+    },
+    {
+     "name": "Salle de spectacle",
+     "direction": "studio",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Grange du soir",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Cave du vigneron",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Salon à l’étage",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Nuit blanche",
+     "direction": "hearth",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Pavillon",
+     "direction": "atelier",
+     "palette": "vellum"
+    },
+    {
+     "name": "Halle industrielle",
+     "direction": "atelier",
+     "palette": "concrete"
+    },
+    {
+     "name": "Château classé",
+     "direction": "atelier",
+     "palette": "quill"
+    }
+   ],
+   "noticed": [],
+   "designs_now": 12
+  },
+  "winery": {
+   "brand": "Les Trois Murets (Domaine des Trois Murets, famille Vaudan), Chamoson, Valais",
+   "designs": [
+    {
+     "name": "Cave de famille",
+     "direction": "hearth",
+     "palette": "ember"
+    },
+    {
+     "name": "Vieille maison",
+     "direction": "hearth",
+     "palette": "vellum"
+    },
+    {
+     "name": "Route du vin",
+     "direction": "hearth",
+     "palette": "sandstone"
+    },
+    {
+     "name": "Caveau du bourg",
+     "direction": "hearth",
+     "palette": "plum"
+    },
+    {
+     "name": "Premier millésime",
+     "direction": "hearth",
+     "palette": "nocturne"
+    },
+    {
+     "name": "Caveau d’été",
+     "direction": "market",
+     "palette": "fresh"
+    },
+    {
+     "name": "Vente au carton",
+     "direction": "market",
+     "palette": "orchard"
+    },
+    {
+     "name": "Apéro du vendredi",
+     "direction": "market",
+     "palette": "marigold"
+    },
+    {
+     "name": "Balade des vignes",
+     "direction": "market",
+     "palette": "sorbet"
+    },
+    {
+     "name": "Vin nature",
+     "direction": "studio",
+     "palette": "vellum"
+    },
+    {
+     "name": "Amphore",
+     "direction": "studio",
+     "palette": "clay"
+    },
+    {
+     "name": "Tarif professionnel",
+     "direction": "studio",
+     "palette": "harbour"
+    }
+   ],
+   "noticed": [
+    "Hero facts collide in market's split layout: in the hero's narrow half the three facts sit so close that the values run into each other (\"6,5 ha9 1962\"). Seen on the contact sheet's 'home page in each recommended palette' row for market under orchard, and nearly touching under sandstone and lagoon; the facts row neither wraps nor shrinks to its column. Content left as written (value '6,5 ha'), not worked around.",
+    "The contact sheet frames only each page's first screen, so arrangements that sit below the fold (catalogue list/feature, gallery mosaic/strip, events timeline/cards, map wide/plain, schedule strip) could not be judged there; they passed the kit's own arrangement test but were not looked at."
+   ],
+   "designs_now": 12
+  }
+ },
+ "directions": {
+  "specs": {
+   "civic": {
+    "looks": 28,
+    "summary": "A notice board people trust: a stripe of the accent across the top of the page and again at its foot, the opening one framed notice with the photograph inside it, what is on as rows that each open on a date tile, and the page closed on a solid band asking for the one thing. Large text, generous targets, plain frames."
+   },
+   "yard": {
+    "looks": 28,
+    "summary": "An industrial site in daylight: a hazard strip over the name, heads set like stencilled bay numbers, slabs with hard ink edges, the figure of each job very large on a hazard plate, and one diagonal where the page runs out into its last slab."
+   },
+   "launch": {
+    "looks": 28,
+    "summary": "A product's front page: one promise set large and centred over the product, which sits in a bezel like a screenshot, with the light always coming from above — a lit stretch of hairline at the top of the page glowing down behind the opening in the accent, and the same lit edge on the plan to take, the forms and the panel that closes the page. Everything else is crisp hairline panels on the page's own ground: cards in centred rows with their pictures inset, lists as tables in one panel, eyebrows as small capsules, and one action with an arrow from the first screen to the last."
+   },
+   "atelier": {
+    "looks": 28,
+    "summary": "Work on white walls: one plate hung inside the page's margins with its label under it, the work in strict grids of numbered plates, everything that is only words an index hanging from hairlines, and the page closed by a title block ruled in the ink — no card, no tint and no accent in the chrome, so the photographs are the only loud thing."
+   },
+   "ledger": {
+    "looks": 28,
+    "summary": "A quiet office of paper and ink: a letterhead in small capitals over a double rule, every section opened by an ink hairline and its number, its head in the margin and its entries in a narrow measure at the right, and every list ruled like a register. Wherever a label meets a figure — the opening's facts, the hours, the firm's details — a dotted leader runs to the figure at the right, as on a statement of account. No cards, no shadows, no marks under the titles."
+   },
+   "trail": {
+    "looks": 28,
+    "summary": "The outdoors in season: one landscape edge to edge that dissolves into the page at its foot, the name set over that horizon, the dates and the ways on painted on signpost boards, the facts in a strip, and a ridge line where the page meets the ground of its footer."
+   }
+  },
+  "dressed": {
+   "counter": {
+    "rules": 232,
+    "dressed": [
+     "projects",
+     "services",
+     "process",
+     "testimonials",
+     "pricing",
+     "listings",
+     "credentials",
+     "jobs",
+     "quote",
+     "donate",
+     "courses"
+    ],
+    "points": [
+     "A card with a photograph (projects, listings) is the catalogue's: square pictures and frames, what sizes it under a 2px ink rule as the hero's facts are, the listing's price in the accent.",
+     "A list (services, jobs, courses, credentials) is the carte's: a 2px ink rule over it, hairlines under the rows, the price semibold at the end. Services lose their panel and become rows in 20rem columns.",
+     "A label is the schedule's day name (small, uppercase, tracked); a figure is the display face at its weight, in the ink (process numbers are ink, not accent, as the marks are).",
+     "Testimonials keep the kit's panel, as team does, with counter's mark over each quotation and a square portrait.",
+     "Pricing names are set like carte section titles over a 2px ink rule.",
+     "Quote keeps the kit's panel, as booking does, with the form under a 2px ink rule.",
+     "Donate is a block of the second ground with no edge, as the hours strip is.",
+     "Ten titles take the heading size; credentials-title is a carte section label instead, since the kit sets it small on purpose.",
+     "Things the caller should know:",
+     "The featured pricing plan keeps the kit's accent ring. I first edged it in 1.5px ink like the map, but in marigold, whose panels are already edged in ink with a hard shadow, the featured plan came out fainter than the plans beside it, so I removed that rule.",
+     "Rules that change a `display` or drop a component's own rule are scoped to `:not([data-variant])`: the services row grid, the pricing head rule, the credentials list rule and the quote form rule. An arrangement therefore starts from the component's own markup. ArrangementTest rejects any direction rule that names a variant value, so `:not([data-variant='split'])` was not possible; the quote's `plain` arrangement draws no ink rule over its form as a result.",
+     "Projects and listings stay in the kit's grid rather than counter's rail, because the `rows`, `index` and `feature` arrangements assume a grid. Square photographs make a single-column stack tall: in a third of board, three listings run about 1900px.",
+     "Not seen in a picture: the testimonial's square portrait (the specimens carry no portraits) and credentials with logos. Those rules are a border-radius and nothing else."
+    ]
+   },
+   "market": {
+    "rules": 247,
+    "dressed": [
+     "projects",
+     "services",
+     "process",
+     "testimonials",
+     "pricing",
+     "listings",
+     "credentials",
+     "jobs",
+     "quote",
+     "donate",
+     "courses"
+    ],
+    "points": [
+     "Arrangements (`data-variant`) were not photographed, because the specimens carry none; how the rules sit under them is reasoned from the arrangement CSS only.",
+     "How market now draws them:",
+     "Titles: all eleven `*-title` parts take `--heading-size` and `--heading-leading`, credentials included.",
+     "Glass cards: projects, services, testimonials, pricing plans, listings, quote and donate get market's glass (soft rule edge, raise at 72%, no shadow, backdrop blur).",
+     "Glass where the markup draws rules: process steps, credentials items, and the jobs and courses lists, each list one panel with 1.5rem in, as the agenda's.",
+     "Photographs: projects and listings have the photograph or frame inset 1rem on `--radius-media`, as the catalogue's.",
+     "Labels: the projects' place and year is the eyebrow's pill with its highlight dot; the jobs' facts are pills on the same tint.",
+     "States: the pricing flag, listings status and courses seats keep the markup's colours and become pills.",
+     "Prices: services, listings and courses prices are semibold; the service's and listing's sit at the end, as the catalogue's. The listing's price moves from the display face to `var(--font-body)`.",
+     "Services: laid out as the catalogue's row, with the icon on a tinted square at the left, at 20rem columns.",
+     "Dots: a highlight dot comes before the process duration and the quote and donate notes, and opens each testimonial.",
+     "Decisions to know about:",
+     "Variant scoping: the rules that replace the markup's own edges or layout (process steps, credentials items, the jobs and courses panels, the services row, the donate account block) apply only under `:not([data-variant])`.",
+     "Featured plan: the glass's `box-shadow: none` removes the markup's accent ring, so the rules redraw it as an accent border plus a 1px accent shadow. The plan is found by `:has([data-kit-part='pricing-flag'], .btn-primary)`; a featured plan with neither a flag nor a link is drawn like the others.",
+     "Courses seats: \"Complet\" and \"3 places\" share one hook, so only the shape changes and the colours stay the markup's.",
+     "Lists' padding: 1.5rem all round, matching the existing `events-list` exactly; a tighter top looked slightly better but differed from the agenda beside it.",
+     "Donate account: it stands on the band's 16% highlight tint with its labels set to the ink, through `[data-kit-part='donate-detail'] > :first-child`.",
+     "Left alone: `--section-gap` (a title sits 1.25rem under the previous section's cards, as the menu and team titles already do) and the display-face figures (pricing price, projects figure)."
+    ]
+   },
+   "studio": {
+    "rules": 298,
+    "dressed": [
+     "projects",
+     "services",
+     "process",
+     "testimonials",
+     "pricing",
+     "listings",
+     "credentials",
+     "jobs",
+     "quote",
+     "donate",
+     "courses"
+    ],
+    "points": [
+     "What studio now does:",
+     "Heads: ten titles take the section size and are centred with their intros. credentials-title is deliberately not a section head: it is a small tracked label, centred.",
+     "Photo cards (projects, listings): no panel, 3/4, square corners, three across at most, as the catalogue's tiles.",
+     "Names: small, uppercase, tracked 0.2em in the body face at 600, the way features-item-title and menu-section-title are written.",
+     "Prices and durations: display face, as menu-price.",
+     "Flags, chips and ticks: the listing's status, the plan's flag, the jobs' facts and the courses' seats become quiet tracked labels; the pricing ticks are hidden; icons and arrows are in the ink, not the accent.",
+     "Panels: quote keeps its panel as booking does; donate loses it and becomes a 40rem centred column like the schedule.",
+     "Things to know:",
+     "A direction rule may not name an arrangement's word: the arrangement test fails any `[data-variant='…']` selector that carries `data-direction`. So the rules only step aside with `:not([data-variant])`. Two consequences: projects' `index` arrangement has no hairlines between its rows in studio (the panel edge it relied on is gone), and the quote's copy is centred in every arrangement, `split` included, as booking-title already is.",
+     "Arranged services (`rows`, `tiles`) keep a hairline box on nothing instead of losing their edge, so `rows` still reads as ruled.",
+     "A featured plan is found by `:has(.btn-primary, [data-kit-part='pricing-flag'])`; a featured plan with neither a link nor a flag gets the plain hairline.",
+     "The plan's flag and the listing's status sit on `--color-canvas`, so they assume the page's ground behind them.",
+     "Existing studio draws catalogue-name and team-name in the display face, because the base `h3` rule gives it and those rules set no family. My card names are in the body face, so a listing's name and a catalogue's name differ in face though both are small tracked capitals. Say if you want them matched to the catalogue instead.",
+     "jobs-name and courses-name only take `font-weight: 400`, mirroring events-name, so all three rows render the same.",
+     "In the journal specimen of set a, the second project's photograph did not paint in two takes (the tile kept its space); the same image painted in marketing and carte. I did not find the cause; the markup is identical and none of my rules hides an image."
+    ]
+   },
+   "hearth": {
+    "rules": 311,
+    "dressed": [
+     "projects",
+     "services",
+     "process",
+     "testimonials",
+     "pricing",
+     "listings",
+     "credentials",
+     "jobs",
+     "quote",
+     "donate",
+     "courses"
+    ],
+    "points": [
+     "Catalogue family (projects, listings): no panel edge or surface, pictures on --radius-media at the markup's own 4/3, a card with a link lifts 4px as the doors do.",
+     "Carte family (services, jobs, courses): 44rem and centred, hairlines between rows. Courses' date column lines up with events'.",
+     "Team family (testimonials): no card, quotation and name in the display face, portrait a small 4/5 plate.",
+     "Map family (pricing plans, quote, donate): hairline panel on --radius-media, no shadow. The featured plan and donate carry the accent's glow that the photo-less hero already uses.",
+     "Process keeps the kit's grid under hairlines; credentials is a strip between two hairlines.",
+     "Decisions worth knowing:",
+     "Ten titles take --heading-size. credentials-title does not: its markup is text-lg, so hearth sets it as a small uppercase tracked label over the strip. If it should be a section head, add it to the first rule and drop the label rule.",
+     "The kit's ArrangementTest treats any selector containing [data-variant='…'] as an arrangement, so a direction can only step aside with :not([data-variant]). All layout rules are scoped that way; the un-panelling is unscoped, as hearth's catalogue and team already are. Consequence: in projects 'index' and services 'rows' the rows lose the panel edge that ruled them, and I could not add a hairline for those words. Not verified in pictures:",
+     "No arrangement (variant) was photographed; the specimens draw only the default.",
+     "The specimens carry no testimonial portrait and no credential logo, so the 3rem by 3.75rem portrait rule is unseen. Logos are untouched, and a dark logo on this pinned-dark page would be hard to see.",
+     "In sandstone and plum the display face is loaded only at 600/700, so the quotations render semibold; in vellum and ember they are regular.",
+     "Round 1 marketing/sandstone, round 2 split/vellum (set a) and journal/plum (set b), round 3 after the last change: marketing/ember full pages (the two shots returned) plus sandstone at 390px wide. A listing photograph is blank in a few shots (b2 and the 390px shots); the blank one changes from shot to shot, so I read it as the specimen's lazy-loaded images, not a rule."
+    ]
+   }
+  }
+ }
+}

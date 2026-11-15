@@ -16,6 +16,29 @@ return [
         'layout' => 'Mise en page',
     ],
 
+    // The record of the run that made the business views: what was asked, decided and seen.
+    'record' => [
+        'title' => 'Journal du travail',
+        'intro' => 'Comment les vues par type d’entreprise de cette page ont vu le jour : ce qui a été demandé, ce qui a été décidé à chaque étape et pourquoi, les images envoyées pendant le travail, et ce que chaque rédacteur a rapporté en terminant.',
+        'asked' => 'Ce qui a été demandé',
+        'steps' => 'Le travail, étape par étape',
+        'see' => 'À voir aujourd’hui',
+        'picture' => 'Ouvrir l’image',
+        'writers' => 'Ce que chaque rédacteur a rapporté',
+        'writer' => 'Les notes de son rédacteur',
+        'writers_intro' => 'Un agent a écrit chaque entreprise : son contenu de démonstration et ses designs, en une passe et une vérification. Voici ses notes sur le kit, telles qu’il les a laissées. Certaines ont été corrigées ensuite ; l’étape ci-dessus dit lesquelles.',
+        'designs' => 'designs',
+        'notes' => 'notes',
+        'directions' => 'Les directions',
+        'specs' => 'Écrites à partir de leur CSS',
+        'dressed' => 'Les quatre premières, habillées pour les nouveaux préfabriqués',
+        'open' => 'Connu et non corrigé',
+        'owed' => 'Reste dû',
+        'tab' => 'Dans l’onglet',
+        'sheet' => 'Sa planche-contact',
+        'rules' => 'lignes de règles',
+    ],
+
     // The business views: every kind of business the skill describes, drawn from its own files.
     'businesses' => [
         'title' => 'Types d’entreprise',
@@ -40,6 +63,12 @@ return [
         'open' => 'La page seule',
         'why' => 'Pourquoi :',
         'pulls' => 'Ce qu’un build en tire',
+        'reasons' => 'Les raisons, dans les mots du skill',
+        'why_direction' => 'Pourquoi cette direction, pour cette entreprise',
+        'why_prefabs' => 'Pourquoi cette page porte chaque préfabriqué',
+        'how_drawn' => 'Comment la direction dessine ce qui est sur la page',
+        'behaviour' => 'Ce que fait chaque composant une fois placé',
+        'costs' => 'Ce que coûte la palette',
         'regions' => 'Ce que contient chaque région',
         'arrangements' => 'Arrangements',
         'own' => 'Celui de la direction',
