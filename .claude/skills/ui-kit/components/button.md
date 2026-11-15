@@ -1,6 +1,6 @@
 # button
 
-The kit's button: a link when it has an href and a button when it does not, in four variants and five sizes drawn from the palette's own tokens.
+The kit's button: a link when it has an href and a button when it does not, in five variants and five sizes drawn from the palette's own tokens.
 
 ## Placement
 
@@ -15,6 +15,7 @@ The kit's button: a link when it has an href and a button when it does not, in f
 ## Behaviour
 
 - Its variant is primary unless it is given another, so every button but the one action a screen asks for is given secondary, soft or ghost: one primary per screen. (von-restorff-effect, hicks-law)
+- danger is for the one action that deletes or cannot be undone, and only there — a confirmation's last step, never a page's main call — and its label names what is lost, such as Supprimer le client. (von-restorff-effect, peak-end-rule)
 - Its label is a verb of the task in the site's language, at most 24 characters and never wrapped, such as Réserver or Envoyer, and never “click here” or “en savoir plus”. (paradox-of-the-active-user, cognitive-load)
 - No button on a public page is xs, which can fall under the 24px every target needs, and the page's main action is lg or xl. (fittss-law)
 - A form's button is given type="submit", since it is type="button" unless told and sends nothing, and it comes directly after the last field, inside the form it sends. (flow, fittss-law, law-of-proximity)

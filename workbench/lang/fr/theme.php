@@ -26,6 +26,10 @@ return [
         'blossom' => 'Rose-violet doux, grands rayons, pastilles, aucune bordure.',
         'fresh' => 'Vert et orange sur page teintée, des panneaux qui se soulèvent.',
         'vellum' => 'Monochrome, angles droits, un seul rouge pour l’accent.',
+        'marigold' => 'Jaune soleil sur crème, boutons noirs en touche de clavier, un bord épais partout.',
+        'lagoon' => 'Eau turquoise et soleil corail, typographie aérée, longues ombres douces.',
+        'nocturne' => 'Violet et magenta qui luisent dans le sombre, une display géométrique.',
+        'ember' => 'Bordeaux et or sur papier chaud, une display à empattements, des libellés de carte des vins.',
 
         'system' => 'Suivre le système, et le suivre encore quand il change d’avis.',
         'light' => 'Fixer la moitié claire de chaque palette, quoi que dise le système.',

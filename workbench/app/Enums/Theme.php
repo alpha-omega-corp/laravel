@@ -22,6 +22,10 @@ enum Theme: string
     case Blossom = 'blossom';
     case Fresh = 'fresh';
     case Vellum = 'vellum';
+    case Marigold = 'marigold';
+    case Lagoon = 'lagoon';
+    case Nocturne = 'nocturne';
+    case Ember = 'ember';
 
     public static function default(): self
     {

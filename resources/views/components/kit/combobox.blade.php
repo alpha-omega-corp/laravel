@@ -27,7 +27,7 @@
 
     <input type="text" name="{{ $name }}" id="{{ $id }}" list="{{ $id }}-options" autocomplete="off"
            @if ($placeholder) placeholder="{{ $placeholder }}" @endif
-           class="block w-full rounded-control border border-rule bg-canvas px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus:border-accent focus:outline-hidden" />
+           class="control block w-full px-3 py-2 text-sm text-ink placeholder:text-ink-soft" />
 
     <datalist id="{{ $id }}-options">
         @foreach ($options as $option)

@@ -20,6 +20,9 @@ footer.
 - orchard — best
 - sandstone — good
 - blossom — fair
+- marigold — best
+- lagoon — good
+- nocturne — fair
 
 ## Suits
 

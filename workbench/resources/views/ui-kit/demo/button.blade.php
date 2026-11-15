@@ -4,6 +4,7 @@
         <x-kit.button variant="secondary">{{ __('ui_kit.demo.cancel') }}</x-kit.button>
         <x-kit.button variant="soft">{{ __('ui_kit.demo.duplicate') }}</x-kit.button>
         <x-kit.button variant="ghost">{{ __('ui_kit.demo.discard') }}</x-kit.button>
+        <x-kit.button variant="danger">{{ __('ui_kit.demo.delete') }}</x-kit.button>
         <x-kit.button disabled>{{ __('ui_kit.demo.disabled') }}</x-kit.button>
     </div>
 

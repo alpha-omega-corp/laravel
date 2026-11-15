@@ -64,9 +64,8 @@
         'name' => $name, 'id' => $id, 'data-field' => $kind,
         'aria-invalid' => $error ? 'true' : null, 'aria-describedby' => $described,
     ])->class([
-        'block w-full rounded-control border bg-canvas px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus:border-accent focus:outline-hidden',
-        'border-accent' => (bool) $error,
-        'border-rule' => ! $error,
+        // The edge, the focus ring and the invalid state are .control's, read off aria-invalid.
+        'control block w-full px-3 py-2 text-sm text-ink placeholder:text-ink-soft',
     ]);
 @endphp
 
@@ -93,6 +92,10 @@
     @endif
 
     @if ($error)
-        <p id="{{ $id }}-error" class="text-xs text-accent">{{ $error }}</p>
+        {{-- The icon beside the words, not in them: the paragraph is what aria-describedby reads out. --}}
+        <div class="flex items-start gap-1.5 text-xs font-medium text-danger">
+            <x-kit.icon name="circle-alert" class="mt-px size-3.5 shrink-0" />
+            <p id="{{ $id }}-error">{{ $error }}</p>
+        </div>
     @endif
 </div>

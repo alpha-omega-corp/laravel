@@ -16,9 +16,10 @@
      * that must be a pill rather than a second set of variants. Everything visual is
      * in the .btn classes in resources/css/kit.css, which read the theme's tokens —
      * the same markup is a stamped ink block in the light scheme and the same block
-     * drawn in a pale rule in the dark one.
+     * drawn in a pale rule in the dark one. `danger` is the one fill that is not
+     * the palette's: for what deletes or cannot be undone, in the status red.
      */
-    $variant = in_array($variant, ['primary', 'secondary', 'soft', 'ghost'], true) ? $variant : 'primary';
+    $variant = in_array($variant, ['primary', 'secondary', 'soft', 'ghost', 'danger'], true) ? $variant : 'primary';
     $size = in_array($size, ['xs', 'sm', 'md', 'lg', 'xl'], true) ? $size : 'md';
 
     /** The tag this button is written as, defaults left out, for dev mode's badge. */

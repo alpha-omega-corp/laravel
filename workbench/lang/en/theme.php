@@ -26,6 +26,10 @@ return [
         'blossom' => 'Soft pink-violet, large radii, pills, no borders at all.',
         'fresh' => 'Green and orange on a tinted page, panels that lift.',
         'vellum' => 'Monochrome, square corners, one red for emphasis.',
+        'marigold' => 'Sunny yellow on cream, black keycap buttons, a thick edge on everything.',
+        'lagoon' => 'Teal water and a coral sun, airy type, long soft shadows.',
+        'nocturne' => 'Violet and magenta that glow in the dark, a geometric display face.',
+        'ember' => 'Oxblood and gold on warm paper, a serif display, a wine-list label.',
 
         'system' => 'Follow the operating system, and follow it when it changes.',
         'light' => 'Pin the light half of every palette, whatever the system says.',

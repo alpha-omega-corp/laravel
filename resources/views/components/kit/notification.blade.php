@@ -24,7 +24,7 @@
 
 <div data-ref="{{ $ref }}" role="status" {{ $attributes->class(['panel panel-raised flex w-full max-w-sm gap-3 p-4']) }}>
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"
-         @class(['mt-0.5 size-5 shrink-0', 'text-accent' => $tone !== 'warning', 'text-highlight' => $tone === 'warning'])>
+         @class(['mt-0.5 size-5 shrink-0', 'text-accent' => $tone === 'neutral', 'text-success' => $tone === 'success', 'text-warning' => $tone === 'warning'])>
         <path d="{{ $icons[$tone] }}" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 
@@ -38,7 +38,7 @@
     </div>
 
     @if ($dismissible)
-        <button type="button" class="-m-1 shrink-0 self-start rounded-control p-1 text-ink-soft hover:bg-canvas-alt hover:text-ink">
+        <button type="button" class="-m-1.5 grid size-8 shrink-0 place-items-center self-start rounded-control text-ink-soft transition-colors hover:bg-canvas-alt hover:text-ink">
             <span class="sr-only">{{ __('kit.dismiss') }}</span>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" class="size-4">
                 <path d="m5 15 10-10M5 5l10 10" stroke-linecap="round" />

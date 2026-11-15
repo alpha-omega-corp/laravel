@@ -26,5 +26,21 @@
     "vellum": {
         "display": { "family": "Instrument Serif", "weights": [400] },
         "body": { "family": "Inter", "weights": [400, 500, 600, 700] }
+    },
+    "marigold": {
+        "display": { "family": "Bricolage Grotesque", "weights": [800, 700] },
+        "body": { "family": "DM Sans", "weights": [400, 500, 600, 700] }
+    },
+    "lagoon": {
+        "display": { "family": "Lexend", "weights": [600, 700] },
+        "body": { "family": "Nunito Sans", "weights": [400, 500, 600, 700] }
+    },
+    "nocturne": {
+        "display": { "family": "Sora", "weights": [600, 700] },
+        "body": { "family": "Manrope", "weights": [400, 500, 600, 700] }
+    },
+    "ember": {
+        "display": { "family": "DM Serif Display", "weights": [400] },
+        "body": { "family": "Work Sans", "weights": [400, 500, 600, 700] }
     }
 }

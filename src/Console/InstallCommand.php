@@ -69,7 +69,7 @@ class InstallCommand extends Command
 
         $this->components->info('The UI kit is installed: <x-kit.button>, <x-kit.alert> and the rest are ready to use');
         $this->components->bulletList([
-            'Pick a palette with data-palette on <html> (orchard, sandstone, harbour, graphite, blossom, fresh or vellum). Without one it is orchard.',
+            'Pick a palette with data-palette on <html> (orchard, sandstone, harbour, graphite, blossom, fresh, vellum, marigold, lagoon, nocturne or ember). Without one it is orchard.',
             'resources/css/fonts.json names each palette\'s two faces: load the ones your palette uses with bunny() in vite.config.js, and @fonts in the layout.',
             '<x-kit.dropdown> needs Tailwind Plus Elements: npm install @tailwindplus/elements, then import it in resources/js/app.js.',
             'Pictures come from deployer\'s library, in your palette: its search-ui-pictures and get-ui-picture tools.',

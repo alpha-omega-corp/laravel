@@ -112,8 +112,17 @@ it('raises the contrast by deriving from the palette, not by adding another one'
     expect($block)->toContain('color-mix(in oklab, var(--color-ink)')
         ->and($block)->toContain('--panel-border: 1.5px solid var(--color-ink)');
 
-    // No palette is named in it: one rule has to serve all seven.
-    foreach (['orchard', 'sandstone', 'harbour', 'graphite', 'blossom', 'fresh', 'vellum'] as $palette) {
+    // No palette is named in it: one rule has to serve all of them.
+    foreach (array_column(Theme::cases(), 'value') as $palette) {
         expect($block)->not->toContain($palette);
+    }
+});
+
+it('declares the status colours once, for every palette, and lets no palette redefine them', function () {
+    $kit = preg_replace('#/\*.*?\*/#s', '', file_get_contents(package_path('resources/css/kit.css')));
+
+    foreach (['danger', 'on-danger', 'success', 'warning'] as $status) {
+        expect($kit)->toMatch('/--color-'.$status.':\s*light-dark\(/')
+            ->and(themeRules())->not->toContain('--color-'.$status.':');
     }
 });

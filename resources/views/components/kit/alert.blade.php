@@ -8,9 +8,12 @@
     /**
      * The alert, re-themed from the kit's feedback/alerts group.
      *
-     * The kit colours its four tones from four hues of Tailwind's palette. A
-     * palette here has one accent and one highlight, so the tone is carried by
-     * the icon and a tint of those, and the surface stays the page's own.
+     * The kit colours its four tones from four hues of Tailwind's palette. Here
+     * info is the palette's own accent, and the other three are the status
+     * colours kit.css declares once for every palette: a success that looked
+     * like a failure, as both did when they were the accent, is no tone at all.
+     * Each is a tint of its colour on the page's surface, an edge of it, and
+     * its icon in it at full strength.
      */
     $tone = in_array($tone, ['info', 'success', 'warning', 'danger'], true) ? $tone : 'info';
 
@@ -26,12 +29,13 @@
 
 <div data-ref="{{ $ref }}" role="alert" {{ $attributes->class([
     'flex gap-3 rounded-panel border p-4',
-    'border-rule bg-canvas-alt' => in_array($tone, ['info', 'success'], true),
-    'border-highlight bg-highlight/15' => $tone === 'warning',
-    'border-accent bg-accent/10' => $tone === 'danger',
+    'border-accent/30 bg-accent/6' => $tone === 'info',
+    'border-success/35 bg-success/8' => $tone === 'success',
+    'border-warning/40 bg-warning/10' => $tone === 'warning',
+    'border-danger/35 bg-danger/8' => $tone === 'danger',
 ]) }}>
     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"
-         @class(['mt-0.5 size-5 shrink-0', 'text-accent' => $tone !== 'warning', 'text-highlight' => $tone === 'warning'])>
+         @class(['mt-0.5 size-5 shrink-0', 'text-accent' => $tone === 'info', 'text-success' => $tone === 'success', 'text-warning' => $tone === 'warning', 'text-danger' => $tone === 'danger'])>
         <path d="{{ $icons[$tone] }}" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 

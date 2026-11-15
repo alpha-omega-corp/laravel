@@ -35,7 +35,7 @@
         <span @class([
             'grid size-10 shrink-0 place-items-center rounded-full',
             'bg-canvas-alt text-accent' => $tone === 'neutral',
-            'bg-highlight/20 text-highlight' => $tone === 'danger',
+            'bg-danger/12 text-danger' => $tone === 'danger',
         ])>
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" class="size-5">
                 <path d="{{ $tone === 'danger' ? 'M10 7v4m0 3h.01M8.7 2.8 1.9 14.2A1.5 1.5 0 0 0 3.2 16.5h13.6a1.5 1.5 0 0 0 1.3-2.3L11.3 2.8a1.5 1.5 0 0 0-2.6 0Z' : 'M10 8.5v5m0-8h.01M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z' }}" stroke-linecap="round" stroke-linejoin="round" />

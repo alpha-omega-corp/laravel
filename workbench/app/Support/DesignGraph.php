@@ -16,7 +16,7 @@ use Workbench\App\Enums\Variation;
  * related to.
  *
  * Five kinds of node — the kit's components, the five layouts, the nine
- * projects, the seven palettes and the three degrees — and every edge between
+ * projects, the eleven palettes and the three degrees — and every edge between
  * them is read from the code rather than written down here:
  *
  * - a **layout** is joined to a **component** when the layout's own view, or
@@ -37,7 +37,7 @@ use Workbench\App\Enums\Variation;
  *
  * The layouts are therefore the spine: everything else hangs off them, which
  * is why the page draws them down the middle. A palette nothing is pinned to —
- * blossom and vellum — is a node with no edge, and that is the truth about it.
+ * blossom, vellum and the four after it — is a node with no edge, and that is the truth about it.
  *
  * Every node carries the route that shows it, so the graph is a way of getting
  * somewhere and not only a picture.

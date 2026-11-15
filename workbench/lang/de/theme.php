@@ -26,6 +26,10 @@ return [
         'blossom' => 'Sanftes Rosaviolett, große Radien, Pillen, gar keine Kanten.',
         'fresh' => 'Grün und Orange auf getönter Seite, Flächen, die sich heben.',
         'vellum' => 'Einfarbig, rechte Winkel, ein Rot für den Nachdruck.',
+        'marigold' => 'Sonnengelb auf Creme, schwarze Tasten-Buttons, eine kräftige Kante überall.',
+        'lagoon' => 'Türkises Wasser und eine Korallensonne, luftige Schrift, lange weiche Schatten.',
+        'nocturne' => 'Violett und Magenta, die im Dunkeln leuchten, eine geometrische Display-Schrift.',
+        'ember' => 'Ochsenblut und Gold auf warmem Papier, eine Serifen-Display, Etiketten wie auf einer Weinkarte.',
 
         'system' => 'Dem Betriebssystem folgen, auch wenn es seine Meinung ändert.',
         'light' => 'Die helle Hälfte jeder Palette festhalten, was das System auch sagt.',

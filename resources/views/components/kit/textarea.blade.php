@@ -26,7 +26,7 @@
               @if ($placeholder) placeholder="{{ $placeholder }}" @endif
               @if ($hint) aria-describedby="{{ $id }}-description" @endif
               {{ $attributes->except(['class', 'style', 'id']) }}
-              class="block w-full rounded-control border border-rule bg-canvas px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus:border-accent focus:outline-hidden">{{ $slot }}</textarea>
+              class="control block w-full px-3 py-2 text-sm text-ink placeholder:text-ink-soft">{{ $slot }}</textarea>
 
     @if ($hint)
         <p id="{{ $id }}-description" class="text-xs text-ink-soft">{{ $hint }}</p>

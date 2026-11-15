@@ -37,7 +37,7 @@
                         <span class="min-w-0 truncate">{{ $item['label'] }}</span>
 
                         @if (! empty($item['hint']))
-                            <span class="shrink-0 font-mono text-xs text-ink-soft">{{ $item['hint'] }}</span>
+                            <kbd class="kbd shrink-0">{{ $item['hint'] }}</kbd>
                         @endif
                     </button>
                 </li>

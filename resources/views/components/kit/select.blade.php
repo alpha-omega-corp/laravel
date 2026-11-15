@@ -30,7 +30,7 @@
     <select name="{{ $name }}" id="{{ $id }}"
             @if ($hint) aria-describedby="{{ $id }}-description" @endif
             {{ $attributes->except(['class', 'style', 'id']) }}
-            class="block w-full rounded-control border border-rule bg-canvas px-3 py-2 text-sm text-ink focus:border-accent focus:outline-hidden">
+            class="control block w-full px-3 py-2 text-sm text-ink">
         @foreach ($options as $optionValue => $optionLabel)
             <option value="{{ $optionValue }}" @selected((string) $optionValue === (string) $selected)>{{ $optionLabel }}</option>
         @endforeach

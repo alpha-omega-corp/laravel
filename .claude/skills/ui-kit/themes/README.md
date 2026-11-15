@@ -17,7 +17,7 @@ This changed, and the old model is worth naming so it is not read back in. A
 palette used to be light-only, dark-only or dual, and choosing it chose both.
 It no longer does:
 
-- **`data-palette` on `<html>`** picks the palette. All seven are declared.
+- **`data-palette` on `<html>`** picks the palette. All eleven are declared.
 - **`data-theme`** picks light or dark. Its *absence* is "system", which leaves
   `color-scheme: light dark` to follow the operating system.
 
@@ -69,6 +69,14 @@ unmaintainable.
 --container-wrap      the reading width
 ```
 
+**The status colours are not palette tokens.** `--color-danger`,
+`--color-on-danger`, `--color-success` and `--color-warning` are declared once,
+in the `@theme` block of `resources/css/kit.css`, as `light-dark()` pairs that
+read on every palette's canvas — 4.5:1 or better on all eleven, in both
+schemes. An error is red and a success green whatever the brand is: a palette
+that redefined them would make the form that rejected you look like the one
+that thanked you. No block in `themes.css` names them, and none should.
+
 `--text-display`, `--text-title` and `--text-figure` are per palette, as
 `clamp()` steps with their own line-height and letter-spacing.
 
@@ -98,7 +106,8 @@ convention.
 
 Adding a palette is a block in `themes.css`, its two faces in `resources/css/fonts.json`,
 a case in `Workbench\App\Enums\Theme`, a summary in `workbench/lang/*/theme.php`, a file
-here, and a row in each of the others' `## Pairs with`. Nothing lists them in code:
+here with its own `## Pairs with`, and a row under the `## Palettes` of each direction in
+`../directions/` it suits. Nothing lists them in code:
 deployer's `uikit.ReadCatalogue` walks this directory, so a palette exists here the
 moment its file does.
 

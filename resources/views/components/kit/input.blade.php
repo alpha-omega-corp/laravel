@@ -36,7 +36,7 @@
         <label for="{{ $id }}" class="block text-sm font-medium text-ink">{{ $label }}</label>
     @endif
 
-    <div @class(['flex items-center rounded-control border bg-canvas', 'border-accent' => (bool) $error, 'border-rule focus-within:border-accent' => ! $error])>
+    <div class="control flex items-center">
         @if ($leading)
             <span class="pl-3 text-sm text-ink-soft">{{ $leading }}</span>
         @endif
@@ -55,6 +55,13 @@
     </div>
 
     @if ($error || $hint)
-        <p id="{{ $describedBy }}" @class(['text-xs', 'text-accent' => (bool) $error, 'text-ink-soft' => ! $error])>{{ $error ?: $hint }}</p>
+        @if ($error)
+            <div class="flex items-start gap-1.5 text-xs font-medium text-danger">
+                <x-kit.icon name="circle-alert" class="mt-px size-3.5 shrink-0" />
+                <p id="{{ $describedBy }}">{{ $error }}</p>
+            </div>
+        @else
+            <p id="{{ $describedBy }}" class="text-xs text-ink-soft">{{ $hint }}</p>
+        @endif
     @endif
 </div>

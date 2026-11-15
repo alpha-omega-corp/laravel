@@ -26,6 +26,10 @@ return [
         'blossom' => 'Rosa-viola tenue, raggi ampi, pastiglie, nessun bordo.',
         'fresh' => 'Verde e arancio su pagina tinta, pannelli che si sollevano.',
         'vellum' => 'Monocromatico, angoli retti, un solo rosso per l’enfasi.',
+        'marigold' => 'Giallo sole su crema, pulsanti neri come tasti, un bordo spesso ovunque.',
+        'lagoon' => 'Acqua turchese e un sole corallo, caratteri ariosi, ombre lunghe e morbide.',
+        'nocturne' => 'Viola e magenta che brillano al buio, un display geometrico.',
+        'ember' => 'Sangue di bue e oro su carta calda, un display con grazie, etichette da carta dei vini.',
 
         'system' => 'Seguire il sistema operativo, anche quando cambia idea.',
         'light' => 'Fissare la metà chiara di ogni tavolozza, checché dica il sistema.',

@@ -23,6 +23,9 @@ asking for the order. Warm paper, framed, practical.
 - fresh — good
 - blossom — fair
 - vellum — fair
+- marigold — best
+- lagoon — good
+- ember — fair
 
 ## Suits
 

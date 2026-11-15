@@ -85,8 +85,48 @@ function reflect() {
             for (const label of document.querySelectorAll(`[data-theme-label="${axis}"]`)) {
                 label.textContent = name ? name.textContent : option.dataset.themeOption;
             }
+
+            if (option.dataset.summary) {
+                describe(option);
+            }
         }
     }
+}
+
+/**
+ * The line under the palette tiles: what the palette under the pointer or the
+ * focus looks like, and the chosen one's again once neither is on a tile.
+ */
+function describe(option) {
+    const summary = option?.closest('[data-theme-palettes]')?.querySelector('[data-theme-summary]');
+
+    if (summary && option.dataset.summary) {
+        summary.textContent = option.dataset.summary;
+    }
+}
+
+function describeChosen(group) {
+    describe(group?.querySelector('[data-theme-option][aria-checked="true"]'));
+}
+
+for (const type of ['pointerover', 'focusin']) {
+    document.addEventListener(type, (event) => {
+        const option = event.target.closest?.('[data-theme-palettes] [data-theme-option]');
+
+        if (option) {
+            describe(option);
+        }
+    });
+}
+
+for (const type of ['pointerout', 'focusout']) {
+    document.addEventListener(type, (event) => {
+        const group = event.target.closest?.('[data-theme-palettes]');
+
+        if (group && ! group.contains(event.relatedTarget)) {
+            describeChosen(group);
+        }
+    });
 }
 
 /**

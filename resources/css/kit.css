@@ -31,6 +31,18 @@
     --color-highlight: #f2c230;
     --color-on-highlight: #0e241c;
 
+    /*
+     * The status colours. Not palette tokens — no block in themes.css names them —
+     * because an error is red and a success green whatever the brand is: in a
+     * green palette an error drawn in the accent looks like the form thanked you.
+     * Each pair is 4.5:1 or better as text on every palette's canvas, canvas-alt
+     * and raise, in both schemes.
+     */
+    --color-danger: light-dark(#b42318, #ff7b6e);
+    --color-on-danger: light-dark(#ffffff, #2a0604);
+    --color-success: light-dark(#127347, #4ad391);
+    --color-warning: light-dark(#9a5800, #f5b83d);
+
     --font-display: var(--font-space-grotesk, 'Space Grotesk'), ui-sans-serif, system-ui, sans-serif;
     --font-body: var(--font-ibm-plex-sans, 'IBM Plex Sans'), ui-sans-serif, system-ui, sans-serif;
 
@@ -165,7 +177,7 @@
     }
 
     /*
-     * Buttons. One set of classes for all seven themes: the shape, the type, the
+     * Buttons. One set of classes for every palette: the shape, the type, the
      * padding scale, the shadow and what happens on press are read from tokens, so
      * switching the theme in the navigation bar restyles every button on the page
      * without a single class changing.
@@ -291,6 +303,118 @@
     .btn-ghost:hover:not(:disabled) {
         background-color: var(--color-canvas-alt);
         color: var(--color-ink);
+    }
+
+    /*
+     * The one button that is not the palette's: what deletes or cannot be undone.
+     * It keeps the palette's shape, border width and press, and takes the colour
+     * of the status rather than of the brand.
+     */
+    .btn-danger {
+        background-color: var(--color-danger);
+        color: var(--color-on-danger);
+        border: var(--btn-primary-border, 0 solid transparent);
+        border-color: var(--color-danger);
+        /* The secondary's shadow, which is neutral in every palette: the primary's is often the accent's glow. */
+        box-shadow: var(--btn-secondary-shadow, none);
+    }
+
+    .btn-danger:active:not(:disabled) {
+        box-shadow: var(--btn-secondary-shadow-active, none);
+    }
+
+    .btn-danger:hover:not(:disabled) {
+        background-color: color-mix(in oklab, var(--color-danger) 86%, var(--color-ink));
+        border-color: color-mix(in oklab, var(--color-danger) 86%, var(--color-ink));
+    }
+
+    .btn-danger:focus-visible {
+        outline-color: var(--color-danger);
+    }
+
+    /* The icon of a button sits on the label's optical centre, at the label's size. */
+    .btn > svg {
+        flex-shrink: 0;
+        width: 1.15em;
+        height: 1.15em;
+    }
+
+    /*
+     * A form control: the input, the select, the textarea, or the box an input
+     * sits in with its add-ons. The edge darkens under the pointer, and focus is
+     * the accent's edge plus a soft ring of it — a field you are typing in should
+     * be findable at a glance, which a 1px colour change alone is not. An invalid
+     * one is drawn in the danger colour, and keeps it under focus.
+     */
+    .control {
+        border: 1px solid var(--color-rule);
+        border-radius: var(--radius-control);
+        background-color: var(--color-canvas);
+        transition:
+            border-color var(--dur-fast, 0.15s) ease-out,
+            box-shadow var(--dur-fast, 0.15s) ease-out,
+            background-color var(--dur-fast, 0.15s) ease-out;
+    }
+
+    .control:hover:not(:focus, :focus-within, :disabled, :has(:disabled)) {
+        border-color: color-mix(in oklab, var(--color-ink) 32%, var(--color-rule));
+    }
+
+    .control:focus,
+    .control:focus-within {
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 24%, transparent);
+        outline: none;
+    }
+
+    .control:is([aria-invalid='true'], :has([aria-invalid='true'])) {
+        border-color: var(--color-danger);
+    }
+
+    .control:is([aria-invalid='true'], :has([aria-invalid='true'])):is(:focus, :focus-within) {
+        box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-danger) 24%, transparent);
+    }
+
+    .control:is(:disabled, :has(:disabled)) {
+        background-color: var(--color-canvas-alt);
+        color: var(--color-ink-soft);
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+
+    /*
+     * A native select draws its own arrow, in the system's grey whatever the
+     * palette. This one is two gradients in currentColor, so it is the field's
+     * ink in either scheme, and the text keeps clear of it.
+     */
+    select.control:not([multiple], [size]) {
+        appearance: none;
+        padding-inline-end: 2.5rem;
+        background-image:
+            linear-gradient(45deg, transparent 50%, currentColor 50%),
+            linear-gradient(135deg, currentColor 50%, transparent 50%);
+        background-position:
+            calc(100% - 1.2rem) 52%,
+            calc(100% - 0.85rem) 52%;
+        background-size: 0.35rem 0.35rem;
+        background-repeat: no-repeat;
+    }
+
+    /* The keyboard key a command answers to. */
+    .kbd {
+        display: inline-grid;
+        place-items: center;
+        min-width: 1.5rem;
+        height: 1.5rem;
+        padding-inline: 0.375rem;
+        border: 1px solid var(--color-rule);
+        border-bottom-width: 2px;
+        border-radius: calc(var(--radius-control) * 0.5 + 0.125rem);
+        background: var(--color-canvas);
+        color: var(--color-ink-soft);
+        font-family: ui-monospace, SFMono-Regular, monospace;
+        font-size: 0.75rem;
+        line-height: 1;
     }
 }
 

@@ -82,7 +82,10 @@
                 @csrf
 
                 @if ($error = $fault('form'))
-                    <p role="alert" class="text-sm text-accent sm:col-span-2">{{ $error }}</p>
+                    <div role="alert" class="flex items-start gap-2 text-sm font-medium text-danger sm:col-span-2">
+                        <x-kit.icon name="circle-alert" class="mt-0.5 size-4 shrink-0" />
+                        <p>{{ $error }}</p>
+                    </div>
                 @endif
 
                 @foreach ($fields as $field)

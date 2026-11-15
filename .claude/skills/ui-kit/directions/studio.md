@@ -21,6 +21,9 @@ air between everything.
 - sandstone — good
 - blossom — good
 - harbour — fair
+- ember — good
+- lagoon — good
+- nocturne — fair
 
 ## Suits
 

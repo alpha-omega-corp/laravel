@@ -34,7 +34,7 @@
     what <el-popover> looks for — and it is also what makes the panel open without
     JavaScript at all, popovertarget being native.
 
-    A palette row previews the palette it names by carrying its own data-palette
+    A palette tile previews the palette it names by carrying its own data-palette
     attribute, so the swatch is the real tokens rather than three hex values
     copied out of themes.css and left to drift. It does not carry a data-theme:
     color-scheme inherits, so each swatch is drawn in the scheme the page is in,
@@ -55,36 +55,44 @@
     </button>
 
     <el-popover id="appearance-menu" anchor="bottom end" popover aria-label="{{ __('theme.choose') }}"
-                class="panel panel-raised w-80 origin-top-right p-1.5 backdrop:bg-transparent transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
-        <div role="radiogroup" aria-label="{{ __('theme.palette') }}" class="space-y-0.5">
+                class="panel panel-raised w-[22rem] max-w-[calc(100vw-1.5rem)] max-h-[calc(100svh-5rem)] overflow-y-auto overscroll-contain origin-top-right p-1.5 backdrop:bg-transparent transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+        {{--
+            Eleven palettes do not fit as rows in a popover a laptop can show
+            whole, so they are tiles: a miniature of the palette's page — its
+            canvas, a line of its ink, a button in its accent and a dot of its
+            highlight, set in its own corner radius — and its name. The summary
+            a row used to carry is the line under the grid: the chosen
+            palette's, or the one under the pointer or the focus while it is.
+        --}}
+        <div role="radiogroup" aria-label="{{ __('theme.palette') }}" data-theme-palettes>
             <p class="px-2 pt-1 pb-2 text-xs font-semibold tracking-wider text-ink-soft uppercase">{{ __('theme.palette') }}</p>
 
-            @foreach (Theme::cases() as $theme)
-                <button type="button"
-                        role="radio"
-                        aria-checked="{{ $theme === $palette ? 'true' : 'false' }}"
-                        data-theme-axis="palette"
-                        data-theme-option="{{ $theme->value }}"
-                        class="{{ $row }}">
-                    <span data-palette="{{ $theme->value }}"
-                          class="flex shrink-0 items-center gap-1 rounded-panel border border-rule bg-canvas p-1.5"
-                          aria-hidden="true">
-                        <span class="size-3 rounded-full bg-accent"></span>
-                        <span class="size-3 rounded-full bg-highlight"></span>
-                        <span class="size-3 rounded-full bg-ink"></span>
-                    </span>
+            <div class="grid grid-cols-3 gap-1">
+                @foreach (Theme::cases() as $theme)
+                    <button type="button"
+                            role="radio"
+                            aria-checked="{{ $theme === $palette ? 'true' : 'false' }}"
+                            data-theme-axis="palette"
+                            data-theme-option="{{ $theme->value }}"
+                            data-summary="{{ $theme->summary() }}"
+                            class="group/tile relative flex flex-col items-stretch gap-1.5 rounded-panel p-1.5 text-left transition-colors hover:bg-canvas-alt focus:bg-canvas-alt focus:outline-hidden aria-checked:bg-canvas-alt">
+                        <span data-palette="{{ $theme->value }}" aria-hidden="true"
+                              class="block space-y-1.5 overflow-hidden rounded-panel border border-rule bg-canvas p-2 transition-[box-shadow] in-aria-checked:ring-2 in-aria-checked:ring-accent in-aria-checked:ring-offset-1 in-aria-checked:ring-offset-canvas">
+                            <span class="block h-1 w-3/4 rounded-full bg-ink"></span>
+                            <span class="block h-1 w-1/2 rounded-full bg-ink-soft/60"></span>
+                            <span class="flex items-center justify-between pt-0.5">
+                                <span class="block h-2.5 w-7 rounded-control bg-accent"></span>
+                                <span class="block size-2.5 rounded-full bg-highlight"></span>
+                            </span>
+                        </span>
 
-                    <span class="min-w-0 flex-1">
-                        <span class="block text-sm font-semibold text-ink" data-theme-name>{{ $theme->label() }}</span>
-                        <span class="block truncate text-xs text-ink-soft">{{ $theme->summary() }}</span>
-                    </span>
+                        <span class="truncate px-0.5 text-xs font-semibold text-ink" data-theme-name>{{ $theme->label() }}</span>
+                        <span class="sr-only">{{ $theme->summary() }}</span>
+                    </button>
+                @endforeach
+            </div>
 
-                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"
-                         class="size-4 shrink-0 text-accent opacity-0 in-aria-checked:opacity-100">
-                        <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-            @endforeach
+            <p data-theme-summary aria-hidden="true" class="min-h-8 px-2 pt-2 text-xs leading-4 text-ink-soft">{{ $palette->summary() }}</p>
         </div>
 
         <div role="radiogroup" aria-label="{{ __('theme.appearance') }}" class="mt-2 space-y-0.5 border-t border-rule pt-2">
