@@ -17,6 +17,7 @@ A team that makes things for clients: a web, a design, a communication, an adver
 - launch — a product's front page: one promise, the proof, a single action
 - atelier — the work on white walls: case studies as plates
 - studio — calm and editorial: one project told at length
+- spec — for the agency that sells a measurable result: the figures large, the clients in grey, one action
 
 ## Layout
 

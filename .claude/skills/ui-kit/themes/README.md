@@ -17,7 +17,7 @@ This changed, and the old model is worth naming so it is not read back in. A
 palette used to be light-only, dark-only or dual, and choosing it chose both.
 It no longer does:
 
-- **`data-palette` on `<html>`** picks the palette. All eighteen are declared.
+- **`data-palette` on `<html>`** picks the palette. All nineteen are declared.
 - **`data-theme`** picks light or dark. Its *absence* is "system", which leaves
   `color-scheme: light dark` to follow the operating system.
 
@@ -72,7 +72,7 @@ unmaintainable.
 **The status colours are not palette tokens.** `--color-danger`,
 `--color-on-danger`, `--color-success` and `--color-warning` are declared once,
 in the `@theme` block of `resources/css/kit.css`, as `light-dark()` pairs that
-read on every palette's canvas — 4.5:1 or better on all eighteen, in both
+read on every palette's canvas — 4.5:1 or better on all nineteen, in both
 schemes. An error is red and a success green whatever the brand is: a palette
 that redefined them would make the form that rejected you look like the one
 that thanked you. No block in `themes.css` names them, and none should.

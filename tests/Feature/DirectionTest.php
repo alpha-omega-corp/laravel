@@ -107,7 +107,7 @@ it('has a spec for every direction, each read the way deployer reads it', functi
     $layouts = array_map(fn (string $path): string => basename($path, '.md'), glob(package_path('.claude/skills/ui-kit/layouts/*.md')) ?: []);
     $components = array_map(fn (string $path): string => basename($path, '.blade.php'), glob(package_path('resources/views/components/kit/*.blade.php')) ?: []);
 
-    expect(array_keys(directionSpecs()))->toEqualCanonicalizing(['counter', 'hearth', 'market', 'studio', 'yard', 'ledger', 'atelier', 'civic', 'launch', 'trail']);
+    expect(array_keys(directionSpecs()))->toEqualCanonicalizing(['counter', 'hearth', 'market', 'studio', 'yard', 'ledger', 'atelier', 'civic', 'launch', 'trail', 'spec']);
 
     foreach (directionSpecs() as $name => $spec) {
         expect($spec)->toStartWith("# {$name}\n\n")
@@ -245,7 +245,7 @@ it('rolls a business only in the directions it lists', function () {
     ksort($lists);
 
     expect($lists)->toBe([
-        'agency' => ['launch', 'atelier', 'studio'],
+        'agency' => ['launch', 'atelier', 'studio', 'spec'],
         'architect' => ['atelier', 'studio'],
         'artisan' => ['atelier', 'market', 'studio'],
         'association' => ['civic', 'market'],
@@ -258,7 +258,7 @@ it('rolls a business only in the directions it lists', function () {
         'commune' => ['civic', 'ledger'],
         'construction' => ['yard', 'counter'],
         'consultant' => ['ledger', 'launch', 'studio'],
-        'coworking' => ['launch', 'studio'],
+        'coworking' => ['launch', 'studio', 'spec'],
         'farm' => ['market', 'counter'],
         'festival' => ['launch', 'hearth', 'trail'],
         'fitness' => ['studio', 'counter'],
@@ -278,7 +278,7 @@ it('rolls a business only in the directions it lists', function () {
         'salon' => ['studio', 'counter'],
         'school' => ['civic', 'studio', 'counter'],
         'shop' => ['counter', 'studio', 'market'],
-        'software' => ['launch', 'studio'],
+        'software' => ['launch', 'studio', 'spec'],
         'spa' => ['studio', 'hearth', 'trail'],
         'theatre' => ['hearth', 'atelier', 'civic'],
         'trades' => ['counter', 'studio'],

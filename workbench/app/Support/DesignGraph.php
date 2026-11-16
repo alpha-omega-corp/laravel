@@ -16,7 +16,7 @@ use Workbench\App\Enums\Variation;
  * related to.
  *
  * Five kinds of node — the kit's components, the five layouts, the nine
- * projects, the eighteen palettes and the three degrees — and every edge between
+ * projects, the nineteen palettes and the three degrees — and every edge between
  * them is read from the code rather than written down here:
  *
  * - a **layout** is joined to a **component** when the layout's own view, or

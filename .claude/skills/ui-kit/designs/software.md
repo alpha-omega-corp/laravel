@@ -1,6 +1,6 @@
 # software
 
-Twelve ways one software product is drawn, seven as a launch page and five as a quiet studio. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise alone, the promise beside the product, or a photograph of it at work), where the proof comes, how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the site argues: the newcomer and the suite, the app decided on a phone in an evening and the platform a committee studies for a week, the house that sells on price and the one that sells restraint.
+Fifteen ways one software product is drawn, seven as a launch page, five as a quiet studio and three as a spec sheet of the tool itself. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise alone, the promise beside the product, or a photograph of it at work), where the proof comes, how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the site argues: the newcomer and the suite, the app decided on a phone in an evening and the platform a committee studies for a week, the house that sells on price and the one that sells restraint.
 
 ## Page produit
 
@@ -212,3 +212,54 @@ A product with an opinion, sold by the people who hold it: the first screen is o
 - process — timeline
 - faq — columns
 - booking — plain
+
+## Tableau de bord
+
+The tool shown as it is used: the promise set huge on the left of the first screen and a screen of the product on the right, dense with lists, statuses and faces, because the buyer is the person who will have it open all day and wants to see the work before the words. For a project, task or planning tool sold to teams that already use three others, on white marble with a black action, the names of its clients in grey under the opening and its users' words in a wall. How to start is a board of steps in one row, the plans are tiles on a board, and the demo form stands beside its invitation.
+
+- direction — spec
+- palette — marble
+- / — split
+- /how-it-works — board
+- /pricing — board
+- /demo — split
+- credentials — logos
+- testimonials — wall
+- process — row
+- booking — split
+
+## Fiche produit
+
+The long product page read from top to bottom like a specification blown up to the size of an exhibition stand: the promise beside the screen, the numbers that prove it as large as the headline, the clients, the voices, and the dark panel that asks again at the foot. For a platform that sells on what it measurably does, two hours saved a week, three tools replaced, whose visitor compares it line by line with the one already paid for. Every page is the long one; the road to production runs down a timeline, the plans stand side by side with the questions in two columns, and the bar is centred.
+
+- direction — spec
+- palette — marble
+- / — marketing
+- /how-it-works — marketing
+- /pricing — marketing
+- /demo — marketing
+- site-header — centred
+- credentials — logos
+- testimonials — lead
+- process — timeline
+- faq — columns
+- booking — plain
+
+## Salle des machines
+
+The same spec sheet in the dark, for a technical product bought by engineers: an observability console, a deployment pipeline, a database. The first screen is the promise beside a dark screen of the product, the method is a board, and the plans are rows on a long page because they are read for their limits. Graphite's mono face makes the headlines read like the product's own readouts, and it is pinned to dark because the product is.
+
+- direction — spec
+- palette — graphite
+- scheme — dark
+- / — split
+- /how-it-works — board
+- /pricing — marketing
+- /demo — split
+- site-footer — compact
+- credentials — list
+- testimonials — wall
+- process — row
+- pricing — rows
+- faq — open
+- booking — split

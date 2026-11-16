@@ -33,6 +33,7 @@ enum Theme: string
     case Plum = 'plum';
     case Denim = 'denim';
     case Sorbet = 'sorbet';
+    case Marble = 'marble';
 
     public static function default(): self
     {

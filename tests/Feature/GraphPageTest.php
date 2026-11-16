@@ -133,7 +133,7 @@ it('leaves a palette nothing is pinned to without an edge, and says so', functio
     $loose = array_values(array_diff(array_column(Theme::cases(), 'value'), $pinned));
 
     // Eighteen palettes, five layouts: thirteen are nobody's fitting pairing.
-    expect($loose)->toBe(['blossom', 'vellum', 'marigold', 'lagoon', 'nocturne', 'ember', 'concrete', 'quill', 'alpine', 'clay', 'plum', 'denim', 'sorbet']);
+    expect($loose)->toBe(['blossom', 'vellum', 'marigold', 'lagoon', 'nocturne', 'ember', 'concrete', 'quill', 'alpine', 'clay', 'plum', 'denim', 'sorbet', 'marble']);
 
     $to = array_column(DesignGraph::edges(), 'to');
 

@@ -1,5 +1,5 @@
 /*
- * The eighteen palettes of the shared UI kit, each in two schemes.
+ * The nineteen palettes of the shared UI kit, each in two schemes.
  *
  * Two axes, and they are independent: `data-palette` on <html> chooses the
  * palette, `data-theme` chooses light or dark, and the absence of `data-theme`
@@ -1150,6 +1150,65 @@
     --btn-secondary-shadow-active: 0 1px 0 light-dark(#f0d5c6, #120e16);
 }
 
+[data-palette='marble'] {
+    --color-canvas: light-dark(#ffffff, #0c0d14);
+    --color-canvas-alt: light-dark(#e9ebf0, #15161e);
+    --color-raise: light-dark(#ffffff, #181a22);
+    --color-ink: light-dark(#202020, #f4f4f6);
+    --color-ink-soft: light-dark(#646464, #9a9ba6);
+    --color-rule: light-dark(#e8e8e8, #2a2b35);
+    --color-accent: light-dark(#006fd6, #4fb2ff);
+    --color-accent-strong: light-dark(#0058ad, #7cc6ff);
+    --color-on-accent: light-dark(#ffffff, #04121f);
+    --color-highlight: light-dark(#6647f0, #9c8cff);
+    --color-on-highlight: light-dark(#ffffff, #0c0820);
+
+    --font-display: var(--font-plus-jakarta-sans, 'Plus Jakarta Sans'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-inter, 'Inter'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 800;
+    --body-leading: 1.5;
+
+    --text-display: clamp(2.5rem, 6vw, 5rem);
+    --text-display--line-height: 1.05;
+    --text-display--letter-spacing: -0.04em;
+    --text-title: clamp(1.625rem, 3vw, 2.125rem);
+    --text-title--line-height: 1.2;
+    --text-title--letter-spacing: -0.023em;
+    --text-figure: clamp(2.5rem, 5vw, 3.75rem);
+    --text-figure--line-height: 1;
+    --text-figure--letter-spacing: -0.04em;
+
+    --radius-panel: 0.75rem;
+    --radius-control: 9999px;
+    --container-wrap: 75rem;
+
+    --dur-fast: 0.15s;
+    --dur-base: 0.3s;
+    --dur-slow: 0.45s;
+    --ease-out: power2.out;
+    --ease-inout: power2.inOut;
+    --move: 8px;
+
+    /* Elevation is negative space: a panel is a hairline on the page, never a shadow. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid var(--color-rule);
+    --panel-shadow: none;
+    --panel-shadow-raised: none;
+
+    --btn-font: var(--font-display);
+    --btn-weight: 700;
+    --btn-tracking: normal;
+    --btn-transform: none;
+    --btn-density: 1;
+    --btn-press: 0 1px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: none;
+    --btn-primary-shadow-active: none;
+    --btn-secondary-border: 1px solid var(--color-rule);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
 /*
  * A chosen appearance, last so it beats the :root default whatever palette is on
  * the same element. color-scheme inherits, so this settles nested previews too.
@@ -1167,7 +1226,7 @@
  *
  * Not an eighth palette and not a second set of values: the tokens below are
  * derived from the ones already in force with color-mix, so one rule covers all
- * eighteen palettes in both schemes. The page moves further from the panel, the
+ * nineteen palettes in both schemes. The page moves further from the panel, the
  * rule gets stronger, muted text comes back toward the ink, and every panel is
  * given an edge — which is what sandstone, blossom and fresh gain most, since
  * they draw none and separate by shadow alone.

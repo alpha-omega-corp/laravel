@@ -37,6 +37,7 @@ return [
         'plum' => 'Aubergine auf Roséweiss mit Altgold, eine kontrastreiche Serife, Pillenknöpfe in Kapitälchen.',
         'denim' => 'Indigo auf gewaschener Seite mit Nietenrost, eine breite, eng gesetzte Grotesk, abgesteppte Flächen.',
         'sorbet' => 'Pfirsichpapier, Himbeere und ein kühles Blau, eine runde Schrift, Aufkleber als Flächen.',
+        'marble' => 'Weißer Marmor, fast schwarze Tinte und eine schwarze Pille für die Aktion, blaue Links, violette Abzeichen, eine schwere, eng gesetzte Schrift.',
 
         'system' => 'Dem Betriebssystem folgen, auch wenn es seine Meinung ändert.',
         'light' => 'Die helle Hälfte jeder Palette festhalten, was das System auch sagt.',

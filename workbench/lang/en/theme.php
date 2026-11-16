@@ -37,6 +37,7 @@ return [
         'plum' => 'Aubergine on blush white with antique gold, a high-contrast serif, pill buttons in small capitals.',
         'denim' => 'Indigo on a washed page with rivet rust, a wide grotesque set tight, stitched panels.',
         'sorbet' => 'Peach paper, raspberry and a cool blue, a rounded face, stickers for panels.',
+        'marble' => 'White marble, near-black ink and a black pill for the action, blue links, violet badges, a heavy face set tight.',
 
         'system' => 'Follow the operating system, and follow it when it changes.',
         'light' => 'Pin the light half of every palette, whatever the system says.',

@@ -37,6 +37,7 @@ return [
         'plum' => 'Aubergine sur blanc rosé avec un or ancien, une sérif très contrastée, des boutons-pilules en petites capitales.',
         'denim' => 'Indigo sur page délavée et rouille de rivet, une grotesque large serrée, des panneaux surpiqués.',
         'sorbet' => 'Papier pêche, framboise et bleu frais, une face ronde, des autocollants en guise de panneaux.',
+        'marble' => 'Marbre blanc, encre presque noire et une pastille noire pour l’action, liens bleus, badges violets, une face lourde et serrée.',
 
         'system' => 'Suivre le système, et le suivre encore quand il change d’avis.',
         'light' => 'Fixer la moitié claire de chaque palette, quoi que dise le système.',

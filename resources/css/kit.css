@@ -627,6 +627,22 @@
     --panel-backdrop: none;
 }
 
+[data-direction='spec'] {
+    --section-gap: clamp(4rem, 8vw, 5rem);
+    --band-pad: clamp(3.5rem, 8vw, 6rem);
+    --band-surface: var(--color-ink);
+    --band-ink: var(--color-canvas);
+    --hero-min-height: auto;
+    --heading-size: clamp(1.875rem, 4vw, 3rem);
+    --heading-leading: 1.1;
+    --eyebrow-case: uppercase;
+    --eyebrow-tracking: 0.08em;
+    --radius-media: 1rem;
+    --image-scrim: none;
+    --page-wash: none;
+    --panel-backdrop: none;
+}
+
 [data-direction='trail'] {
     --section-gap: clamp(4rem, 8vw, 6.5rem);
     --band-pad: clamp(3.5rem, 8vw, 6rem);
@@ -686,13 +702,13 @@
 }
 
 /*
- * hearth's band is the accent and counter's is the ink, and the palette's accent
- * on either is under 3:1 in every palette (vellum's accent is its ink): so on
+ * hearth's band is the accent and counter's and spec's the ink, and the palette's
+ * accent on either is under 3:1 in every palette (vellum's accent is its ink): so on
  * them the accent becomes the band's ink — the eyebrow, the marks and the primary
  * button invert, and the secondary is an outline. On the accent the soft ink is
  * mixed at 90%: at 72% sandstone's lead and labels are 3.8:1, blossom's 3.9:1.
  */
-:is([data-direction='hearth'], [data-direction='counter']) main > section:has(> .wrap [data-kit='cta-band']) {
+:is([data-direction='hearth'], [data-direction='counter'], [data-direction='spec']) main > section:has(> .wrap [data-kit='cta-band']) {
     --color-accent: var(--band-ink);
     --color-accent-strong: color-mix(in oklab, var(--band-ink) 82%, var(--band-surface));
     --color-on-accent: var(--band-surface);
@@ -702,14 +718,14 @@
     --color-ink-soft: color-mix(in oklab, var(--band-ink) 90%, var(--band-surface));
 }
 
-:is([data-direction='hearth'], [data-direction='counter']) main > section:has(> .wrap [data-kit='cta-band']) .btn-secondary {
+:is([data-direction='hearth'], [data-direction='counter'], [data-direction='spec']) main > section:has(> .wrap [data-kit='cta-band']) .btn-secondary {
     background: transparent;
     border: 1px solid var(--band-ink);
     box-shadow: none;
     color: var(--band-ink);
 }
 
-:is([data-direction='hearth'], [data-direction='counter']) main > section:has(> .wrap [data-kit='cta-band']) .btn-secondary:hover {
+:is([data-direction='hearth'], [data-direction='counter'], [data-direction='spec']) main > section:has(> .wrap [data-kit='cta-band']) .btn-secondary:hover {
     background: color-mix(in oklab, var(--band-ink) 12%, transparent);
 }
 
@@ -6129,6 +6145,881 @@
 }
 
 /*
+ * spec — a working tool's brochure drawn like its own interface, on white: the
+ * promise huge, bold and tight beside a screen of the product, every control a
+ * full pill, the action filled with the ink, panels parted by hairlines and
+ * never a shadow, the proof grey and the numbers large, and one rainbow edge
+ * turning round the action of the opening and of the dark panel that closes
+ * the page. Grown from launch's rules, so every component and every layout
+ * launch draws is drawn: what differs is the look.
+ */
+
+/* The bar: compact, its links pills. */
+[data-direction='spec'] [data-kit-part='site-header-bar'] {
+    font-size: 0.875rem;
+}
+
+[data-direction='spec'] [data-kit-part='site-header-brand'] {
+    font-weight: var(--display-weight, 600);
+    letter-spacing: -0.03em;
+}
+
+[data-direction='spec'] [data-kit-part$='-mark'] {
+    display: none;
+}
+
+/* The hero, wherever it stands: the promise a size up and tight, the proof as large numbers, the product as a screen. */
+[data-direction='spec'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-title'] {
+    max-width: 18ch;
+    font-size: clamp(2.25rem, 4.6vw, 4.25rem);
+    text-wrap: balance;
+}
+
+[data-direction='spec'] [data-kit-part='hero-title'] {
+    font-weight: var(--display-weight, 700);
+    letter-spacing: -0.04em;
+}
+
+[data-direction='spec'] [data-kit-part='hero-lead'] {
+    font-size: 1.125rem;
+}
+
+[data-direction='spec'] [data-kit-part='hero-lead'] {
+    text-wrap: pretty;
+}
+
+[data-direction='spec'] [data-kit-part='hero-fact'] {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.25rem;
+}
+
+[data-direction='spec'] [data-kit-part='hero-fact'] > :last-child {
+    font-size: var(--text-figure);
+    font-weight: var(--display-weight, 700);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+[data-direction='spec'] [data-kit-part='hero-fact'] > :first-child {
+    font-size: 0.9375rem;
+}
+
+/* The facts are stat callouts: a row of large numbers with nothing ruled over them, each as wide as its number, wrapping rather than overlapping in a half column. */
+[data-direction='spec'] [data-kit-part='hero-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1.5rem clamp(1.75rem, 4vw, 3rem);
+    padding-block-start: 0.5rem;
+    border-block-start: 0;
+}
+
+[data-direction='spec'] [data-kit-part='hero-fact'] {
+    flex: 0 1 auto;
+    justify-content: flex-end;
+    max-width: 13rem;
+}
+
+/* The product's screen: a hairline round it and the page's one shadow, thrown up and to the left, in the light only. */
+[data-direction='spec'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-media'] [data-kit='media'] {
+    border: 1px solid var(--color-rule);
+    box-shadow: -2rem -0.75rem 2.25rem light-dark(color-mix(in oklab, var(--color-ink) 14%, transparent), transparent), -0.5rem -0.25rem 1.25rem light-dark(color-mix(in oklab, var(--color-ink) 12%, transparent), transparent);
+}
+
+/* The opening's own band: the promise on the left, the screen on the right, as the kit draws it; the copy a little wider than the screen. */
+[data-direction='spec'] main > section:has(> .wrap [data-kit='hero']) [data-kit='hero']:not([data-variant]) {
+    gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* A section opening the page — a board's short opening — is the promise too, and is set as one. */
+[data-direction='spec'] main > section > .wrap [data-kit='section'] [data-kit-part='section-title'] {
+    font-size: max(calc(var(--text-display) * 1.1), clamp(2.25rem, 5.6vw, 4.5rem));
+    line-height: var(--text-display--line-height, 1.05);
+    letter-spacing: -0.04em;
+}
+
+[data-direction='spec'] main > section > .wrap [data-kit='section'] [data-kit-part='section-lead'] {
+    font-size: 1.125rem;
+}
+
+/* Heads: centred over what they announce, one size for every prefab's title. */
+[data-direction='spec'] :is([data-kit-part='features-head'], [data-kit-part='section-head']) {
+    margin-inline: auto;
+    text-align: center;
+}
+
+[data-direction='spec'] :is([data-kit-part='features-lead'], [data-kit-part='section-lead']) {
+    margin-inline: auto;
+}
+
+[data-direction='spec'] :is([data-kit-part='projects-title'], [data-kit-part='services-title'], [data-kit-part='process-title'], [data-kit-part='testimonials-title'], [data-kit-part='pricing-title'], [data-kit-part='listings-title'], [data-kit-part='jobs-title'], [data-kit-part='courses-title'], [data-kit-part='quote-title'], [data-kit-part='donate-title']) {
+    font-size: var(--heading-size);
+    line-height: var(--heading-leading);
+}
+
+[data-direction='spec'] :is([data-kit-part='projects-title'], [data-kit-part='services-title'], [data-kit-part='process-title'], [data-kit-part='testimonials-title'], [data-kit-part='pricing-title'], [data-kit-part='listings-title'], [data-kit-part='jobs-title'], [data-kit-part='courses-title'], [data-kit-part='events-title'], [data-kit-part='faq-title'], [data-kit-part='team-title'], [data-kit-part='gallery-title'], [data-kit-part='menu-title']) {
+    margin-block-end: 2.5rem;
+    text-align: center;
+    text-wrap: balance;
+}
+
+[data-direction='spec'] :is([data-kit-part='section-title'], [data-kit-part='features-title'], [data-kit-part='cta-band-title']) {
+    text-wrap: balance;
+}
+
+/* Every head is set like the product's claims: the display weight, tracked in. */
+[data-direction='spec'] :is([data-kit-part='section-title'], [data-kit-part='features-title'], [data-kit-part='cta-band-title'], [data-kit-part='projects-title'], [data-kit-part='services-title'], [data-kit-part='process-title'], [data-kit-part='testimonials-title'], [data-kit-part='pricing-title'], [data-kit-part='listings-title'], [data-kit-part='jobs-title'], [data-kit-part='courses-title'], [data-kit-part='quote-title'], [data-kit-part='donate-title'], [data-kit-part='events-title'], [data-kit-part='faq-title'], [data-kit-part='team-title'], [data-kit-part='gallery-title'], [data-kit-part='menu-title'], [data-kit-part='booking-title']) {
+    font-weight: var(--display-weight, 700);
+    letter-spacing: -0.035em;
+}
+
+/* An intro closes up to its title and keeps the title's distance from the list. */
+[data-direction='spec'] :is([data-kit-part='pricing-intro'], [data-kit-part='process-intro'], [data-kit-part='jobs-intro']) {
+    margin-block: -1.75rem 2.5rem;
+    margin-inline: auto;
+    text-align: center;
+}
+
+/* A section's words alone are a statement: centred under its head, at a reading measure. */
+[data-direction='spec'] [data-kit-part='section-body']:not(:has(> *)) {
+    max-width: 44rem;
+    margin-inline: auto;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* Flat panels: one hairline in every palette, and no shadow in either scheme. */
+[data-direction='spec'] :is([data-kit-part='features-item'], [data-kit-part='projects-item'], [data-kit-part='listings-item'], [data-kit-part='catalogue-item'], [data-kit-part='team-member'], [data-kit-part='services-item'], [data-kit-part='testimonials-item'], [data-kit-part='pricing-plan'], [data-kit='menu']:not([data-variant]) [data-kit-part='menu-section'], [data-kit='schedule'], [data-kit='map']) {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-panel);
+    background: var(--panel-surface, var(--color-raise));
+}
+
+/* Not on a plan: the one to take keeps the ring its markup draws until the rule below finds it by its flag or its button. */
+[data-direction='spec'] :is([data-kit-part='features-item'], [data-kit-part='projects-item'], [data-kit-part='listings-item'], [data-kit-part='catalogue-item'], [data-kit-part='team-member'], [data-kit-part='services-item'], [data-kit-part='testimonials-item'], [data-kit='menu']:not([data-variant]) [data-kit-part='menu-section'], [data-kit='schedule'], [data-kit='map']) {
+    box-shadow: none;
+}
+
+/* The bezel: a picture is inset in its panel by an even margin, its corner following the panel's. */
+[data-direction='spec'] :is([data-kit-part='features-item'], [data-kit-part='projects-item'], [data-kit-part='listings-item'], [data-kit-part='catalogue-item'], [data-kit-part='team-member']) {
+    padding: 0.5rem;
+    transition: border-color var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-direction='spec'] :is([data-kit-part='features-media'] [data-kit='media'], [data-kit-part='projects-image'], [data-kit-part='projects-frame'], [data-kit-part='listings-image'], [data-kit-part='listings-frame'], [data-kit-part='catalogue-image'], [data-kit-part='catalogue-frame'], [data-kit-part='team-image'], [data-kit-part='team-frame']) {
+    border-radius: max(0.25rem, calc(var(--radius-panel) - 0.5rem));
+}
+
+[data-direction='spec'] :is([data-kit-part='features-media'] [data-kit='media'], [data-kit-part='projects-image'], [data-kit-part='projects-frame'], [data-kit-part='listings-image'], [data-kit-part='listings-frame'], [data-kit-part='catalogue-image'], [data-kit-part='catalogue-frame']) {
+    aspect-ratio: 16 / 10;
+}
+
+/* A hairline inside the picture's edge, over the photograph: a pale sky still ends where the bezel says. */
+[data-direction='spec'] :is([data-kit='hero']:not([data-variant]) [data-kit-part='hero-media'] [data-kit='media'], [data-kit-part='features-media'] [data-kit='media'], [data-kit-part='projects-image'], [data-kit-part='projects-frame'], [data-kit-part='listings-image'], [data-kit-part='listings-frame'], [data-kit-part='catalogue-image'], [data-kit-part='catalogue-frame'], [data-kit-part='team-image'], [data-kit-part='team-frame'], [data-kit-part='gallery-image']) {
+    outline: 1px solid color-mix(in oklab, var(--color-ink) 10%, transparent);
+    outline-offset: -1px;
+}
+
+/* No picture yet: the frame is the second ground. */
+[data-direction='spec'] :is([data-kit-part='projects-frame'], [data-kit-part='listings-frame'], [data-kit-part='catalogue-frame'], [data-kit-part='team-frame'], [data-kit='hero']:not([data-variant]) [data-kit='media'], [data-kit-part='features-media'] [data-kit='media']) {
+    background: var(--color-canvas-alt);
+}
+
+[data-direction='spec'] :is([data-kit-part='features-item']:has([data-kit-part='features-link']), [data-kit-part='projects-item']:has([data-kit-part='projects-link']), [data-kit-part='listings-item']:has([data-kit-part='listings-link']), [data-kit-part='services-item']:has([data-kit-part='services-link'])):hover {
+    border-color: color-mix(in oklab, var(--color-ink) 40%, var(--color-rule));
+}
+
+/*
+ * Cards stand in centred rows at a card's width: as many as the column holds,
+ * never stretched across it, and a last row of one or two centred under the
+ * others — a head is centred, so what it announces is too. Three across at
+ * most for what carries a picture and a paragraph, four for the small ones.
+ */
+[data-direction='spec'] :is([data-kit='catalogue']:not([data-variant]), :is([data-kit='projects'], [data-kit='listings'], [data-kit='services'], [data-kit='team'], [data-kit='gallery'], [data-kit='pricing'], [data-kit='testimonials']):not([data-variant]) :is([data-kit-part='projects-list'], [data-kit-part='listings-list'], [data-kit-part='services-list'], [data-kit-part='team-list'], [data-kit-part='gallery-grid'], [data-kit-part='pricing-list'], [data-kit-part='testimonials-list'])) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+[data-direction='spec'] :is([data-kit-part='features-item'], [data-kit='projects']:not([data-variant]) [data-kit-part='projects-item'], [data-kit='listings']:not([data-variant]) [data-kit-part='listings-item']) {
+    flex: 1 1 max(17rem, calc((100% - 3rem) / 3 - 1px));
+    min-width: 0;
+    max-width: 24rem;
+}
+
+/* The features are tiles before they are cards: three still stand across the large tile of a board. */
+[data-direction='spec'] [data-kit-part='features-item'] {
+    flex-basis: max(15rem, calc((100% - 3rem) / 3 - 1px));
+}
+
+[data-direction='spec'] :is([data-kit='services']:not([data-variant]) [data-kit-part='services-item'], [data-kit='team']:not([data-variant]) [data-kit-part='team-member'], [data-kit='catalogue']:not([data-variant]) [data-kit-part='catalogue-item'], [data-kit='gallery']:not([data-variant]) [data-kit-part='gallery-item']) {
+    flex: 1 1 max(13.5rem, calc((100% - 4.5rem) / 4 - 1px));
+    min-width: 0;
+    /* A quarter of the cards' column where four stand across; in a column under 40rem — a phone, a board's tile — a card's own width. */
+    max-width: clamp(17.625rem, calc((40rem - 100%) * 999), 24rem);
+}
+
+[data-direction='spec'] [data-kit='pricing']:not([data-variant]) [data-kit-part='pricing-plan'] {
+    flex: 1 1 16rem;
+    min-width: 0;
+    max-width: 24rem;
+}
+
+[data-direction='spec'] [data-kit='testimonials']:not([data-variant]) [data-kit-part='testimonials-item'] {
+    flex: 1 1 18rem;
+    min-width: 0;
+    max-width: 36rem;
+}
+
+/* What is not cards keeps the cards' column: on a wide palette a table, a strip or the closing panel is no wider than three cards and their gaps. */
+[data-direction='spec'] :is([data-kit='menu'], [data-kit='map'], [data-kit='process'], [data-kit='credentials'], [data-kit='testimonials'], [data-kit='cta-band']) {
+    width: 100%;
+    max-width: 75rem;
+    margin-inline: auto;
+}
+
+/* The features as tiles. */
+[data-direction='spec'] [data-kit-part='features-list'] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+[data-direction='spec'] [data-kit-part='features-item'] {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    align-content: start;
+    gap: 0;
+}
+
+[data-direction='spec'] [data-kit-part='features-copy'] {
+    padding: 1.25rem 0.75rem 0.75rem;
+}
+
+[data-direction='spec'] [data-kit-part='features-item-title'] {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+[data-direction='spec'] [data-kit-part='features-body'] {
+    font-size: 0.9375rem;
+}
+
+[data-direction='spec'] [data-kit-part='features-link'] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+}
+
+/* The whole tile is the link, and the link points on as the action does. */
+[data-direction='spec'] [data-kit-part='features-link']::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+[data-direction='spec'] [data-kit-part='features-link']::after {
+    content: '';
+    width: 0.4em;
+    height: 0.4em;
+    border-block-start: 1.5px solid currentColor;
+    border-inline-end: 1.5px solid currentColor;
+    rotate: 45deg;
+    transition: translate var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-direction='spec'] [data-kit-part='features-item']:hover [data-kit-part='features-link']::after {
+    translate: 0.2em 0;
+}
+
+/* Work done and what is on offer: the same bezel, the facts small and exact. */
+[data-direction='spec'] :is([data-kit-part='projects-body'], [data-kit-part='listings-body']) {
+    padding: 1.25rem 0.75rem 0.75rem;
+}
+
+[data-direction='spec'] [data-kit-part='catalogue-body'] {
+    padding: 1rem 0.5rem 0.5rem;
+}
+
+[data-direction='spec'] :is([data-kit-part='projects-meta'], [data-kit-part='listings-place']) {
+    font-size: 0.8125rem;
+}
+
+[data-direction='spec'] :is([data-kit-part='projects-name'], [data-kit-part='listings-name']) {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+/*
+ * Flags are small pills, and the highlight is never the ground of their words
+ * (graphite's is 3.1:1 under its own): the plan's flag is its tint in the ink,
+ * a status is an ink chip that holds over any photograph, and a count of
+ * places left is a hairline capsule with the highlight as a dot.
+ */
+[data-direction='spec'] :is([data-kit-part='listings-status'], [data-kit-part='pricing-flag'], [data-kit-part='courses-seats']) {
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.02em;
+}
+
+[data-direction='spec'] [data-kit-part='pricing-flag'] {
+    border: 1px solid color-mix(in oklab, var(--color-highlight) 40%, var(--color-rule));
+    background: color-mix(in oklab, var(--color-highlight) 14%, var(--color-canvas));
+    color: var(--color-ink);
+    font-weight: 700;
+}
+
+[data-direction='spec'] [data-kit-part='listings-status'] {
+    padding: 0.125rem 0.625rem;
+    background: var(--color-ink);
+    color: var(--color-canvas);
+}
+
+[data-direction='spec'] [data-kit-part='courses-seats'] {
+    border: 1px solid var(--color-rule);
+    background: transparent;
+    color: var(--color-ink-soft);
+}
+
+[data-direction='spec'] [data-kit-part='courses-item']:has([data-kit-part='courses-action']) [data-kit-part='courses-seats'] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-ink);
+}
+
+[data-direction='spec'] [data-kit-part='courses-item']:has([data-kit-part='courses-action']) [data-kit-part='courses-seats']::before {
+    content: '';
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: var(--color-highlight);
+}
+
+[data-direction='spec'] :is([data-kit-part='team-image'], [data-kit-part='team-frame']) {
+    aspect-ratio: 1;
+}
+
+/* Services as tiles: the icon in a small tinted square, the price along the foot. */
+[data-direction='spec'] [data-kit-part='services-item'] {
+    padding: 1.5rem;
+    transition: border-color var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-direction='spec'] [data-kit='services']:not([data-variant]) [data-kit-part='services-icon'] {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-block-end: 0.25rem;
+    border: 1px solid color-mix(in oklab, var(--color-accent) 24%, var(--color-rule));
+    border-radius: min(var(--radius-control), 0.75rem);
+    background: color-mix(in oklab, var(--color-accent) 10%, var(--color-canvas));
+}
+
+[data-direction='spec'] [data-kit='services']:not([data-variant]) [data-kit-part='services-icon'] [data-kit='icon'] {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+[data-direction='spec'] [data-kit='services']:not([data-variant]) [data-kit-part='services-price'] {
+    padding-block-start: 0.75rem;
+    border-block-start: 1px solid var(--color-rule);
+    font-size: 0.8125rem;
+}
+
+/* The road as a track: one hairline across each row of steps, every number a stop sitting on it. */
+[data-direction='spec'] [data-kit='process']:not([data-variant]) [data-kit-part='process-list'] {
+    gap: 2.5rem 0;
+    padding-block-start: 0.75rem;
+}
+
+[data-direction='spec'] [data-kit='process']:not([data-variant]) [data-kit-part='process-step'] {
+    gap: 0.375rem;
+    padding: 0 1.5rem 0 0;
+    border-block-start: 1px solid var(--color-rule);
+}
+
+[data-direction='spec'] [data-kit='process']:not([data-variant]) [data-kit-part='process-number'] {
+    align-self: flex-start;
+    margin-block: -0.75rem 0.875rem;
+    padding: 0 0.625rem;
+    border: 1px solid var(--color-rule);
+    border-radius: 9999px;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.375rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+[data-direction='spec'] [data-kit-part='process-duration'] {
+    padding-block-start: 0.5rem;
+    color: var(--color-ink-soft);
+    font-size: 0.8125rem;
+}
+
+/* What customers said: cards on the second ground with no hairline, the mark in the highlight. */
+[data-direction='spec'] [data-kit-part='testimonials-item'] {
+    padding: 1.75rem;
+    border-color: transparent;
+    background: var(--color-canvas-alt);
+}
+
+[data-direction='spec'] [data-kit-part='testimonials-quote'] {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    text-wrap: pretty;
+}
+
+[data-direction='spec'] [data-kit-part='testimonials-quote']::before {
+    content: '\201C';
+    display: block;
+    height: 1.75rem;
+    color: var(--color-highlight);
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 1;
+}
+
+[data-direction='spec'] [data-kit-part='testimonials-author'] {
+    padding-block-start: 1.25rem;
+    border-block-start: 1px solid var(--color-rule);
+}
+
+[data-direction='spec'] [data-kit-part='testimonials-name'] {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+[data-direction='spec'] [data-kit-part='testimonials-role'] {
+    font-size: 0.8125rem;
+}
+
+/* Plans side by side: the name small, the price at the figure size, and the one to take ringed in the ink. */
+[data-direction='spec'] [data-kit-part='pricing-plan'] {
+    gap: 1.25rem;
+    padding: 1.75rem;
+}
+
+[data-direction='spec'] [data-kit-part='pricing-name'] {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+[data-direction='spec'] [data-kit-part='pricing-price'] {
+    font-size: calc(var(--text-figure) * 0.8);
+    font-weight: var(--display-weight, 700);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+[data-direction='spec'] [data-kit-part='pricing-flag'] {
+    padding: 0.125rem 0.625rem;
+}
+
+[data-direction='spec'] [data-kit-part='pricing-plan']:is(:has([data-kit-part='pricing-flag']), :has(.btn-primary)) {
+    border-color: var(--color-ink);
+    background: var(--panel-surface, var(--color-raise));
+    box-shadow: 0 0 0 1px var(--color-ink);
+}
+
+[data-direction='spec'] [data-kit-part='pricing-note'] {
+    text-align: center;
+}
+
+/* What vouches for it: no strip and no rules, the names grey wordmarks under a meta label. */
+[data-direction='spec'] [data-kit='credentials']:not([data-variant]) {
+    padding-block: 1rem;
+}
+
+[data-direction='spec'] [data-kit-part='credentials-title'] {
+    color: var(--color-ink-soft);
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+[data-direction='spec'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-list'] > * {
+    flex: 0 1 auto;
+    max-width: none;
+}
+
+[data-direction='spec'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-list'] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.75rem 3.5rem;
+}
+
+[data-direction='spec'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-item'] {
+    align-items: center;
+    gap: 0.25rem;
+    max-width: 14rem;
+    padding-block-start: 0;
+    border-block-start: 0;
+    text-align: center;
+}
+
+[data-direction='spec'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-logo'] {
+    height: 2rem;
+    object-position: center;
+    filter: grayscale(1);
+    opacity: 0.7;
+}
+
+[data-direction='spec'] [data-kit='credentials']:not([data-variant]) [data-kit-part='credentials-name'] {
+    color: var(--color-ink-soft);
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: var(--display-weight, 600);
+    letter-spacing: -0.03em;
+}
+
+[data-direction='spec'] [data-kit-part='credentials-detail'] {
+    font-size: 0.75rem;
+}
+
+/* A list is a table in one panel: positions, dates, what is on and the questions, at a measure the eye crosses. */
+[data-direction='spec'] :is([data-kit='jobs'], [data-kit='courses'], [data-kit='events']):not([data-variant]) {
+    width: 100%;
+    max-width: 62rem;
+    margin-inline: auto;
+}
+
+[data-direction='spec'] [data-kit='faq']:not([data-variant]) {
+    width: 100%;
+    max-width: 48rem;
+    margin-inline: auto;
+}
+
+[data-direction='spec'] :is([data-kit='jobs']:not([data-variant]) [data-kit-part='jobs-list'], [data-kit='courses']:not([data-variant]) [data-kit-part='courses-list'], [data-kit='events']:not([data-variant]) [data-kit-part='events-list'], [data-kit='faq']:not([data-variant]) [data-kit-part='faq-list']) {
+    padding-inline: clamp(1rem, 3vw, 1.75rem);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-panel);
+    background: var(--panel-surface, var(--color-raise));
+}
+
+[data-direction='spec'] :is([data-kit-part='jobs-name'], [data-kit-part='courses-date'], [data-kit-part='events-date']) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+[data-direction='spec'] [data-kit-part='jobs-meta'] > * {
+    border: 1px solid var(--color-rule);
+    border-radius: 9999px;
+    background: transparent;
+    font-size: 0.75rem;
+}
+
+[data-direction='spec'] [data-kit-part='jobs-arrow'] {
+    transition: translate var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-direction='spec'] [data-kit-part='jobs-item']:hover [data-kit-part='jobs-arrow'] {
+    translate: 0.25rem 0;
+}
+
+[data-direction='spec'] [data-kit-part='courses-seats'] {
+    padding: 0.125rem 0.625rem;
+}
+
+/* The questions: a plus at the row's end that turns to a cross when the answer is open. */
+[data-direction='spec'] [data-kit='faq']:not([data-variant]) [data-kit-part='faq-entry'] {
+    padding-block: 0;
+}
+
+[data-direction='spec'] [data-kit='faq']:not([data-variant]) [data-kit-part='faq-question'] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1.125rem;
+    list-style: none;
+}
+
+[data-direction='spec'] [data-kit='faq']:not([data-variant]) [data-kit-part='faq-question']::after {
+    content: '';
+    flex: none;
+    width: 0.75rem;
+    height: 0.75rem;
+    background:
+        linear-gradient(var(--color-ink-soft), var(--color-ink-soft)) center / 100% 1.5px no-repeat,
+        linear-gradient(var(--color-ink-soft), var(--color-ink-soft)) center / 1.5px 100% no-repeat;
+    transition: rotate var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-direction='spec'] [data-kit='faq']:not([data-variant]) [data-kit-part='faq-entry'][open] [data-kit-part='faq-question']::after {
+    rotate: 45deg;
+}
+
+[data-direction='spec'] [data-kit='faq']:not([data-variant]) [data-kit-part='faq-answer'] {
+    margin-block: 0 1.25rem;
+}
+
+/* The price list: each section a panel beside the next, no leader, the price in the display face. */
+[data-direction='spec'] [data-kit='menu']:not([data-variant]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+[data-direction='spec'] [data-kit='menu']:not([data-variant]) > [data-kit-part='menu-title'] {
+    flex-basis: 100%;
+    margin-block: 0 1rem;
+}
+
+[data-direction='spec'] [data-kit='menu']:not([data-variant]) > [data-kit-part='menu-section'] {
+    flex: 1 1 min(22rem, 100%);
+    margin-block: 0;
+    padding: 1.5rem;
+}
+
+[data-direction='spec'] [data-kit-part='menu-section-title'] {
+    color: var(--color-ink-soft);
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+[data-direction='spec'] [data-kit-part='menu-leader'] {
+    display: none;
+}
+
+[data-direction='spec'] [data-kit-part='menu-row'] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+}
+
+[data-direction='spec'] [data-kit-part='menu-item'] + [data-kit-part='menu-item'] {
+    padding-block-start: 0.875rem;
+    border-block-start: 1px solid var(--color-rule);
+}
+
+[data-direction='spec'] [data-kit-part='menu-price'] {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight, 600);
+}
+
+/* The hours across main are a table at a table's measure; in a column beside the map — poster's foot, split's half — they fill it. */
+[data-direction='spec'] :is(main > .wrap > [data-kit='schedule']:not([data-variant]), main > .wrap > [data-ref]:has(> [data-kit='schedule']) > [data-kit='schedule']:not([data-variant])) {
+    width: 100%;
+    max-width: 36rem;
+    margin-inline: auto;
+}
+
+[data-direction='spec'] :is([data-kit-part='schedule-title'], [data-kit-part='gallery-caption'], [data-kit-part='map-caption']) {
+    font-size: 0.8125rem;
+}
+
+[data-direction='spec'] [data-kit-part='schedule-dayname'] {
+    color: var(--color-ink-soft);
+}
+
+/* Where the visitor acts: a flat hairline panel at a form's measure. */
+[data-direction='spec'] :is([data-kit='quote'], [data-kit='booking'], [data-kit='donate']):not([data-variant]) {
+    width: 100%;
+    max-width: 60rem;
+    margin-inline: auto;
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    border: 1px solid var(--color-rule);
+    border-radius: calc(var(--radius-panel) * 1.5);
+    background: var(--panel-surface, var(--color-raise));
+}
+
+/*
+ * The close: the band is the dark panel, the ink across the page with the
+ * canvas's text on it, and the call is centred in one column on it, with the
+ * same action and its rainbow edge under it.
+ */
+[data-direction='spec'] [data-kit='cta-band'] {
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 2rem;
+    padding-inline: clamp(0rem, 3vw, 2rem);
+    text-align: center;
+}
+
+[data-direction='spec'] [data-kit-part='cta-band-copy'] {
+    flex: none;
+    max-width: 44rem;
+}
+
+[data-direction='spec'] [data-kit-part='cta-band-title'] {
+    font-size: calc(var(--heading-size) * 1.25);
+}
+
+[data-direction='spec'] [data-kit-part='cta-band-lead'] {
+    margin-inline: auto;
+}
+
+[data-direction='spec'] [data-kit-part='cta-band-actions'] {
+    justify-content: center;
+}
+
+[data-direction='spec'] [data-kit-part='cta-band-details'] {
+    flex: none;
+    align-self: stretch;
+    padding-block-start: 2rem;
+    border-block-start: 1px solid var(--color-rule);
+}
+
+[data-direction='spec'] [data-kit-part='cta-band-detail'] > :first-child {
+    justify-content: center;
+    font-size: 0.8125rem;
+}
+
+/* The foot: quiet, small and exact. */
+[data-direction='spec'] [data-kit-part='site-footer-eyebrow'] {
+    color: var(--color-ink);
+}
+
+[data-direction='spec'] [data-kit-part='site-footer-brand'] {
+    font-weight: var(--display-weight, 600);
+    letter-spacing: -0.03em;
+}
+
+/* Every button a full pill in the display face, whatever the palette's corner: the action filled with the ink, the other a ghost with a hairline. */
+[data-direction='spec'] .btn {
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+[data-direction='spec'] .btn-primary {
+    border-color: transparent;
+    background-color: var(--color-ink);
+    color: var(--color-canvas);
+}
+
+[data-direction='spec'] .btn-primary:hover:not(:disabled) {
+    border-color: transparent;
+    background-color: color-mix(in oklab, var(--color-ink) 82%, var(--color-canvas));
+}
+
+[data-direction='spec'] .btn-secondary {
+    border: 1px solid var(--color-rule);
+    background-color: transparent;
+    color: var(--color-ink);
+}
+
+[data-direction='spec'] .btn-secondary:hover:not(:disabled) {
+    border-color: color-mix(in oklab, var(--color-ink) 30%, var(--color-rule));
+    background-color: color-mix(in oklab, var(--color-ink) 4%, transparent);
+}
+
+/* On the dark band the ink is the band's ink, so the action is a light pill with the band's ground for its words. */
+[data-direction='spec'] main > section:has(> .wrap [data-kit='cta-band']) .btn-primary {
+    color: var(--band-surface);
+}
+
+/*
+ * The rainbow edge: the one moment the page lets its hair down. A 2px border
+ * drawn from a conic gradient of the palette's highlight, the kit's danger and
+ * warning and the accent, turned once every four seconds — round the opening's
+ * action and the close's, and nowhere else. Where the angle cannot be animated
+ * the edge stands still; under reduced motion it stands still too.
+ */
+@property --spec-turn {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 90deg;
+}
+
+@keyframes spec-turn {
+    to {
+        --spec-turn: 450deg;
+    }
+}
+
+[data-direction='spec'] :is([data-kit-part='hero-actions'], [data-kit-part='cta-band-actions']) .btn-primary {
+    border: 2px solid transparent;
+    background:
+        linear-gradient(var(--spec-fill, var(--color-ink)), var(--spec-fill, var(--color-ink))) padding-box,
+        conic-gradient(from var(--spec-turn, 90deg), var(--color-highlight) 19%, color-mix(in oklab, var(--color-highlight) 50%, var(--color-danger)) 30%, var(--color-danger) 42%, var(--color-warning) 56%, color-mix(in oklab, var(--color-warning) 40%, var(--color-highlight)) 68%, var(--color-accent) 92%, var(--color-highlight)) border-box;
+    animation: spec-turn 4s linear infinite;
+}
+
+[data-direction='spec'] :is([data-kit-part='hero-actions'], [data-kit-part='cta-band-actions']) .btn-primary:hover:not(:disabled) {
+    --spec-fill: color-mix(in oklab, var(--color-ink) 82%, var(--color-canvas));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-direction='spec'] :is([data-kit-part='hero-actions'], [data-kit-part='cta-band-actions']) .btn-primary {
+        animation: none;
+    }
+}
+
+/* The bar's links are pills: a faint wash of the ink on hover, the current one held in it. */
+[data-direction='spec'] [data-kit-part='site-header-links'] {
+    column-gap: 0.25rem;
+}
+
+[data-direction='spec'] [data-kit-part='site-header-links'] :any-link {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: background-color var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-direction='spec'] [data-kit-part='site-header-links'] :any-link:hover,
+[data-direction='spec'] [data-kit-part='site-header-links'] [aria-current='page'] {
+    background-color: color-mix(in oklab, var(--color-ink) 6%, transparent);
+}
+
+/* The opening's eyebrow is a tag, and so is today's status: a pill on the second ground with a dot of the highlight. */
+[data-direction='spec'] :is([data-kit-part='hero-eyebrow'], [data-kit-part='site-header-status']) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.875rem;
+    border: 1px solid var(--color-rule);
+    border-radius: 9999px;
+    background: var(--color-canvas-alt);
+    color: var(--color-ink);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+}
+
+[data-direction='spec'] :is([data-kit-part='hero-eyebrow'], [data-kit-part='site-header-status'])::before {
+    content: '';
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 9999px;
+    background: var(--color-highlight);
+}
+
+/* Every other eyebrow is a meta label: small, uppercase, tracked, in the soft ink. */
+[data-direction='spec'] :is([data-kit-part='features-eyebrow'], [data-kit-part='section-eyebrow'], [data-kit-part='cta-band-eyebrow']) {
+    color: var(--color-ink-soft);
+    font-size: 0.6875rem;
+    font-weight: 500;
+}
+
+[data-direction='spec'] [data-kit='hero']:not([data-variant]) [data-kit-part='hero-lead'] {
+    max-width: 34rem;
+}
+
+/*
  * trail — the outdoors in season: the landscape edge to edge and dissolving
  * into the page at its foot, the name set over that horizon, the dates and the
  * ways on painted on signpost boards, the facts in a strip, and a ridge line
@@ -8388,6 +9279,58 @@
 }
 
 [data-direction='launch'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-end'] {
+    flex-basis: 100%;
+}
+
+/*
+ * spec, symmetry, as launch's: the three rows it would otherwise draw with a hole.
+ * Its cards, tiles, plans, voices and marks, and the opening's actions and
+ * facts, were centred rows already. What was left stands on the kit's own
+ * grids, whose tracks stay where they are when a row is short: the details of
+ * the closing panel, whose words launch centres, the facts of a listing's
+ * card, and the footer's columns.
+ */
+
+/* The closing panel's details: a last row that is short is shared by what stands in it, so the odd detail is centred under the others and not under the first of them. */
+[data-direction='spec'] [data-kit-part='cta-band-details'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='spec'] [data-kit-part='cta-band-detail'] {
+    flex: 1 1 11rem;
+}
+
+/* A listing's facts share the card's width: three stand across a card of any width and not two over one, and whatever row is still short is filled by what stands in it. */
+[data-direction='spec'] [data-kit='listings']:not([data-variant]) [data-kit-part='listings-facts'] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='spec'] [data-kit='listings']:not([data-variant]) [data-kit-part='listings-fact'] {
+    flex: 1 1 4rem;
+}
+
+/*
+ * The footer's columns share its width in the kit's own proportions, however
+ * many there are: with no contact, the name and the pages are the whole row
+ * and not two thirds of it. Under 43rem, the frame's width where the kit sets
+ * its columns, the basis is the whole row and each stands on a row of its own.
+ */
+[data-direction='spec'] [data-kit='site-footer']:not([data-variant]) {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-direction='spec'] [data-kit='site-footer']:not([data-variant]) > * {
+    flex: 1 1 calc((43rem - 100%) * 999);
+}
+
+[data-direction='spec'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-about'] {
+    flex-grow: 1.4;
+}
+
+[data-direction='spec'] [data-kit='site-footer']:not([data-variant]) > [data-kit-part='site-footer-end'] {
     flex-basis: 100%;
 }
 

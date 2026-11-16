@@ -16,6 +16,7 @@ A shared workspace: desks by the day or the month, closed offices, meeting rooms
 
 - launch — a product's front page: one promise, the plans, one action
 - studio — calm and editorial, for a space that sells its light and its quiet
+- spec — a space run like a product: the plans and the bookings as dense as an app, one action
 
 ## Layout
 

@@ -37,6 +37,7 @@ return [
         'plum' => 'Melanzana su bianco rosato con oro antico, un serif ad alto contrasto, bottoni a pillola in maiuscoletto.',
         'denim' => 'Indaco su pagina slavata con ruggine di rivetto, un grottesco largo e serrato, pannelli impunturati.',
         'sorbet' => 'Carta pesca, lampone e un blu fresco, un carattere tondo, adesivi al posto dei pannelli.',
+        'marble' => 'Marmo bianco, inchiostro quasi nero e una pillola nera per l’azione, link blu, badge viola, un carattere pesante e stretto.',
 
         'system' => 'Seguire il sistema operativo, anche quando cambia idea.',
         'light' => 'Fissare la metà chiara di ogni tavolozza, checché dica il sistema.',

@@ -15,6 +15,7 @@ A software product, an app, a platform or a digital service sold by subscription
 
 - launch — a product's front page: one promise, proof, plans, a single action
 - studio — calm and editorial, for a tool that sells restraint rather than features
+- spec — a working tool drawn like its own interface: the promise beside its screen, every control a pill, the numbers large
 
 ## Layout
 

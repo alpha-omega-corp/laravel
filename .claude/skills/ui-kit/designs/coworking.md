@@ -1,6 +1,6 @@
 # coworking
 
-Twelve ways one shared workspace is drawn, seven as a launch page and five as a quiet studio. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise, one sentence, the room in a photograph, the door and how far it is from the station), how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the room is shown rather than argued: the town coworking and the newcomer, the one that sells on price and the one that sells its light, the desk taken for a day off a phone and the office a team studies for a week, the members' table and the town's incubator, the station and the village.
+Thirteen ways one shared workspace is drawn, seven as a launch page, five as a quiet studio and one drawn like the booking app it runs on. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise, one sentence, the room in a photograph, the door and how far it is from the station), how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the room is shown rather than argued: the town coworking and the newcomer, the one that sells on price and the one that sells its light, the desk taken for a day off a phone and the office a team studies for a week, the members' table and the town's incubator, the station and the village.
 
 ## Atelier partagé
 
@@ -224,3 +224,20 @@ A members' room for people who receive: a centred opening under a header that se
 - gallery — strip
 - events — timeline
 - booking — split
+
+## Plateau
+
+A coworking that runs like a product and is booked like one, from a phone, by the hour: the promise beside a screen of the booking app, what every member gets as tiles, then the dark panel that asks for a trial day. For a space of founders and remote teams in a business district, whose members compare it with an office by the month and want to see the plans, the free desks and the next events at a glance. The plans and the room are boards, the events stand as cards, and the visit page sets the form beside the map.
+
+- direction — spec
+- palette — marble
+- / — marketing
+- /plans — board
+- /space — board
+- /events — marketing
+- /visit — split
+- services — tiles
+- gallery — mosaic
+- events — cards
+- booking — split
+- map — wide

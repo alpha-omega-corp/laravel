@@ -1,6 +1,6 @@
 # agency
 
-Twelve ways one agency is drawn, across the three looks it may take: a product's front page for the agency that sells a result, white walls for the one whose work is looked at, and a calm magazine for the one that is read. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — a promise, one piece of work, a sentence or a price — and how the work and the services are read: on a board, down a long page, as a ruled index or as a price list.
+Thirteen ways one agency is drawn, across the four looks it may take: a product's front page for the agency that sells a result, white walls for the one whose work is looked at, a calm magazine for the one that is read, and a spec sheet for the one that reports in figures. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — a promise, one piece of work, a sentence or a price — and how the work and the services are read: on a board, down a long page, as a ruled index or as a price list.
 
 ## Agence web
 
@@ -204,3 +204,19 @@ A film and video house drawn as a dark room: one frame bled across the first scr
 - services — tiles
 - process — timeline
 - testimonials — wall
+
+## Résultats
+
+An agency that reports in figures and sells what moved: conversion, time on site, the share of a market. The first screen is the promise beside a dashboard of a client's results, the clients' marks stand in grey under it and their words in a wall, the work and the services are boards whose tiles each lead with a number, and the brief is asked for beside its invitation. For a growth or product agency whose buyer is a head of marketing with a target to meet this quarter, on white marble with a black action, the look of the tools that buyer already lives in.
+
+- direction — spec
+- palette — marble
+- / — split
+- /work — board
+- /services — board
+- /team — marketing
+- /brief — split
+- credentials — logos
+- testimonials — wall
+- process — row
+- quote — split
