@@ -143,7 +143,7 @@ return [
         ],
         'tabs' => [
             'label' => 'Schede',
-            'summary' => 'Una fila di sezioni, sottolineate o a pastiglie.',
+            'summary' => 'Una fila di sezioni: sottolineate, a pastiglie, come una barra di caselle uguali, o come schede unite al loro pannello.',
         ],
         'vertical_nav' => [
             'label' => 'Navigazione verticale',

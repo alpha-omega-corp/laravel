@@ -143,7 +143,7 @@ return [
         ],
         'tabs' => [
             'label' => 'Reiter',
-            'summary' => 'Eine Reihe von Abschnitten, unterstrichen oder als Pillen.',
+            'summary' => 'Eine Reihe von Abschnitten: unterstrichen, als Pillen, als Leiste gleich breiter Felder oder als Reiter, die an ihr Feld anschließen.',
         ],
         'vertical_nav' => [
             'label' => 'Vertikale Navigation',

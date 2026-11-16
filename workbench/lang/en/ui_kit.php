@@ -143,7 +143,7 @@ return [
         ],
         'tabs' => [
             'label' => 'Tabs',
-            'summary' => 'A row of sections, underlined or as pills.',
+            'summary' => 'A row of sections: underlined, as pills, as one bar of equal cells, or as tabs joined to their panel.',
         ],
         'vertical_nav' => [
             'label' => 'Vertical navigation',

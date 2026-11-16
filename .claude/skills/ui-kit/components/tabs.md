@@ -16,7 +16,7 @@ The views of one screen side by side, such as the orders by state or a customer'
 
 ## Behaviour
 
-- The view being shown is given current, and it is marked by an underline or a raised pill as well as its colour. (working-memory, flow)
+- The view being shown is given current, and it is marked by an underline, a raised pill, a bar along its cell's foot or a tab joined to its panel, as well as its colour. (working-memory, flow)
 - Each tab is a link to its view, a path or a ?tab= query, so the view survives a reload and can be shared, and none is a # that leads nowhere. (mental-model, peak-end-rule)
 - Tabs switch the views of one thing: a tab never leads to another screen, which is the navigation's job. (mental-model, jakobs-law)
 - A label is a word or two: the row wraps rather than scrolls, and a second row reads as a second set of tabs. (cognitive-load, law-of-pragnanz)

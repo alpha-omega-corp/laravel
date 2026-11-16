@@ -143,7 +143,7 @@ return [
         ],
         'tabs' => [
             'label' => 'Onglets',
-            'summary' => 'Une rangée de sections, soulignées ou en pastilles.',
+            'summary' => 'Une rangée de sections : soulignées, en pastilles, en une barre de cases égales, ou en onglets joints à leur panneau.',
         ],
         'vertical_nav' => [
             'label' => 'Navigation verticale',
