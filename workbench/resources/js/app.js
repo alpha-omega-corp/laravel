@@ -4,3 +4,4 @@ import '@tailwindplus/elements';
 
 import './theme.js';
 import './dev.js';
+import './framework.js';

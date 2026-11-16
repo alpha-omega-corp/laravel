@@ -131,11 +131,12 @@ it('keeps an override the skill allows, and says so in the address', function ()
         ->and(Site::query($choice)['direction'])->toBe($other);
 });
 
-it('frames the page in the tab with every axis above it and what a build pulls under it', function (string $business) {
+it('frames the page in the tab with every axis beside it and what a build pulls under it', function (string $business) {
     $html = $this->get(route('framework.businesses', ['business' => $business]))->assertOk()->getContent();
     $design = Site::designs($business)[0];
 
     expect($html)
+        ->toContain('data-ref="framework.controls"')
         ->toContain('data-ref="framework.site"')
         ->toContain('data-ref="framework.pulls"')
         ->toContain(e(route('framework.site', ['business' => $business, 'design' => $design['slug'], 'embed' => 1])))

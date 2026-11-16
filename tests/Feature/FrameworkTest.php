@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Vite;
 use Workbench\App\Enums\KitLayout;
 use Workbench\App\Enums\Project;
@@ -51,12 +52,15 @@ function withoutBreadcrumb(string $site): string
     return (string) preg_replace('#<nav data-ref="&lt;x-kit\.breadcrumb /&gt;".*?</nav>#s', '', $site);
 }
 
-it('puts every axis in one navigation above the framework', function () {
+it('puts every axis in one column beside the framework', function () {
     $html = $this->get(route('framework'))->assertOk()->getContent();
 
-    // One block, one row per axis, and no rail anywhere: the page's own two
-    // side navigations are gone, so the only one left is the mock site's.
-    expect(substr_count($html, 'data-ref="&lt;x-kit.tabs variant=&quot;pill&quot; /&gt;"'))->toBe(4)
+    // One column at the framework's side, one row per axis, and no side-nav of
+    // the page's own: the only one left is the mock site's. The column comes
+    // first and the framework after it, which takes the main column.
+    expect(substr_count($html, 'data-ref="framework.controls"'))->toBe(1)
+        ->and(strpos($html, 'data-ref="framework.controls"'))->toBeLessThan(strpos($html, 'data-ref="framework.layouts.'))
+        ->and(substr_count($html, 'data-ref="&lt;x-kit.tabs variant=&quot;pill&quot; /&gt;"'))->toBe(4)
         ->and(substr_count($html, 'data-ref="&lt;x-kit.side-nav'))->toBe(0)
         ->and($html)->toContain(__('framework.projects'))
         ->and($html)->toContain(__('framework.palettes'))
@@ -284,7 +288,7 @@ it('holds the framework in one card', function () {
 
     // The heading and the framework share a panel, and the framework brings no
     // second frame of its own inside it.
-    expect($html)->toMatch('/class="panel overflow-hidden">\s*<header/')
+    expect($html)->toMatch('/class="panel min-w-0 overflow-hidden">\s*<header/')
         ->and($html)->toContain('data-ref="framework.layouts.marketing"')
         ->and($html)->not->toContain('rounded-panel border border-rule bg-canvas font-body');
 });
@@ -337,7 +341,7 @@ it('renders one section in one container, not every pairing at once', function (
 it('scrolls the container rather than the page', function () {
     $html = $this->get(route('framework'))->assertOk()->getContent();
 
-    expect($html)->toContain('h-[calc(100dvh-36rem)]')
+    expect($html)->toContain('h-[calc(100dvh-22rem)]')
         ->and($html)->toContain('overflow-y-auto')
         ->and($html)->toContain('resize-y');
 });
@@ -516,9 +520,12 @@ it('leaves a phone a way out of the section it is on', function () {
      * layouts had no navigation at all on a phone once the footer's duplicate
      * list was removed. The fix is in the bar itself, which now wraps.
      */
-    expect(file_get_contents(package_path('resources/views/components/kit/navbar.blade.php')))
-        ->toContain('<div class="flex flex-wrap items-center gap-1">')
-        ->not->toContain('hidden items-center gap-1 sm:flex');
+    foreach (['plain', 'underline', 'centred', 'brand'] as $variant) {
+        $drawn = Blade::render('<x-kit.navbar brand="B" :variant="$variant" :items="[[\'label\' => \'One\']]" />', ['variant' => $variant]);
+
+        expect($drawn)->toMatch('/class="flex flex-wrap items-center[^"]*">\s*<a /')
+            ->not->toContain('hidden');
+    }
 
     foreach ([KitLayout::Marketing, KitLayout::Stacked] as $layout) {
         $site = mockSite($this->get(framework(Project::Farm, 'accueil', layout: $layout))->assertOk()->getContent());

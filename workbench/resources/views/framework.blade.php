@@ -5,10 +5,10 @@
     use Workbench\App\Enums\Variation;
 
     /*
-     * One card holding one demonstration framework, with every control for it
-     * in one navigation directly above — a row per axis, so the pointer never
-     * leaves that block between two choices and never crosses the page to
-     * reach the next one.
+     * One card holding one demonstration framework, the page's main column,
+     * with every control for it in one column at its side — a row per axis,
+     * so the pointer never leaves that column between two choices and the
+     * site keeps the width and the height of the window.
      *
      * Nine independent projects — five small businesses and four back offices.
      * No two are built the same way: a project declares its own sections, so
@@ -78,7 +78,7 @@
     ];
 
     /*
-     * The one navigation: four rows, one axis each, in the order a viewer
+     * The one column of controls: four rows, one axis each, in the order a viewer
      * decides them — which business, how it is arranged, how it is coloured,
      * how much of it is shown.
      */
@@ -137,59 +137,47 @@
     ];
 @endphp
 
-<x-layouts.shell :title="__('framework.title')" :description="__('framework.intro')">
-    <div class="space-y-4">
+<x-layouts.shell :title="__('framework.title')" :description="__('framework.intro')" wide>
+    {{-- framework.js swaps the marked parts in place when a link here leads to another view of this tab. --}}
+    <div class="space-y-4" data-framework-root>
         {{-- The tab's two halves: the nine projects written by hand, here, and every kind of business read from the skill. --}}
-        <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+        <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm" data-framework-part="links">
             <span aria-current="page" class="font-semibold text-ink">{{ __('framework.projects') }}</span>
             <a href="{{ route('framework.businesses') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.title') }}</a>
             <a href="{{ route('framework.sheet') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.sheet') }}</a>
             <a href="{{ route('framework.record') }}" class="text-accent hover:text-accent-strong">{{ __('framework.record.title') }}</a>
         </p>
 
-        {{--
-            Sticky from `lg` up, because the card below can be dragged taller
-            than the window and the controls should stay where the pointer left
-            them — pinned under the bar, which is sticky too. Not below `lg`:
-            the four rows wrap to a dozen lines on a phone, and a sticky box
-            taller than the viewport pins nothing and hides everything.
-        --}}
-        <div class="panel z-10 divide-y divide-rule lg:sticky lg:top-20">
-            @foreach ($rows as $row)
-                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 px-3 py-2">
-                    <span class="w-28 shrink-0 text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ $row['heading'] }}</span>
-                    <x-kit.tabs variant="pill" class="min-w-0 flex-1" :items="$row['items']" :aria-label="$row['heading']" />
+        <div class="grid items-start gap-4 lg:grid-cols-[18rem_minmax(0,1fr)]">
+            @include('framework.controls', ['rows' => $rows, 'label' => __('framework.title')])
+
+            <div class="panel min-w-0 overflow-hidden">
+                <header class="space-y-1 border-b border-rule px-4 py-3 sm:px-6" data-framework-part="head">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <h2 class="font-display text-lg font-bold text-ink">{{ $project->label() }}</h2>
+                        <x-kit.badge :tone="$chosenLayout === null ? 'accent' : 'outline'">{{ $layout->label() }}</x-kit.badge>
+                        <x-kit.badge :tone="$chosenTheme === null ? 'accent' : 'outline'">{{ $theme->label() }}</x-kit.badge>
+                        <x-kit.badge :tone="$chosenVariation === null ? 'accent' : 'outline'">{{ $variation->label() }}</x-kit.badge>
+                        <span class="font-mono text-xs text-ink-soft">{{ $key }}</span>
+                    </div>
+
+                    <p class="max-w-prose text-sm text-ink-soft">{{ $project->summary() }}</p>
+                </header>
+
+                {{--
+                    The framework itself, in its own palette. No border and no corner of
+                    its own: the card is the frame. It is sized to what the window has
+                    left under the bar and the card's heading, scrolls itself and can be
+                    dragged taller, so reading a screen never scrolls the page.
+                --}}
+                <div data-framework-part="site"
+                     data-palette="{{ $theme->value }}"
+                     data-ref="framework.layouts.{{ $layout->value }}"
+                     data-variation="{{ $variation->value }}"
+                     class="h-[calc(100dvh-22rem)] min-h-[28rem] resize-y overflow-y-auto overscroll-contain bg-canvas font-body text-ink">
+                    @include('framework.layouts.'.$layout->value, $framework)
                 </div>
-            @endforeach
-        </div>
-
-        <div class="panel overflow-hidden">
-            <header class="space-y-1 border-b border-rule px-4 py-3 sm:px-6">
-                <div class="flex flex-wrap items-center gap-2">
-                    <h2 class="font-display text-lg font-bold text-ink">{{ $project->label() }}</h2>
-                    <x-kit.badge :tone="$chosenLayout === null ? 'accent' : 'outline'">{{ $layout->label() }}</x-kit.badge>
-                    <x-kit.badge :tone="$chosenTheme === null ? 'accent' : 'outline'">{{ $theme->label() }}</x-kit.badge>
-                    <x-kit.badge :tone="$chosenVariation === null ? 'accent' : 'outline'">{{ $variation->label() }}</x-kit.badge>
-                    <span class="font-mono text-xs text-ink-soft">{{ $key }}</span>
-                </div>
-
-                <p class="max-w-prose text-sm text-ink-soft">{{ $project->summary() }}</p>
-            </header>
-
-            {{--
-                The framework itself, in its own palette. No border and no corner of
-                its own: the card is the frame. It is sized to what the viewport has
-                left under the navigation above it, scrolls itself and can be dragged
-                taller, because scrolling the page to read a screen would take the
-                controls off the top.
-            --}}
-            <div data-palette="{{ $theme->value }}"
-                 data-ref="framework.layouts.{{ $layout->value }}"
-                 data-variation="{{ $variation->value }}"
-                 class="h-[calc(100dvh-36rem)] min-h-[24rem] resize-y overflow-y-auto overscroll-contain bg-canvas font-body text-ink">
-                @include('framework.layouts.'.$layout->value, $framework)
             </div>
         </div>
-
     </div>
 </x-layouts.shell>

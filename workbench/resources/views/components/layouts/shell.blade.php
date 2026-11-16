@@ -9,6 +9,8 @@
     'palette' => null,
     'appearance' => null,
     'contrast' => null,
+    // The whole window's width rather than the palette's reading width: for a page whose content is a site of its own.
+    'wide' => false,
 ])
 
 @php
@@ -21,6 +23,7 @@
     $palette ??= Theme::default();
     $appearance ??= Appearance::default();
     $contrast ??= Contrast::default();
+    $width = $wide ? 'max-w-none' : 'max-w-wrap';
 
     /** @var array<int, array{label: string, href: string, current?: bool}> $items */
     $items = $nav ?: [
@@ -112,7 +115,7 @@
 
     <div class="min-h-full" data-ref="{{ $ref }}">
         <nav class="sticky top-0 z-40 border-b border-rule bg-canvas">
-            <div class="mx-auto max-w-wrap px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto {{ $width }} px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 justify-between">
                     <div class="flex">
                         <a href="{{ $home }}" class="flex shrink-0 items-center gap-2 font-display text-lg font-bold tracking-tight">
@@ -240,14 +243,14 @@
         <div class="py-10">
             @if ($title)
                 <header>
-                    <div class="mx-auto max-w-wrap px-4 sm:px-6 lg:px-8">
+                    <div class="mx-auto {{ $width }} px-4 sm:px-6 lg:px-8">
                         <h1 class="font-display text-3xl font-bold tracking-tight text-ink">{{ $title }}</h1>
                     </div>
                 </header>
             @endif
 
             <main id="content">
-                <div class="mx-auto max-w-wrap px-4 py-8 sm:px-6 lg:px-8">
+                <div class="mx-auto {{ $width }} px-4 py-8 sm:px-6 lg:px-8">
                     {{ $slot }}
                 </div>
             </main>

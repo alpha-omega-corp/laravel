@@ -130,3 +130,9 @@
         }
     }
 }
+
+/* The framework tab while framework.js fetches the next view: what is about to change is dimmed, the controls are not. */
+[data-framework-root][aria-busy='true'] [data-framework-part] {
+    opacity: 0.6;
+    transition: opacity 150ms ease-out;
+}

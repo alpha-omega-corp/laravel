@@ -4,7 +4,9 @@
 
     /*
      * The framework tab's business views: one page of one kind of business,
-     * with every axis that decides it in one navigation above it.
+     * the page's main column, with every axis that decides it in one column at
+     * its side. The page is live: a link in it walks the tab to that page, so
+     * the controls follow wherever the site is taken.
      *
      * Where the projects next door are nine sites written by hand, these are
      * read: a business is a file of the skill (`businesses/<name>.md`), its
@@ -158,9 +160,10 @@
     ]));
 @endphp
 
-<x-layouts.shell :title="__('framework.businesses.title')" :description="__('framework.businesses.intro')">
-    <div class="space-y-4">
-        <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+<x-layouts.shell :title="__('framework.businesses.title')" :description="__('framework.businesses.intro')" wide>
+    {{-- framework.js swaps the marked parts in place, and the frame's page, when a link here or in the page leads to another view. --}}
+    <div class="space-y-4" data-framework-root>
+        <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm" data-framework-part="links">
             <a href="{{ route('framework') }}" class="text-ink-soft hover:text-ink">{{ __('framework.projects') }}</a>
             <span aria-current="page" class="font-semibold text-ink">{{ __('framework.businesses.title') }}</span>
             <a href="{{ $sheet }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.sheet') }}</a>
@@ -168,204 +171,189 @@
             <span class="text-ink-soft">{{ count($choice['designs']) }} {{ __('framework.businesses.designs') }} · {{ count($business['pages']) }} {{ __('framework.businesses.pages') }} · {{ Site::views($business['name']) }} {{ __('framework.businesses.views') }}</span>
         </p>
 
-        <div class="panel divide-y divide-rule">
-            @foreach ($rows as $row)
-                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 px-3 py-2">
-                    <span class="w-28 shrink-0 text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ $row['heading'] }}</span>
-                    <x-kit.tabs variant="pill" class="min-w-0 flex-1" :items="$row['items']" :aria-label="$row['heading']" />
-                </div>
-            @endforeach
-        </div>
+        <div class="grid items-start gap-4 lg:grid-cols-[18rem_minmax(0,1fr)]">
+            @include('framework.controls', ['rows' => $rows, 'label' => __('framework.businesses.title'), 'arrangements' => $arrangements, 'arranged' => (bool) $choice['chosen']['variants']])
 
-        @if ($arrangements !== [])
-            <details class="panel" data-ref="framework.arrangements" @if ($choice['chosen']['variants']) open @endif>
-                <summary class="cursor-pointer px-3 py-2 text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.arrangements') }} · {{ count($arrangements) }}</summary>
-
-                <div class="divide-y divide-rule border-t border-rule">
-                    @foreach ($arrangements as $row)
-                        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 px-3 py-2">
-                            <span class="w-28 shrink-0 font-mono text-xs text-ink">{{ $row['heading'] }}</span>
-                            <x-kit.tabs variant="pill" class="min-w-0 flex-1" :items="$row['items']" :aria-label="$row['heading']" />
-                        </div>
-                    @endforeach
-                </div>
-            </details>
-        @endif
-
-        <div class="panel overflow-hidden">
-            <header class="space-y-2 border-b border-rule px-4 py-3 sm:px-6">
-                <div class="flex flex-wrap items-center gap-2">
-                    <h2 class="font-display text-lg font-bold text-ink">{{ ucfirst($business['name']) }} · {{ $design['name'] }}</h2>
-                    <x-kit.badge :tone="$choice['chosen']['direction'] ? 'outline' : 'accent'">{{ $choice['direction'] }}</x-kit.badge>
-                    <x-kit.badge :tone="$choice['chosen']['palette'] ? 'outline' : 'accent'">{{ $choice['palette'] }}</x-kit.badge>
-                    <x-kit.badge :tone="$choice['chosen']['layout'] ? 'outline' : 'accent'">{{ $choice['layout'] }}</x-kit.badge>
-                    <span class="font-mono text-xs text-ink-soft">{{ $page['path'] }}</span>
-                    <span class="ms-auto flex flex-wrap gap-x-4 text-sm">
-                        @if (isset((\Workbench\App\Framework\Record::run(null)['writers']['businesses'] ?? [])[$business['name']]))
-                            <a href="{{ route('framework.record', ['open' => $business['name']]) }}#writer-{{ $business['name'] }}" class="text-accent hover:text-accent-strong">{{ __('framework.record.writer') }}</a>
-                        @endif
-
-                        <a href="{{ $alone }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.open') }}</a>
-                    </span>
-                </div>
-
-                <p class="max-w-prose text-sm text-ink-soft">{{ $business['summary'] }}</p>
-
-                @if ($design['why'] !== '')
-                    <p class="max-w-prose text-sm text-ink"><span class="font-semibold">{{ __('framework.businesses.why') }}</span> {{ $design['why'] }}</p>
-                @endif
-            </header>
-
-            {{--
-                The page itself, a document of its own in a frame: a direction
-                finds its frames from <body> and <main>, so it is drawn whole or
-                not at all. Sized to what the viewport has left, and draggable
-                taller, like the projects' card.
-            --}}
-            <iframe src="{{ $frame }}" title="{{ ucfirst($business['name']) }} · {{ $design['name'] }} · {{ $page['path'] }}"
-                    data-ref="framework.site"
-                    class="block h-[calc(100dvh-30rem)] min-h-[32rem] w-full resize-y bg-canvas"></iframe>
-        </div>
-
-        <div class="panel divide-y divide-rule" data-ref="framework.pulls">
-            <header class="px-4 py-3 sm:px-6">
-                <h2 class="font-display text-lg font-bold text-ink">{{ __('framework.businesses.pulls') }}</h2>
-                <p class="mt-1 font-mono text-xs text-ink-soft">&lt;html data-palette="{{ $choice['palette'] }}" data-direction="{{ $choice['direction'] }}"&gt; · {{ $choice['layout'] }}</p>
-            </header>
-
-            <div class="grid gap-x-10 gap-y-6 px-4 py-4 sm:px-6 lg:grid-cols-2">
-                <div class="space-y-3">
-                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.regions') }}</h3>
-
-                    <dl class="divide-y divide-rule text-sm">
-                        @foreach ($plan as $region => $holds)
-                            <div class="grid grid-cols-[6rem_minmax(0,1fr)] gap-x-4 py-2">
-                                <dt class="font-mono text-xs text-ink">{{ $region }}</dt>
-                                <dd class="space-y-1">
-                                    <p class="flex flex-wrap gap-1.5">
-                                        @forelse ($holds as $one)
-                                            <x-kit.badge size="sm" :tone="$one['prefab'] ? 'accent' : 'neutral'">{{ $one['component'] }}@if ($one['variant']) · {{ $one['variant'] }}@endif</x-kit.badge>
-                                        @empty
-                                            <span class="text-ink-soft">{{ __('framework.businesses.empty') }}</span>
-                                        @endforelse
-                                    </p>
-                                    <p class="text-xs text-ink-soft">{{ $layout['regions'][$region] ?? '' }}</p>
-                                </dd>
-                            </div>
-                        @endforeach
-                    </dl>
-                </div>
-
-                <div class="space-y-5">
-                    <div class="space-y-2">
-                        <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.direction') }} · {{ $choice['direction'] }}</h3>
-                        <p class="text-sm text-ink-soft">{{ $direction['summary'] }}</p>
-                    </div>
-
-                    @if ($palette)
-                        <div class="space-y-2">
-                            <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.palette') }} · {{ $choice['palette'] }}</h3>
-                            <p class="text-sm text-ink-soft">{{ $palette['summary'] }}</p>
-                        </div>
-                    @endif
-
-                    @if ($choice['variants'] !== [])
-                        <div class="space-y-2">
-                            <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.arrangements') }}</h3>
-                            <ul role="list" class="space-y-1 text-sm text-ink-soft">
-                                @foreach ($choice['variants'] as $component => $variant)
-                                    <li><span class="font-mono text-xs text-ink">{{ $component }} — {{ $variant }}</span> {{ $components[$component]['variants'][$variant] ?? '' }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    @if ($palette && $palette['costs'] !== '')
-                        <div class="space-y-2">
-                            <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.costs') }}</h3>
-                            <p class="text-sm text-ink-soft">{{ $palette['costs'] }}</p>
-                        </div>
-                    @endif
-
-                    <div class="space-y-2">
-                        <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.files') }}</h3>
-                        <ul role="list" class="flex flex-wrap gap-1.5">
-                            @foreach ($files as $file)
-                                <li class="rounded-control bg-canvas-alt px-2 py-0.5 font-mono text-xs text-ink">{{ $file }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{--
-            The reasons, in the skill's own words and for this page only: why the business has each prefab drawn
-            here and why it takes this direction, how the direction draws each component on the page, and what
-            each component does once it is placed. Nothing is written for the showcase: every line is read from
-            the file named beside it, which is where a session building a site would read it.
-        --}}
-        <div class="panel divide-y divide-rule" data-ref="framework.reasons">
-            <header class="px-4 py-3 sm:px-6">
-                <h2 class="font-display text-lg font-bold text-ink">{{ __('framework.businesses.reasons') }}</h2>
-            </header>
-
-            <div class="grid gap-x-10 gap-y-6 px-4 py-4 sm:px-6 lg:grid-cols-2">
-                <div class="space-y-5">
-                    <div class="space-y-2">
-                        <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.why_direction') }} <span class="font-mono normal-case">{{ $business['file'] }}</span></h3>
-                        <p class="text-sm text-ink"><span class="font-mono text-xs">{{ $choice['direction'] }}</span> — {{ $business['directions'][$choice['direction']] }}</p>
-                    </div>
-
-                    @if ($page['prefabs'] !== [])
-                        <div class="space-y-2">
-                            <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.why_prefabs') }} <span class="font-mono normal-case">{{ $business['file'] }}</span></h3>
-
-                            <ul role="list" class="space-y-1 text-sm text-ink">
-                                @foreach ($page['prefabs'] as $name)
-                                    <li><span class="font-mono text-xs">{{ $name }}</span> — {{ $business['prefabs'][$name] ?? '' }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <div class="space-y-2">
-                        <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.how_drawn') }} <span class="font-mono normal-case">{{ $direction['file'] }}</span></h3>
-
-                        @if ($direction['frames'] !== '')
-                            <p class="text-sm text-ink-soft">{{ $direction['frames'] }}</p>
-                        @endif
-
-                        <ul role="list" class="space-y-1 text-sm text-ink">
-                            @foreach ($placed as $name)
-                                @if (isset($direction['looks'][$name]))
-                                    <li><span class="font-mono text-xs">{{ $name }}</span> — {{ $direction['looks'][$name] }}</li>
+            <div class="min-w-0 space-y-4">
+                <div class="panel min-w-0 overflow-hidden">
+                    <header class="space-y-2 border-b border-rule px-4 py-3 sm:px-6" data-framework-part="head">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <h2 class="font-display text-lg font-bold text-ink">{{ ucfirst($business['name']) }} · {{ $design['name'] }}</h2>
+                            <x-kit.badge :tone="$choice['chosen']['direction'] ? 'outline' : 'accent'">{{ $choice['direction'] }}</x-kit.badge>
+                            <x-kit.badge :tone="$choice['chosen']['palette'] ? 'outline' : 'accent'">{{ $choice['palette'] }}</x-kit.badge>
+                            <x-kit.badge :tone="$choice['chosen']['layout'] ? 'outline' : 'accent'">{{ $choice['layout'] }}</x-kit.badge>
+                            <span class="font-mono text-xs text-ink-soft">{{ $page['path'] }}</span>
+                            <span class="ms-auto flex flex-wrap gap-x-4 text-sm">
+                                @if (isset((\Workbench\App\Framework\Record::run(null)['writers']['businesses'] ?? [])[$business['name']]))
+                                    <a href="{{ route('framework.record', ['open' => $business['name']]) }}#writer-{{ $business['name'] }}" class="text-accent hover:text-accent-strong">{{ __('framework.record.writer') }}</a>
                                 @endif
-                            @endforeach
-                        </ul>
-                    </div>
+
+                                <a href="{{ $alone }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.open') }}</a>
+                            </span>
+                        </div>
+
+                        {{-- What the business is and why the design: folded, so the site starts under one line. --}}
+                        <details>
+                            <summary class="cursor-pointer truncate text-sm text-ink-soft">{{ $business['summary'] }}</summary>
+
+                            @if ($design['why'] !== '')
+                                <p class="mt-2 max-w-prose text-sm text-ink"><span class="font-semibold">{{ __('framework.businesses.why') }}</span> {{ $design['why'] }}</p>
+                            @endif
+                        </details>
+                    </header>
+
+                    {{--
+                        The page itself, a document of its own in a frame: a direction
+                        finds its frames from <body> and <main>, so it is drawn whole or
+                        not at all. Sized to what the window has left under the bar and
+                        the card's heading, and draggable taller, like the projects' card.
+                    --}}
+                    <iframe src="{{ $frame }}" title="{{ ucfirst($business['name']) }} · {{ $design['name'] }} · {{ $page['path'] }}"
+                            data-ref="framework.site"
+                            class="block h-[calc(100dvh-22rem)] min-h-[32rem] w-full resize-y bg-canvas"></iframe>
                 </div>
 
-                <div class="space-y-2">
-                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.behaviour') }}</h3>
+                <div class="panel divide-y divide-rule" data-ref="framework.pulls" data-framework-part="pulls">
+                    <header class="px-4 py-3 sm:px-6">
+                        <h2 class="font-display text-lg font-bold text-ink">{{ __('framework.businesses.pulls') }}</h2>
+                        <p class="mt-1 font-mono text-xs text-ink-soft">&lt;html data-palette="{{ $choice['palette'] }}" data-direction="{{ $choice['direction'] }}"&gt; · {{ $choice['layout'] }}</p>
+                    </header>
 
-                    <div class="divide-y divide-rule border-y border-rule">
-                        @foreach ($placed as $name)
-                            @if (! empty($components[$name]['behaviour']))
-                                <details>
-                                    <summary class="flex cursor-pointer flex-wrap items-baseline gap-x-3 py-2 text-sm">
-                                        <span class="font-mono text-xs text-ink">{{ $name }}</span>
-                                        <span class="min-w-0 flex-1 basis-48 text-ink-soft">{{ $components[$name]['summary'] }}</span>
-                                    </summary>
+                    <div class="grid gap-x-10 gap-y-6 px-4 py-4 sm:px-6 lg:grid-cols-2">
+                        <div class="space-y-3">
+                            <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.regions') }}</h3>
 
-                                    <ul role="list" class="list-disc space-y-1.5 pb-3 ps-5 text-sm text-ink">
-                                        @foreach ($components[$name]['behaviour'] as $line)
-                                            <li>{{ $line }}</li>
+                            <dl class="divide-y divide-rule text-sm">
+                                @foreach ($plan as $region => $holds)
+                                    <div class="grid grid-cols-[6rem_minmax(0,1fr)] gap-x-4 py-2">
+                                        <dt class="font-mono text-xs text-ink">{{ $region }}</dt>
+                                        <dd class="space-y-1">
+                                            <p class="flex flex-wrap gap-1.5">
+                                                @forelse ($holds as $one)
+                                                    <x-kit.badge size="sm" :tone="$one['prefab'] ? 'accent' : 'neutral'">{{ $one['component'] }}@if ($one['variant']) · {{ $one['variant'] }}@endif</x-kit.badge>
+                                                @empty
+                                                    <span class="text-ink-soft">{{ __('framework.businesses.empty') }}</span>
+                                                @endforelse
+                                            </p>
+                                            <p class="text-xs text-ink-soft">{{ $layout['regions'][$region] ?? '' }}</p>
+                                        </dd>
+                                    </div>
+                                @endforeach
+                            </dl>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div class="space-y-2">
+                                <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.direction') }} · {{ $choice['direction'] }}</h3>
+                                <p class="text-sm text-ink-soft">{{ $direction['summary'] }}</p>
+                            </div>
+
+                            @if ($palette)
+                                <div class="space-y-2">
+                                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.palette') }} · {{ $choice['palette'] }}</h3>
+                                    <p class="text-sm text-ink-soft">{{ $palette['summary'] }}</p>
+                                </div>
+                            @endif
+
+                            @if ($choice['variants'] !== [])
+                                <div class="space-y-2">
+                                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.arrangements') }}</h3>
+                                    <ul role="list" class="space-y-1 text-sm text-ink-soft">
+                                        @foreach ($choice['variants'] as $component => $variant)
+                                            <li><span class="font-mono text-xs text-ink">{{ $component }} — {{ $variant }}</span> {{ $components[$component]['variants'][$variant] ?? '' }}</li>
                                         @endforeach
                                     </ul>
-                                </details>
+                                </div>
                             @endif
-                        @endforeach
+
+                            @if ($palette && $palette['costs'] !== '')
+                                <div class="space-y-2">
+                                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.costs') }}</h3>
+                                    <p class="text-sm text-ink-soft">{{ $palette['costs'] }}</p>
+                                </div>
+                            @endif
+
+                            <div class="space-y-2">
+                                <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.files') }}</h3>
+                                <ul role="list" class="flex flex-wrap gap-1.5">
+                                    @foreach ($files as $file)
+                                        <li class="rounded-control bg-canvas-alt px-2 py-0.5 font-mono text-xs text-ink">{{ $file }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{--
+                    The reasons, in the skill's own words and for this page only: why the business has each prefab drawn
+                    here and why it takes this direction, how the direction draws each component on the page, and what
+                    each component does once it is placed. Nothing is written for the showcase: every line is read from
+                    the file named beside it, which is where a session building a site would read it.
+                --}}
+                <div class="panel divide-y divide-rule" data-ref="framework.reasons" data-framework-part="reasons">
+                    <header class="px-4 py-3 sm:px-6">
+                        <h2 class="font-display text-lg font-bold text-ink">{{ __('framework.businesses.reasons') }}</h2>
+                    </header>
+
+                    <div class="grid gap-x-10 gap-y-6 px-4 py-4 sm:px-6 lg:grid-cols-2">
+                        <div class="space-y-5">
+                            <div class="space-y-2">
+                                <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.why_direction') }} <span class="font-mono normal-case">{{ $business['file'] }}</span></h3>
+                                <p class="text-sm text-ink"><span class="font-mono text-xs">{{ $choice['direction'] }}</span> — {{ $business['directions'][$choice['direction']] }}</p>
+                            </div>
+
+                            @if ($page['prefabs'] !== [])
+                                <div class="space-y-2">
+                                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.why_prefabs') }} <span class="font-mono normal-case">{{ $business['file'] }}</span></h3>
+
+                                    <ul role="list" class="space-y-1 text-sm text-ink">
+                                        @foreach ($page['prefabs'] as $name)
+                                            <li><span class="font-mono text-xs">{{ $name }}</span> — {{ $business['prefabs'][$name] ?? '' }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <div class="space-y-2">
+                                <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.how_drawn') }} <span class="font-mono normal-case">{{ $direction['file'] }}</span></h3>
+
+                                @if ($direction['frames'] !== '')
+                                    <p class="text-sm text-ink-soft">{{ $direction['frames'] }}</p>
+                                @endif
+
+                                <ul role="list" class="space-y-1 text-sm text-ink">
+                                    @foreach ($placed as $name)
+                                        @if (isset($direction['looks'][$name]))
+                                            <li><span class="font-mono text-xs">{{ $name }}</span> — {{ $direction['looks'][$name] }}</li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.behaviour') }}</h3>
+
+                            <div class="divide-y divide-rule border-y border-rule">
+                                @foreach ($placed as $name)
+                                    @if (! empty($components[$name]['behaviour']))
+                                        <details>
+                                            <summary class="flex cursor-pointer flex-wrap items-baseline gap-x-3 py-2 text-sm">
+                                                <span class="font-mono text-xs text-ink">{{ $name }}</span>
+                                                <span class="min-w-0 flex-1 basis-48 text-ink-soft">{{ $components[$name]['summary'] }}</span>
+                                            </summary>
+
+                                            <ul role="list" class="list-disc space-y-1.5 pb-3 ps-5 text-sm text-ink">
+                                                @foreach ($components[$name]['behaviour'] as $line)
+                                                    <li>{{ $line }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </details>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
