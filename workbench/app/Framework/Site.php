@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Workbench\App\Framework;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Str;
 
 use function Orchestra\Testbench\package_path;
 
@@ -325,7 +326,7 @@ final class Site
                 'eyebrow' => $story['eyebrow'] ?? null,
                 'title' => $story['title'] ?? null,
                 'lead' => $story['lead'] ?? null,
-            // A reading measure and air between the paragraphs: both classes are ones the kit's own components use.
+                // A reading measure and air between the paragraphs: both classes are ones the kit's own components use.
             ], $paragraphs === [] ? null : '<div class="max-w-prose space-y-4">'.implode('', array_map(fn (string $paragraph): string => '<p>'.e($paragraph).'</p>', $paragraphs)).'</div>');
         };
 
@@ -438,7 +439,7 @@ final class Site
                 }
 
                 $attributes = implode(' ', array_map(
-                    fn (string $prop): string => ':'.\Illuminate\Support\Str::kebab($prop).'="$props[\''.$prop.'\']"',
+                    fn (string $prop): string => ':'.Str::kebab($prop).'="$props[\''.$prop.'\']"',
                     array_keys($one['props']),
                 ));
 

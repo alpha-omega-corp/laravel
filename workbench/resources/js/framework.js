@@ -10,14 +10,19 @@
  *   was dragged to stays too, and the page in it is replaced in its history
  *   rather than added to it, so Back steps through the tab's views.
  *
+ * Between the business views' grid of every design and the inspection of one,
+ * the parts differ, so the whole main column (`data-framework-main`) is
+ * swapped instead, and the window goes back to the top of the tab.
+ *
  * The address is the view's, pushed, so a view can still be linked and Back and
  * Forward walk the views. Anything this cannot do (another page, a refusal, a
- * view with other parts) is the ordinary navigation.
+ * view drawn some other way) is the ordinary navigation.
  */
 
 const ROOT = '[data-framework-root]';
 const CONTROLS = '[data-ref="framework.controls"]';
 const FRAME = 'iframe[data-ref="framework.site"]';
+const MAIN = '[data-framework-main]';
 
 let latest = 0;
 
@@ -104,8 +109,46 @@ async function go(url, push) {
 
     const next = doc.querySelector(ROOT);
 
-    if (!next || names(next) !== names(root)) {
+    if (!next) {
         location.assign(url);
+
+        return;
+    }
+
+    // Another kind of view: the grid for one design, or one design for the grid.
+    if (names(next) !== names(root)) {
+        const main = root.querySelector(MAIN);
+        const freshMain = next.querySelector(MAIN);
+
+        if (!main || !freshMain) {
+            location.assign(url);
+
+            return;
+        }
+
+        main.replaceWith(freshMain);
+        root.querySelector('[data-framework-part="links"]')?.replaceWith(next.querySelector('[data-framework-part="links"]'));
+
+        const controls = root.querySelector(CONTROLS);
+        const freshControls = next.querySelector(CONTROLS);
+
+        if (controls && freshControls) {
+            controls.innerHTML = freshControls.innerHTML;
+            controls.scrollTop = 0;
+        }
+
+        freshMain.querySelectorAll(FRAME).forEach(watchFrame);
+        document.title = doc.title;
+
+        if (push) {
+            history.pushState({ framework: true }, '', url);
+        }
+
+        root.removeAttribute('aria-busy');
+
+        if (root.getBoundingClientRect().top < 0) {
+            root.scrollIntoView({ block: 'start' });
+        }
 
         return;
     }

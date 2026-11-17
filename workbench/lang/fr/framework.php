@@ -77,6 +77,9 @@ return [
         'by_design' => 'Chaque page de chaque design',
         'by_palette' => 'La page d’accueil dans chaque palette recommandée',
         'by_palette_intro' => 'Ce qu’un tirage peut dessiner avant qu’un design ne le fixe : chaque direction que l’entreprise cite, dans chaque palette que cette direction juge la meilleure ou bonne.',
+        'all' => 'Tous',
+        'pick' => 'Chaque design de ce métier, dessiné sur la page choisie à côté. Choisissez-en un pour l’inspecter : chaque page, chaque axe, et ce qu’un build en tire.',
+        'variants' => 'Toutes les variantes',
     ],
 
     'project' => [

@@ -17,8 +17,8 @@ use function Orchestra\Testbench\package_path;
  * came to be, kept where those views are so the reasons are not lost with the
  * conversation that held them.
  *
- * @phpstan-type Picture array{file: string, width: int, height: int, caption: string}
- * @phpstan-type Step array{title: string, why: list<string>, pictures?: list<Picture>, see?: list<array{label: string, route: string, query: array<string, string>}>}
+ * @phpstan-type RunPicture array{file: string, width: int, height: int, caption: string}
+ * @phpstan-type Step array{title: string, why: list<string>, pictures?: list<RunPicture>, see?: list<array{label: string, route: string, query: array<string, string>}>}
  */
 final class Record
 {
@@ -36,7 +36,7 @@ final class Record
 
         rsort($runs);
 
-        return array_values($runs);
+        return $runs;
     }
 
     /**

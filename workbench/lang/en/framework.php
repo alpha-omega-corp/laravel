@@ -77,6 +77,9 @@ return [
         'by_design' => 'Every page of every design',
         'by_palette' => 'The home page in every recommended palette',
         'by_palette_intro' => 'What a roll may draw before a design settles it: each direction the business lists, in each palette that direction rates best or good.',
+        'all' => 'All',
+        'pick' => 'Every design of this business, drawn on the page chosen at the side. Pick one to inspect it: every page, every axis, and what a build pulls.',
+        'variants' => 'All variants',
     ],
 
     'project' => [

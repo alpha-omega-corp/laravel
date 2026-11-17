@@ -77,6 +77,9 @@ return [
         'by_design' => 'Ogni pagina di ogni design',
         'by_palette' => 'La home in ogni palette raccomandata',
         'by_palette_intro' => 'Ciò che un tiro può disegnare prima che un design lo fissi: ogni direzione che l’attività elenca, in ogni palette che quella direzione giudica la migliore o buona.',
+        'all' => 'Tutti',
+        'pick' => 'Ogni design di questa attività, disegnato sulla pagina scelta a lato. Sceglietene uno per esaminarlo: ogni pagina, ogni asse e ciò che una build ne ricava.',
+        'variants' => 'Tutte le varianti',
     ],
 
     'project' => [

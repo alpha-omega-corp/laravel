@@ -17,6 +17,11 @@
      * what deployer's build would be handed for that brief, and the panel under
      * the page says which file each part of it came from.
      *
+     * With no design in the address the tab is a grid: every design of the
+     * business at once, each its page small, narrowed to one direction if the
+     * address names one; a design is inspected by picking it. With one, the
+     * tab inspects it, and a link in its head leads back to the grid.
+     *
      * A design settles every axis and the viewer may override any one of them;
      * an override the skill would refuse falls back to the design's. Only what
      * was overridden is in the URL, so a design's address is short and a
@@ -30,6 +35,16 @@
     $design = $choice['design'];
     $page = $choice['page'];
     $content = $choice['content'];
+
+    $grid = ! request()->filled('design');
+    $gridPage = $page['path'] === '/' ? null : $page['path'];
+    $gridDirection = $grid && isset($business['directions'][request()->string('direction')->toString()]) ? request()->string('direction')->toString() : null;
+    $gridTo = fn (array $changes): string => route('framework.businesses', array_filter(
+        array_merge(['business' => $business['name'], 'page' => $gridPage, 'direction' => $gridDirection], $changes),
+        fn (?string $value): bool => $value !== null,
+    ));
+    $inspect = fn (array $other): array => array_filter(['business' => $business['name'], 'design' => $other['slug'], 'page' => $gridPage], fn (?string $value): bool => $value !== null);
+    $shown = array_values(array_filter($choice['designs'], fn (array $other): bool => $gridDirection === null || $other['direction'] === $gridDirection));
 
     $to = fn (array $changes): string => route('framework.businesses', Site::query($choice, $changes));
     $frame = route('framework.site', Site::query($choice) + ['embed' => 1]);
@@ -114,6 +129,37 @@
         ],
     ];
 
+    // The grid's column: which business, which of its pages every design is shown on, and which of its directions.
+    $gridRows = [
+        $rows[0],
+        [
+            'heading' => __('framework.businesses.page'),
+            'items' => array_map(fn (array $other): array => [
+                'label' => $pageLabel($other),
+                'badge' => $other['role'],
+                'href' => $gridTo(['page' => $other['path'] === '/' ? null : $other['path']]),
+                'current' => $other['path'] === $page['path'],
+            ], $business['pages']),
+        ],
+        [
+            'heading' => __('framework.businesses.direction'),
+            'items' => array_merge(
+                [[
+                    'label' => __('framework.businesses.all'),
+                    'badge' => (string) count($choice['designs']),
+                    'href' => $gridTo(['direction' => null]),
+                    'current' => $gridDirection === null,
+                ]],
+                array_map(fn (string $name): array => [
+                    'label' => ucfirst($name),
+                    'badge' => (string) count(array_filter($choice['designs'], fn (array $other): bool => $other['direction'] === $name)),
+                    'href' => $gridTo(['direction' => $name]),
+                    'current' => $name === $gridDirection,
+                ], array_keys($business['directions'])),
+            ),
+        ],
+    ];
+
     /*
      * The arrangements: every component on this page that takes some, each a
      * row of its own. A design chooses a few; the rest are drawn as the
@@ -172,9 +218,58 @@
         </p>
 
         <div class="grid items-start gap-4 lg:grid-cols-[18rem_minmax(0,1fr)]">
-            @include('framework.controls', ['rows' => $rows, 'label' => __('framework.businesses.title'), 'arrangements' => $arrangements, 'arranged' => (bool) $choice['chosen']['variants']])
+            @if ($grid)
+                @include('framework.controls', ['rows' => $gridRows, 'label' => __('framework.businesses.title'), 'arrangements' => []])
+            @else
+                @include('framework.controls', ['rows' => $rows, 'label' => __('framework.businesses.title'), 'arrangements' => $arrangements, 'arranged' => (bool) $choice['chosen']['variants']])
+            @endif
 
-            <div class="min-w-0 space-y-4">
+            <div class="min-w-0 space-y-4" data-framework-main>
+                @if ($grid)
+                    {{--
+                        Every design at once, each its page small and the whole card a link
+                        to inspect it. The frames are the page itself at a quarter of its
+                        size, loaded as they come near the window.
+                    --}}
+                    <section class="space-y-4" data-framework-part="grid" data-ref="framework.variants">
+                        <header class="panel space-y-1 px-4 py-3 sm:px-6">
+                            <h2 class="font-display text-lg font-bold text-ink">{{ ucfirst($business['name']) }} · {{ count($shown) }} {{ __('framework.businesses.designs') }}</h2>
+                            <p class="max-w-prose text-sm text-ink-soft">{{ __('framework.businesses.pick') }}</p>
+                        </header>
+
+                        <ul role="list" class="flex flex-wrap justify-center gap-5">
+                            @foreach ($shown as $other)
+                                @php($query = $inspect($other))
+                                <li class="w-[320px]">
+                                    <a href="{{ route('framework.businesses', $query) }}" data-design="{{ $other['slug'] }}"
+                                       class="panel group block h-full overflow-hidden transition-colors hover:border-accent focus-visible:border-accent">
+                                        <span class="relative block h-[220px] w-[320px] overflow-hidden border-b border-rule bg-canvas">
+                                            <iframe src="{{ route('framework.site', $query) }}" title="{{ $other['name'] }}" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"
+                                                    class="pointer-events-none absolute start-0 top-0 h-[880px] w-[1280px] origin-top-left scale-[0.25] border-0"></iframe>
+                                        </span>
+
+                                        <span class="block space-y-2 px-4 py-3">
+                                            <span class="flex flex-wrap items-center gap-1.5">
+                                                <span class="me-auto font-semibold text-ink group-hover:text-accent">{{ $other['name'] }}</span>
+                                                <x-kit.badge size="sm" tone="accent">{{ $other['direction'] }}</x-kit.badge>
+                                                <x-kit.badge size="sm">{{ $other['palette'] }}</x-kit.badge>
+                                                @if ($other['scheme'])
+                                                    <x-kit.badge size="sm" tone="outline">{{ __('framework.businesses.'.$other['scheme']) }}</x-kit.badge>
+                                                @endif
+                                            </span>
+
+                                            @if ($other['why'] !== '')
+                                                <span class="line-clamp-3 text-xs text-ink-soft">{{ $other['why'] }}</span>
+                                            @endif
+
+                                            <span class="block font-mono text-xs text-ink-soft">{{ $page['path'] }} · {{ $other['pages'][$page['path']] ?? '' }}</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </section>
+                @else
                 <div class="panel min-w-0 overflow-hidden">
                     <header class="space-y-2 border-b border-rule px-4 py-3 sm:px-6" data-framework-part="head">
                         <div class="flex flex-wrap items-center gap-2">
@@ -184,6 +279,8 @@
                             <x-kit.badge :tone="$choice['chosen']['layout'] ? 'outline' : 'accent'">{{ $choice['layout'] }}</x-kit.badge>
                             <span class="font-mono text-xs text-ink-soft">{{ $page['path'] }}</span>
                             <span class="ms-auto flex flex-wrap gap-x-4 text-sm">
+                                <a href="{{ $gridTo(['direction' => null]) }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.variants') }}</a>
+
                                 @if (isset((\Workbench\App\Framework\Record::run(null)['writers']['businesses'] ?? [])[$business['name']]))
                                     <a href="{{ route('framework.record', ['open' => $business['name']]) }}#writer-{{ $business['name'] }}" class="text-accent hover:text-accent-strong">{{ __('framework.record.writer') }}</a>
                                 @endif
@@ -356,6 +453,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>

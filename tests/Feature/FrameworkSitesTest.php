@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Vite;
 use Workbench\App\Framework\Kit;
+use Workbench\App\Framework\Picture;
 use Workbench\App\Framework\Site;
 
 use function Orchestra\Testbench\package_path;
@@ -132,8 +133,8 @@ it('keeps an override the skill allows, and says so in the address', function ()
 });
 
 it('frames the page in the tab with every axis beside it and what a build pulls under it', function (string $business) {
-    $html = $this->get(route('framework.businesses', ['business' => $business]))->assertOk()->getContent();
     $design = Site::designs($business)[0];
+    $html = $this->get(route('framework.businesses', ['business' => $business, 'design' => $design['slug']]))->assertOk()->getContent();
 
     expect($html)
         ->toContain('data-ref="framework.controls"')
@@ -148,6 +149,44 @@ it('frames the page in the tab with every axis beside it and what a build pulls 
         expect($html)->toContain(e($other['name']));
     }
 })->with(fn () => drawnBusinesses());
+
+it('opens a business on a grid of every design, each a link that inspects it', function (string $business) {
+    $html = $this->get(route('framework.businesses', ['business' => $business]))->assertOk()->getContent();
+    $designs = Site::designs($business);
+
+    // No design in the address: the grid, and no page inspected.
+    expect($html)->toContain('data-ref="framework.variants"')
+        ->not->toContain('data-ref="framework.site"')
+        ->not->toContain('data-ref="framework.pulls"')
+        ->and(substr_count($html, 'data-design="'))->toBe(count($designs));
+
+    foreach ($designs as $design) {
+        expect($html)->toContain('href="'.e(route('framework.businesses', ['business' => $business, 'design' => $design['slug']])).'"')
+            ->toContain(e(route('framework.site', ['business' => $business, 'design' => $design['slug']])))
+            ->toContain(e($design['name']));
+    }
+
+    // Inspecting one leads back to the grid.
+    $inspected = $this->get(route('framework.businesses', ['business' => $business, 'design' => $designs[0]['slug']]))->assertOk()->getContent();
+
+    expect($inspected)->toContain('data-ref="framework.site"')
+        ->toContain('href="'.e(route('framework.businesses', ['business' => $business])).'"')
+        ->not->toContain('data-ref="framework.variants"');
+})->with(fn () => drawnBusinesses());
+
+it('narrows the grid to one direction, and keeps the page it is drawn on', function () {
+    $designs = Site::designs('software');
+    $spec = array_values(array_filter($designs, fn (array $design): bool => $design['direction'] === 'spec'));
+
+    $html = $this->get(route('framework.businesses', ['business' => 'software', 'direction' => 'spec', 'page' => '/pricing']))->assertOk()->getContent();
+
+    expect(substr_count($html, 'data-design="'))->toBe(count($spec))
+        ->and($spec)->not->toBeEmpty();
+
+    foreach ($spec as $design) {
+        expect($html)->toContain('href="'.e(route('framework.businesses', ['business' => 'software', 'design' => $design['slug'], 'page' => '/pricing'])).'"');
+    }
+});
 
 it('lays every design out on the contact sheet, and every business on its index', function () {
     $index = $this->get(route('framework.sheet'))->assertOk()->getContent();
@@ -193,6 +232,6 @@ it('frames the photograph a demo business has not got, captioned with what belon
     // Words a content file writes are never markup in the picture.
     expect($this->get(route('framework.picture', ['subject' => '<script>alert(1)</script>']))->getContent())->not->toContain('<script>');
 
-    expect(Workbench\App\Framework\Picture::resolve(['pictures' => [['image' => 'picture:Le quai', 'alt' => 'Le quai']]]))
+    expect(Picture::resolve(['pictures' => [['image' => 'picture:Le quai', 'alt' => 'Le quai']]]))
         ->toBe(['pictures' => [['image' => route('framework.picture', ['subject' => 'Le quai']), 'alt' => 'Le quai']]]);
 });

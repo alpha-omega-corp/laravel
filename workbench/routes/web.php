@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
+use Workbench\App\Framework\Picture;
+use Workbench\App\Framework\Record;
 
 Route::view('/', 'home')->name('home');
 
@@ -41,7 +43,7 @@ Route::view('/framework/sheet', 'framework.sheet')->name('framework.sheet');
  */
 Route::view('/framework/record', 'framework.record')->name('framework.record');
 Route::get('/framework/record/{run}/{file}', function (string $run, string $file) {
-    $path = Workbench\App\Framework\Record::picture($run, $file);
+    $path = Record::picture($run, $file);
 
     abort_if($path === null, 404);
 
@@ -50,7 +52,7 @@ Route::get('/framework/record/{run}/{file}', function (string $run, string $file
 
 // The photograph a demo business has not got: the kit's own frame, as an image, captioned with what belongs there.
 Route::get('/framework/picture', fn () => response(
-    Workbench\App\Framework\Picture::svg(request()->string('subject')->toString(), request()->integer('w', 1200), request()->integer('h', 900)),
+    Picture::svg(request()->string('subject')->toString(), request()->integer('w', 1200), request()->integer('h', 900)),
     200,
     ['Content-Type' => 'image/svg+xml', 'Cache-Control' => 'public, max-age=86400'],
 ))->name('framework.picture');

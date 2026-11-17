@@ -77,6 +77,9 @@ return [
         'by_design' => 'Jede Seite jedes Designs',
         'by_palette' => 'Die Startseite in jeder empfohlenen Palette',
         'by_palette_intro' => 'Was ein Wurf zeichnen kann, bevor ein Design es festlegt: jede Richtung, die das Geschäft aufführt, in jeder Palette, die diese Richtung als beste oder gut einstuft.',
+        'all' => 'Alle',
+        'pick' => 'Jedes Design dieses Betriebs, auf der seitlich gewählten Seite gezeichnet. Wählen Sie eines, um es zu prüfen: jede Seite, jede Achse und was ein Build übernimmt.',
+        'variants' => 'Alle Varianten',
     ],
 
     'project' => [

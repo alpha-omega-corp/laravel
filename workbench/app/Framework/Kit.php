@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Workbench\App\Framework;
 
+use Illuminate\Support\Str;
+
 use function Orchestra\Testbench\package_path;
 
 /**
@@ -310,7 +312,7 @@ final class Kit
 
     public static function slug(string $name): string
     {
-        return trim((string) preg_replace('/[^a-z0-9]+/', '-', strtolower(\Illuminate\Support\Str::ascii($name))), '-');
+        return trim((string) preg_replace('/[^a-z0-9]+/', '-', strtolower(Str::ascii($name))), '-');
     }
 
     /**
