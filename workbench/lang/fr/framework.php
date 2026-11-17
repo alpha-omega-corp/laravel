@@ -16,6 +16,16 @@ return [
         'layout' => 'Mise en page',
     ],
 
+    'prompt' => [
+        'open' => 'Prompt pour deployer',
+        'title' => 'Ce design pour deployer',
+        'intro' => 'Chaque champ du formulaire de l\'Hallucinator, tel que cette vue dessine le design : le métier, le style, la mise en page de chaque page. Copiez-le, puis collez-le dans « From the framework » de l\'Hallucinator.',
+        'copy' => 'Copier',
+        'copied' => 'Copié',
+        'close' => 'Fermer',
+        'tab' => 'Prompt',
+        'tab_intro' => 'Le prompt qui recrée ce site dans deployer : chaque champ du formulaire de l\'Hallucinator, tel que cette vue dessine le design. Copiez-le, puis collez-le dans « From the framework » de l\'Hallucinator.',
+    ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
         'title' => 'Journal du travail',
@@ -54,6 +64,10 @@ return [
         'system' => 'Système',
         'light' => 'Clair',
         'dark' => 'Sombre',
+        'inputs' => 'Champs',
+        'inputs_default' => 'Par défaut',
+        'inputs_floating' => 'Flottants',
+        'inputs_icon' => 'Avec icône',
         'designs' => 'designs',
         'pages' => 'pages',
         'views' => 'vues',
@@ -73,6 +87,8 @@ return [
         'arrangements' => 'Arrangements',
         'own' => 'Celui de la direction',
         'files' => 'Lu dans le skill',
+        'files_tab' => 'Fichiers',
+        'regions_tab' => 'Régions',
         'empty' => 'rien',
         'by_design' => 'Chaque page de chaque design',
         'by_palette' => 'La page d’accueil dans chaque palette recommandée',

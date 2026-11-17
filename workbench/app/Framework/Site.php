@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Workbench\App\Framework;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
 
@@ -33,7 +34,7 @@ use function Orchestra\Testbench\package_path;
  *
  * @phpstan-type Choice array{
  *     business: Business, content: array<string, mixed>, designs: list<Design>, design: Design,
- *     page: Page, direction: string, palette: string, layout: string, scheme: ?string,
+ *     page: Page, direction: string, palette: string, layout: string, scheme: ?string, inputs: string,
  *     variants: array<string, string>, chosen: array<string, bool>
  * }
  * @phpstan-type Placed array{component: string, variant: ?string, prefab: bool, props: array<string, mixed>, slot: ?string}
@@ -42,6 +43,9 @@ final class Site
 {
     /** What a side column's recipe names, which stand there first and in this order. */
     private const SIDE = ['schedule', 'map'];
+
+    /** How a site's form fields can be drawn, <html data-inputs>: the label over the box, inside it, or an icon in it. */
+    public const INPUTS = ['default', 'floating', 'icon'];
 
     /** @var array<string, array<string, mixed>|null> */
     private static array $content = [];
@@ -160,6 +164,9 @@ final class Site
             default => $design['scheme'],
         };
 
+        // How the forms' fields are drawn: not part of a design, so `default` unless the address asks.
+        $inputs = in_array($asked('inputs'), self::INPUTS, true) ? (string) $asked('inputs') : 'default';
+
         $components = Kit::components();
         $variants = $design['variants'];
 
@@ -185,6 +192,7 @@ final class Site
             'palette' => $palette,
             'layout' => $layout,
             'scheme' => $scheme,
+            'inputs' => $inputs,
             'variants' => $variants,
             // Whether each axis is the viewer's own choice rather than the design's.
             'chosen' => [
@@ -192,6 +200,7 @@ final class Site
                 'palette' => $palette !== $design['palette'],
                 'layout' => $layout !== ($design['pages'][$page['path']] ?? null),
                 'scheme' => $scheme !== $design['scheme'],
+                'inputs' => $inputs !== 'default',
                 'variants' => $variants !== $design['variants'],
             ],
         ];
@@ -218,6 +227,7 @@ final class Site
             'palette' => $choice['chosen']['palette'] ? $choice['palette'] : null,
             'layout' => $choice['chosen']['layout'] ? $choice['layout'] : null,
             'scheme' => $choice['chosen']['scheme'] ? ($choice['scheme'] ?? 'system') : null,
+            'inputs' => $choice['chosen']['inputs'] ? $choice['inputs'] : null,
             'v' => $choice['chosen']['variants']
                 ? array_merge(
                     array_fill_keys(array_keys(array_diff_key($design['variants'], $choice['variants'])), '-'),
@@ -250,6 +260,60 @@ final class Site
         }
 
         return array_filter($query, fn (mixed $value): bool => $value !== null && $value !== []);
+    }
+
+    /**
+     * The address of a view: the business, the design and the page as the
+     * path's segments (`/framework/site/bakery/fournee-de-midi/menu`), so every
+     * generated site, each of its designs and each of their pages has a route of
+     * its own that can be linked, opened and crawled, and every override after
+     * them in the query. A segment is in the path only while the one before it
+     * is, so the grid of a business that keeps a page but names no design keeps
+     * the page in the query; the home page is the design's own address. The
+     * page's segment is the route's `path`, not `page`, so a query naming a page
+     * is never bound to it by the router.
+     *
+     * @param  array<string, mixed>  $query  as {@see query()} writes it, or by hand
+     */
+    public static function url(string $route, array $query = []): string
+    {
+        $path = [];
+
+        foreach (['business', 'design'] as $key) {
+            if (! is_string($query[$key] ?? null) || $query[$key] === '') {
+                return route($route, $path + $query);
+            }
+
+            $path[$key] = $query[$key];
+            unset($query[$key]);
+        }
+
+        $page = is_string($query['page'] ?? null) ? trim($query['page'], '/') : '';
+        unset($query['page']);
+
+        return route($route, $path + ($page === '' ? [] : ['path' => $page]) + $query);
+    }
+
+    /**
+     * What a view's address asks for, as {@see choose()} reads it: the query,
+     * with the path's segments over it. The query alone still names a view, so
+     * an address written before the paths opens what it always did.
+     *
+     * @return array<string, mixed>
+     */
+    public static function asked(Request $request): array
+    {
+        $query = $request->query();
+
+        foreach (['business' => 'business', 'design' => 'design', 'path' => 'page'] as $segment => $key) {
+            $value = $request->route($segment);
+
+            if (is_string($value) && $value !== '') {
+                $query[$key] = $key === 'page' ? '/'.$value : $value;
+            }
+        }
+
+        return $query;
     }
 
     /**

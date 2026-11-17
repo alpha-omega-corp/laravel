@@ -184,8 +184,45 @@ it('narrows the grid to one direction, and keeps the page it is drawn on', funct
         ->and($spec)->not->toBeEmpty();
 
     foreach ($spec as $design) {
-        expect($html)->toContain('href="'.e(route('framework.businesses', ['business' => 'software', 'design' => $design['slug'], 'page' => '/pricing'])).'"');
+        expect($html)->toContain('href="'.e(url("/framework/businesses/software/{$design['slug']}/pricing")).'"');
     }
+});
+
+it('gives every site, design and page a route of its own, with the overrides in the query', function () {
+    $designs = Site::designs('software');
+    $design = $designs[0];
+    $other = $designs[1] ?? $designs[0];
+
+    expect(Site::url('framework.site', ['business' => 'software', 'design' => $design['slug'], 'page' => '/pricing', 'palette' => 'marble']))
+        ->toBe(url("/framework/site/software/{$design['slug']}/pricing?palette=marble"))
+        // The home page is the design's own address.
+        ->and(Site::url('framework.site', ['business' => 'software', 'design' => $design['slug'], 'page' => '/']))
+        ->toBe(url("/framework/site/software/{$design['slug']}"))
+        // A grid keeps its page in the query: there is no design to hang it under.
+        ->and(Site::url('framework.businesses', ['business' => 'software', 'page' => '/pricing']))
+        ->toBe(url('/framework/businesses/software?page=%2Fpricing'))
+        ->and(Site::url('framework.sheet', ['business' => 'software']))
+        ->toBe(url('/framework/sheet/software'));
+
+    // The path names the view: the page drawn is the one in it, and its links are paths too.
+    $html = $this->get("/framework/site/software/{$other['slug']}/pricing")->assertOk()->getContent();
+    $query = Site::query(Site::choose(['business' => 'software', 'design' => $other['slug'], 'page' => '/pricing']));
+
+    expect($html)->toContain('data-direction="'.Site::choose($query)['direction'].'"')
+        ->and($html)->toContain('href="'.e(url("/framework/site/software/{$other['slug']}/pricing")).'"')
+        ->and($html)->not->toContain('?business=');
+
+    // Inspecting a design by its path is the inspection, not the grid.
+    expect($this->get("/framework/businesses/software/{$design['slug']}")->assertOk()->getContent())
+        ->not->toContain('data-framework-part="grid"');
+
+    // An address written before the paths still opens the same page.
+    $this->get(route('framework.site').'?'.http_build_query(['business' => 'software', 'design' => $other['slug'], 'page' => '/pricing']))
+        ->assertOk()
+        ->assertSee('data-direction="'.Site::choose($query)['direction'].'"', false);
+
+    $this->get('/framework/site/software/no-such-design/pricing')->assertOk();
+    $this->get('/framework/site/Software')->assertNotFound();
 });
 
 it('lays every design out on the contact sheet, and every business on its index', function () {

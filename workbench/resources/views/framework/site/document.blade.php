@@ -14,19 +14,19 @@
      * screenshot is taken of. Embedded, its links lead back to the tab, so the
      * controls there follow the page a visitor walks to.
      */
-    $choice = Site::choose(request()->query());
+    $choice = Site::choose(Site::asked(request()));
 
     abort_if($choice === null, 404);
 
     $embedded = request()->boolean('embed');
-    $url = fn (string $path): string => route($embedded ? 'framework.businesses' : 'framework.site', Site::query($choice, ['page' => $path]));
+    $url = fn (string $path): string => Site::url($embedded ? 'framework.businesses' : 'framework.site', Site::query($choice, ['page' => $path]));
     $regions = Site::regions($choice, $url);
 
     $page = $choice['page'];
     $title = trim(($choice['content']['site']['brand'] ?? $choice['business']['name']).' · '.($page['label'] ?? $page['role']));
 @endphp
 <!DOCTYPE html>
-<html lang="fr" data-palette="{{ $choice['palette'] }}" data-direction="{{ $choice['direction'] }}" @if ($choice['scheme']) data-theme="{{ $choice['scheme'] }}" @endif>
+<html lang="fr" data-palette="{{ $choice['palette'] }}" data-direction="{{ $choice['direction'] }}" data-inputs="{{ $choice['inputs'] }}" @if ($choice['scheme']) data-theme="{{ $choice['scheme'] }}" @endif>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

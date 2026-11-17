@@ -27,7 +27,8 @@
      * was overridden is in the URL, so a design's address is short and a
      * departure from it is visible.
      */
-    $choice = Site::choose(request()->query());
+    $asked = Site::asked(request());
+    $choice = Site::choose($asked);
 
     abort_if($choice === null, 404);
 
@@ -36,19 +37,19 @@
     $page = $choice['page'];
     $content = $choice['content'];
 
-    $grid = ! request()->filled('design');
+    $grid = ! is_string($asked['design'] ?? null) || $asked['design'] === '';
     $gridPage = $page['path'] === '/' ? null : $page['path'];
     $gridDirection = $grid && isset($business['directions'][request()->string('direction')->toString()]) ? request()->string('direction')->toString() : null;
-    $gridTo = fn (array $changes): string => route('framework.businesses', array_filter(
+    $gridTo = fn (array $changes): string => Site::url('framework.businesses', array_filter(
         array_merge(['business' => $business['name'], 'page' => $gridPage, 'direction' => $gridDirection], $changes),
         fn (?string $value): bool => $value !== null,
     ));
     $inspect = fn (array $other): array => array_filter(['business' => $business['name'], 'design' => $other['slug'], 'page' => $gridPage], fn (?string $value): bool => $value !== null);
     $shown = array_values(array_filter($choice['designs'], fn (array $other): bool => $gridDirection === null || $other['direction'] === $gridDirection));
 
-    $to = fn (array $changes): string => route('framework.businesses', Site::query($choice, $changes));
-    $frame = route('framework.site', Site::query($choice) + ['embed' => 1]);
-    $alone = route('framework.site', Site::query($choice));
+    $to = fn (array $changes): string => Site::url('framework.businesses', Site::query($choice, $changes));
+    $frame = Site::url('framework.site', Site::query($choice) + ['embed' => 1]);
+    $alone = Site::url('framework.site', Site::query($choice));
     $sheet = route('framework.sheet', ['business' => $business['name']]);
 
     $plan = Site::plan($choice, fn (string $path): string => $to(['page' => $path]));
@@ -127,6 +128,14 @@
                 'current' => $scheme === $choice['scheme'],
             ], $direction['scheme'] === 'any' ? [null, 'light', 'dark'] : [$choice['scheme']]),
         ],
+        [
+            'heading' => __('framework.businesses.inputs'),
+            'items' => array_map(fn (string $style): array => [
+                'label' => __('framework.businesses.inputs_'.$style),
+                'href' => $to(['inputs' => $style === 'default' ? null : $style]),
+                'current' => $style === $choice['inputs'],
+            ], Site::INPUTS),
+        ],
     ];
 
     // The grid's column: which business, which of its pages every design is shown on, and which of its directions.
@@ -196,6 +205,17 @@
         ),
     ], $placed)));
 
+    // What a build pulls, a tab each, the prompt that rebuilds the site first (the panel says why).
+    $pullTabs = array_filter([
+        'prompt' => __('framework.prompt.tab'),
+        'regions' => __('framework.businesses.regions_tab'),
+        'direction' => __('framework.businesses.direction'),
+        'palette' => $palette ? __('framework.businesses.palette') : null,
+        'arrangements' => $choice['variants'] !== [] ? __('framework.businesses.arrangements') : null,
+        'files' => __('framework.businesses.files_tab'),
+    ]);
+    $heading = 'text-xs font-semibold tracking-wide text-ink-soft uppercase';
+
     $files = array_values(array_filter([
         $business['file'],
         Kit::designs($business['name']) !== [] ? "designs/{$business['name']}.md" : null,
@@ -241,10 +261,10 @@
                             @foreach ($shown as $other)
                                 @php($query = $inspect($other))
                                 <li class="w-[320px]">
-                                    <a href="{{ route('framework.businesses', $query) }}" data-design="{{ $other['slug'] }}"
+                                    <a href="{{ Site::url('framework.businesses', $query) }}" data-design="{{ $other['slug'] }}"
                                        class="panel group block h-full overflow-hidden transition-colors hover:border-accent focus-visible:border-accent">
                                         <span class="relative block h-[220px] w-[320px] overflow-hidden border-b border-rule bg-canvas">
-                                            <iframe src="{{ route('framework.site', $query) }}" title="{{ $other['name'] }}" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"
+                                            <iframe src="{{ Site::url('framework.site', $query) }}" title="{{ $other['name'] }}" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"
                                                     class="pointer-events-none absolute start-0 top-0 h-[880px] w-[1280px] origin-top-left scale-[0.25] border-0"></iframe>
                                         </span>
 
@@ -286,8 +306,28 @@
                                 @endif
 
                                 <a href="{{ $alone }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.open') }}</a>
+
+                                <button type="button" data-framework-prompt="framework-prompt" class="cursor-pointer text-accent hover:text-accent-strong">{{ __('framework.prompt.open') }}</button>
                             </span>
                         </div>
+
+                        {{--
+                            The design as deployer's Hallucinator takes it, a field a line (Prompt): copied here and
+                            pasted in its *From the framework*, which fills the form with exactly this. In the head,
+                            so a choice in the side column writes it again with the part.
+                        --}}
+                        <x-kit.modal id="framework-prompt" :title="__('framework.prompt.title')" data-framework-prompt-box>
+                            <p>{{ __('framework.prompt.intro') }}</p>
+
+                            <textarea readonly rows="12" data-framework-prompt-text aria-label="{{ __('framework.prompt.title') }}"
+                                      class="mt-3 block w-full resize-y rounded-control border border-rule bg-canvas-alt p-3 font-mono text-xs leading-relaxed text-ink">{{ \Workbench\App\Framework\Prompt::text($choice) }}</textarea>
+
+                            <x-slot:actions>
+                                <span class="me-auto text-sm text-ink-soft" data-framework-prompt-said aria-live="polite"></span>
+                                <form method="dialog"><x-kit.button variant="secondary" type="submit">{{ __('framework.prompt.close') }}</x-kit.button></form>
+                                <x-kit.button data-framework-prompt-copy data-copied="{{ __('framework.prompt.copied') }}">{{ __('framework.prompt.copy') }}</x-kit.button>
+                            </x-slot:actions>
+                        </x-kit.modal>
 
                         {{-- What the business is and why the design: folded, so the site starts under one line. --}}
                         <details>
@@ -310,15 +350,49 @@
                             class="block h-[calc(100dvh-22rem)] min-h-[32rem] w-full resize-y bg-canvas"></iframe>
                 </div>
 
-                <div class="panel divide-y divide-rule" data-ref="framework.pulls" data-framework-part="pulls">
-                    <header class="px-4 py-3 sm:px-6">
+                {{--
+                    What a build pulls, one tab a kind: first the prompt that rebuilds this site in deployer's
+                    Hallucinator (Prompt, the same text as the head's dialog), then each part of the kit the page is
+                    made of. Tabs and not a link a view: choosing one changes no axis, so the address stays the
+                    design's, and framework.js keeps the tab chosen when a choice in the side column swaps the part.
+                --}}
+                <div class="panel" data-ref="framework.pulls" data-framework-part="pulls" data-framework-tabs>
+                    <header class="px-4 pt-3 sm:px-6">
                         <h2 class="font-display text-lg font-bold text-ink">{{ __('framework.businesses.pulls') }}</h2>
-                        <p class="mt-1 font-mono text-xs text-ink-soft">&lt;html data-palette="{{ $choice['palette'] }}" data-direction="{{ $choice['direction'] }}"&gt; · {{ $choice['layout'] }}</p>
+                        <p class="mt-1 font-mono text-xs text-ink-soft">&lt;html data-palette="{{ $choice['palette'] }}" data-direction="{{ $choice['direction'] }}"@if ($choice['inputs'] !== 'default') data-inputs="{{ $choice['inputs'] }}"@endif&gt; · {{ $choice['layout'] }}</p>
                     </header>
 
-                    <div class="grid gap-x-10 gap-y-6 px-4 py-4 sm:px-6 lg:grid-cols-2">
-                        <div class="space-y-3">
-                            <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.regions') }}</h3>
+                    {{-- One line at every width: on a phone the tabs scroll sideways rather than wrapping under each other. --}}
+                    <div role="tablist" aria-label="{{ __('framework.businesses.pulls') }}"
+                         class="mt-2 flex overflow-x-auto overscroll-x-contain border-b border-rule px-2 sm:px-4">
+                        @foreach ($pullTabs as $key => $label)
+                            <button type="button" role="tab" id="pulls-tab-{{ $key }}" aria-controls="pulls-{{ $key }}"
+                                    aria-selected="{{ $loop->first ? 'true' : 'false' }}" tabindex="{{ $loop->first ? '0' : '-1' }}"
+                                    data-framework-tab="{{ $key }}"
+                                    class="-mb-px shrink-0 cursor-pointer border-b-2 border-transparent px-3 py-2 text-sm font-medium whitespace-nowrap text-ink-soft hover:border-rule hover:text-ink aria-selected:border-accent aria-selected:text-ink">
+                                {{ $label }}
+                                @if ($key === 'direction' || $key === 'palette')
+                                    <span class="font-mono text-xs text-ink-soft">{{ $choice[$key] }}</span>
+                                @endif
+                            </button>
+                        @endforeach
+                    </div>
+
+                    <div class="px-4 py-4 sm:px-6">
+                        <section role="tabpanel" id="pulls-prompt" aria-labelledby="pulls-tab-prompt" data-framework-prompt-box class="space-y-3">
+                            <p class="max-w-prose text-sm text-ink-soft">{{ __('framework.prompt.tab_intro') }}</p>
+
+                            <textarea readonly rows="14" data-framework-prompt-text aria-label="{{ __('framework.prompt.tab') }}"
+                                      class="block w-full field-sizing-content resize-y rounded-control border border-rule bg-canvas-alt p-3 font-mono text-xs leading-relaxed text-ink">{{ \Workbench\App\Framework\Prompt::text($choice) }}</textarea>
+
+                            <div class="flex flex-wrap items-center justify-end gap-3">
+                                <span class="me-auto text-sm text-ink-soft" data-framework-prompt-said aria-live="polite"></span>
+                                <x-kit.button data-framework-prompt-copy data-copied="{{ __('framework.prompt.copied') }}">{{ __('framework.prompt.copy') }}</x-kit.button>
+                            </div>
+                        </section>
+
+                        <section role="tabpanel" id="pulls-regions" aria-labelledby="pulls-tab-regions" hidden class="space-y-3">
+                            <h3 class="{{ $heading }}">{{ __('framework.businesses.regions') }}</h3>
 
                             <dl class="divide-y divide-rule text-sm">
                                 @foreach ($plan as $region => $holds)
@@ -337,48 +411,48 @@
                                     </div>
                                 @endforeach
                             </dl>
-                        </div>
+                        </section>
 
-                        <div class="space-y-5">
-                            <div class="space-y-2">
-                                <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.direction') }} · {{ $choice['direction'] }}</h3>
-                                <p class="text-sm text-ink-soft">{{ $direction['summary'] }}</p>
-                            </div>
+                        <section role="tabpanel" id="pulls-direction" aria-labelledby="pulls-tab-direction" hidden class="space-y-2">
+                            <h3 class="{{ $heading }}">{{ __('framework.businesses.direction') }} · {{ $choice['direction'] }}</h3>
+                            <p class="max-w-prose text-sm text-ink-soft">{{ $direction['summary'] }}</p>
+                        </section>
 
-                            @if ($palette)
+                        @if ($palette)
+                            <section role="tabpanel" id="pulls-palette" aria-labelledby="pulls-tab-palette" hidden class="space-y-5">
                                 <div class="space-y-2">
-                                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.palette') }} · {{ $choice['palette'] }}</h3>
-                                    <p class="text-sm text-ink-soft">{{ $palette['summary'] }}</p>
+                                    <h3 class="{{ $heading }}">{{ __('framework.businesses.palette') }} · {{ $choice['palette'] }}</h3>
+                                    <p class="max-w-prose text-sm text-ink-soft">{{ $palette['summary'] }}</p>
                                 </div>
-                            @endif
 
-                            @if ($choice['variants'] !== [])
-                                <div class="space-y-2">
-                                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.arrangements') }}</h3>
-                                    <ul role="list" class="space-y-1 text-sm text-ink-soft">
-                                        @foreach ($choice['variants'] as $component => $variant)
-                                            <li><span class="font-mono text-xs text-ink">{{ $component }} — {{ $variant }}</span> {{ $components[$component]['variants'][$variant] ?? '' }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
+                                @if ($palette['costs'] !== '')
+                                    <div class="space-y-2">
+                                        <h3 class="{{ $heading }}">{{ __('framework.businesses.costs') }}</h3>
+                                        <p class="max-w-prose text-sm text-ink-soft">{{ $palette['costs'] }}</p>
+                                    </div>
+                                @endif
+                            </section>
+                        @endif
 
-                            @if ($palette && $palette['costs'] !== '')
-                                <div class="space-y-2">
-                                    <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.costs') }}</h3>
-                                    <p class="text-sm text-ink-soft">{{ $palette['costs'] }}</p>
-                                </div>
-                            @endif
-
-                            <div class="space-y-2">
-                                <h3 class="text-xs font-semibold tracking-wide text-ink-soft uppercase">{{ __('framework.businesses.files') }}</h3>
-                                <ul role="list" class="flex flex-wrap gap-1.5">
-                                    @foreach ($files as $file)
-                                        <li class="rounded-control bg-canvas-alt px-2 py-0.5 font-mono text-xs text-ink">{{ $file }}</li>
+                        @if ($choice['variants'] !== [])
+                            <section role="tabpanel" id="pulls-arrangements" aria-labelledby="pulls-tab-arrangements" hidden class="space-y-2">
+                                <h3 class="{{ $heading }}">{{ __('framework.businesses.arrangements') }}</h3>
+                                <ul role="list" class="space-y-1 text-sm text-ink-soft">
+                                    @foreach ($choice['variants'] as $component => $variant)
+                                        <li><span class="font-mono text-xs text-ink">{{ $component }} — {{ $variant }}</span> {{ $components[$component]['variants'][$variant] ?? '' }}</li>
                                     @endforeach
                                 </ul>
-                            </div>
-                        </div>
+                            </section>
+                        @endif
+
+                        <section role="tabpanel" id="pulls-files" aria-labelledby="pulls-tab-files" hidden class="space-y-2">
+                            <h3 class="{{ $heading }}">{{ __('framework.businesses.files') }}</h3>
+                            <ul role="list" class="flex flex-wrap gap-1.5">
+                                @foreach ($files as $file)
+                                    <li class="rounded-control bg-canvas-alt px-2 py-0.5 font-mono text-xs text-ink">{{ $file }}</li>
+                                @endforeach
+                            </ul>
+                        </section>
                     </div>
                 </div>
 

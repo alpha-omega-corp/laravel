@@ -16,6 +16,16 @@ return [
         'layout' => 'Layout',
     ],
 
+    'prompt' => [
+        'open' => 'Prompt for deployer',
+        'title' => 'This design for deployer',
+        'intro' => 'Every field of the Hallucinator\'s form, as this view draws the design: the business, the look, the layout of every page. Copy it, then paste it in the Hallucinator\'s From the framework.',
+        'copy' => 'Copy',
+        'copied' => 'Copied',
+        'close' => 'Close',
+        'tab' => 'Prompt',
+        'tab_intro' => 'The prompt that rebuilds this site in deployer: every field of the Hallucinator\'s form, as this view draws the design. Copy it, then paste it in the Hallucinator\'s From the framework.',
+    ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
         'title' => 'Record of the run',
@@ -54,6 +64,10 @@ return [
         'system' => 'System',
         'light' => 'Light',
         'dark' => 'Dark',
+        'inputs' => 'Inputs',
+        'inputs_default' => 'Default',
+        'inputs_floating' => 'Floating',
+        'inputs_icon' => 'Icon',
         'designs' => 'designs',
         'pages' => 'pages',
         'views' => 'views',
@@ -73,6 +87,8 @@ return [
         'arrangements' => 'Arrangements',
         'own' => 'The direction’s own',
         'files' => 'Read from the skill',
+        'files_tab' => 'Files',
+        'regions_tab' => 'Regions',
         'empty' => 'nothing',
         'by_design' => 'Every page of every design',
         'by_palette' => 'The home page in every recommended palette',

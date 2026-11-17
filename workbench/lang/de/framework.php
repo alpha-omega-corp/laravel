@@ -16,6 +16,16 @@ return [
         'layout' => 'Layout',
     ],
 
+    'prompt' => [
+        'open' => 'Prompt für deployer',
+        'title' => 'Dieses Design für deployer',
+        'intro' => 'Jedes Feld des Hallucinator-Formulars, so wie diese Ansicht das Design zeichnet: das Geschäft, der Stil, das Layout jeder Seite. Kopieren und im Hallucinator unter „From the framework“ einfügen.',
+        'copy' => 'Kopieren',
+        'copied' => 'Kopiert',
+        'close' => 'Schließen',
+        'tab' => 'Prompt',
+        'tab_intro' => 'Der Prompt, der diese Site in deployer neu erstellt: jedes Feld des Hallucinator-Formulars, so wie diese Ansicht das Design zeichnet. Kopieren und im Hallucinator unter „From the framework“ einfügen.',
+    ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
         'title' => 'Protokoll des Laufs',
@@ -54,6 +64,10 @@ return [
         'system' => 'System',
         'light' => 'Hell',
         'dark' => 'Dunkel',
+        'inputs' => 'Eingabefelder',
+        'inputs_default' => 'Standard',
+        'inputs_floating' => 'Schwebend',
+        'inputs_icon' => 'Mit Symbol',
         'designs' => 'Designs',
         'pages' => 'Seiten',
         'views' => 'Ansichten',
@@ -73,6 +87,8 @@ return [
         'arrangements' => 'Anordnungen',
         'own' => 'Wie die Richtung',
         'files' => 'Aus dem Skill gelesen',
+        'files_tab' => 'Dateien',
+        'regions_tab' => 'Regionen',
         'empty' => 'nichts',
         'by_design' => 'Jede Seite jedes Designs',
         'by_palette' => 'Die Startseite in jeder empfohlenen Palette',

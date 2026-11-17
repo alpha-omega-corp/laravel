@@ -16,6 +16,16 @@ return [
         'layout' => 'Layout',
     ],
 
+    'prompt' => [
+        'open' => 'Prompt per deployer',
+        'title' => 'Questo design per deployer',
+        'intro' => 'Ogni campo del modulo dell\'Hallucinator, come questa vista disegna il design: l\'attività, lo stile, il layout di ogni pagina. Copialo, poi incollalo in «From the framework» dell\'Hallucinator.',
+        'copy' => 'Copia',
+        'copied' => 'Copiato',
+        'close' => 'Chiudi',
+        'tab' => 'Prompt',
+        'tab_intro' => 'Il prompt che ricrea questo sito in deployer: ogni campo del modulo dell\'Hallucinator, come questa vista disegna il design. Copialo, poi incollalo in «From the framework» dell\'Hallucinator.',
+    ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
         'title' => 'Diario del lavoro',
@@ -54,6 +64,10 @@ return [
         'system' => 'Sistema',
         'light' => 'Chiaro',
         'dark' => 'Scuro',
+        'inputs' => 'Campi',
+        'inputs_default' => 'Predefiniti',
+        'inputs_floating' => 'Fluttuanti',
+        'inputs_icon' => 'Con icona',
         'designs' => 'design',
         'pages' => 'pagine',
         'views' => 'viste',
@@ -73,6 +87,8 @@ return [
         'arrangements' => 'Disposizioni',
         'own' => 'Quello della direzione',
         'files' => 'Letto dallo skill',
+        'files_tab' => 'File',
+        'regions_tab' => 'Regioni',
         'empty' => 'niente',
         'by_design' => 'Ogni pagina di ogni design',
         'by_palette' => 'La home in ogni palette raccomandata',

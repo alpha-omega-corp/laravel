@@ -27,8 +27,9 @@
     {{-- Shown in place, so a page can document the dialog without opening it. --}}
     <div data-ref="{{ $ref }}" {{ $attributes->class([$panel]) }}>
 @else
+    {{-- `m-auto`: the reset takes every margin to 0, and the auto margins are how the browser centres a modal dialog. --}}
     <dialog id="{{ $id }}" data-ref="{{ $ref }}"
-            {{ $attributes->class([$panel, 'backdrop:bg-ink/60']) }}>
+            {{ $attributes->class([$panel, 'm-auto', 'backdrop:bg-ink/60']) }}>
 @endif
 
     <div class="flex items-start gap-4">

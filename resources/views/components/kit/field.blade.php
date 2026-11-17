@@ -8,6 +8,7 @@
     'choose' => null,
     'rows' => 4,
     'describedby' => null,
+    'icon' => null,
 ])
 
 @php
@@ -29,6 +30,16 @@
      * `style` and `data-kit-part` is the control's; those three place the field in its
      * form. `data-field` on the control is how check_site tells a field drawn here from
      * one written by hand.
+     *
+     * **Three input styles, one markup**: the site picks one with `<html data-inputs>` —
+     * absent or `default` the label over the box, `floating` the label inside the box
+     * rising out of the way as it is typed in, `icon` an icon at the box's left. The
+     * markup is the same in all three (the label, the control, the icon, the hint, the
+     * error, in that order, so a direction's `> :nth-child(2)` is still the control) and
+     * kit.css draws the difference. That is why a line or a long text always has a
+     * placeholder, if only a space: `:placeholder-shown` is how the floating label knows
+     * the box is empty. The icon is `icon` when given, else what the type, the
+     * autocomplete or the name says the field is for.
      *
      * @var array<array-key, string>|null $options
      */
@@ -60,7 +71,29 @@
     // A list is its own values: ['Coupe', 'Couleur'] posts the word it shows.
     $choices = $kind === 'choice' ? (array_is_list($options) ? array_combine($options, $options) : $options) : [];
 
-    $control = $attributes->except(['class', 'style', 'id', 'data-kit-part'])->merge([
+    $autocomplete = (string) $attributes->get('autocomplete', '');
+    $icon ??= match (true) {
+        $kind === 'long' => 'message-square',
+        $kind === 'choice' => 'list',
+        $type === 'email' || str_contains($autocomplete, 'email') => 'mail',
+        $type === 'tel' || str_contains($autocomplete, 'tel') => 'phone',
+        $type === 'url' => 'link',
+        $type === 'date', $type === 'datetime-local' => 'calendar',
+        $type === 'time' => 'clock',
+        $type === 'password' => 'lock',
+        $type === 'search' => 'search',
+        str_contains($autocomplete, 'address'), (bool) preg_match('/place|address|city|town/', $key) => 'map-pin',
+        (bool) preg_match('/party|guests|people/', $key) => 'users',
+        $type === 'number' => 'hash',
+        str_contains($autocomplete, 'name'), (bool) preg_match('/name/', $key) => 'user',
+        default => 'pen-line',
+    };
+
+    // A space when nothing else: the floating label reads an empty box off :placeholder-shown, which an empty placeholder never is.
+    // Written in the tag, not the bag, which trims a value to nothing.
+    $placeholder = (string) ($attributes->get('placeholder') ?: ' ');
+
+    $control = $attributes->except(['class', 'style', 'id', 'data-kit-part', 'placeholder'])->merge([
         'name' => $name, 'id' => $id, 'data-field' => $kind,
         'aria-invalid' => $error ? 'true' : null, 'aria-describedby' => $described,
     ])->class([
@@ -73,7 +106,7 @@
     <label for="{{ $id }}" class="block text-sm font-medium text-ink">{{ $label }}</label>
 
     @if ($kind === 'long')
-        <textarea rows="{{ $rows }}" {{ $control }}>{{ $current }}</textarea>
+        <textarea rows="{{ $rows }}" placeholder="{{ $placeholder }}" {{ $control }}>{{ $current }}</textarea>
     @elseif ($kind === 'choice')
         <select {{ $control }}>
             @if ($choose !== null)
@@ -84,8 +117,11 @@
             @endforeach
         </select>
     @else
-        <input type="{{ $type }}" @if ($current !== null) value="{{ $current }}" @endif {{ $control }}>
+        <input type="{{ $type }}" @if ($current !== null) value="{{ $current }}" @endif placeholder="{{ $placeholder }}" {{ $control }}>
     @endif
+
+    {{-- Drawn only where <html data-inputs="icon"> asks for it; after the control, so the control stays the second child. --}}
+    <x-kit.icon :name="$icon" data-kit-part="field-icon" class="size-4 shrink-0" />
 
     @if ($hint)
         <p id="{{ $id }}-hint" class="text-xs text-ink-soft">{{ $hint }}</p>

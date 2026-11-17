@@ -26,7 +26,16 @@ const MAIN = '[data-framework-main]';
 
 let latest = 0;
 
-/** A link this tab can draw in place: same page, same path, followed with no modifier and in this window. */
+/*
+ * Which tab a path is: its first two segments (`/framework`, `/framework/businesses`).
+ * A business, a design and a page are segments after them, so two views of one tab
+ * have different paths and still swap in place.
+ */
+function tab(pathname) {
+    return pathname.split('/').slice(0, 3).join('/');
+}
+
+/** A link this tab can draw in place: same page, same tab, followed with no modifier and in this window. */
 function inPlace(link, event) {
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
         return null;
@@ -38,7 +47,7 @@ function inPlace(link, event) {
 
     const url = new URL(link.getAttribute('href') ?? '', link.baseURI);
 
-    return url.origin === location.origin && url.pathname === location.pathname ? url : null;
+    return url.origin === location.origin && tab(url.pathname) === tab(location.pathname) ? url : null;
 }
 
 function names(scope) {
@@ -138,6 +147,7 @@ async function go(url, push) {
         }
 
         freshMain.querySelectorAll(FRAME).forEach(watchFrame);
+        keepTab(root);
         document.title = doc.title;
 
         if (push) {
@@ -179,6 +189,8 @@ async function go(url, push) {
         patchFrame(frame, freshFrame);
     }
 
+    keepTab(root);
+
     document.title = doc.title;
 
     if (push) {
@@ -213,13 +225,127 @@ function watchFrame(frame) {
     attach();
 }
 
+/*
+ * The design as deployer's Hallucinator takes it: a button in the inspected
+ * design's head opens its dialog, and Copy puts the prompt on the clipboard.
+ * Both are found by the click, not bound once, because the head is swapped in
+ * with every choice and brings its own dialog with the prompt written again.
+ */
+async function copyPrompt(button) {
+    // The head's dialog or the first tab of What a build pulls: each holds its own prompt and its own word.
+    const box = button.closest('[data-framework-prompt-box]');
+    const text = box?.querySelector('[data-framework-prompt-text]');
+    const said = box?.querySelector('[data-framework-prompt-said]');
+
+    if (!text) {
+        return;
+    }
+
+    try {
+        await navigator.clipboard.writeText(text.value);
+    } catch {
+        // No clipboard API (a page not served over https or localhost): the selection is copied instead.
+        text.select();
+        document.execCommand('copy');
+    }
+
+    if (said) {
+        said.textContent = button.dataset.copied ?? '';
+    }
+}
+
+/*
+ * What a build pulls, as tabs. The tab chosen is kept here, because a choice
+ * in the side column swaps the whole part in, and a reader comparing two
+ * palettes wants the palette's tab to stay open between them.
+ */
+let pullsTab = null;
+
+function showTab(tab, focus) {
+    const list = tab.closest('[role="tablist"]');
+    const scope = tab.closest('[data-framework-tabs]');
+
+    for (const other of list.querySelectorAll('[role="tab"]')) {
+        const on = other === tab;
+        other.setAttribute('aria-selected', on ? 'true' : 'false');
+        other.tabIndex = on ? 0 : -1;
+        scope.querySelector(`#${other.getAttribute('aria-controls')}`)?.toggleAttribute('hidden', !on);
+    }
+
+    pullsTab = tab.dataset.frameworkTab;
+
+    if (focus) {
+        tab.focus();
+    }
+
+    tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+}
+
+/** After a swap: the tab chosen before, when the new part has it. */
+function keepTab(root) {
+    const tab = pullsTab && root.querySelector(`[data-framework-tabs] [data-framework-tab="${pullsTab}"]`);
+
+    if (tab) {
+        showTab(tab, false);
+    }
+}
+
+/** Arrows, Home and End move along the tabs, as a tab list is walked. */
+function walkTabs(event) {
+    const tab = event.target.closest?.('[data-framework-tabs] [role="tab"]');
+
+    if (!tab) {
+        return;
+    }
+
+    const tabs = [...tab.closest('[role="tablist"]').querySelectorAll('[role="tab"]')];
+    const at = tabs.indexOf(tab);
+    const to = { ArrowRight: at + 1, ArrowLeft: at - 1, Home: 0, End: tabs.length - 1 }[event.key];
+
+    if (to !== undefined) {
+        event.preventDefault();
+        showTab(tabs[(to + tabs.length) % tabs.length], true);
+    }
+}
+
+function prompt(event) {
+    const tab = event.target.closest?.('[data-framework-tabs] [data-framework-tab]');
+
+    if (tab) {
+        showTab(tab, false);
+
+        return true;
+    }
+
+    const open = event.target.closest?.('[data-framework-prompt]');
+
+    if (open) {
+        const dialog = document.getElementById(open.dataset.frameworkPrompt);
+        dialog?.querySelector('[data-framework-prompt-said]')?.replaceChildren();
+        dialog?.showModal();
+
+        return true;
+    }
+
+    const copy = event.target.closest?.('[data-framework-prompt-copy]');
+
+    if (copy) {
+        copyPrompt(copy);
+
+        return true;
+    }
+
+    return false;
+}
+
 if (document.querySelector(ROOT)) {
     document.addEventListener('click', (event) => {
-        if (event.target.closest?.(ROOT)) {
+        if (event.target.closest?.(ROOT) && !prompt(event)) {
             follow(event);
         }
     });
 
+    document.addEventListener('keydown', walkTabs);
     document.querySelectorAll(FRAME).forEach(watchFrame);
 
     // The views pushed here are walked back and forth the same way; the first one too, which has no state of its own.

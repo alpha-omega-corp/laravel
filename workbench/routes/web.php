@@ -31,10 +31,23 @@ Route::view('/framework', 'framework')->name('framework');
  * document whose <html> carries the palette and the direction as a built site's
  * does; `businesses` is the tab that frames it with every axis above it; `sheet`
  * lays every design of a business out page by page.
+ *
+ * Each site, design and page is a path of its own (/framework/businesses/
+ * bakery/<design>/menu), written by Site::url and read by Site::asked; the
+ * overrides of a design stay in the query, and an address that names all of it
+ * in the query still opens.
  */
-Route::view('/framework/site', 'framework.site.document')->name('framework.site');
-Route::view('/framework/businesses', 'framework.businesses')->name('framework.businesses');
-Route::view('/framework/sheet', 'framework.sheet')->name('framework.sheet');
+$segment = '[a-z0-9][a-z0-9_-]*';
+
+Route::view('/framework/site/{business?}/{design?}/{path?}', 'framework.site.document')
+    ->where(['business' => $segment, 'design' => $segment, 'path' => $segment])
+    ->name('framework.site');
+Route::view('/framework/businesses/{business?}/{design?}/{path?}', 'framework.businesses')
+    ->where(['business' => $segment, 'design' => $segment, 'path' => $segment])
+    ->name('framework.businesses');
+Route::view('/framework/sheet/{business?}', 'framework.sheet')
+    ->where(['business' => $segment])
+    ->name('framework.sheet');
 
 /*
  * The record of the run that made the business views: what was asked, what was

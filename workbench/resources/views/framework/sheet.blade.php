@@ -12,10 +12,10 @@
      * tab that shows it with its axes.
      */
     $businesses = Site::businesses();
-    $business = $businesses[request()->string('business')->toString()] ?? null;
+    $business = $businesses[Site::asked(request())['business'] ?? ''] ?? null;
 
-    $site = fn (array $query): string => route('framework.site', array_diff_key($query, ['label' => 1, 'verdict' => 1]));
-    $tab = fn (array $query): string => route('framework.businesses', array_diff_key($query, ['label' => 1, 'verdict' => 1]));
+    $site = fn (array $query): string => Site::url('framework.site', array_diff_key($query, ['label' => 1, 'verdict' => 1]));
+    $tab = fn (array $query): string => Site::url('framework.businesses', array_diff_key($query, ['label' => 1, 'verdict' => 1]));
 
     $designs = $business ? Site::designs($business['name']) : [];
     $content = $business ? (array) Site::content($business['name']) : [];

@@ -419,6 +419,131 @@
 }
 
 /*
+ * The three input styles of a site's form fields (x-kit.field), chosen on
+ * <html data-inputs>: absent or `default`, the label over the box; `floating`,
+ * the label inside the box, resting where the text goes while the box is empty
+ * and rising to its top edge, small, as soon as it is focused or filled;
+ * `icon`, what the field is for drawn at the box's left. The markup is the same
+ * in all three: the label, the control, the icon, then the hint and the error.
+ * A grid lays the label (floating) or the icon over the control's cell, so
+ * neither moves anything around it, and the hint and the error flow below.
+ *
+ * Unlayered, like the directions, so a direction's own padding or label size
+ * does not undo the room these make. Every box is .control's px-3 py-2 text-sm,
+ * plus its 1px edge, which is where the offsets come from.
+ */
+[data-kit-part='field-icon'] {
+    display: none;
+}
+
+:is([data-inputs='floating'], [data-inputs='icon']) [data-kit='field'] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.375rem;
+}
+
+:is([data-inputs='floating'], [data-inputs='icon']) [data-kit='field'] > * {
+    margin-block: 0;
+}
+
+:is([data-inputs='floating'], [data-inputs='icon']) [data-kit='field'] > .control {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+/* Icon: a 1rem glyph on the first line's centre, the text kept clear of it. */
+[data-inputs='icon'] [data-kit-part='field-icon'] {
+    display: block;
+    grid-row: 2;
+    grid-column: 1;
+    z-index: 1;
+    align-self: center;
+    justify-self: start;
+    margin-inline-start: calc(0.75rem + 1px);
+    color: var(--color-ink-soft);
+    pointer-events: none;
+    transition: color var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-inputs='icon'] [data-kit='field'] > .control {
+    padding-inline-start: 2.375rem;
+}
+
+[data-inputs='icon'] [data-kit='field'] > textarea ~ [data-kit-part='field-icon'] {
+    align-self: start;
+    margin-block-start: calc(0.625rem + 1px);
+}
+
+[data-inputs='icon'] [data-kit='field']:has(> .control:focus) > [data-kit-part='field-icon'] {
+    color: var(--color-accent);
+}
+
+[data-inputs='icon'] [data-kit='field']:has(> .control[aria-invalid='true']) > [data-kit-part='field-icon'] {
+    color: var(--color-danger);
+}
+
+/*
+ * Floating: the box grows a line's worth at the top for the risen label, which
+ * sits at 80% of its size. The placeholder, if the field has one, shows only
+ * under focus, when the label has made room for it. A choice and a date always
+ * show something, so their label is always risen.
+ */
+[data-inputs='floating'] [data-kit='field'] > .control {
+    padding-block: 1.375rem 0.375rem;
+}
+
+[data-inputs='floating'] [data-kit='field'] > label {
+    grid-row: 2;
+    grid-column: 1;
+    z-index: 1;
+    align-self: start;
+    justify-self: start;
+    max-width: calc(100% - 1.5rem - 2px);
+    margin-inline-start: calc(0.75rem + 1px);
+    overflow: hidden;
+    line-height: 1.25rem;
+    color: var(--color-ink-soft);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+    transform-origin: left top;
+    translate: 0 calc(0.375rem + 1px);
+    scale: 0.8;
+    transition:
+        translate var(--dur-fast, 0.15s) ease-out,
+        scale var(--dur-fast, 0.15s) ease-out,
+        color var(--dur-fast, 0.15s) ease-out;
+}
+
+[data-inputs='floating'] [data-kit='field']:has(> .control:placeholder-shown:not(:focus)) > label {
+    translate: 0 calc(0.875rem + 1px);
+    scale: 1;
+}
+
+[data-inputs='floating'] [data-kit='field']:has(> textarea.control:placeholder-shown:not(:focus)) > label {
+    translate: 0 calc(1.375rem + 1px);
+}
+
+[data-inputs='floating'] [data-kit='field'] > .control:not(:focus)::placeholder {
+    color: transparent;
+}
+
+[data-inputs='floating'] [data-kit='field']:has(> .control:focus) > label {
+    color: var(--color-accent);
+}
+
+[data-inputs='floating'] [data-kit='field']:has(> .control[aria-invalid='true']) > label {
+    color: var(--color-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-inputs='floating'] [data-kit='field'] > label,
+    [data-inputs='icon'] [data-kit-part='field-icon'] {
+        transition: none;
+    }
+}
+
+/*
  * Rows of grouped items: the cards of a catalogue, the people of a team, the
  * plans, the projects, the steps. A row is always full. Each list is a flex
  * row that wraps, and `--row-item` on the list is the least width one item
