@@ -1,6 +1,6 @@
 # bakery
 
-Twelve ways one bakery is drawn: five at the counter, four on the market's board and three in the pâtissier's studio. The pages and the prefabs are the same in all of them; what changes is who is looking (the regular at six, the office at noon, the parents at half past three, the couple ordering a wedding cake) and so what the first screen leads with, the hours, the day's batch or one cake, and how the range is read: as rows with their prices, on a board, or as a display case.
+Fifteen ways one bakery is drawn: six at the counter, five on the market's board and four in the pâtissier's studio. The pages and the prefabs are the same in all of them; what changes is who is looking (the regular at six, the office at noon, the parents at half past three, the couple ordering a wedding cake) and so what the first screen leads with, the hours, the day's batch or one cake, and how the range is read: as rows with their prices, on a board, or as a display case.
 
 ## Comptoir du matin
 
@@ -161,3 +161,46 @@ A pâtisserie that works to order, shown after dark like a jewel box: aubergine 
 - catalogue — list
 - schedule — plain
 - map — plain
+
+## Levain
+
+A sourdough bakery that sells by the kilo and names its flours: the words beside a photograph of the loaves cooling on the rack, the week's hours as a strip straight under, then the breads in rows from the top of their page, each with its grain, its mill and its price, the hours pinned beside them. For a bakery that opened in an old workshop five years ago and whose customers come twice a week for a large loaf and ask whether the rye is back; the streets around the door are a panorama, since half of them arrive by bike. Clay's terracotta and olive on warm paper are a floured bench and a linen cloth.
+
+- direction — counter
+- palette — clay
+- / — marketing
+- /bread — carte
+- /our-story — marketing
+- hero — split
+- schedule — strip
+- catalogue — list
+- map — wide
+
+## Four mobile
+
+A baker with a wood oven on a trailer, who bakes at the farmers' markets of three towns and at village fêtes in summer: the first screen sets the oven on the square beside the week's markets, plain lines of town, day and hour, and the map bare under them, because the question is where the oven is this Saturday. The range is a board of glass panels led by the loaf of the week, and the story of the oven is the long page. Sandstone's printed paper and burnt sienna are a fire on a market morning, warmer than the stall's usual daylight.
+
+- direction — market
+- palette — sandstone
+- / — split
+- /bread — board
+- /our-story — marketing
+- schedule — plain
+- map — plain
+- catalogue — feature
+- site-footer — compact
+
+## Chocolatier
+
+A pâtissier-chocolatier whose year turns on four weeks before Christmas and two before Easter, when boxes are ordered for families and companies: one photograph of a box opened bled behind the name, the name centred over the pages like the gold on its lid, and the range a long page led by the season's box at twice the size, each praline and each cake with its price. For a house people visit to give rather than to eat, who want the box, the price and the last day to order. Ember's oxblood and gold on warm paper are the ribbon and the foil, and its spaced capitals the label.
+
+- direction — studio
+- palette — ember
+- / — marketing
+- /bread — marketing
+- /our-story — marketing
+- hero — cover
+- site-header — centred
+- site-footer — centred
+- catalogue — feature
+- schedule — strip

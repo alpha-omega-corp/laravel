@@ -1,6 +1,6 @@
 # butcher
 
-Twelve ways one butcher's shop is drawn, seven at the counter and five as a farm's own butchery. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — the hours and the door, the week's special, the herd, or the name alone — how the cuts are read — rows with their prices, a board led by one piece, a rail under the thumb — and how loud the house is, from an old enamel sign to a Saturday stall.
+Fourteen ways one butcher's shop is drawn, eight at the counter and six as a farm's own butchery. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — the hours and the door, the week's special, the herd, or the name alone — how the cuts are read — rows with their prices, a board led by one piece, a rail under the thumb — and how loud the house is, from an old enamel sign to a Saturday stall.
 
 ## Boucherie du bourg
 
@@ -183,3 +183,36 @@ Found on a phone at the door: the name beside today's hours and a plain map, the
 - map — plain
 - faq — open
 - site-footer — compact
+
+## Saloir
+
+A farm that cures its own pigs: dry sausages, a ham that hangs eighteen months, lard and terrines, sold from the cellar door on Fridays and at three markets. The first screen sets the cellar with its hams beside the days the door is open and the markets where the stall stands, both as plain lines, and the way down the farm road as a panorama; the range is one long page of rows, each piece with its months of curing and its price by the kilo, and the questions (how long a sausage keeps, whether they post, when to order the Christmas ham) are answered open beside the telephone. Clay's terracotta and olive on warm paper are the brick vault and the string.
+
+- direction — market
+- palette — clay
+- / — split
+- /our-meat — marketing
+- /questions — split
+- /our-story — marketing
+- schedule — plain
+- map — wide
+- catalogue — list
+- faq — open
+
+## Boucherie de gros
+
+A butcher that supplies restaurants and canteens all week and opens to the public on Friday afternoon and Saturday morning: the first screen is one sentence set large, what it cuts and for whom, beside the hours and the loading bay on the map; the price list runs in rows from the top of its page, by the kilo and by the case, with the public hours pinned beside it, and the questions, minimum orders, delivery rounds, invoices, are a long list in two columns. Harbour's cool blue-grey and hairlines are a cold room and a delivery note, plain and dense, for chefs and families who buy by the case and compare.
+
+- direction — counter
+- palette — harbour
+- / — split
+- /our-meat — carte
+- /questions — marketing
+- /our-story — marketing
+- hero — statement
+- site-header — split
+- site-footer — compact
+- schedule — plain
+- catalogue — list
+- faq — columns
+- map — plain

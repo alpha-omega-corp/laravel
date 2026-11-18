@@ -1,6 +1,6 @@
 # coworking
 
-Thirteen ways one shared workspace is drawn, seven as a launch page, five as a quiet studio and one drawn like the booking app it runs on. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise, one sentence, the room in a photograph, the door and how far it is from the station), how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the room is shown rather than argued: the town coworking and the newcomer, the one that sells on price and the one that sells its light, the desk taken for a day off a phone and the office a team studies for a week, the members' table and the town's incubator, the station and the village.
+Sixteen ways one shared workspace is drawn, eight as a launch page, six as a quiet studio and two drawn like the booking app they run on. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise, one sentence, the room in a photograph, the door and how far it is from the station), how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the room is shown rather than argued: the town coworking and the newcomer, the one that sells on price and the one that sells its light, the desk taken for a day off a phone and the office a team studies for a week, the members' table and the town's incubator, the station and the village, the crèche and the silent room.
 
 ## Atelier partagé
 
@@ -239,5 +239,62 @@ A coworking that runs like a product and is booked like one, from a phone, by th
 - services — tiles
 - gallery — mosaic
 - events — cards
+- booking — split
+- map — wide
+
+## Salles à l’heure
+
+A network of meeting rooms and day desks at three addresses, booked by the hour by companies that send their people there instead of renting an office. The promise and a screen of the booking app open the long home page, with what every booking includes as a ruled list under it; the plans are a long page where they lie in rows, each price at the end of its line, with the questions in two columns; the rooms pass as one row of pictures, and the events are a board of cards. The visit is the long page with the form on it and the three addresses on a wide map. Graphite is good on spec, for an office manager who books from a laptop in the morning and from a phone at night.
+
+- direction — spec
+- palette — graphite
+- / — marketing
+- /plans — marketing
+- /space — marketing
+- /events — board
+- /visit — marketing
+- services — rows
+- pricing — rows
+- faq — columns
+- gallery — strip
+- events — cards
+- booking — plain
+- map — wide
+
+## Coin des parents
+
+A coworking with a crèche on the floor below, for parents who work freelance or remote and want their child ten metres away. The first screen is one photograph of a desk with a drawing pinned above it and the name on it; what a member gets is a handful of tiles with the childcare among them, and the plans stand side by side on a long page with every answer about places, hours and sick days open under them. The room is a board, the agenda — story mornings, parents' talks, the summer fête — is cards on a board, and the visit is the long page with the form on it and the way from the school across. Sorbet is only fair on launch and right here: bright fruit colours for a place where half the visitors are under four.
+
+- direction — launch
+- palette — sorbet
+- / — poster
+- /plans — marketing
+- /space — board
+- /events — board
+- /visit — marketing
+- hero — cover
+- services — tiles
+- faq — open
+- gallery — mosaic
+- events — cards
+- booking — plain
+- map — wide
+
+## Salle de lecture
+
+A silent room for writers, researchers and translators in the reading room of an old library: no calls, no meetings, one long table and a shelf for each member. The cover is the lamps and the long table behind the name, with nothing to scroll for; the plans are a short price list in a narrow column, the room is told as a journal with its pictures as one quiet row, the readings and the writing evenings run down a rule in their own column, and the visit is a long page with the form beside its invitation and the door on a wide map. Plum is good on studio, the colour of cloth-bound spines, for people who choose a place by how quiet it looks.
+
+- direction — studio
+- palette — plum
+- / — poster
+- /plans — carte
+- /space — journal
+- /events — carte
+- /visit — marketing
+- hero — cover
+- site-header — centred
+- pricing — rows
+- gallery — strip
+- events — timeline
 - booking — split
 - map — wide

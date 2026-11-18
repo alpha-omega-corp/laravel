@@ -55,12 +55,13 @@ function withoutBreadcrumb(string $site): string
 it('puts every axis in one column beside the framework', function () {
     $html = $this->get(route('framework'))->assertOk()->getContent();
 
-    // One column at the framework's side, one row per axis, and no side-nav of
-    // the page's own: the only one left is the mock site's. The column comes
-    // first and the framework after it, which takes the main column.
+    // One column at the framework's side: the tab's views, then one row per
+    // axis, and no side-nav of the page's own: the only one left is the mock
+    // site's. The column comes first and the framework after it, which takes
+    // the main column.
     expect(substr_count($html, 'data-ref="framework.controls"'))->toBe(1)
         ->and(strpos($html, 'data-ref="framework.controls"'))->toBeLessThan(strpos($html, 'data-ref="framework.layouts.'))
-        ->and(substr_count($html, 'data-ref="&lt;x-kit.tabs variant=&quot;pill&quot; /&gt;"'))->toBe(4)
+        ->and(substr_count($html, 'data-ref="&lt;x-kit.tabs variant=&quot;pill&quot; /&gt;"'))->toBe(5)
         ->and(substr_count($html, 'data-ref="&lt;x-kit.side-nav'))->toBe(0)
         ->and($html)->toContain(__('framework.projects'))
         ->and($html)->toContain(__('framework.palettes'))
@@ -91,7 +92,7 @@ it('puts every axis in one column beside the framework', function () {
 });
 
 it('builds no two projects the same way', function () {
-    // The complaint this tab answers: nine businesses in one set of clothes is
+    // The complaint this tab answers: twelve businesses in one set of clothes is
     // one business. So neither the set of sections nor the set of bodies they
     // are drawn with may repeat between two projects.
     $slugs = [];
@@ -256,7 +257,7 @@ it('carries a project’s own navigation and nothing of another’s', function (
     foreach (Project::cases() as $project) {
         $html = $this->get(framework($project, $project->keys()[0]))->assertOk()->getContent();
 
-        // Escaped, because one of the nine is an ampersand away from a bad match.
+        // Escaped, because one of the twelve is an ampersand away from a bad match.
         expect($html)->toContain(e($project->site()['brand']));
 
         foreach ($project->sections() as $key => $section) {
@@ -283,12 +284,31 @@ it('keeps the section across a project switch only when the other project has it
     expect($html)->toContain('href="'.e(framework(Project::Logistics, 'tournees')).'"');
 });
 
+it('holds every view of the framework in one place, chosen from the side column', function () {
+    $views = [route('framework'), route('framework.businesses'), route('framework.sheet'), route('framework.record')];
+
+    foreach ($views as $view) {
+        $html = $this->get($view)->assertOk()->getContent();
+
+        // No row of links over the view: the views are the side column's first row, and the bar's Framework stays current.
+        expect($html)->not->toContain('data-framework-part="links"')
+            ->and($html)->toContain('data-framework-main')
+            ->and($html)->toContain('<h1 class="font-display text-3xl font-bold tracking-tight text-ink">'.e(__('framework.title')).'</h1>')
+            ->and($html)->toMatch('#<a href="'.preg_quote(e(route('framework')), '#').'"\s+aria-current="page"#');
+
+        // Each view is linked, the business types and the sheet with the business already chosen when there is one.
+        foreach ($views as $other) {
+            expect($html)->toContain('href="'.e($other));
+        }
+    }
+});
+
 it('holds the framework in one card', function () {
     $html = $this->get(route('framework'))->assertOk()->getContent();
 
     // The heading and the framework share a panel, and the framework brings no
     // second frame of its own inside it.
-    expect($html)->toMatch('/class="panel min-w-0 overflow-hidden">\s*<header/')
+    expect($html)->toMatch('/class="panel min-w-0 overflow-hidden" data-framework-main>\s*<header/')
         ->and($html)->toContain('data-ref="framework.layouts.marketing"')
         ->and($html)->not->toContain('rounded-panel border border-rule bg-canvas font-body');
 });
@@ -430,6 +450,20 @@ it('holds the menu, the pictures, the diary and the forms the trades need', func
     expect($this->get(framework(Project::Farm, 'commande'))->getContent())
         ->toContain('name="contact-email"')
         ->toContain('name="contact-choice"');
+
+    // The guest house books nights rather than an hour, the garage's lifts are
+    // a back-office table, and the theatre's seats sold are a bar on a public page.
+    expect($this->get(framework(Project::Hotel, 'reserver'))->getContent())
+        ->toContain('name="booking-slot"')
+        ->toContain('1 semaine');
+
+    expect($this->get(framework(Project::Garage, 'atelier'))->getContent())
+        ->toContain('data-ref="framework.layouts.console"')
+        ->toContain('JU 12 408');
+
+    expect($this->get(framework(Project::Theatre, 'billetterie', layout: KitLayout::Marketing))->getContent())
+        ->toContain('Quatuor Sarine')
+        ->toContain('role="progressbar"');
 });
 
 it('marks the days the content names on the calendar rather than hard-coding a month', function () {

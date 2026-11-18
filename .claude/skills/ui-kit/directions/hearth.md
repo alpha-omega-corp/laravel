@@ -24,6 +24,9 @@ with the address and the hours. Dark by design, whatever the visitor's system sa
 - nocturne — good
 - plum — best
 - clay — good
+- forno — best
+- locanda — good
+- basilico — fair
 
 ## Suits
 

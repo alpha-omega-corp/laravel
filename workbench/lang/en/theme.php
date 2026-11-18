@@ -38,6 +38,9 @@ return [
         'denim' => 'Indigo on a washed page with rivet rust, a wide grotesque set tight, stitched panels.',
         'sorbet' => 'Peach paper, raspberry and a cool blue, a rounded face, stickers for panels.',
         'marble' => 'White marble, near-black ink and a black pill for the action, blue links, violet badges, a heavy face set tight.',
+        'locanda' => 'Terracotta on flour-white, a mozzarella-butter highlight and an espresso dark, panels that lift: a pizzeria\'s menu.',
+        'forno' => 'Ash paper and soot by day, charcoal and a live ember by night, a heavy sign-painter\'s grotesque, tight corners.',
+        'basilico' => 'Flour, tomato and basil: a cream page, a tomato red, a basil-leaf highlight, a friendly serif and pill buttons.',
 
         'system' => 'Follow the operating system, and follow it when it changes.',
         'light' => 'Pin the light half of every palette, whatever the system says.',

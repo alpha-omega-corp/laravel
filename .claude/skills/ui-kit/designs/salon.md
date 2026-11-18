@@ -1,6 +1,6 @@
 # salon
 
-Twelve ways one salon is drawn, seven as a studio and five at the counter. They differ by what is sold and to whom: a cut, a colour, a razor, a wedding morning or a coat of polish; whether the visitor chooses a salon by its photographs over a week or looks one up from the pavement to know whether a chair is free; whether the house is old or new, in town or in a village, sold on craft or on price. The pages and the prefabs are the same in all twelve; what changes is which of a salon's three questions (what does the work look like, what does it cost, when is somebody in) the first screen answers.
+Fifteen ways one salon is drawn, eight as a studio and seven at the counter. They differ by what is sold and to whom: a cut, a colour, a razor, a wedding morning, a coat of polish or a cut at home; whether the visitor chooses a salon by its photographs over a week or looks one up from the pavement to know whether a chair is free; whether the house is old or new, in town, in a village or on the seafront, sold on craft or on price. The pages and the prefabs are the same in all fifteen; what changes is which of a salon's three questions (what does the work look like, what does it cost, when is somebody in) the first screen answers.
 
 ## Salon de ville
 
@@ -208,4 +208,57 @@ A village salon with two chairs, open three and a half days a week, whose hairdr
 - schedule — plain
 - team — list
 - booking — plain
+- map — wide
+
+## Salon de la plage
+
+A salon on the front of a seaside resort, open from Easter to the end of September: braids for the children, a blow-dry before a dinner, a trim for whoever forgot to have one before the holidays. It is found on a phone with sand on it, by people who will be gone in ten days, so one screen says it all: the photograph of the promenade behind the name, and the season's week laid across as a strip under it so the only question, whether it is open today, is answered before any other. Teal water and a coral sun, the holiday's own colours. The services are a short list of cards, the work one row of pictures that scrolls, the people a long quiet page, and the appointment one more screen with a bare form; the panorama of the front says which ice-cream kiosk it is beside.
+
+- direction — studio
+- palette — lagoon
+- / — poster
+- /services — marketing
+- /team — marketing
+- /portfolio — marketing
+- /book — poster
+- hero — cover
+- menu — cards
+- schedule — strip
+- gallery — strip
+- booking — plain
+- map — wide
+
+## Quartier étudiant
+
+A salon two streets from the university, where a cut costs what a student can pay and Thursday stays open until nine: its visitors are twenty, book from a phone between two lectures and compare three salons by price alone. Green and orange on a tinted page, bright and current, as a campus is in October. The name stands beside a photograph of somebody's fresh fade, with the facts under it; the services are not rows but a card each on a long page, because there are six of them and each has its student price; the people are rows, a portrait beside what each does best, since a fade and a bob are not cut by the same hands. The pages sit left of the name and the action right of it, and the footer is three lines.
+
+- direction — counter
+- palette — fresh
+- / — marketing
+- /services — marketing
+- /team — marketing
+- /portfolio — marketing
+- /book — marketing
+- hero — split
+- site-header — split
+- site-footer — compact
+- menu — cards
+- team — list
+
+## Coiffeuse à domicile
+
+A hairdresser with no salon at all: she drives to her clients, the housebound, the residents of two care homes on Tuesdays and Thursdays, a bride's family on a Saturday morning. Nobody walks past a door, so there is no window to photograph and the opening is a statement, her name and the towns she covers set large; the days of her rounds follow as plain lines, and the map is a panorama of the area rather than of a street. Cool blue-grey with hairline rules, plain and professional, because it is often a son or a nurse who books for somebody else. The prices are rows from the top of their page; the appointment page sets the invitation beside the form, since the address and the floor matter as much as the day; and the footer is three lines.
+
+- direction — counter
+- palette — harbour
+- / — marketing
+- /services — carte
+- /team — marketing
+- /portfolio — marketing
+- /book — marketing
+- hero — statement
+- site-footer — compact
+- schedule — plain
+- team — list
+- booking — split
 - map — wide

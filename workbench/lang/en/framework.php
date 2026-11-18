@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 return [
     'title' => 'Framework',
-    'intro' => 'Nine independent projects, each a whole small-business or back-office site, walked through from its own navigation. No two are built the same way: a project declares its own sections, so the restaurant has a menu and opening hours, the farm has a shop, events and market days, and the salon has a catalogue of what it has cut. Every section carries the layout that fits the work it is — a counter is a console, a brochure page is not — with the palette and the degree following the layout. All three stay overridable from the rails, and an override is what puts them in the URL. Light and dark stay with the picker in the navigation bar.',
+    'intro' => 'Twelve independent projects, each a whole small-business or back-office site, walked through from its own navigation. No two are built the same way: a project declares its own sections, so the restaurant has a menu and opening hours, the farm has a shop, events and market days, and the salon has a catalogue of what it has cut. Every section carries the layout that fits the work it is — a counter is a console, a brochure page is not — with the palette and the degree following the layout. All three stay overridable from the rails, and an override is what puts them in the URL. Light and dark stay with the picker in the navigation bar.',
 
     'fitting' => 'Fitting',
+    'view' => 'View',
     'projects' => 'Projects',
     'palettes' => 'Palettes',
     'layouts' => 'Layouts',
@@ -25,6 +26,15 @@ return [
         'close' => 'Close',
         'tab' => 'Prompt',
         'tab_intro' => 'The prompt that rebuilds this site in deployer: every field of the Hallucinator\'s form, as this view draws the design. Copy it, then paste it in the Hallucinator\'s From the framework.',
+    ],
+    // Claude's shots: the pictures deployer keeps of this project.
+    'shots' => [
+        'title' => 'Claude\'s shots',
+        'intro' => 'The pictures Claude took of this work and filed in deployer, as its console shows them under the same name: each with the note it was filed with and the page it shows, newest first.',
+        'empty' => 'No shot yet. A picture taken or saved for this project with deployer\'s tools (take_progress_picture, save_progress_picture) appears here as soon as it is filed.',
+        'count' => 'shots',
+        'open' => 'Open the page it shows',
+        'example' => 'An example it is built after',
     ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
@@ -72,6 +82,7 @@ return [
         'pages' => 'pages',
         'views' => 'views',
         'kinds' => 'kinds of business',
+        'in_all' => 'in all',
         'sheet' => 'Contact sheet',
         'sheet_intro' => 'Every page of every design of a business, then its home page in each palette its directions recommend: the page itself, small, each one a link to the view with its axes.',
         'open' => 'The page alone',
@@ -134,6 +145,18 @@ return [
         'logistics' => [
             'label' => 'Logistics',
             'summary' => 'A regional carrier: the day’s rounds, the services, the two departures and a pickup request.',
+        ],
+        'hotel' => [
+            'label' => 'Hotel',
+            'summary' => 'A mountain guest house: the house, the rooms, the seasonal rates, the walks from the door, booking a stay and tonight’s room board.',
+        ],
+        'garage' => [
+            'label' => 'Garage',
+            'summary' => 'A car garage: the workshop, its fixed prices, the used cars for sale, the board of what is on each lift and an appointment screen.',
+        ],
+        'theatre' => [
+            'label' => 'Theatre',
+            'summary' => 'A small theatre: the season, the box office, subscriptions, the artists, the till’s own count and group bookings.',
         ],
     ],
 

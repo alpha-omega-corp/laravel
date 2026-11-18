@@ -1,6 +1,6 @@
 # winery
 
-Twelve ways one winery is drawn, five by candlelight, four at the cellar door in summer and three on a pale ground. They differ by what brings the visitor up the track, a bottle to buy, a date to come for, a place to see or a story to read, and so by what the first screen leads with: the cellar beside its hours and the way in, one photograph and the name, a board of what is going on, or a long page read before a trip. They differ too in how the wines are read, as bottles to look at, a range led by one cuvée or a price list in rows, and in whether the season's dates are a calendar read in order or a few days that each deserve a look.
+Fourteen ways one winery is drawn, five by candlelight, five at the cellar door in summer and four on a pale ground. They differ by what brings the visitor up the track, a bottle to buy, a date to come for, a place to see or a story to read, and so by what the first screen leads with: the cellar beside its hours and the way in, one photograph and the name, a board of what is going on, or a long page read before a trip. They differ too in how the wines are read, as bottles to look at, a range led by one cuvée or a price list in rows, and in whether the season's dates are a calendar read in order or a few days that each deserve a look.
 
 ## Cave de famille
 
@@ -192,3 +192,39 @@ The house that sells mostly to restaurants, shops and companies: a buyer wants t
 - schedule — plain
 - map — plain
 - events — timeline
+
+## Champagne de vigneron
+
+A grower who makes champagne from his own four hectares instead of selling the grapes to a house: a blanc de blancs, a rosé de saignée and one prestige cuvée in a numbered bottle, bought by the case for a wedding or a fortieth. One photograph of the chalk cellar with the name low on it says it, under a header that centres the name over the pages like the label; the hours and the way in are plain lines at its foot. Aubergine and antique gold on a blush page, a little theatrical, as a celebration is. The wines read like a magazine led by the prestige cuvée, drawn twice the size of the others; the few open-cellar days are each a card on a long page; and the estate is a long page with its pictures in one row that scrolls, from the vines in winter to the riddling racks.
+
+- direction — studio
+- palette — plum
+- / — poster
+- /wines — journal
+- /events — marketing
+- /the-estate — marketing
+- hero — cover
+- site-header — centred
+- catalogue — feature
+- events — cards
+- gallery — strip
+- schedule — plain
+- map — plain
+
+## Domaine de la côte
+
+A rosé estate a kilometre from the beach, whose cellar door is busiest at six in the evening in July, when people come up from the sand to taste on the terrace and leave with six bottles in a cool bag. The first screen sets the terrace on one side and today's hours and the way in on the other, the summer week laid across as a strip below. Teal water and a coral sun on a wash of the palette, the coast's own colours. The wines are a long page led by the rosé drawn twice the size; the evenings, a concert, a picnic, the harvest, are cards on a board of glass panels; the estate is a long page of pictures in one row; the map is a panorama of the coast road to the gate; and the footer is three lines.
+
+- direction — market
+- palette — lagoon
+- / — split
+- /wines — marketing
+- /events — board
+- /the-estate — marketing
+- hero — split
+- site-footer — compact
+- catalogue — feature
+- events — cards
+- gallery — strip
+- schedule — strip
+- map — wide

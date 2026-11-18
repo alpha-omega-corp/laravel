@@ -1,6 +1,6 @@
 # consultant
 
-Twelve ways one consultancy is drawn, across the three looks it may take. What they differ by is who is hiring and how that person decides: a committee comparing three offers for a week, a board chair with a vacancy on Monday, an owner of sixty who reads every line, a private person paying for six sessions out of their own pocket. That decides whether the first screen leads with standing, with one promise or with a face; whether the offer is a priced list read down, a few tiles or a board; whether the method is told as a letter or laid out as a road; and how much is said before the form asks for a first conversation.
+Fifteen ways one consultancy is drawn, across the three looks it may take. What they differ by is who is hiring and how that person decides: a committee comparing three offers for a week, a board chair with a vacancy on Monday, an owner of sixty who reads every line, a private person paying for six sessions out of their own pocket. That decides whether the first screen leads with standing, with one promise or with a face; whether the offer is a priced list read down, a few tiles or a board; whether the method is told as a letter or laid out as a road; and how much is said before the form asks for a first conversation.
 
 ## Cabinet établi
 
@@ -228,5 +228,61 @@ A speaking coach who prepares people for a stage: a board presentation, a genera
 - testimonials — lead
 - services — rows
 - process — row
+- faq — open
+- booking — plain
+
+## Traduction jurée
+
+A sworn translator working alone, or two in partnership: certificates, contracts, judgments, a diploma for a work permit. The visitor is in a hurry and holding a document, so the first screen sets the name beside the languages and the turnaround, with the courts and the chambers that swore her in ruled as rows under it. The fees are a list by the page, the method a short row of equal steps — the scan, the quote, the translation, the seal, the post — beside its opening with every answer already open, and the request is the long plain page with the form on it. Denim is only fair on ledger and right here: the blue of an official stamp on white paper.
+
+- direction — ledger
+- palette — denim
+- / — split
+- /services — carte
+- /method — split
+- /contact — marketing
+- hero — split
+- credentials — list
+- testimonials — wall
+- services — rows
+- process — row
+- faq — open
+- booking — plain
+
+## Données en un mois
+
+A freelance data engineer who sells one thing that can be shown: a small firm's figures gathered into one dashboard within a month. The first screen sets the promise beside a screenshot of that dashboard in its bezel, then the firms already served as one muted row of names and several short voices; the offer is the long page of tiles, from the audit to the monthly retainer, and the method is the long page where four steps run across in a row and the questions about access, security and hosting stand in two columns. Harbour is good on launch and reads as a tool rather than a pitch, for an owner who has been promised dashboards before and wants to see one.
+
+- direction — launch
+- palette — harbour
+- / — split
+- /services — marketing
+- /method — marketing
+- /contact — split
+- hero — split
+- credentials — logos
+- testimonials — wall
+- services — tiles
+- process — row
+- faq — columns
+- booking — split
+
+## Médiation
+
+A mediator who sells calm: a separation, an inheritance, two partners who no longer speak. The visitor is in the middle of a conflict and reading late at night, so the home page is set like a magazine piece, the opening centred over a photograph of a quiet room and the practice told in one column before a single proof. The sessions are a price list in a narrow column, the method the long page where the stages run down a rule and every answer about confidentiality stands open, and the contact page says what the first meeting is before the plain form. Clay is good on studio and warmer than an office: terracotta and olive, so that nothing here looks like a court.
+
+- direction — studio
+- palette — clay
+- / — journal
+- /services — carte
+- /method — marketing
+- /contact — journal
+- hero — centred
+- site-header — centred
+- site-footer — compact
+- credentials — list
+- testimonials — lead
+- services — rows
+- process — timeline
 - faq — open
 - booking — plain

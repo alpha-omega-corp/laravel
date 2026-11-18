@@ -1,6 +1,6 @@
 # portfolio
 
-Twelve ways one person's work is shown to be hired, seven hung on atelier's white walls and five set in studio's editorial calm. The pages and the prefabs are the same in all of them; what changes is who is looking (a couple, a picture editor, a collector, a producer, a brand manager, a neighbour with a phone), and so what the first screen leads with (one plate, a sentence, a frame bled to the edges, a price), how the work is read (a wall of plates, one story told at length, a strip, an index of ruled rows) and how far down the page the prices stand.
+Fifteen ways one person's work is shown to be hired, eight hung on atelier's white walls and seven set in studio's editorial calm. The pages and the prefabs are the same in all of them; what changes is who is looking (a couple, a picture editor, a collector, a producer, a stage director, a brand manager, a tourist office, an architect, a neighbour with a phone), and so what the first screen leads with (one plate, a sentence, a frame bled to the edges, a price), how the work is read (a wall of plates, one story told at length, a strip, an index of ruled rows) and how far down the page the prices stand.
 
 ## Accrochage
 
@@ -196,3 +196,58 @@ A food and hospitality photographer working for restaurants, hotels and vineyard
 - services — tiles
 - testimonials — lead
 - booking — split
+
+## Costumes et décors
+
+A set and costume designer for opera, theatre and dance, hired by directors and production houses that plan two seasons ahead. Aubergine on a blush-white page with a little antique gold, a palette only fair on white walls and right for work that lives under stage light; the name is centred over the pages like a programme. Home tells the last production at length, the words centred over a wide photograph of the stage, plates between the paragraphs and one director's sentence set large; the work is a wall where every fifth plate is twice the size, the productions are a ruled index of the house, the year and the director with the photographs dropped, and what can be commissioned is read down the long page. The request is a letter with the form on the page and no panel round it.
+
+- direction — atelier
+- palette — plum
+- / — journal
+- /work — board
+- /series — board
+- /commissions — marketing
+- /contact — journal
+- hero — centred
+- site-header — centred
+- gallery — mosaic
+- projects — index
+- testimonials — lead
+- booking — plain
+
+## Carnets de voyage
+
+A travel and landscape photographer hired by tourist offices, hotels and in-flight magazines, who want the light of a place before they want a price. The light is pinned: teal water and a coral sun on a pale aqua page, a palette that is good for a studio and right for work sold as somewhere to go. One photograph of a coast lies behind the name on a single first screen, the tourist offices' short words on a wall below it; the images are the long page with one row to swipe through between the places, the series are the list their page opens on, each place across the column with its photograph beside for whom and when, and the commissions are told as a magazine piece, one campaign from the brief to the cover. The request stands beside its invitation on the long page, and the footer is three lines.
+
+- direction — studio
+- palette — lagoon
+- scheme — light
+- / — poster
+- /work — marketing
+- /series — carte
+- /commissions — journal
+- /contact — marketing
+- hero — cover
+- site-footer — compact
+- gallery — strip
+- projects — rows
+- testimonials — wall
+- booking — split
+
+## Photographie d’architecture
+
+A photographer of buildings, hired by architects for a competition entry or a prize and by the reviews that publish them: the client knows exactly what a vertical line is and wants to see that the photographer does too. Cool blue-grey with hairlines and tight corners, a palette only fair for a studio and right for work whose subject is exact. Home is the long page with the words beside one façade and one architect's sentence carrying it, the pages left of the name and the action right of it; the images are set like a magazine, the buildings are a ruled index of the architect, the place and the year, since architects read the names before the pictures, and the commissions open on their price list, a competition set, a finished building, a day on site, each ruled beside its line. The request is a letter with a plain form.
+
+- direction — studio
+- palette — harbour
+- / — marketing
+- /work — journal
+- /series — carte
+- /commissions — carte
+- /contact — journal
+- hero — split
+- site-header — split
+- projects — index
+- services — rows
+- testimonials — lead
+- booking — plain

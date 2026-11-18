@@ -1,6 +1,6 @@
 # restaurant
 
-Twelve ways one restaurant is drawn, five by lamplight, four at the counter and three in the sun. They differ by what the visitor came to check and when: whether the place is a room booked for the evening, a counter looked up at a quarter to twelve or a kitchen that cooks what the market had; whether the house is old or new, in town or an hour's drive away, sold on price or on craft; and whether the page is read on a phone at the door or at a desk a week ahead. The pages and the prefabs are the same in all twelve; what changes is which fact the first screen leads with.
+Fourteen ways one restaurant is drawn, six by lamplight, four at the counter and four in the sun. They differ by what the visitor came to check and when: whether the place is a room booked for the evening, a counter looked up at a quarter to twelve or a kitchen that cooks what the market had; whether the house is old or new, in town or an hour's drive away, sold on price or on craft; and whether the page is read on a phone at the door or at a desk a week ahead. The pages and the prefabs are the same in all fourteen; what changes is which fact the first screen leads with.
 
 ## Salle du soir
 
@@ -178,3 +178,39 @@ A summer place by the water, open from May to September when the weather holds, 
 - site-footer — compact
 - schedule — plain
 - booking — split
+
+## Comptoir à sushis
+
+Ten seats at a counter in front of the chef, two sittings a night, no menu to choose from, and every seat of the month taken the evening the month opens. Violet on a night sky, a palette that is good by lamplight and right for a room where the only light falls on the board; no photograph is owed, so the opening is one sentence set large with the two sittings and the door at its foot, under the name centred like the sign over the door. The season's courses are cards worth looking at one by one, the chef and the fish market are a story with its pictures in one row, and the visit is two halves, the sittings beside the door, with the request for a seat on the page under them and no panel round it. The footer is three lines.
+
+- direction — hearth
+- palette — nocturne
+- / — poster
+- /menu — marketing
+- /the-house — journal
+- /contact — split
+- hero — statement
+- site-header — centred
+- site-footer — compact
+- schedule — plain
+- menu — cards
+- booking — plain
+- map — plain
+
+## Camion-cuisine
+
+A food truck that stands in a different square each day of the week and cooks for weddings and office parties on Saturdays: its regulars want to know where it is today, and everybody else wants to book it. Peach paper, raspberry and a cool blue in a rounded face with stickers for panels, a palette that is good at the market and right for a truck painted the same colours. The first screen sets the name beside the truck at its hatch, with the week across the page as a strip, one cell a day with the square written in it; the dishes are a few cards worth looking at, the truck's story is the long page, and the contact page opens on the week and today's square drawn wide before the invitation to book it for a private day, the form beside it. The pages sit left of the name and the action right of it, and the footer is three lines.
+
+- direction — market
+- palette — sorbet
+- / — split
+- /menu — marketing
+- /the-house — marketing
+- /contact — split
+- hero — split
+- site-header — split
+- site-footer — compact
+- schedule — strip
+- menu — cards
+- booking — split
+- map — wide

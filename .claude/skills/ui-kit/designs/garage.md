@@ -1,6 +1,6 @@
 # garage
 
-Twelve ways one garage is drawn, seven as a working yard and five as a plain counter. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — the hours and the door, the price list, the forecourt or the finish of the work — and how the prices and the stock are read: in rows beside the hours, as tiles on a board, or led by one vehicle drawn large.
+Fourteen ways one garage is drawn, eight as a working yard and six as a plain counter. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — the hours and the door, the price list, the forecourt or the finish of the work — and how the prices and the stock are read: in rows beside the hours, as tiles on a board, or led by one vehicle drawn large.
 
 ## Atelier du village
 
@@ -186,3 +186,38 @@ A workshop for vans and company fleets, set like a gauge: the words alone beside
 - site-header — split
 - menu — columns
 - booking — split
+
+## Poids lourds
+
+A workshop for lorries, coaches and vans, open from five in the morning and on Saturdays, whose customer is a haulier whose truck earns nothing while it stands. The opening is words alone set large over a board, the hours a strip across it because the early slot is the selling point, and the services are slabs with their prices set like figures — the inspection, the tachograph, the brakes, the tyres — in columns. The used vans and tractor units run down a long page in rows with their mileage, and the appointment is the long page with the form beside its invitation and the gate on a wide map, since a forty-tonner needs to know where to turn. Denim is good on the yard: a fleet's blue, for an operator who books three trucks at a time.
+
+- direction — yard
+- palette — denim
+- / — board
+- /services — board
+- /vehicles — marketing
+- /appointment — marketing
+- hero — statement
+- schedule — strip
+- menu — columns
+- listings — rows
+- testimonials — wall
+- booking — split
+- map — wide
+
+## Garage électrique
+
+A garage that has turned to electric cars: batteries checked, heat pumps and chargers serviced, a wallbox fitted at home, and a few used electric cars with their battery's health on the card. The first screen sets the name beside the hours and the door with one customer's words under it, the prices are a list in columns read down, the cars for sale a board led by one drawn large with its range and its battery, and the appointment is the long page, the form beside its invitation and the charging points on a wide map. Fresh is good at the counter and says the subject in one colour, for a driver who bought an electric car and found that the old garage will not touch it.
+
+- direction — counter
+- palette — fresh
+- / — split
+- /services — carte
+- /vehicles — board
+- /appointment — marketing
+- hero — split
+- menu — columns
+- listings — feature
+- testimonials — lead
+- booking — split
+- map — wide

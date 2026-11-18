@@ -1,6 +1,6 @@
 # hotel
 
-Twelve ways one small hotel is drawn, seven by lamplight and five in daylight. They differ by who is coming and what they have to settle before they do: whether the house is old or new, in a village, in town or at the end of a lane; whether the night is sold on price, on craft or on mood; whether it is booked for one night from a phone at the door or chosen over a week at a desk; and whether the guests are two, a family or somebody travelling alone for work. The pages and the prefabs are the same in all twelve; what changes is which of them the first screen leads with: the house, the price of a night, or the way in after dark.
+Fifteen ways one small hotel is drawn, seven by lamplight and eight in daylight. They differ by who is coming and what they have to settle before they do: whether the house is old or new, in a village, in town or at the end of a lane; whether the night is sold on price, on craft or on mood; whether it is booked for one night from a phone at the door or chosen over a week at a desk; and whether the guests are two, a family or somebody travelling alone for work. The pages and the prefabs are the same in all fifteen; what changes is which of them the first screen leads with: the house, the price of a night, or the way in after dark.
 
 ## Maison de village
 
@@ -202,4 +202,58 @@ A lodge above the fog that is sold on its night sky: no street lamp for a mile, 
 - menu — cards
 - gallery — mosaic
 - map — plain
+- booking — plain
+
+## Maison du vigneron
+
+Three rooms in a winemaker's house above the terraces of Lavaux, let from April to the harvest to people who came for the wine and would rather sleep among the vines than drive back down. The first screen sets the words beside one photograph of the terrace at dusk, a glass on the wall; the rooms page has no opening and leads with the offer itself, the three rooms, the tasting in the cellar and the breakfast from the family's table each a card with its price, the train times and the way down held beside it. Terracotta and olive on warm paper, a palette that is good for a studio and right for a house of the same stone as its terraces; the year at the estate is read as a journal with its pictures in one row, the questions (the last train, the cellar's hours, children) are set in two columns, and the stay is asked for beside its invitation over a panorama of the slope.
+
+- direction — studio
+- palette — clay
+- / — marketing
+- /rooms — carte
+- /photos — journal
+- /good-to-know — marketing
+- /book — marketing
+- hero — split
+- menu — cards
+- gallery — strip
+- faq — columns
+- map — wide
+- booking — split
+
+## Chambres d’artistes
+
+A town house of eight rooms, each painted or furnished by a different artist, chosen by people who come for the museum, the festival or the opera and want the night to belong to the same weekend. Aubergine on a blush-white page with a little antique gold, a palette that is good for a studio and a little theatrical, as the guests are; the name is centred over a wide photograph of one room on the single first screen, and centred again over the pages like a programme. Each room is told in a journal under its artist's name before its price is given, the few questions stand open in a column of their own, and the pictures are a mosaic because every room is worth a close look. The stay is asked for on the long page, the invitation on one side and the form on the other; the footer is one centred column.
+
+- direction — studio
+- palette — plum
+- / — poster
+- /rooms — journal
+- /photos — marketing
+- /good-to-know — journal
+- /book — marketing
+- hero — centred
+- site-header — centred
+- site-footer — centred
+- gallery — mosaic
+- faq — open
+- booking — split
+
+## Hôtel de cure
+
+An old hotel in a spa town, booked for one week or three by guests over sixty who come for the baths and the walks and read every line about half board before they telephone. The light is pinned, because these readers want dark letters on a pale page: oxblood and gold on warm paper with a high-contrast serif, a palette that is good for a studio and right for a house that has kept its brass. The words are centred over a wide photograph of the façade on a long home page; the rooms page opens on the price list itself with its sections side by side (the rooms, half board, the week's cure at the baths), the long list of practical questions is set in two columns, and the stay is asked for on one quiet screen with a plain form under it. The footer is three lines.
+
+- direction — studio
+- palette — ember
+- scheme — light
+- / — marketing
+- /rooms — carte
+- /photos — marketing
+- /good-to-know — marketing
+- /book — poster
+- hero — centred
+- site-footer — compact
+- menu — columns
+- faq — columns
 - booking — plain

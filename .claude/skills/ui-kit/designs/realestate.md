@@ -1,6 +1,6 @@
 # realestate
 
-Twelve ways one estate agency is drawn, across the three looks it may take: the counter that puts this week's objects and the phone first, the atelier that hangs each property as a plate, and the studio that shows a few addresses in a lot of air. The pages and the prefabs are the same in all twelve; what changes is who the first screen is for (a tenant at the door with a phone, an owner weighing whom to trust with a sale, a buyer who studies one house for a week) and so which page gets the list, the story or the form first.
+Fourteen ways one estate agency is drawn, across the three looks it may take: the counter that puts this week's objects and the phone first, the atelier that hangs each property as a plate, and the studio that shows a few addresses in a lot of air. The pages and the prefabs are the same in all fourteen; what changes is who the first screen is for (a tenant at the door with a phone, an owner weighing whom to trust with a sale, a buyer who studies one house for a week, a company counting square metres) and so which page gets the list, the story or the form first.
 
 ## Régie de quartier
 
@@ -196,3 +196,42 @@ Three generations at one address, told warm: the house's photograph on the cover
 - team — list
 - booking — split
 - site-footer — compact
+
+## Appartements de vacances
+
+An agency in a lake resort that sells holiday flats and lets them for their owners, to buyers from Zurich, Germany and the Netherlands who decide on a visit in August and sign from home in October. The light is pinned: teal water and a coral sun on a pale aqua page, a palette that is good at the counter and right for flats sold on a view of the water. The shore lies behind the name across the opening of a long home page, which closes on a panorama of the promenade; the properties page opens on its list with the flat of the month drawn large at its head and the hours held beside it, what the agency does for an owner who is away most of the year is four tiles, and the owners' short words stand on a wall. The brokers are portraits on the long page with the languages they speak, the name is centred over the pages, and the viewing is asked for beside its invitation, under an opening in two halves.
+
+- direction — counter
+- palette — lagoon
+- scheme — light
+- / — marketing
+- /properties — carte
+- /selling — marketing
+- /agency — marketing
+- /valuation — split
+- hero — cover
+- site-header — centred
+- listings — feature
+- services — tiles
+- testimonials — wall
+- booking — split
+- map — wide
+
+## Locaux commerciaux
+
+An agency for business premises: offices, shop fronts, workshops and warehouse floors, let and sold to companies whose facility manager compares three agencies' lists in a spreadsheet. Cool blue-grey with hairlines and tight radii, a palette that is good on white walls and right for a client who reads square metres before photographs. The first screen is one sentence set large with no photograph, under a bar with the pages at the left of the name and the action at its right; the premises hang as a board of numbered plates, each with its surface and its rent, what the agency does is ruled and read down like a mandate, and one tenant's sentence carries the selling page. The brokers are plates on a wall with the districts they cover, the visit is asked for beside its invitation on the long page, the office is on the map with no panel round it, and the footer is three lines.
+
+- direction — atelier
+- palette — harbour
+- / — marketing
+- /properties — board
+- /selling — marketing
+- /agency — board
+- /valuation — marketing
+- hero — statement
+- site-header — split
+- site-footer — compact
+- services — rows
+- testimonials — lead
+- booking — split
+- map — plain

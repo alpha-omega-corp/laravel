@@ -29,6 +29,9 @@ asking for the order. Warm paper, framed, practical.
 - denim — good
 - clay — good
 - sorbet — fair
+- basilico — best
+- locanda — good
+- forno — good
 
 ## Suits
 

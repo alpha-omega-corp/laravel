@@ -1,6 +1,6 @@
 # festival
 
-Twelve ways one festival is drawn, across the three looks it may take: the pass sold from a clean front page, the night photographed, and the ground and the season up front. The pages and the prefabs are the same in all of them; what changes is which fact the first screen leads with — the dates, the price, the stage, the way up — and how the programme and the line-up are read: on a board, down a rule of dates, or as a piece of writing with the practical part under it.
+Fourteen ways one festival is drawn, across the three looks it may take: the pass sold from a clean front page, the night photographed, and the ground and the season up front. The pages and the prefabs are the same in all of them; what changes is which fact the first screen leads with — the dates, the price, the stage, the way up — and how the programme and the line-up are read: on a board, down a rule of dates, or as a piece of writing with the practical part under it.
 
 ## Rendez-vous d’août
 
@@ -214,3 +214,43 @@ A festival on a lakeshore or a riverbank in town: people come by train for one e
 - map — plain
 - pricing — rows
 - faq — columns
+
+## Ultra des garrigues
+
+A trail race over three days in dry hills: a hundred-kilometre ultra, a marathon, a children's run on the Sunday, and a village that fills with tents. The cover is one landscape of limestone and scrub with the name over the horizon and the start at its foot; the programme runs down a rule, from the bib pick-up on Friday to the last runner in on Sunday night, and the field — the favourites, the pacers, the cooks at the aid stations — is a list on a long page with last year's finish as one row of pictures. The entries are rows with the questions about kit, cut-offs and shuttles open under them, and volunteering is told as a story, because an ultra is three hundred marshals. Clay is good on the trail: terracotta and olive, the colour of the ground underfoot.
+
+- direction — trail
+- palette — clay
+- / — poster
+- /programme — marketing
+- /line-up — marketing
+- /tickets — marketing
+- /volunteer — journal
+- hero — cover
+- events — timeline
+- team — list
+- gallery — strip
+- pricing — rows
+- faq — open
+- jobs — cards
+- map — wide
+
+## Caves ouvertes
+
+A jazz festival over three nights in the vaulted cellars of an old town, each concert for eighty people under the stone. The long home page opens on one photograph of a trio under a vault behind the name; the programme is cards down a long page, one per cellar and hour, the line-up a story with the musicians as a list and the cellars as a mosaic, and the passes stand beside their opening as rows with the questions about stairs and seating under them. Volunteering is told as a letter, because it is mostly a matter of opening one's own cellar. Plum is best on hearth: velvet and wine, for a festival whose tickets are gone in a morning.
+
+- direction — hearth
+- palette — plum
+- / — marketing
+- /programme — marketing
+- /line-up — journal
+- /tickets — split
+- /volunteer — journal
+- hero — cover
+- site-header — centred
+- events — cards
+- team — list
+- gallery — mosaic
+- pricing — rows
+- faq — open
+- jobs — cards

@@ -1,6 +1,7 @@
 @php
     use Workbench\App\Framework\Kit;
     use Workbench\App\Framework\Site;
+    use Workbench\App\Framework\Views;
 
     /*
      * The framework tab's business views: one page of one kind of business,
@@ -50,7 +51,6 @@
     $to = fn (array $changes): string => Site::url('framework.businesses', Site::query($choice, $changes));
     $frame = Site::url('framework.site', Site::query($choice) + ['embed' => 1]);
     $alone = Site::url('framework.site', Site::query($choice));
-    $sheet = route('framework.sheet', ['business' => $business['name']]);
 
     $plan = Site::plan($choice, fn (string $path): string => $to(['page' => $path]));
     $layout = Kit::layouts()[$choice['layout']];
@@ -69,6 +69,7 @@
         ?? ($page['path'] === '/' ? __('framework.businesses.home') : ($content['pages'][$page['path']]['hero']['eyebrow'] ?? ucfirst($page['role'])));
 
     $rows = [
+        Views::row('businesses', $business['name']),
         [
             'heading' => __('framework.businesses.business'),
             'items' => array_map(fn (array $other): array => [
@@ -141,6 +142,7 @@
     // The grid's column: which business, which of its pages every design is shown on, and which of its directions.
     $gridRows = [
         $rows[0],
+        $rows[1],
         [
             'heading' => __('framework.businesses.page'),
             'items' => array_map(fn (array $other): array => [
@@ -226,17 +228,9 @@
     ]));
 @endphp
 
-<x-layouts.shell :title="__('framework.businesses.title')" :description="__('framework.businesses.intro')" wide>
+<x-layouts.shell :title="__('framework.title')" :description="__('framework.businesses.intro')" wide>
     {{-- framework.js swaps the marked parts in place, and the frame's page, when a link here or in the page leads to another view. --}}
     <div class="space-y-4" data-framework-root>
-        <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm" data-framework-part="links">
-            <a href="{{ route('framework') }}" class="text-ink-soft hover:text-ink">{{ __('framework.projects') }}</a>
-            <span aria-current="page" class="font-semibold text-ink">{{ __('framework.businesses.title') }}</span>
-            <a href="{{ $sheet }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.sheet') }}</a>
-            <a href="{{ route('framework.record') }}" class="text-accent hover:text-accent-strong">{{ __('framework.record.title') }}</a>
-            <span class="text-ink-soft">{{ count($choice['designs']) }} {{ __('framework.businesses.designs') }} · {{ count($business['pages']) }} {{ __('framework.businesses.pages') }} · {{ Site::views($business['name']) }} {{ __('framework.businesses.views') }}</span>
-        </p>
-
         <div class="grid items-start gap-4 lg:grid-cols-[18rem_minmax(0,1fr)]">
             @if ($grid)
                 @include('framework.controls', ['rows' => $gridRows, 'label' => __('framework.businesses.title'), 'arrangements' => []])
@@ -254,6 +248,7 @@
                     <section class="space-y-4" data-framework-part="grid" data-ref="framework.variants">
                         <header class="panel space-y-1 px-4 py-3 sm:px-6">
                             <h2 class="font-display text-lg font-bold text-ink">{{ ucfirst($business['name']) }} · {{ count($shown) }} {{ __('framework.businesses.designs') }}</h2>
+                            <p class="text-xs text-ink-soft">{{ count($choice['designs']) }} {{ __('framework.businesses.designs') }} · {{ count($business['pages']) }} {{ __('framework.businesses.pages') }} · {{ Site::views($business['name']) }} {{ __('framework.businesses.views') }}</p>
                             <p class="max-w-prose text-sm text-ink-soft">{{ __('framework.businesses.pick') }}</p>
                         </header>
 

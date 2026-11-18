@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 return [
     'title' => 'Framework',
-    'intro' => 'Neuf projets indépendants, chacun le site entier d’une petite entreprise ou d’un back-office, parcouru depuis sa propre navigation. Aucun n’est bâti comme un autre : chaque projet déclare ses propres sections, si bien que le restaurant a une carte et des horaires, la ferme une boutique, des événements et des jours de marché, et le salon un catalogue de ce qu’il a coupé. Chaque section porte la mise en page qui convient au travail qu’elle est — un comptoir est une console, une page de brochure ne l’est pas — la palette et le degré suivant la mise en page. Les trois restent à la main du lecteur depuis les rails, et un choix est ce qui les inscrit dans l’URL. Le clair et le sombre restent au sélecteur de la barre de navigation.',
+    'intro' => 'Douze projets indépendants, chacun le site entier d’une petite entreprise ou d’un back-office, parcouru depuis sa propre navigation. Aucun n’est bâti comme un autre : chaque projet déclare ses propres sections, si bien que le restaurant a une carte et des horaires, la ferme une boutique, des événements et des jours de marché, et le salon un catalogue de ce qu’il a coupé. Chaque section porte la mise en page qui convient au travail qu’elle est — un comptoir est une console, une page de brochure ne l’est pas — la palette et le degré suivant la mise en page. Les trois restent à la main du lecteur depuis les rails, et un choix est ce qui les inscrit dans l’URL. Le clair et le sombre restent au sélecteur de la barre de navigation.',
 
     'fitting' => 'Adaptée',
+    'view' => 'Vue',
     'projects' => 'Projets',
     'palettes' => 'Palettes',
     'layouts' => 'Mises en page',
@@ -25,6 +26,15 @@ return [
         'close' => 'Fermer',
         'tab' => 'Prompt',
         'tab_intro' => 'Le prompt qui recrée ce site dans deployer : chaque champ du formulaire de l\'Hallucinator, tel que cette vue dessine le design. Copiez-le, puis collez-le dans « From the framework » de l\'Hallucinator.',
+    ],
+    // Claude's shots: the pictures deployer keeps of this project.
+    'shots' => [
+        'title' => 'Claude\'s shots',
+        'intro' => 'Les images que Claude a prises de ce travail et rangées dans deployer, comme sa console les montre sous le même nom : chacune avec la note qui l’accompagne et la page qu’elle montre, les plus récentes d’abord.',
+        'empty' => 'Aucune image pour l’instant. Une image prise ou enregistrée pour ce projet avec les outils de deployer (take_progress_picture, save_progress_picture) apparaît ici dès qu’elle est rangée.',
+        'count' => 'images',
+        'open' => 'Ouvrir la page montrée',
+        'example' => 'Un exemple suivi',
     ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
@@ -72,6 +82,7 @@ return [
         'pages' => 'pages',
         'views' => 'vues',
         'kinds' => 'types d’entreprise',
+        'in_all' => 'en tout',
         'sheet' => 'Planche-contact',
         'sheet_intro' => 'Chaque page de chaque design d’une entreprise, puis sa page d’accueil dans chaque palette que ses directions recommandent : la page elle-même, en petit, chacune un lien vers la vue et ses axes.',
         'open' => 'La page seule',
@@ -134,6 +145,18 @@ return [
         'logistics' => [
             'label' => 'Logistique',
             'summary' => 'Un transporteur régional : les tournées du jour, les prestations, les deux départs et la demande d’enlèvement.',
+        ],
+        'hotel' => [
+            'label' => 'Hôtellerie',
+            'summary' => 'Une pension de montagne : la maison, les chambres, les tarifs de saison, les sorties depuis la porte, la réservation et le tableau des chambres du soir.',
+        ],
+        'garage' => [
+            'label' => 'Garage',
+            'summary' => 'Un garage automobile : l’atelier, ses prix fixes, les occasions, le tableau de ce qui est sur chaque pont et un écran de rendez-vous.',
+        ],
+        'theatre' => [
+            'label' => 'Théâtre',
+            'summary' => 'Un petit théâtre : la saison, la billetterie, les abonnements, les artistes, le décompte de la caisse et les réservations de groupe.',
         ],
     ],
 

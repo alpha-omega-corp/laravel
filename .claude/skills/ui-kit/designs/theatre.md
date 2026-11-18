@@ -1,6 +1,6 @@
 # theatre
 
-Twelve ways one house with a season is drawn: five by lamplight, four as posters on a wall, three as a public notice board. The pages and the prefabs are the same in all of them; what changes is the kind of house it is (a red-curtain theatre, an opera, a cabaret, a cinema, a cellar, a black box, a concert hall, a village troupe, a puppet stage), and so what the first screen leads with (the room, the box office's hours, the name alone) and how the season is read: down a rule in the order of its evenings, as cards, as plates on a board, or as the list its page is for.
+Fourteen ways one house with a season is drawn: six by lamplight, four as posters on a wall, four as a public notice board. The pages and the prefabs are the same in all of them; what changes is the kind of house it is (a red-curtain theatre, an opera, a cabaret, a cinema, a cellar, a black box, a concert hall, a village troupe, a puppet stage, a jazz club, a stage under the trees), and so what the first screen leads with (the room, the box office's hours, the name alone) and how the season is read: down a rule in the order of its evenings, as cards, as plates on a board, or as the list its page is for.
 
 ## Rideau rouge
 
@@ -220,3 +220,43 @@ A puppet stage, or any house that plays for children: sunny yellow with thick in
 - faq — open
 - booking — split
 - map — plain
+
+## Club de jazz
+
+A jazz club in a vaulted basement: two sets a night, dinner at the tables near the stage, a jam session on Mondays, and a public that decides at six whether to go at nine. The first screen sets the room under its lamps on one side and tonight's sets, the box office's hours and the door on the other, the hours as plain lines. Aubergine and antique gold, a little theatrical, the colour of the velvet. The season reads like a magazine, the week's evenings down a rule in the order they come; the house is a long page with its pictures in one row that scrolls; the tickets open beside the box office's hours, a table and a stool priced as rows; the reservation is a long page with the form bare on it; and the footer is three lines.
+
+- direction — hearth
+- palette — plum
+- / — split
+- /season — journal
+- /house — marketing
+- /tickets — split
+- /book — marketing
+- hero — split
+- site-footer — compact
+- schedule — plain
+- events — timeline
+- gallery — strip
+- pricing — rows
+- booking — plain
+- map — plain
+
+## Théâtre de verdure
+
+An open-air stage in a park, with a summer season of twenty evenings from June to September and one question asked more than any other: what happens if it rains. The photograph of the stage under the trees lies behind the words across the opening, the box office's week is a strip under it, and the season is the list its page is for, each evening on its date tile. Deep green on warm paper with drawn borders, the colour of the lawn the audience sits on. The house is a long page of pictures with every fifth one large; the tickets read down a long page with every answer open, the rain first; the reservation stands beside its invitation; the map is a panorama of the paths through the park; and the footer is one centred column.
+
+- direction — civic
+- palette — orchard
+- / — marketing
+- /season — carte
+- /house — marketing
+- /tickets — marketing
+- /book — split
+- hero — cover
+- site-footer — centred
+- schedule — strip
+- gallery — mosaic
+- pricing — rows
+- faq — open
+- booking — split
+- map — wide

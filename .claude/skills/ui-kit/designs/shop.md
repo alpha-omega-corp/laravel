@@ -1,6 +1,6 @@
 # shop
 
-Twelve ways one shop is drawn, five at the counter, three as a boutique and four as a stall. They differ by what the shop sells and how it is chosen: whether the range is read like a list, admired piece by piece or bought because it came in this week; whether the house is the old sign of its street or the newcomer with a point to make, sold on price or on craft, in town or the last shop for ten kilometres; and whether the page is checked on a phone from the pavement or studied for a week before the visit. The pages and the prefabs are the same in all twelve; what changes is what the first screen puts in the window.
+Fifteen ways one shop is drawn, six at the counter, four as a boutique and five as a stall. They differ by what the shop sells and how it is chosen: whether the range is read like a list, admired piece by piece or bought because it came in this week; whether the house is the old sign of its street or the newcomer with a point to make, sold on price or on craft, in town or the last shop for ten kilometres; and whether the page is checked on a phone from the pavement or studied for a week before the visit. The pages and the prefabs are the same in all fifteen; what changes is what the first screen puts in the window.
 
 ## Épicerie de quartier
 
@@ -179,3 +179,50 @@ A sweet shop, a toy shop, an ice-cream counter: the shop children pull their par
 - schedule — strip
 - map — wide
 - catalogue — list
+
+## Céramiste
+
+A potter who throws in the back room and sells in the front: bowls, jugs and plates in a few glazes, each a little different, bought by people who stop in the street because of the window and come back with a list of wedding presents. The name stands beside one photograph of a shelf of bowls, the range is a long page led by the piece of the season drawn twice the size of the rest, and the story of the kiln and the clay reads down its own long page. Terracotta and olive on warm paper, a serif cut with a chisel, the colours of the glazes themselves. The open days are a strip across the page, since the shop shuts when the kiln is firing; the order page is long and quiet; and the footer is one centred column.
+
+- direction — studio
+- palette — clay
+- / — marketing
+- /products — marketing
+- /our-story — marketing
+- /order — marketing
+- hero — split
+- site-footer — centred
+- catalogue — feature
+- schedule — strip
+- map — wide
+
+## Marée du jour
+
+A fish shop on the harbour, whose stock is whatever the two boats brought in at six: sole on Tuesday, mackerel all summer, oysters from September. The visitor checks it before deciding what is for dinner, so the first screen sets the morning's catch beside the hours and the way in, and the week's opening runs across as a strip, because the shop shuts on the days the boats stay in. Teal water and a coral sun on a wash of the palette, the colours of the quay. The catch is rows with the picture beside the name and the price per kilo, read more than looked at; the order page sets the form beside the hours and the map, for the platter collected on Sunday morning.
+
+- direction — market
+- palette — lagoon
+- / — split
+- /products — marketing
+- /our-story — marketing
+- /order — split
+- hero — split
+- catalogue — list
+- schedule — strip
+- map — plain
+
+## Quincaillerie
+
+The hardware shop that has everything: twenty thousand references in drawers, keys cut while you wait, paint mixed to the sample and a man behind the counter who knows the screw by its sound. It is looked up to know whether it is open on Saturday afternoon and whether it has the part, so the home is a board, the shop's departments, the hours and the way in visible at once. Cool blue-grey with hairline rules, dense and professional, like the catalogue on the counter. The range is rows from the top of their page with the picture beside each line; the order page sets the form beside the hours and the map, for whoever orders a part and collects it; and the footer is three lines.
+
+- direction — counter
+- palette — harbour
+- / — board
+- /products — carte
+- /our-story — marketing
+- /order — split
+- hero — centred
+- site-footer — compact
+- catalogue — list
+- schedule — plain
+- map — plain

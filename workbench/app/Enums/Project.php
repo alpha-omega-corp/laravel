@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Workbench\App\Enums;
 
 /**
- * The nine businesses the framework tab is built for.
+ * The twelve businesses the framework tab is built for.
  *
  * A project is one whole site, and no two are built the same way. There is no
  * common set of pages and no shape every project has to fill: a project
  * declares its own sections, in its own order, each with its own body and its
  * own data. The restaurant has a menu and opening hours; the farm has a shop,
  * events and market days; the salon has a description, a price list and a
- * catalogue of pictures. That the sets differ is the point of the tab — nine
+ * catalogue of pictures. That the sets differ is the point of the tab — twelve
  * businesses in one set of clothes would be one business.
  *
  * What a section *is* comes from {@see sections()}: a label for the site's own
@@ -53,6 +53,9 @@ enum Project: string
     case Health = 'health';
     case Education = 'education';
     case Logistics = 'logistics';
+    case Hotel = 'hotel';
+    case Garage = 'garage';
+    case Theatre = 'theatre';
 
     public static function default(): self
     {
@@ -199,6 +202,45 @@ enum Project: string
                     'secondary' => ['label' => 'Voir les prestations', 'to' => 'prestations'],
                 ],
             ],
+            self::Hotel => [
+                'brand' => 'Pension des Arolles',
+                'address' => 'Route du Lac 3, 1938 Champex-Lac',
+                'phone' => '027 000 00 00',
+                'email' => 'chambres@pension-arolles.example',
+                'transport' => 'Car postal depuis Orsières, arrêt Champex-Lac',
+                'status' => 'Chambres libres',
+                'meta' => ['Onze chambres', 'Mise à jour il y a 6 min'],
+                'cta' => [
+                    'primary' => ['label' => 'Réserver une chambre', 'to' => 'reserver'],
+                    'secondary' => ['label' => 'Voir les chambres', 'to' => 'chambres'],
+                ],
+            ],
+            self::Garage => [
+                'brand' => 'Garage du Pont',
+                'address' => 'Rue de l’Industrie 14, 2800 Delémont',
+                'phone' => '032 000 00 00',
+                'email' => 'atelier@garage-du-pont.example',
+                'transport' => 'Cinq minutes à pied de la gare, véhicule de prêt sur demande',
+                'status' => 'Atelier ouvert',
+                'meta' => ['Quatre ponts', 'Mise à jour il y a 7 min'],
+                'cta' => [
+                    'primary' => ['label' => 'Prendre rendez-vous', 'to' => 'rendez-vous'],
+                    'secondary' => ['label' => 'Voir les tarifs', 'to' => 'prestations'],
+                ],
+            ],
+            self::Theatre => [
+                'brand' => 'Théâtre de la Planche',
+                'address' => 'Planche-Supérieure 12, 1700 Fribourg',
+                'phone' => '026 000 00 00',
+                'email' => 'billetterie@theatre-planche.example',
+                'transport' => 'Bus 4 jusqu’à Petit-Saint-Jean, puis deux minutes à pied',
+                'status' => 'Saison ouverte',
+                'meta' => ['180 places', 'Mise à jour il y a 15 min'],
+                'cta' => [
+                    'primary' => ['label' => 'Prendre des billets', 'to' => 'billetterie'],
+                    'secondary' => ['label' => 'Voir la saison', 'to' => 'saison'],
+                ],
+            ],
         };
     }
 
@@ -220,6 +262,9 @@ enum Project: string
             self::Health => self::health(),
             self::Education => self::education(),
             self::Logistics => self::logistics(),
+            self::Hotel => self::hotel(),
+            self::Garage => self::garage(),
+            self::Theatre => self::theatre(),
         };
     }
 
@@ -1696,6 +1741,568 @@ enum Project: string
                         'tone' => 'success',
                         'title' => 'Suivi',
                         'body' => 'Chaque colis est scanné au chargement et à la remise. Les deux scans sont sur l’avis de livraison.',
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Eleven rooms above a lake at fifteen hundred metres. The rooms are what is
+     * sold and the walks are why anyone comes, so both get a page; the board
+     * of who arrives tonight is the house's own screen, last in the bar.
+     *
+     * @return array<string, Section>
+     */
+    private static function hotel(): array
+    {
+        return [
+            'accueil' => [
+                'label' => 'Accueil',
+                'layout' => KitLayout::Marketing,
+                'view' => 'framework.sections.story',
+                'data' => [
+                    'badge' => 'Pension de montagne · Champex-Lac',
+                    'title' => 'Onze chambres au bord du lac, à 1 470 mètres',
+                    'body' => 'Une pension de famille ouverte en 1931, tenue par la troisième génération. Le soir, une table d’hôtes ; le matin, le départ des sentiers est devant la porte.',
+                    'cards' => [
+                        ['title' => 'Les chambres', 'body' => 'Onze chambres en arole, toutes avec vue sur le lac ou sur le Grand Combin.'],
+                        ['title' => 'La table', 'body' => 'Demi-pension à 19h, un seul menu, ce que le val Ferret produit.'],
+                        ['title' => 'Les sentiers', 'body' => 'Le Tour du Mont-Blanc passe devant la porte. Nous gardons les sacs.'],
+                    ],
+                    'listTitle' => 'Encore libres ce week-end',
+                    'listBody' => 'Ce qui reste pour vendredi et samedi.',
+                    'list' => [
+                        ['title' => 'Chambre double, côté lac', 'subtitle' => 'Demi-pension comprise', 'meta' => '210.—'],
+                        ['title' => 'Chambre familiale, quatre lits', 'subtitle' => 'Demi-pension comprise', 'meta' => '340.—'],
+                        ['title' => 'Dortoir du grenier, la place', 'subtitle' => 'Petit-déjeuner compris', 'meta' => '55.—'],
+                    ],
+                    'asideTitle' => 'La saison',
+                    'asideBody' => 'Ouvert deux saisons par an.',
+                    'aside' => [
+                        ['term' => 'Été', 'value' => 'Du 1er juin au 15 octobre'],
+                        ['term' => 'Hiver', 'value' => 'Du 20 décembre au 6 avril'],
+                        ['term' => 'Réception', 'value' => '07h30 – 21h00'],
+                    ],
+                    'panelTitle' => 'Trois nuits au prix de deux en septembre',
+                    'panelBody' => 'Du dimanche au jeudi, demi-pension comprise. Le lac est encore baignable et les sentiers sont vides.',
+                    'stats' => [
+                        ['label' => 'Chambres occupées', 'value' => '9 sur 11'],
+                        ['label' => 'Arrivées ce soir', 'value' => '6', 'change' => '2', 'direction' => 'up'],
+                        ['label' => 'Couverts à la table d’hôtes', 'value' => '24'],
+                    ],
+                ],
+            ],
+            'chambres' => [
+                'label' => 'Les chambres',
+                'layout' => KitLayout::Marketing,
+                'view' => 'framework.sections.catalogue',
+                'data' => [
+                    'title' => 'Les chambres',
+                    'body' => 'Onze chambres et un dortoir, toutes différentes. Les prix sont par nuit et pour la chambre, demi-pension comprise sauf au dortoir.',
+                    'items' => [
+                        ['title' => 'Chambre simple, côté forêt', 'subtitle' => '1 personne · douche à l’étage', 'meta' => '120.—', 'tag' => 'Économique'],
+                        ['title' => 'Chambre double, côté forêt', 'subtitle' => '2 personnes · douche et WC', 'meta' => '180.—', 'tag' => 'Double'],
+                        ['title' => 'Chambre double, côté lac', 'subtitle' => '2 personnes · balcon', 'meta' => '210.—', 'tag' => 'La plus demandée'],
+                        ['title' => 'Chambre du Combin', 'subtitle' => '2 personnes · coin salon, baignoire', 'meta' => '260.—', 'tag' => 'Suite'],
+                        ['title' => 'Chambre familiale', 'subtitle' => '4 personnes · deux pièces', 'meta' => '340.—', 'tag' => 'Famille'],
+                        ['title' => 'Dortoir du grenier, la place', 'subtitle' => '12 places · petit-déjeuner seul', 'meta' => '55.—', 'tag' => 'Randonneurs'],
+                    ],
+                    'columns' => ['Chambre', 'Couchage', 'Catégorie', 'Par nuit'],
+                    'action' => 'Réserver',
+                    'alert' => [
+                        'tone' => 'info',
+                        'title' => 'Chiens bienvenus',
+                        'body' => 'Dans les chambres côté forêt seulement, pour 15.— la nuit. Prévenez à la réservation.',
+                    ],
+                ],
+            ],
+            'tarifs' => [
+                'label' => 'Tarifs',
+                'layout' => KitLayout::Stacked,
+                'view' => 'framework.sections.pricelist',
+                'data' => [
+                    'title' => 'Tarifs et suppléments',
+                    'body' => 'Par chambre et par nuit, demi-pension comprise. La taxe de séjour s’ajoute : 3.— par adulte et par nuit.',
+                    'tabs' => ['Tout', 'Été', 'Hiver'],
+                    'groups' => [
+                        'Été' => [
+                            ['title' => 'Chambre double, côté lac', 'subtitle' => 'Juin à octobre', 'meta' => '210.—'],
+                            ['title' => 'Chambre double, côté forêt', 'subtitle' => 'Juin à octobre', 'meta' => '180.—'],
+                            ['title' => 'Dortoir, la place', 'subtitle' => 'Petit-déjeuner compris', 'meta' => '55.—'],
+                        ],
+                        'Hiver' => [
+                            ['title' => 'Chambre double, côté lac', 'subtitle' => 'Décembre à avril', 'meta' => '230.—'],
+                            ['title' => 'Chambre familiale', 'subtitle' => 'Fêtes de fin d’année', 'meta' => '380.—'],
+                            ['title' => 'Forfait raquettes, trois nuits', 'subtitle' => 'Guide et matériel compris', 'meta' => '690.—'],
+                        ],
+                        'Suppléments' => [
+                            ['title' => 'Pique-nique de randonnée', 'subtitle' => 'Commandé la veille', 'meta' => '18.—'],
+                            ['title' => 'Garde des sacs, Tour du Mont-Blanc', 'subtitle' => 'Par jour', 'meta' => '5.—'],
+                            ['title' => 'Chien', 'subtitle' => 'Chambres côté forêt', 'meta' => '15.—'],
+                        ],
+                    ],
+                    'columns' => ['Saison', 'Chambre', 'Par nuit'],
+                    'alert' => [
+                        'tone' => 'info',
+                        'title' => 'Enfants',
+                        'body' => 'Gratuit jusqu’à six ans dans la chambre des parents, moitié prix jusqu’à douze ans, repas compris.',
+                    ],
+                ],
+            ],
+            'alentours' => [
+                'label' => 'Les alentours',
+                'layout' => KitLayout::Marketing,
+                'view' => 'framework.sections.gallery',
+                'data' => [
+                    'title' => 'Ce qui part de la porte',
+                    'body' => 'Six sorties faites cet été par nos hôtes, sans voiture, au départ de la pension. Les temps sont ceux d’un marcheur ordinaire.',
+                    'items' => [
+                        ['title' => 'Tour du lac de Champex', 'subtitle' => 'Balade · 45 min · toute l’année'],
+                        ['title' => 'Cabane d’Orny par le télésiège', 'subtitle' => 'Randonnée · 4 h · juillet à septembre'],
+                        ['title' => 'Fenêtre d’Arpette', 'subtitle' => 'Col · 6 h · étape du Tour du Mont-Blanc'],
+                        ['title' => 'Bisse du Trient', 'subtitle' => 'Sentier plat · 2 h 30 · enfants bienvenus'],
+                        ['title' => 'Val d’Arpette en raquettes', 'subtitle' => 'Hiver · 3 h · avec guide'],
+                        ['title' => 'Jardin alpin Flore-Alpe', 'subtitle' => 'Visite · 1 h · mai à septembre'],
+                    ],
+                    'alert' => [
+                        'tone' => 'warning',
+                        'title' => 'Météo en montagne',
+                        'body' => 'Le bulletin est affiché à la réception à 7h. Pour un col, partez avant 8h : l’orage d’été arrive vers 15h.',
+                    ],
+                ],
+            ],
+            'reserver' => [
+                'label' => 'Réserver',
+                'layout' => KitLayout::Focus,
+                'view' => 'framework.sections.booking',
+                'data' => [
+                    'title' => 'Réserver une chambre',
+                    'body' => 'La durée, la chambre, et l’heure d’arrivée. Nous confirmons par courriel avec le lien d’acompte.',
+                    'slotLabel' => 'Durée du séjour',
+                    'slots' => [
+                        '1' => '1 nuit',
+                        '2' => '2 nuits',
+                        '3' => '3 nuits',
+                        '5' => '5 nuits',
+                        '7' => '1 semaine',
+                    ],
+                    'slot' => '2',
+                    'legend' => 'Chambre',
+                    'options' => [
+                        ['value' => 'lac', 'label' => 'Double, côté lac', 'hint' => '210.— la nuit, balcon.'],
+                        ['value' => 'foret', 'label' => 'Double, côté forêt', 'hint' => '180.— la nuit, chiens admis.'],
+                        ['value' => 'famille', 'label' => 'Familiale', 'hint' => '340.— la nuit, quatre lits.'],
+                    ],
+                    'selected' => 'lac',
+                    'placeholder' => 'Heure d’arrivée, régime alimentaire, étape du Tour du Mont-Blanc…',
+                    'summaryTitle' => 'Votre séjour',
+                    'summary' => [
+                        ['term' => 'Arrivée', 'value' => 'Dès 15h, dîner à 19h'],
+                        ['term' => 'Acompte', 'value' => '30% à la réservation'],
+                        ['term' => 'Annulation', 'value' => 'Sans frais jusqu’à 14 jours avant'],
+                    ],
+                    'alert' => [
+                        'tone' => 'warning',
+                        'title' => 'Arrivée après 21h',
+                        'body' => 'La réception ferme à 21h. Dites-le nous : la clé vous attend dans la boîte à côté de la porte.',
+                    ],
+                ],
+            ],
+            'occupation' => [
+                'label' => 'Occupation',
+                'layout' => KitLayout::Console,
+                'view' => 'framework.sections.dashboard',
+                'data' => [
+                    'title' => 'Ce soir à la pension',
+                    'body' => 'Qui arrive, qui part et combien la cuisine sert. Le tableau se remet à zéro à minuit.',
+                    'stats' => [
+                        ['label' => 'Taux d’occupation', 'value' => '82%', 'change' => '6', 'direction' => 'up'],
+                        ['label' => 'Arrivées', 'value' => '6'],
+                        ['label' => 'Départs', 'value' => '4', 'change' => '1', 'direction' => 'down'],
+                    ],
+                    'tableTitle' => 'Les chambres',
+                    'tableBody' => 'L’état de chaque chambre, mis à jour par le service d’étage.',
+                    'columns' => ['Chambre', 'Hôte', 'Nuits', 'État'],
+                    'rows' => [
+                        ['1 · Côté lac', 'Famille Rochat', '3 sur 5', 'Occupée'],
+                        ['2 · Côté lac', 'M. et Mme Studer', 'Arrivée 17h', 'Prête'],
+                        ['4 · Côté forêt', 'Mme Fellay', 'Départ', 'À faire'],
+                        ['6 · Combin', 'M. Aebischer', '1 sur 2', 'Occupée'],
+                        ['8 · Familiale', 'Famille Gerber', 'Arrivée 18h', 'Prête'],
+                        ['Dortoir', '9 places sur 12', '1', 'Occupé'],
+                    ],
+                    'alert' => [
+                        'tone' => 'warning',
+                        'title' => 'Une arrivée tardive',
+                        'body' => 'Famille Gerber annonce 22h. La clé de la 8 est à mettre dans la boîte avant la fermeture.',
+                    ],
+                    'panelTitle' => 'Table d’hôtes',
+                    'panelBody' => 'Vingt-quatre couverts ce soir, dont trois végétariens et un sans gluten. La cuisine ferme les commandes à 18h.',
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Four lifts and a fleet of courtesy cars. A garage sells hours in the
+     * workshop, so the price list comes before the cars for sale, and the
+     * board of what is on which lift is the screen the mechanics share.
+     *
+     * @return array<string, Section>
+     */
+    private static function garage(): array
+    {
+        return [
+            'garage' => [
+                'label' => 'Le garage',
+                'layout' => KitLayout::Marketing,
+                'view' => 'framework.sections.story',
+                'data' => [
+                    'badge' => 'Garage toutes marques · Delémont',
+                    'title' => 'Un devis avant de lever la voiture, pas après',
+                    'body' => 'Quatre ponts, cinq mécaniciens et une règle depuis 1987 : on appelle avant chaque travail qui n’était pas sur le devis. Toutes marques, essence, diesel et électrique.',
+                    'cards' => [
+                        ['title' => 'Le service', 'body' => 'Selon le carnet du constructeur, la garantie d’usine reste valable.'],
+                        ['title' => 'L’expertise', 'body' => 'Préparation et présentation au contrôle technique, le jour même.'],
+                        ['title' => 'Les pneus', 'body' => 'Changement et hôtel à pneus, deux cents jeux stockés au sec.'],
+                    ],
+                    'listTitle' => 'Les plus demandés',
+                    'listBody' => 'Trois travaux, trois prix fixes.',
+                    'list' => [
+                        ['title' => 'Service annuel, petite voiture', 'subtitle' => '2 h', 'meta' => '290.—'],
+                        ['title' => 'Changement de pneus, jantes montées', 'subtitle' => '30 min', 'meta' => '60.—'],
+                        ['title' => 'Préparation à l’expertise', 'subtitle' => 'Demi-journée', 'meta' => '180.—'],
+                    ],
+                    'asideTitle' => 'L’atelier',
+                    'asideBody' => 'Véhicule de prêt sur réservation.',
+                    'aside' => [
+                        ['term' => 'Lundi – vendredi', 'value' => '07h30 – 12h00 · 13h15 – 18h00'],
+                        ['term' => 'Samedi', 'value' => '08h00 – 11h30, pneus seulement'],
+                        ['term' => 'Dépannage', 'value' => '24 h sur 24, 032 000 00 00'],
+                    ],
+                    'panelTitle' => 'Saison des pneus d’hiver',
+                    'panelBody' => 'Du 15 octobre au 30 novembre, l’atelier ouvre le samedi matin. Réservez votre créneau : il part en deux semaines.',
+                    'stats' => [
+                        ['label' => 'Véhicules à l’atelier', 'value' => '14', 'change' => '3', 'direction' => 'up'],
+                        ['label' => 'Ponts occupés', 'value' => '4 sur 4'],
+                        ['label' => 'Véhicules de prêt libres', 'value' => '1', 'change' => '2', 'direction' => 'down'],
+                    ],
+                ],
+            ],
+            'prestations' => [
+                'label' => 'Prestations',
+                'layout' => KitLayout::Stacked,
+                'view' => 'framework.sections.pricelist',
+                'data' => [
+                    'title' => 'Les prestations',
+                    'body' => 'Prix fixes TVA comprise, pièces standard comprises. L’heure d’atelier hors forfait est à 128.—.',
+                    'tabs' => ['Tout', 'Entretien', 'Pneus'],
+                    'groups' => [
+                        'Entretien' => [
+                            ['title' => 'Service annuel, petite voiture', 'subtitle' => '2 h · huile et filtres', 'meta' => '290.—'],
+                            ['title' => 'Grand service, courroie comprise', 'subtitle' => '5 h', 'meta' => '890.—'],
+                            ['title' => 'Contrôle de batterie haute tension', 'subtitle' => '1 h · électrique', 'meta' => '150.—'],
+                        ],
+                        'Pneus' => [
+                            ['title' => 'Changement, jantes montées', 'subtitle' => '30 min', 'meta' => '60.—'],
+                            ['title' => 'Montage et équilibrage, quatre pneus', 'subtitle' => '1 h', 'meta' => '120.—'],
+                            ['title' => 'Hôtel à pneus, la saison', 'subtitle' => 'Lavage compris', 'meta' => '45.—'],
+                        ],
+                        'Expertise et carrosserie' => [
+                            ['title' => 'Préparation à l’expertise', 'subtitle' => 'Présentation comprise', 'meta' => '180.—'],
+                            ['title' => 'Réparation de pare-brise', 'subtitle' => 'Impact, sans remplacement', 'meta' => '95.—'],
+                            ['title' => 'Débosselage sans peinture', 'subtitle' => 'Sur devis', 'meta' => 'dès 150.—'],
+                        ],
+                    ],
+                    'columns' => ['Famille', 'Travail', 'Prix'],
+                    'alert' => [
+                        'tone' => 'info',
+                        'title' => 'Travaux hors devis',
+                        'body' => 'Un travail qui n’était pas prévu ne se fait pas sans votre accord. Nous appelons, avec le prix, avant de commencer.',
+                    ],
+                ],
+            ],
+            'occasions' => [
+                'label' => 'Occasions',
+                'layout' => KitLayout::Workspace,
+                'view' => 'framework.sections.catalogue',
+                'data' => [
+                    'title' => 'Les occasions',
+                    'body' => 'Six voitures reprises et contrôlées à l’atelier, expertisées, avec douze mois de garantie.',
+                    'items' => [
+                        ['title' => 'Škoda Octavia Combi 2.0 TDI', 'subtitle' => '2019 · 84 000 km · 4x4', 'meta' => '18 900.—', 'tag' => 'Expertisée'],
+                        ['title' => 'Renault Zoé R110', 'subtitle' => '2021 · 31 000 km · électrique', 'meta' => '16 500.—', 'tag' => 'Batterie testée'],
+                        ['title' => 'Toyota Yaris Hybrid', 'subtitle' => '2020 · 52 000 km', 'meta' => '15 200.—', 'tag' => 'Expertisée'],
+                        ['title' => 'Subaru Forester 2.0', 'subtitle' => '2017 · 112 000 km · 4x4', 'meta' => '13 800.—', 'tag' => 'Réservée'],
+                        ['title' => 'VW Golf Variant 1.5 TSI', 'subtitle' => '2020 · 67 000 km', 'meta' => '19 400.—', 'tag' => 'Expertisée'],
+                        ['title' => 'Dacia Duster 4x4', 'subtitle' => '2018 · 96 000 km', 'meta' => '11 900.—', 'tag' => 'Nouvelle'],
+                    ],
+                    'columns' => ['Modèle', 'Année et kilomètres', 'État', 'Prix'],
+                    'action' => 'Essayer',
+                    'alert' => [
+                        'tone' => 'success',
+                        'title' => 'Reprise',
+                        'body' => 'Votre voiture est estimée sur place en vingt minutes, et l’offre tient trente jours.',
+                    ],
+                ],
+            ],
+            'atelier' => [
+                'label' => 'Atelier',
+                'layout' => KitLayout::Console,
+                'view' => 'framework.sections.dashboard',
+                'data' => [
+                    'title' => 'L’atelier aujourd’hui',
+                    'body' => 'Ce qui est sur chaque pont, qui y travaille et quand le client peut venir. Une voiture prête part par SMS.',
+                    'stats' => [
+                        ['label' => 'Ordres de travail', 'value' => '14', 'change' => '3', 'direction' => 'up'],
+                        ['label' => 'Prêtes à rendre', 'value' => '5'],
+                        ['label' => 'En attente de pièces', 'value' => '2', 'change' => '1', 'direction' => 'down'],
+                    ],
+                    'tableTitle' => 'Sur les ponts',
+                    'tableBody' => 'Les ordres de travail du jour, rafraîchis au pointage.',
+                    'columns' => ['Plaque', 'Travail', 'Mécanicien', 'État'],
+                    'rows' => [
+                        ['JU 12 408', 'Grand service, courroie', 'Luca Brahier', 'Pont 1'],
+                        ['JU 3 917', 'Pneus d’hiver, jantes montées', 'Joël Membrez', 'Prête'],
+                        ['BE 541 220', 'Préparation à l’expertise', 'Nora Schaffter', 'Pont 3'],
+                        ['JU 22 105', 'Contrôle haute tension', 'Luca Brahier', 'En attente'],
+                        ['SO 88 431', 'Embrayage', 'Fabien Chételat', 'Pièces jeudi'],
+                        ['JU 7 760', 'Service annuel', 'Joël Membrez', 'Prête'],
+                    ],
+                    'alert' => [
+                        'tone' => 'warning',
+                        'title' => 'Deux voitures en attente de pièces',
+                        'body' => 'L’embrayage de la SO 88 431 arrive jeudi. Le client a un véhicule de prêt jusqu’à vendredi.',
+                    ],
+                    'panelTitle' => 'Véhicules de prêt',
+                    'panelBody' => 'Un libre sur trois aujourd’hui. Le suivant revient à 16h, lavé et le plein fait.',
+                ],
+            ],
+            'rendez-vous' => [
+                'label' => 'Rendez-vous',
+                'layout' => KitLayout::Focus,
+                'view' => 'framework.sections.booking',
+                'data' => [
+                    'title' => 'Prendre rendez-vous',
+                    'body' => 'Le travail, le jour et l’heure de dépôt. Nous rappelons avec le devis avant de commencer.',
+                    'slotLabel' => 'Dépôt du véhicule',
+                    'slots' => [
+                        '07:30' => '07h30',
+                        '08:30' => '08h30',
+                        '10:00' => '10h00',
+                        '13:15' => '13h15',
+                        '15:00' => '15h00',
+                    ],
+                    'slot' => '07:30',
+                    'legend' => 'Travail',
+                    'options' => [
+                        ['value' => 'service', 'label' => 'Service', 'hint' => 'Selon le carnet, demi-journée.'],
+                        ['value' => 'pneus', 'label' => 'Pneus', 'hint' => 'Trente minutes, vous pouvez attendre.'],
+                        ['value' => 'panne', 'label' => 'Panne ou bruit', 'hint' => 'Diagnostic d’une heure, puis devis.'],
+                    ],
+                    'selected' => 'service',
+                    'placeholder' => 'Plaque, modèle, kilométrage, ce que vous avez remarqué…',
+                    'summaryTitle' => 'Votre rendez-vous',
+                    'summary' => [
+                        ['term' => 'Devis', 'value' => 'Par téléphone, avant tout travail'],
+                        ['term' => 'Véhicule de prêt', 'value' => 'Gratuit, sur réservation'],
+                        ['term' => 'Restitution', 'value' => 'SMS dès que la voiture est prête'],
+                    ],
+                    'alert' => [
+                        'tone' => 'info',
+                        'title' => 'Clés après la fermeture',
+                        'body' => 'Une boîte à clés est à droite de la porte de l’atelier. Laissez le formulaire rempli avec, nous appelons à 7h30.',
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * A hundred and eighty seats in a former granary. The season is the front
+     * page, because a theatre is a calendar before it is a building; the
+     * box office's own count of what is sold sits beside the public pages.
+     *
+     * @return array<string, Section>
+     */
+    private static function theatre(): array
+    {
+        return [
+            'saison' => [
+                'label' => 'La saison',
+                'layout' => KitLayout::Marketing,
+                'view' => 'framework.sections.agenda',
+                'data' => [
+                    'title' => 'La saison',
+                    'body' => 'Quatorze spectacles de septembre à juin : théâtre, danse et deux concerts. La moitié sont des créations de compagnies fribourgeoises.',
+                    'columns' => ['Quand', 'Quoi'],
+                    'groups' => [
+                        'Ce mois-ci' => [
+                            ['text' => 'Les Bonnes · Compagnie du Gotteron · création', 'time' => 'Du 6 au 15, 20h00', 'tone' => 'accent'],
+                            ['text' => 'Rencontre avec l’équipe après la représentation', 'time' => 'Jeudi 13, 22h00'],
+                            ['text' => 'Quatuor Sarine · Schubert et Janáček', 'time' => 'Dimanche 23, 17h00'],
+                        ],
+                        'Plus tard dans la saison' => [
+                            ['text' => 'Le Petit Prince · dès 7 ans · séances scolaires', 'time' => 'Du 10 au 14 décembre', 'tone' => 'highlight'],
+                            ['text' => 'Corps de passage · danse · Collectif Ondine', 'time' => '24 et 25 janvier'],
+                            ['text' => 'Festival des petites formes · six spectacles courts', 'time' => 'Du 6 au 9 mars'],
+                        ],
+                    ],
+                    'alert' => [
+                        'tone' => 'info',
+                        'title' => 'Accessibilité',
+                        'body' => 'Quatre places pour fauteuil roulant au premier rang et une boucle magnétique dans toute la salle. Annoncez-vous à la réservation.',
+                    ],
+                ],
+            ],
+            'billetterie' => [
+                'label' => 'Billetterie',
+                'layout' => KitLayout::Workspace,
+                'view' => 'framework.sections.catalogue',
+                'data' => [
+                    'title' => 'Billetterie',
+                    'body' => 'Places numérotées, plein tarif. La barre dit ce qui est déjà vendu : au-delà de neuf sur dix, il reste le strapontin.',
+                    'items' => [
+                        ['title' => 'Les Bonnes', 'subtitle' => 'Ve 7 · 20h00 · grande salle', 'meta' => '38.—', 'tag' => 'Complet', 'capacity' => 100],
+                        ['title' => 'Les Bonnes', 'subtitle' => 'Sa 8 · 20h00 · grande salle', 'meta' => '38.—', 'tag' => '12 places', 'capacity' => 93],
+                        ['title' => 'Les Bonnes', 'subtitle' => 'Je 13 · 20h00 · avec rencontre', 'meta' => '38.—', 'tag' => '41 places', 'capacity' => 77],
+                        ['title' => 'Quatuor Sarine', 'subtitle' => 'Di 23 · 17h00 · grande salle', 'meta' => '32.—', 'tag' => '64 places', 'capacity' => 64],
+                        ['title' => 'Le Petit Prince', 'subtitle' => 'Sa 13 déc. · 15h00 · dès 7 ans', 'meta' => '18.—', 'tag' => '20 places', 'capacity' => 89],
+                        ['title' => 'Corps de passage', 'subtitle' => 'Ve 24 janv. · 20h00 · danse', 'meta' => '35.—', 'tag' => '132 places', 'capacity' => 27],
+                    ],
+                    'columns' => ['Spectacle', 'Date et salle', 'Places', 'Prix'],
+                    'action' => 'Choisir des places',
+                    'alert' => [
+                        'tone' => 'info',
+                        'title' => 'Tarif réduit',
+                        'body' => 'Moitié prix pour les étudiants, les apprentis et l’AVS, sur présentation de la carte à l’entrée. Carte Culture : 10.— la place.',
+                    ],
+                ],
+            ],
+            'abonnements' => [
+                'label' => 'Abonnements',
+                'layout' => KitLayout::Stacked,
+                'view' => 'framework.sections.pricelist',
+                'data' => [
+                    'title' => 'Abonnements et tarifs',
+                    'body' => 'Un abonnement se compose librement parmi les quatorze spectacles et garde la même place toute la saison.',
+                    'tabs' => ['Tout', 'Abonnements', 'Billets'],
+                    'groups' => [
+                        'Abonnements' => [
+                            ['title' => 'Saison complète', 'subtitle' => '14 spectacles · place fixe', 'meta' => '390.—'],
+                            ['title' => 'Abonnement libre, six spectacles', 'subtitle' => 'Au choix', 'meta' => '190.—'],
+                            ['title' => 'Abonnement jeune, quatre spectacles', 'subtitle' => 'Jusqu’à 25 ans', 'meta' => '60.—'],
+                        ],
+                        'Billets' => [
+                            ['title' => 'Plein tarif', 'subtitle' => 'Théâtre et danse', 'meta' => '35.— à 38.—'],
+                            ['title' => 'Tarif réduit', 'subtitle' => 'Étudiants, apprentis, AVS', 'meta' => 'moitié prix'],
+                            ['title' => 'Spectacle jeune public', 'subtitle' => 'Enfants et adultes', 'meta' => '18.—'],
+                        ],
+                        'Groupes' => [
+                            ['title' => 'Classe, la place', 'subtitle' => 'Accompagnants gratuits', 'meta' => '12.—'],
+                            ['title' => 'Groupe dès dix personnes', 'subtitle' => 'Par place', 'meta' => '28.—'],
+                            ['title' => 'Location de la salle', 'subtitle' => 'Lundi et mardi, technicien compris', 'meta' => 'dès 1 200.—'],
+                        ],
+                    ],
+                    'columns' => ['Formule', 'Contenu', 'Prix'],
+                    'alert' => [
+                        'tone' => 'success',
+                        'title' => 'Échange de billet',
+                        'body' => 'Un billet s’échange sans frais contre une autre date du même spectacle, jusqu’à la veille.',
+                    ],
+                ],
+            ],
+            'artistes' => [
+                'label' => 'Les artistes',
+                'layout' => KitLayout::Marketing,
+                'view' => 'framework.sections.people',
+                'data' => [
+                    'title' => 'Les artistes de la saison',
+                    'body' => 'Deux compagnies en résidence et l’équipe qui les accueille. Les répétitions du samedi matin sont ouvertes aux abonnés.',
+                    'people' => [
+                        ['title' => 'Anouk Python', 'subtitle' => 'Mise en scène · Compagnie du Gotteron'],
+                        ['title' => 'Bastien Clerc', 'subtitle' => 'Comédien · Les Bonnes'],
+                        ['title' => 'Mira Jaquier', 'subtitle' => 'Chorégraphie · Collectif Ondine'],
+                        ['title' => 'Thomas Egger', 'subtitle' => 'Direction artistique du théâtre'],
+                    ],
+                    'factsTitle' => 'Le théâtre',
+                    'facts' => [
+                        ['term' => 'Salle', 'value' => '180 places, ancien grenier de 1708'],
+                        ['term' => 'Résidences', 'value' => 'Deux compagnies par saison'],
+                        ['term' => 'Bar', 'value' => 'Ouvert une heure avant et après'],
+                    ],
+                    'alert' => [
+                        'tone' => 'info',
+                        'title' => 'Proposer un spectacle',
+                        'body' => 'Les dossiers pour la saison suivante sont lus jusqu’au 31 janvier. Une réponse part à chacun avant Pâques.',
+                    ],
+                ],
+            ],
+            'caisse' => [
+                'label' => 'Caisse',
+                'layout' => KitLayout::Console,
+                'view' => 'framework.sections.dashboard',
+                'data' => [
+                    'title' => 'La caisse ce soir',
+                    'body' => 'Ce qui est vendu, réservé et retiré pour les prochaines représentations. Les réservations non payées tombent à 19h30.',
+                    'stats' => [
+                        ['label' => 'Remplissage de la saison', 'value' => '78%', 'change' => '5', 'direction' => 'up'],
+                        ['label' => 'Billets vendus ce soir', 'value' => '168'],
+                        ['label' => 'Réservations à retirer', 'value' => '23', 'change' => '4', 'direction' => 'down'],
+                    ],
+                    'tableTitle' => 'Les prochaines représentations',
+                    'tableBody' => 'Vendu, réservé et libre, au siège près.',
+                    'columns' => ['Représentation', 'Vendus', 'Réservés', 'Libres'],
+                    'rows' => [
+                        ['Les Bonnes · ve 7', '176', '4', '0'],
+                        ['Les Bonnes · sa 8', '151', '17', '12'],
+                        ['Les Bonnes · je 13', '118', '21', '41'],
+                        ['Quatuor Sarine · di 23', '104', '12', '64'],
+                        ['Le Petit Prince · sa 13 déc.', '146', '14', '20'],
+                    ],
+                    'alert' => [
+                        'tone' => 'warning',
+                        'title' => 'Ce soir complet',
+                        'body' => 'Liste d’attente de onze personnes. Les réservations non retirées à 19h30 leur sont proposées dans l’ordre.',
+                    ],
+                    'panelTitle' => 'Séances scolaires',
+                    'panelBody' => 'Sept classes inscrites pour Le Petit Prince, deux séances encore ouvertes le jeudi matin.',
+                ],
+            ],
+            'groupes' => [
+                'label' => 'Groupes',
+                'layout' => KitLayout::Focus,
+                'view' => 'framework.sections.enquiry',
+                'data' => [
+                    'title' => 'Venir en groupe',
+                    'body' => 'Classes, associations, entreprises : dès dix personnes, les places se réservent ici et se paient sur facture.',
+                    'formTitle' => 'Votre demande',
+                    'formBody' => 'La billetterie répond dans les deux jours ouvrables, avec les places tenues une semaine.',
+                    'choiceLabel' => 'Spectacle',
+                    'choices' => [
+                        'bonnes' => 'Les Bonnes',
+                        'quatuor' => 'Quatuor Sarine',
+                        'prince' => 'Le Petit Prince',
+                        'corps' => 'Corps de passage',
+                    ],
+                    'choice' => 'prince',
+                    'legend' => 'Groupe',
+                    'options' => [
+                        ['value' => 'classe', 'label' => 'Une classe', 'hint' => '12.— la place, accompagnants gratuits.'],
+                        ['value' => 'groupe', 'label' => 'Un groupe d’adultes', 'hint' => '28.— la place, dès dix personnes.'],
+                    ],
+                    'selected' => 'classe',
+                    'placeholder' => 'Nombre de personnes, âge des élèves, date souhaitée, besoin d’accessibilité…',
+                    'consent' => [
+                        'label' => 'Recevoir le dossier pédagogique',
+                        'hint' => 'Un PDF par spectacle jeune public, envoyé un mois avant.',
+                    ],
+                    'submit' => 'Envoyer la demande',
+                    'alert' => [
+                        'tone' => 'success',
+                        'title' => 'Bord de scène',
+                        'body' => 'Après une séance scolaire, l’équipe reste vingt minutes pour répondre aux questions des élèves.',
                     ],
                 ],
             ],

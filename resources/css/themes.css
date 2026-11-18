@@ -1,5 +1,5 @@
 /*
- * The nineteen palettes of the shared UI kit, each in two schemes.
+ * The twenty-two palettes of the shared UI kit, each in two schemes.
  *
  * Two axes, and they are independent: `data-palette` on <html> chooses the
  * palette, `data-theme` chooses light or dark, and the absence of `data-theme`
@@ -1209,6 +1209,222 @@
     --btn-secondary-shadow-active: none;
 }
 
+[data-palette='locanda'] {
+    /*
+     * Locanda: the colours of a pizzeria's menu (pizzalocanda.ch), drawn over fresh. Actions are a baked terracotta
+     * with white on it (5.5:1, 5.3:1 in the dark), never a light orange with black on it, which reads muddy and cheap;
+     * the fill barely moves in the dark scheme, whose canvas is the espresso of the menu's backdrop, not black: the
+     * site's own brighter #c4501e left hearth's band, which is the accent, too faint for its soft words. Text stays the ink: accent-strong is the ink itself, since terracotta text read as alarm, and the colour
+     * is kept for fills. The highlight is a mozzarella butter with the ink on it, so a note never reads as a button.
+     */
+    --color-canvas: light-dark(#fbf8f4, #211a16);
+    --color-canvas-alt: light-dark(#f4ece3, #181310);
+    --color-raise: light-dark(#ffffff, #2b221d);
+    --color-ink: light-dark(#3b2a20, #efe6dc);
+    --color-ink-soft: light-dark(#6b5a4e, #b3a598);
+    --color-rule: light-dark(#e8ddd2, #3d322b);
+    --color-accent: light-dark(#b4441c, #b8461d);
+    --color-accent-strong: light-dark(#3b2a20, #efe6dc);
+    --color-on-accent: light-dark(#ffffff, #ffffff);
+    --color-highlight: light-dark(#f3d98b, #f3d98b);
+    --color-on-highlight: light-dark(#3b2a20, #3b2a20);
+
+    --shadow-lift-1: 0 1px 2px -1px light-dark(rgb(59 42 32 / 0.08), rgb(0 0 0 / 0.5)), 0 1px 3px light-dark(rgb(59 42 32 / 0.06), rgb(0 0 0 / 0.4));
+    --shadow-lift-2: 0 2px 4px -2px light-dark(rgb(59 42 32 / 0.08), rgb(0 0 0 / 0.5)), 0 6px 12px -4px light-dark(rgb(59 42 32 / 0.10), rgb(0 0 0 / 0.55));
+    --shadow-lift-3: 0 4px 8px -4px light-dark(rgb(59 42 32 / 0.10), rgb(0 0 0 / 0.55)), 0 16px 28px -8px light-dark(rgb(59 42 32 / 0.14), rgb(0 0 0 / 0.6));
+    --shadow-lift-4: 0 8px 16px -8px light-dark(rgb(59 42 32 / 0.12), rgb(0 0 0 / 0.6)), 0 32px 56px -16px light-dark(rgb(59 42 32 / 0.20), rgb(0 0 0 / 0.7));
+    --shadow-accent: 0 4px 14px -4px light-dark(rgb(180 68 28 / 0.4), rgb(184 70 29 / 0.35));
+
+    --font-display: var(--font-outfit, 'Outfit'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-inter, 'Inter'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 600;
+    --body-leading: 1.6;
+
+    --text-display: clamp(2.5rem, 6vw, 4rem);
+    --text-display--line-height: 1.02;
+    --text-display--letter-spacing: -0.03em;
+    --text-title: clamp(1.75rem, 3.5vw, 2.5rem);
+    --text-title--line-height: 1.12;
+    --text-title--letter-spacing: -0.02em;
+    --text-figure: clamp(2.25rem, 5vw, 3.25rem);
+    --text-figure--line-height: 0.95;
+    --text-figure--letter-spacing: -0.03em;
+
+    --radius-panel: 0.875rem;
+    --radius-control: 0.875rem;
+    --container-wrap: 80rem;
+
+    --dur-fast: 0.18s;
+    --dur-base: 0.42s;
+    --dur-slow: 0.8s;
+    --ease-out: power2.out;
+    --ease-inout: power2.inOut;
+    --move: 18px;
+
+    /* The page is tinted and panels lift off it: depth before a shadow is drawn. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 0 solid transparent;
+    --panel-shadow: var(--shadow-lift-2);
+    --panel-shadow-raised: var(--shadow-lift-3);
+
+    --btn-font: var(--font-display);
+    --btn-weight: 600;
+    --btn-tracking: normal;
+    --btn-transform: none;
+    --btn-density: 1;
+    --btn-press: 0 1px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: var(--shadow-accent);
+    --btn-primary-shadow-active: var(--shadow-lift-1);
+    /* A raised surface on a raised surface: in the dark the edge has to be drawn. */
+    --btn-secondary-border: 1px solid light-dark(transparent, var(--color-rule));
+    --btn-secondary-shadow: var(--shadow-lift-1);
+    --btn-secondary-shadow-active: var(--shadow-lift-1);
+}
+
+[data-palette='forno'] {
+    /*
+     * Forno: the wood oven after dark. Ash paper and a soot ink by day, a charcoal page by night; the accent is the
+     * ember, a deep brick red with white on it in the light (6.9:1) and a live coal with the soot on it in the dark
+     * (6.1:1), since a glowing orange is the one colour that reads at night. The highlight is the flame. A heavy
+     * grotesque cut like a painted shop sign, tight corners and a warm shadow straight down, as from a lamp above
+     * the counter.
+     */
+    --color-canvas: light-dark(#f7f2ec, #14100e);
+    --color-canvas-alt: light-dark(#eee5da, #0e0b0a);
+    --color-raise: light-dark(#fffdfa, #1f1916);
+    --color-ink: light-dark(#1c1512, #f4ebe1);
+    --color-ink-soft: light-dark(#5f524a, #b1a397);
+    --color-rule: light-dark(#e2d6c9, #352b25);
+    --color-accent: light-dark(#a62f14, #ef6a3a);
+    --color-accent-strong: light-dark(#7e220d, #ff8a5c);
+    --color-on-accent: light-dark(#ffffff, #1a0d07);
+    --color-highlight: light-dark(#f2a93b, #f6b64e);
+    --color-on-highlight: light-dark(#1c1512, #1c1512);
+
+    --shadow-lift-1: 0 1px 0 light-dark(rgb(28 21 18 / 0.10), rgb(0 0 0 / 0.6));
+    --shadow-lift-2: 0 3px 0 -1px light-dark(rgb(28 21 18 / 0.10), rgb(0 0 0 / 0.6)), 0 10px 18px -10px light-dark(rgb(126 34 13 / 0.22), rgb(0 0 0 / 0.7));
+    --shadow-lift-3: 0 4px 0 -1px light-dark(rgb(28 21 18 / 0.12), rgb(0 0 0 / 0.6)), 0 18px 30px -14px light-dark(rgb(126 34 13 / 0.28), rgb(0 0 0 / 0.75));
+    --shadow-lift-4: 0 6px 0 -2px light-dark(rgb(28 21 18 / 0.14), rgb(0 0 0 / 0.65)), 0 32px 56px -20px light-dark(rgb(126 34 13 / 0.32), rgb(0 0 0 / 0.8));
+    --shadow-accent: 0 6px 18px -6px light-dark(rgb(166 47 20 / 0.45), rgb(239 106 58 / 0.45));
+
+    --font-display: var(--font-bricolage-grotesque, 'Bricolage Grotesque'), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-work-sans, 'Work Sans'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 800;
+    --body-leading: 1.6;
+
+    --text-display: clamp(2.75rem, 7vw, 4.75rem);
+    --text-display--line-height: 0.98;
+    --text-display--letter-spacing: -0.035em;
+    --text-title: clamp(1.75rem, 3.5vw, 2.5rem);
+    --text-title--line-height: 1.08;
+    --text-title--letter-spacing: -0.025em;
+    --text-figure: clamp(2.5rem, 5.5vw, 3.5rem);
+    --text-figure--line-height: 0.92;
+    --text-figure--letter-spacing: -0.035em;
+
+    --radius-panel: 0.375rem;
+    --radius-control: 0.375rem;
+    --container-wrap: 78rem;
+
+    --dur-fast: 0.15s;
+    --dur-base: 0.35s;
+    --dur-slow: 0.7s;
+    --ease-out: power3.out;
+    --ease-inout: power2.inOut;
+    --move: 14px;
+
+    /* A hairline of the rule and a short warm shadow under it: a tile on the oven's counter. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid var(--color-rule);
+    --panel-shadow: var(--shadow-lift-2);
+    --panel-shadow-raised: var(--shadow-lift-3);
+
+    --btn-font: var(--font-display);
+    --btn-weight: 800;
+    --btn-tracking: 0.01em;
+    --btn-transform: none;
+    --btn-density: 1;
+    --btn-press: 0 2px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: var(--shadow-accent);
+    --btn-primary-shadow-active: var(--shadow-lift-1);
+    --btn-secondary-border: 1px solid var(--color-ink);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
+[data-palette='basilico'] {
+    /*
+     * Basilico: flour, tomato and basil. A cream page and a basil-black ink; the accent is the tomato, white on it in
+     * the light (6.3:1) and the ink's near-black on a ripe red in the dark (5.4:1), whose page is a dark garden green.
+     * The highlight is the basil leaf, pale, with the ink on it, for a flag or a note. A friendly slab-cut serif over a
+     * round sans, pill controls and soft round panels: the trattoria on the corner, not the restaurant up the hill.
+     */
+    --color-canvas: light-dark(#fbf7ee, #121812);
+    --color-canvas-alt: light-dark(#f1ead9, #0c110c);
+    --color-raise: light-dark(#ffffff, #1b231b);
+    --color-ink: light-dark(#1e2a1f, #eef2e6);
+    --color-ink-soft: light-dark(#556052, #a3ad9c);
+    --color-rule: light-dark(#e3dccb, #2c372b);
+    --color-accent: light-dark(#b8241c, #e5554a);
+    --color-accent-strong: light-dark(#8f1a14, #f27a70);
+    --color-on-accent: light-dark(#ffffff, #170705);
+    --color-highlight: light-dark(#b9d89a, #9cc977);
+    --color-on-highlight: light-dark(#1e2a1f, #10180f);
+
+    --shadow-lift-1: 0 1px 2px light-dark(rgb(30 42 31 / 0.08), rgb(0 0 0 / 0.5));
+    --shadow-lift-2: 0 2px 6px -2px light-dark(rgb(30 42 31 / 0.10), rgb(0 0 0 / 0.5)), 0 10px 24px -12px light-dark(rgb(30 42 31 / 0.16), rgb(0 0 0 / 0.6));
+    --shadow-lift-3: 0 4px 10px -4px light-dark(rgb(30 42 31 / 0.12), rgb(0 0 0 / 0.55)), 0 20px 40px -16px light-dark(rgb(30 42 31 / 0.20), rgb(0 0 0 / 0.65));
+    --shadow-lift-4: 0 8px 16px -8px light-dark(rgb(30 42 31 / 0.14), rgb(0 0 0 / 0.6)), 0 36px 64px -20px light-dark(rgb(30 42 31 / 0.24), rgb(0 0 0 / 0.7));
+    --shadow-accent: 0 6px 16px -6px light-dark(rgb(184 36 28 / 0.4), rgb(229 85 74 / 0.4));
+
+    --font-display: var(--font-young-serif, 'Young Serif'), ui-serif, Georgia, serif;
+    --font-body: var(--font-figtree, 'Figtree'), ui-sans-serif, system-ui, sans-serif;
+    --display-weight: 400;
+    --body-leading: 1.6;
+
+    --text-display: clamp(2.5rem, 6vw, 4.25rem);
+    --text-display--line-height: 1.05;
+    --text-display--letter-spacing: -0.02em;
+    --text-title: clamp(1.75rem, 3.5vw, 2.5rem);
+    --text-title--line-height: 1.15;
+    --text-title--letter-spacing: -0.01em;
+    --text-figure: clamp(2.25rem, 5vw, 3.25rem);
+    --text-figure--line-height: 1;
+    --text-figure--letter-spacing: -0.02em;
+
+    --radius-panel: 1.25rem;
+    --radius-control: 9999px;
+    --container-wrap: 76rem;
+
+    --dur-fast: 0.18s;
+    --dur-base: 0.4s;
+    --dur-slow: 0.75s;
+    --ease-out: power2.out;
+    --ease-inout: power2.inOut;
+    --move: 16px;
+
+    /* Soft round panels that lift a little off the flour, as a plate off the cloth. */
+    --panel-surface: var(--color-raise);
+    --panel-border: 1px solid light-dark(transparent, var(--color-rule));
+    --panel-shadow: var(--shadow-lift-2);
+    --panel-shadow-raised: var(--shadow-lift-3);
+
+    --btn-font: var(--font-body);
+    --btn-weight: 700;
+    --btn-tracking: normal;
+    --btn-transform: none;
+    --btn-density: 1;
+    --btn-press: 0 1px;
+    --btn-primary-border: 1px solid transparent;
+    --btn-primary-shadow: var(--shadow-accent);
+    --btn-primary-shadow-active: var(--shadow-lift-1);
+    --btn-secondary-border: 1.5px solid var(--color-ink);
+    --btn-secondary-shadow: none;
+    --btn-secondary-shadow-active: none;
+}
+
 /*
  * A chosen appearance, last so it beats the :root default whatever palette is on
  * the same element. color-scheme inherits, so this settles nested previews too.
@@ -1226,7 +1442,7 @@
  *
  * Not an eighth palette and not a second set of values: the tokens below are
  * derived from the ones already in force with color-mix, so one rule covers all
- * nineteen palettes in both schemes. The page moves further from the panel, the
+ * twenty-two palettes in both schemes. The page moves further from the panel, the
  * rule gets stronger, muted text comes back toward the ink, and every panel is
  * given an edge — which is what sandstone, blossom and fresh gain most, since
  * they draw none and separate by shadow alone.

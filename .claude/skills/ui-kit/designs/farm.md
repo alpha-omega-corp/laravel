@@ -1,6 +1,6 @@
 # farm
 
-Twelve ways one farm is drawn, seven on the market's board of glass panels and five at the counter. The pages and the prefabs are the same in all of them; what changes is which fact the first screen leads with — what is in season, the hours and the way in, one crop, a date — how the range is read, as a stall to look at, a list led by one thing or a price list in rows, and whether the season's dates are a calendar read in order or a few days that each deserve a look.
+Fifteen ways one farm is drawn, nine on the market's board of glass panels and six at the counter. The pages and the prefabs are the same in all of them; what changes is which fact the first screen leads with — what is in season, the hours and the way in, one crop, a date — how the range is read, as a stall to look at, a list led by one thing or a price list in rows, and whether the season's dates are a calendar read in order or a few days that each deserve a look.
 
 ## Étal de saison
 
@@ -198,3 +198,53 @@ A farm that cures, smokes and ages what it raises, bought as a present as often 
 - catalogue — feature
 - schedule — plain
 - events — timeline
+
+## Moulin
+
+A grain farm with its own mill: flour, oats, lentils and a loaf on Saturdays, sold from the mill door and at two markets. The first screen sets the opening words beside the mill, the week's opening as a strip and the track along the stream on a wide map; the range is a list read by name, flour by flour, and the market days are cards on a long page, each a town and a morning. For a farm that sells staples rather than a season, on warm printed paper the colour of its sacks: sandstone is good on the market and quieter than its fruit colours.
+
+- direction — market
+- palette — sandstone
+- / — split
+- /products — marketing
+- /markets — marketing
+- /our-story — marketing
+- hero — split
+- site-footer — compact
+- catalogue — list
+- schedule — strip
+- events — cards
+- map — wide
+
+## Ferme des enfants
+
+An open farm for school classes and children's birthdays, with a shop for the parents at the gate: goats to feed, eggs to collect, a tractor ride on Wednesdays. The first screen is a photograph of a child at the goat pen behind the name, then a board with the week's open afternoons as a strip and the car park on a wide map; the range — the shop's eggs and juice, the birthday packages — is led by one thing at twice the size, and the open afternoons are cards on a board, one each. Sorbet is good on the market and as bright as a drawing on the fridge, for parents who plan a Wednesday afternoon on a phone.
+
+- direction — market
+- palette — sorbet
+- / — board
+- /products — marketing
+- /markets — board
+- /our-story — marketing
+- hero — cover
+- site-header — centred
+- catalogue — feature
+- schedule — strip
+- events — cards
+- map — wide
+
+## Pisciculture
+
+A trout farm in a valley, its ponds fed by a spring and its shop in the hatchery, where the fish are sold whole, filleted or smoked. The first screen is a short opening over a board, the shop's hours and the bridge over the stream among its panels; the range is a price list in rows from the top of its page, led by the smoked fillet at twice the size with the hours held beside it, and the angling days and smoking sessions run down a rule beside their heading. Lagoon is good at the counter, clear water and a pale page, for a farm whose visitors come for Friday's fish and stay for the ponds.
+
+- direction — counter
+- palette — lagoon
+- / — board
+- /products — carte
+- /markets — split
+- /our-story — marketing
+- site-footer — compact
+- catalogue — feature
+- schedule — plain
+- events — timeline
+- map — plain

@@ -1,6 +1,6 @@
 # spa
 
-Twelve ways one spa is drawn: five as a calm studio, four as an evening room, three as baths outdoors. The pages and the prefabs are the same in all of them; what changes is what the visitor is taken to have come for (the water, a pair of hands, the price of two hours, the view from the bath), and so what the first screen leads with and how the treatments and the entries are read: as a price list, as cards, or as rows with the price at the end.
+Fifteen ways one spa is drawn: six as a calm studio, five as an evening room, four as baths outdoors. The pages and the prefabs are the same in all of them; what changes is what the visitor is taken to have come for (the water, a pair of hands, the price of two hours, the view from the bath, a week of cure, an evening for two), and so what the first screen leads with and how the treatments and the entries are read: as a price list, as cards, or as rows with the price at the end.
 
 ## Maison de bains
 
@@ -209,3 +209,60 @@ A sauna and a cold plunge on the lakeshore, found on a phone from the path: the 
 - pricing — rows
 - gallery — strip
 - site-footer — compact
+
+## Thalasso
+
+A thalassotherapy institute on the seafront, where people come for six days of seawater, wraps and jets rather than an afternoon: the cure is chosen in January for a week in May, often by somebody's doctor or for somebody's mother. The first screen centres the name over a wide photograph of the pools with the sea behind the glass, and the place is told like a magazine, the narrow column broken by a band of the treatment rooms. Teal water and a coral sun, the sea's own colours, airy and slow. The treatments are a price list with the sections side by side, seawater beside massage beside the doctor's; the cures read as a story with each programme in rows, its price at the end, and the questions on prescriptions in two columns; and the booking is a long page with the invitation beside the form.
+
+- direction — studio
+- palette — lagoon
+- / — marketing
+- /treatments — carte
+- /passes — journal
+- /place — journal
+- /book — marketing
+- hero — centred
+- menu — columns
+- pricing — rows
+- faq — columns
+- gallery — mosaic
+- booking — split
+- map — wide
+
+## Suite privée
+
+A private spa suite in town, rented by the hour for two: a hot tub, a sauna and a massage table behind one locked door, booked for an anniversary or given as a present, almost always for an evening. Dark by design, violet and magenta edged by a faint glow, the night-out palette rather than the bath-house one. The first screen sets the suite on one side and tonight's free slots and the door on the other; the formulas, two hours, the evening and the night, are rows with the price at the end, and the questions everybody asks before booking (towels, champagne, a gift card) are all open. The suite is one photograph and its name; the treatments are a few cards; the request for a slot stands beside its invitation; and the pages sit left of the name with the action right of it.
+
+- direction — hearth
+- palette — nocturne
+- / — split
+- /treatments — marketing
+- /passes — marketing
+- /place — poster
+- /book — split
+- hero — split
+- site-header — split
+- menu — cards
+- pricing — rows
+- faq — open
+- gallery — strip
+- booking — split
+
+## Sources chaudes
+
+Hot springs in the garrigue, pools carved in the rock with a mud bath under the fig trees, open from March to November and reached by a track: the visitor comes for the day from forty kilometres around and wants the season's hours, the price of a day and where to leave the car. The landscape lies behind the name across the opening, the season's week follows as a strip, and the map is a panorama of the track to the gate. Terracotta and olive on warm paper, the colour of the mud itself. The treatments are a short list of cards on a long page; the entries are rows with their price at the end; the place is a long page of pictures with every fifth one large; and the booking is told like a journal, the form under the story of the day.
+
+- direction — trail
+- palette — clay
+- / — marketing
+- /treatments — marketing
+- /passes — marketing
+- /place — marketing
+- /book — journal
+- hero — cover
+- schedule — strip
+- menu — cards
+- pricing — rows
+- faq — open
+- gallery — mosaic
+- map — wide

@@ -225,8 +225,11 @@ it('gives every site, design and page a route of its own, with the overrides in 
     $this->get('/framework/site/Software')->assertNotFound();
 });
 
-it('lays every design out on the contact sheet, and every business on its index', function () {
+it('lays every design out on the contact sheet, with every business in its side column', function () {
     $index = $this->get(route('framework.sheet'))->assertOk()->getContent();
+    $first = array_key_first(Site::businesses());
+
+    expect(substr_count($index, '<iframe'))->toBe(Site::views($first) + array_sum(array_map('count', Site::rolls($first))));
 
     foreach (drawnBusinesses() as $business) {
         expect($index)->toContain(e(route('framework.sheet', ['business' => $business])));
@@ -234,8 +237,11 @@ it('lays every design out on the contact sheet, and every business on its index'
         $sheet = $this->get(route('framework.sheet', ['business' => $business]))->assertOk()->getContent();
         $views = Site::views($business) + array_sum(array_map('count', Site::rolls($business)));
 
-        expect(substr_count($sheet, '<iframe'))->toBe($views);
+        expect(substr_count($sheet, '<iframe'))->toBe($views)
+            ->and($sheet)->toContain('data-ref="framework.controls"');
     }
+
+    $this->get('/framework/sheet/nowhere')->assertNotFound();
 });
 
 it('has dozens of views for every business', function (string $business) {

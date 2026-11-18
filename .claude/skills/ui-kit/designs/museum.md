@@ -1,6 +1,6 @@
 # museum
 
-Twelve ways one museum is drawn, across the three looks it may take: work hung on white walls, a public notice board, a calm gallery. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — one work, today's hours or the title of the show — and how each page is read: the exhibitions as plates on a wall, as a list of dates or as one show told at length, the collection hung as a grid or told room by room, the visit as the tickets first, as the hours beside the door or as a page of prose.
+Fifteen ways one museum is drawn, across the three looks it may take: work hung on white walls, a public notice board, a calm gallery. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — one work, today's hours or the title of the show — and how each page is read: the exhibitions as plates on a wall, as a list of dates or as one show told at length, the collection hung as a grid or told room by room, the visit as the tickets first, as the hours beside the door or as a page of prose.
 
 ## Cimaises
 
@@ -198,3 +198,59 @@ A private foundation in a villa and its garden, one collector's taste shown in a
 - events — cards
 - gallery — strip
 - faq — columns
+
+## Musée de l’usine
+
+A museum of industry in the mill or the watch factory that made the town: machines kept running, a demonstration on the first Sunday of the month, visitors who are retired workers, families and engineers on a day out. Indigo on a washed page with the rust of a rivet and panels edged in stitching, a palette that is good for a notice board and right for a house of machines. The name stands beside the factory hall with today's hours and the gate on the other half, and the week runs across the page as a strip; the demonstrations and the shows are the list their page opens on, the dates down a rule, while the machines hang as a board where every fifth picture is twice the size. The visit opens on the tickets with the hours and the door held beside them, the questions (groups, what may be touched, the lift) are set in two columns, and a panorama of the old industrial quarter shows the way in. The footer is three lines.
+
+- direction — civic
+- palette — denim
+- / — split
+- /exhibitions — carte
+- /collection — board
+- /visit — carte
+- hero — split
+- site-footer — compact
+- schedule — strip
+- events — timeline
+- gallery — mosaic
+- faq — columns
+- map — wide
+
+## Musée du lac
+
+A museum of the lake on its shore, an aquarium of the fish that live in it and the boats of the last fishermen, open every day in summer and visited by families in sandals who decide that morning because the sky is grey. The light is pinned: teal water and a coral sun on a pale aqua page, a palette that is good for a notice board and right for a house on the water. The shore lies behind the name across the opening of a long home page, the hours as plain lines under it; the summer's feeding times and workshops are each a card, the fish and the boats are the long page with one row of pictures to swipe through, and the visit is two halves, the hours and the landing stage beside the name, then the tickets and the few questions everybody asks, every answer open. The name is centred over the pages.
+
+- direction — civic
+- palette — lagoon
+- scheme — light
+- / — marketing
+- /exhibitions — marketing
+- /collection — marketing
+- /visit — split
+- hero — cover
+- site-header — centred
+- schedule — plain
+- events — cards
+- gallery — strip
+- faq — open
+- map — plain
+
+## Maison d’écrivain
+
+The house where a writer lived and wrote, kept as it was: the study, the manuscripts, the garden, a reading on Thursday evenings, visited by readers who come once and slowly. Every page is read rather than scanned: oxblood and gold on warm paper, a palette that is good for a studio and right for a house of books, with the name centred over the pages like a title page. Home is the long page, the words beside the study's photograph; the season's readings run down a rule in a magazine's column, the rooms and the manuscripts are told one after another with a row of pages to turn through, and the visit is a page of prose with the hours in it, every answer open and the lane up to the gate drawn plain. The footer is one centred column.
+
+- direction — studio
+- palette — ember
+- / — marketing
+- /exhibitions — journal
+- /collection — journal
+- /visit — journal
+- hero — split
+- site-header — centred
+- site-footer — centred
+- schedule — plain
+- events — timeline
+- gallery — strip
+- faq — open
+- map — plain

@@ -1,6 +1,6 @@
 # cafe
 
-Twelve ways one café is drawn, by what kind of café it is and which hour it lives on: the neighbourhood counter looked up before leaving the house and the kiosk found on a phone at the water's edge, the lunch place that sells on its price and the roaster that sells on its craft, the tea-room of three generations and the coffee bar that opened last year, the village's one room and the coffee house that is a stage at night. The pages and the prefabs are the same in all twelve; what changes is which fact the first screen leads with (the hours, a photograph, the cup or a sentence), how the board is read (rows beside the hours, a narrow price list, cards) and whether the evenings are a board, a list of dates or a story.
+Fourteen ways one café is drawn, by what kind of café it is and which hour it lives on: the neighbourhood counter looked up before leaving the house and the kiosk found on a phone at the water's edge, the lunch place that sells on its price and the roaster that sells on its craft, the tea-room of three generations and the coffee bar that opened last year, the village's one room and the coffee house that is a stage at night, the cyclists' café at the foot of a pass and the brunch room booked for Sunday. The pages and the prefabs are the same in all fourteen; what changes is which fact the first screen leads with (the hours, a photograph, the cup or a sentence), how the board is read (rows beside the hours, a narrow price list, cards) and whether the evenings are a board, a list of dates or a story.
 
 ## Café du coin
 
@@ -183,4 +183,37 @@ A café across the street from a bookshop that holds a reading every other Frida
 - /about — marketing
 - hero — statement
 - site-header — centred
+- site-footer — centred
+
+## Café-vélo
+
+A café at the foot of a pass that is also a bike workshop, open from seven for riders who leave early and come back hungry: the name beside this week's hours and a plain map of where to lean the bike, the board in rows with its prices from the top of its page, and the Sunday rides, the repair evenings and the race broadcasts as cards on one board, because each is a date people plan around. For a place whose regulars wear cleats and check on a phone whether it is open before the climb. Denim's indigo and stitched panels are a workshop apron, sturdy and plain-spoken, and the pages stand at the left of the header with the name in the middle.
+
+- direction — counter
+- palette — denim
+- / — split
+- /menu — carte
+- /whats-on — board
+- /about — marketing
+- site-header — split
+- site-footer — compact
+- schedule — plain
+- events — cards
+- map — plain
+
+## Brunch du dimanche
+
+A brunch room, full from ten on Saturday and Sunday and quiet in the week, whose tables are booked from a photograph: the name centred over a wide picture of a laid table, the week's hours across the page under it, and the plates on their page as cards, each with what is on it and its price, worth looking at one by one. The occasional pop-ups (a guest baker, a Mother's Day brunch) are cards too, and the story of the house is told like a magazine. Lagoon's teal and coral are fruit, juice and a sunny window; pinned light, because a brunch is a morning.
+
+- direction — studio
+- palette — lagoon
+- scheme — light
+- / — marketing
+- /menu — marketing
+- /whats-on — marketing
+- /about — journal
+- hero — centred
+- menu — cards
+- events — cards
+- schedule — strip
 - site-footer — centred

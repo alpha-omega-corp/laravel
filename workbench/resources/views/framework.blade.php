@@ -3,6 +3,7 @@
     use Workbench\App\Enums\Project;
     use Workbench\App\Enums\Theme;
     use Workbench\App\Enums\Variation;
+    use Workbench\App\Framework\Views;
 
     /*
      * One card holding one demonstration framework, the page's main column,
@@ -10,7 +11,7 @@
      * so the pointer never leaves that column between two choices and the
      * site keeps the width and the height of the window.
      *
-     * Nine independent projects — five small businesses and four back offices.
+     * Twelve independent projects — small businesses and back offices alike.
      * No two are built the same way: a project declares its own sections, so
      * switching project changes what the site is made of and not only its
      * words. The restaurant has a menu and opening hours, the farm has a shop,
@@ -78,11 +79,12 @@
     ];
 
     /*
-     * The one column of controls: four rows, one axis each, in the order a viewer
-     * decides them — which business, how it is arranged, how it is coloured,
+     * The one column of controls: which view of the tab, then four rows, one
+     * axis each, in the order a viewer decides them — which business, how it is arranged, how it is coloured,
      * how much of it is shown.
      */
     $rows = [
+        Views::row('projects'),
         [
             'heading' => __('framework.projects'),
             'items' => array_map(fn (Project $other): array => [
@@ -140,18 +142,10 @@
 <x-layouts.shell :title="__('framework.title')" :description="__('framework.intro')" wide>
     {{-- framework.js swaps the marked parts in place when a link here leads to another view of this tab. --}}
     <div class="space-y-4" data-framework-root>
-        {{-- The tab's two halves: the nine projects written by hand, here, and every kind of business read from the skill. --}}
-        <p class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm" data-framework-part="links">
-            <span aria-current="page" class="font-semibold text-ink">{{ __('framework.projects') }}</span>
-            <a href="{{ route('framework.businesses') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.title') }}</a>
-            <a href="{{ route('framework.sheet') }}" class="text-accent hover:text-accent-strong">{{ __('framework.businesses.sheet') }}</a>
-            <a href="{{ route('framework.record') }}" class="text-accent hover:text-accent-strong">{{ __('framework.record.title') }}</a>
-        </p>
-
         <div class="grid items-start gap-4 lg:grid-cols-[18rem_minmax(0,1fr)]">
             @include('framework.controls', ['rows' => $rows, 'label' => __('framework.title')])
 
-            <div class="panel min-w-0 overflow-hidden">
+            <div class="panel min-w-0 overflow-hidden" data-framework-main>
                 <header class="space-y-1 border-b border-rule px-4 py-3 sm:px-6" data-framework-part="head">
                     <div class="flex flex-wrap items-center gap-2">
                         <h2 class="font-display text-lg font-bold text-ink">{{ $project->label() }}</h2>

@@ -74,5 +74,17 @@
     "marble": {
         "display": { "family": "Plus Jakarta Sans", "weights": [800, 700] },
         "body": { "family": "Inter", "weights": [400, 500, 600, 700] }
+    },
+    "locanda": {
+        "display": { "family": "Outfit", "weights": [600, 700] },
+        "body": { "family": "Inter", "weights": [400, 500, 600, 700] }
+    },
+    "forno": {
+        "display": { "family": "Bricolage Grotesque", "weights": [800, 700] },
+        "body": { "family": "Work Sans", "weights": [400, 500, 600, 700] }
+    },
+    "basilico": {
+        "display": { "family": "Young Serif", "weights": [400] },
+        "body": { "family": "Figtree", "weights": [400, 500, 600, 700] }
     }
 }

@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 return [
     'title' => 'Framework',
-    'intro' => 'Nove progetti indipendenti, ciascuno l’intero sito di una piccola impresa o di un back-office, percorso dalla sua stessa navigazione. Nessuno è costruito come un altro: ogni progetto dichiara le proprie sezioni, così il ristorante ha un menù e degli orari, la fattoria una bottega, degli eventi e i giorni di mercato, il parrucchiere un catalogo di ciò che ha tagliato. Ogni sezione porta il layout adatto al lavoro che è — un banco è una console, una pagina di brochure no — con la palette e il grado che seguono il layout. Tutti e tre restano modificabili dalle barre laterali, e solo una scelta esplicita finisce nell’URL. Il chiaro e lo scuro restano al selettore nella barra di navigazione.',
+    'intro' => 'Dodici progetti indipendenti, ciascuno l’intero sito di una piccola impresa o di un back-office, percorso dalla sua stessa navigazione. Nessuno è costruito come un altro: ogni progetto dichiara le proprie sezioni, così il ristorante ha un menù e degli orari, la fattoria una bottega, degli eventi e i giorni di mercato, il parrucchiere un catalogo di ciò che ha tagliato. Ogni sezione porta il layout adatto al lavoro che è — un banco è una console, una pagina di brochure no — con la palette e il grado che seguono il layout. Tutti e tre restano modificabili dalle barre laterali, e solo una scelta esplicita finisce nell’URL. Il chiaro e lo scuro restano al selettore nella barra di navigazione.',
 
     'fitting' => 'Adatta',
+    'view' => 'Vista',
     'projects' => 'Progetti',
     'palettes' => 'Palette',
     'layouts' => 'Layout',
@@ -25,6 +26,15 @@ return [
         'close' => 'Chiudi',
         'tab' => 'Prompt',
         'tab_intro' => 'Il prompt che ricrea questo sito in deployer: ogni campo del modulo dell\'Hallucinator, come questa vista disegna il design. Copialo, poi incollalo in «From the framework» dell\'Hallucinator.',
+    ],
+    // Claude's shots: the pictures deployer keeps of this project.
+    'shots' => [
+        'title' => 'Claude\'s shots',
+        'intro' => 'Le immagini che Claude ha scattato di questo lavoro e archiviato in deployer, come la sua console le mostra con lo stesso nome: ognuna con la sua nota e la pagina che mostra, le più recenti prima.',
+        'empty' => 'Ancora nessuna immagine. Un’immagine scattata o salvata per questo progetto con gli strumenti di deployer (take_progress_picture, save_progress_picture) appare qui appena archiviata.',
+        'count' => 'immagini',
+        'open' => 'Apri la pagina mostrata',
+        'example' => 'Un esempio seguito',
     ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
@@ -72,6 +82,7 @@ return [
         'pages' => 'pagine',
         'views' => 'viste',
         'kinds' => 'tipi di attività',
+        'in_all' => 'in tutto',
         'sheet' => 'Provino',
         'sheet_intro' => 'Ogni pagina di ogni design di un’attività, poi la sua home in ogni palette che le sue direzioni raccomandano: la pagina stessa, in piccolo, ognuna un link alla vista con i suoi assi.',
         'open' => 'La pagina da sola',
@@ -134,6 +145,18 @@ return [
         'logistics' => [
             'label' => 'Logistica',
             'summary' => 'Un trasportatore regionale: i giri del giorno, le prestazioni, le due partenze e la richiesta di ritiro.',
+        ],
+        'hotel' => [
+            'label' => 'Albergo',
+            'summary' => 'Una pensione di montagna: la casa, le camere, le tariffe di stagione, le escursioni dalla porta, la prenotazione e il quadro delle camere della sera.',
+        ],
+        'garage' => [
+            'label' => 'Officina',
+            'summary' => 'Un’officina meccanica: l’officina, i prezzi fissi, le occasioni, il quadro di ciò che è su ogni ponte e una schermata di appuntamento.',
+        ],
+        'theatre' => [
+            'label' => 'Teatro',
+            'summary' => 'Un piccolo teatro: la stagione, la biglietteria, gli abbonamenti, gli artisti, il conteggio della cassa e le prenotazioni di gruppo.',
         ],
     ],
 

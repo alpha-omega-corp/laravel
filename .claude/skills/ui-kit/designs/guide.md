@@ -1,6 +1,6 @@
 # guide
 
-Twelve ways one outfit that takes people outdoors is drawn, seven on the trail and five in the studio. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the landscape and the meeting point, the season's dates, one guide's portrait, or the words alone), how the programme is read (dated rows, a card each, or a narrow price list), and whether the site is found on a phone the same morning or studied for a week before a place is asked for.
+Fourteen ways one outfit that takes people outdoors is drawn, eight on the trail and six in the studio. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the landscape and the meeting point, the season's dates, one guide's portrait, or the words alone), how the programme is read (dated rows, a card each, or a narrow price list), and whether the site is found on a phone the same morning or studied for a week before a place is asked for.
 
 ## Bureau des guides
 
@@ -209,4 +209,43 @@ Expeditions and far treks, three departures a year that a client studies for wee
 - team — list
 - gallery — mosaic
 - booking — plain
+- map — wide
+
+## Canyoning
+
+A canyoning and via ferrata outfit in limestone gorges, busy from June to September with families and groups who decide the day before. The long home page opens on one photograph of a jump into green water with the name over the horizon; the outings stand beside their opening as cards with their dates, their level and the places left, the questions about swimming, age and wetsuits open under them, and the guides are a list with their licences. The gorges are told as a journal with their pictures as one row, and the booking is a form beside its invitation with the car park plain next to it, because the meeting point is a lay-by. Clay is good on the trail: the red of the rock walls.
+
+- direction — trail
+- palette — clay
+- / — marketing
+- /outings — split
+- /guides — marketing
+- /gallery — journal
+- /book — split
+- hero — cover
+- site-footer — compact
+- courses — cards
+- faq — open
+- team — list
+- gallery — strip
+- booking — split
+- map — plain
+
+## Skipper
+
+A skipper who takes six people at a time on a sailing week — the Hebrides, the Cyclades, a crossing to Corsica — chosen in winter and paid for in spring. One photograph of the boat at anchor fills the first screen with the name low on it; the weeks are a price list in a narrow column with the questions about seasickness and cabins in two columns under it, the skipper and the mate are told as a story with their certificates, the voyages are a long page of pictures with every fifth one large, and the booking is the long page with the form beside its invitation and the harbour of departure on a wide map. Harbour is only fair on studio and right here: a cool sea blue for a few long journeys a year.
+
+- direction — studio
+- palette — harbour
+- / — poster
+- /outings — carte
+- /guides — journal
+- /gallery — marketing
+- /book — marketing
+- hero — cover
+- site-header — centred
+- faq — columns
+- team — list
+- gallery — mosaic
+- booking — split
 - map — wide

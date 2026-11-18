@@ -1,6 +1,6 @@
 # venue
 
-Twelve ways one place for hire is drawn, by what kind of place it is and how its hosts choose it: the estate a couple compares for weeks and the room above a restaurant looked up from the street, the hall that sells on its price and the building that sells on its architect, the old house with a story and the one that opened last year. The pages and the prefabs are the same in all twelve; what changes is which fact the first screen leads with (the photograph, the numbers, the story or the door) and how the rooms are read: as a list, as plates on a wall, or beside the way in.
+Fourteen ways one place for hire is drawn, by what kind of place it is and how its hosts choose it: the estate a couple compares for weeks and the room above a restaurant looked up from the street, the hall that sells on its price and the building that sells on its architect, the old house with a story and the one that opened last year, the auditorium an agency books for its delegates and the barge hired for one evening on the water. The pages and the prefabs are the same in all fourteen; what changes is which fact the first screen leads with (the photograph, the numbers, the story or the door) and how the rooms are read: as a list, as plates on a wall, or beside the way in.
 
 ## Domaine des noces
 
@@ -216,3 +216,40 @@ A listed château or abbey whose owners let its rooms to pay for the roof: the b
 - faq — open
 - quote — plain
 - map — plain
+
+## Centre de congrès
+
+A conference centre beside the station: a plenary hall of six hundred seats, twelve rooms for workshops, a foyer for the coffee and the stands, chosen by an event agency or a federation's secretary on numbers, transport and the price of a day per delegate. The first screen sets the building beside its line, and under it a wall of short words from the organisers who came back. Cool blue-grey with hairline rules on white walls, the plates of the rooms the only loud thing. The spaces read as rows, each photograph beside its seats, its surface and its equipment, because a planner compares them line by line; the gallery is a board of plates, the hall set for a plenary, a dinner and a fair; the questions are many and sit in two columns; and the request stands beside its invitation, with a panorama of the trains, the tram and the car parks under it. The pages sit left of the name and the action right of it.
+
+- direction — atelier
+- palette — harbour
+- / — marketing
+- /spaces — marketing
+- /gallery — board
+- /questions — marketing
+- /enquiry — marketing
+- hero — split
+- site-header — split
+- listings — rows
+- testimonials — wall
+- faq — columns
+- quote — split
+- map — wide
+
+## Péniche
+
+A barge moored on the river in town, hired for a birthday, a rehearsal dinner or a company's summer evening: a saloon for sixty, a deck for a hundred standing, and the water lit under it. It is chosen for the evening it promises, so the home opens on one photograph of the deck at dusk and reads like a story of the boat, closing on one host's words carried across the column. Dark by design, aubergine and antique gold, a little theatrical. The spaces, the saloon and the deck, stand in rows beside how to come aboard; the pictures are a magazine with one band of the river; the questions on moorings, music after eleven and the weather read down a long page with every answer open; and the request stands beside its invitation, with a panorama of the quay under it.
+
+- direction — hearth
+- palette — plum
+- / — journal
+- /spaces — split
+- /gallery — journal
+- /questions — marketing
+- /enquiry — marketing
+- listings — rows
+- gallery — strip
+- testimonials — lead
+- faq — open
+- quote — split
+- map — wide

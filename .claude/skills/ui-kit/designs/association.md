@@ -1,6 +1,6 @@
 # association
 
-Twelve ways one association is drawn: seven as the notice board people trust, five as the stall in the open. The pages and the prefabs are the same in all twelve; what changes is what the visitor came for (a date, a door, a name to write to, a way to help, a way to give), so which page gets the list, which gets the board and which fact the first screen leads with, and how loud the whole thing is allowed to be.
+Fifteen ways one association is drawn: eight as the notice board people trust, seven as the stall in the open. The pages and the prefabs are the same in all fifteen; what changes is what the visitor came for (a date, a door, a name to write to, a way to help, a way to give), so which page gets the list, which gets the board and which fact the first screen leads with, and how loud the whole thing is allowed to be.
 
 ## Maison de quartier
 
@@ -201,4 +201,58 @@ A society that happens after dark: pinned dark, violet and magenta on a night sk
 - events — cards
 - gallery — strip
 - jobs — cards
+- map — plain
+
+## Samaritains
+
+A first-aid society whose volunteers stand by at races, fêtes and concerts and teach the course every driver needs: high-visibility yellow and black ink, loud because its business is being seen. The first screen is one sentence set large, what to do while waiting for the ambulance, over a board of notices (the next course, the next standby, the way to the hall); the courses are the list their page is for, dates and places left, the committee a list of who to ring, and every open role, a standby at the summer festival, a trainer for the youth section, is a card. Marigold is only fair on a notice board and chosen for exactly that: a first-aid post should be found from across the field.
+
+- direction — civic
+- palette — marigold
+- / — board
+- /agenda — carte
+- /about — marketing
+- /get-involved — board
+- /donate — split
+- hero — statement
+- site-header — split
+- site-footer — compact
+- team — list
+- jobs — cards
+- map — plain
+
+## Panier paysan
+
+A vegetable-box cooperative that links a dozen farms to two hundred member households: once a week the boxes are handed out in a school yard, and the site is checked for which Thursday, which farm and who is on the rota. The first screen sets the distribution beside the address and the hour, the season's distributions and farm visits run down a rule, the farms and the members' kitchen are a board with the pictures in a mosaic, and the shifts that need a hand are cards. Clay's terracotta and olive on warm paper are crates and soil; the giving page, a solidarity fund for the boxes of those who cannot pay, sets the words beside the account.
+
+- direction — market
+- palette — clay
+- / — split
+- /agenda — marketing
+- /about — board
+- /get-involved — board
+- /donate — marketing
+- events — timeline
+- gallery — mosaic
+- jobs — cards
+- donate — split
+- map — wide
+
+## Sauvetage du lac
+
+A lifesaving society on a lake: swimming lessons in June, guard duty on the beach in July, the crossing of the bay in August, and volunteers in red on every jetty. The cover is the lake on a summer morning with the name centred over it, every date of the season a card on a board, the guards a list with the post each holds, and the call for helpers set beside its invitation. Lagoon's teal and coral are the water and the buoys, calm in the way a lake is calm until someone shouts; the map is bare, with the beach and the boathouse under it.
+
+- direction — market
+- palette — lagoon
+- / — marketing
+- /agenda — board
+- /about — split
+- /get-involved — split
+- /donate — split
+- hero — centred
+- site-header — centred
+- site-footer — centred
+- events — cards
+- team — list
+- gallery — strip
 - map — plain

@@ -34,7 +34,8 @@
     ];
 
     $items = array_map(fn (array $item): array => $item + [
-        'current' => isset($item['href']) && $item['href'] !== '#' && request()->fullUrlIs($item['href']),
+        // A tab with views of its own under its path (the framework's business types, sheet and record) stays current on each of them.
+        'current' => isset($item['href']) && $item['href'] !== '#' && (request()->fullUrlIs($item['href']) || request()->is(trim((string) parse_url($item['href'], PHP_URL_PATH), '/').'/*')),
     ], $items);
 
     /** @var array<int, array{label: string, href: string}> $accountLinks */

@@ -1,6 +1,6 @@
 # trades
 
-Twelve ways one trade is drawn, seven at the counter and five in the studio. The pages and the prefabs are the same in all of them; what changes is why the phone rings (a leak tonight, a bathroom next spring, a roof studied for a week) and so what the first screen leads with: the number and the area served, the price of a call-out, a family's name, or the finished work photographed large. They differ too by how the jobs are shown (tiles on a board, a long page, a magazine), by whether the questions are a list to scan or a story to read, and by whether the quote form stands alone or beside its invitation.
+Fourteen ways one trade is drawn, eight at the counter and six in the studio. The pages and the prefabs are the same in all of them; what changes is why the phone rings (a leak tonight, a bathroom next spring, a roof studied for a week, a green pool in June, a ruin restored over two years) and so what the first screen leads with: the number and the area served, the price of a call-out, a family's name, or the finished work photographed large. They differ too by how the jobs are shown (tiles on a board, a long page, a magazine), by whether the questions are a list to scan or a story to read, and by whether the quote form stands alone or beside its invitation.
 
 ## Artisan du quartier
 
@@ -189,3 +189,35 @@ The decorative painter and plasterer, lime wash, stucco and gilding, whose colou
 - site-header — centred
 - faq — columns
 - booking — plain
+
+## Bâti ancien
+
+A mason who restores old houses with lime and stone: a farmhouse wall rebuilt dry, a render taken back to the stone, a vault repaired, for owners who bought a ruin and will spend two years on it. The phone does not ring in an emergency here; the visitor reads for a month before calling, so the first screen is one photograph of a finished wall with the name low on it and the area served along its foot, and the work is told like a magazine, each site a story broken once by a band of pictures. Terracotta and olive on warm paper, the colours of the lime and the stone. The questions read down a long page with every answer open, the long ones first; the quote page sets the invitation beside the form; and the map is a panorama of the villages he works in.
+
+- direction — studio
+- palette — clay
+- / — poster
+- /our-work — journal
+- /questions — marketing
+- /quote — marketing
+- hero — cover
+- gallery — mosaic
+- faq — open
+- booking — split
+- map — wide
+
+## Piscinier
+
+A pool builder who also opens, cleans and mends them: a liner in April, a green pool in June, a pump that stops in August. The owner calls when the water turns, so the name stands beside a photograph of a clear pool with the phone and the area under it, and the jobs done are tiles on one board, a new pool large and the repairs one tile each. Teal water and a coral sun, the only counter that looks like the thing it sells. The questions on maintenance contracts and winter covers are many and sit in two columns on a long page; the quote stands beside the area served and the hours, the form bare on the page; and the map is drawn plain with the address under it.
+
+- direction — counter
+- palette — lagoon
+- / — split
+- /our-work — board
+- /questions — marketing
+- /quote — split
+- hero — split
+- gallery — mosaic
+- faq — columns
+- booking — plain
+- map — plain

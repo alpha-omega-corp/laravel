@@ -1,6 +1,6 @@
 # fitness
 
-Twelve ways one fitness studio is drawn: seven as a calm studio, five as a bright counter. The pages and the prefabs are the same in all of them; what changes is what the visitor is taken to have come for (the room, a teacher, the price of a month, whether it is open tonight), and so what the first screen leads with and how the prices are read: as a list with dotted leaders, as a few cards, or as sections side by side.
+Fourteen ways one fitness studio is drawn: seven as a calm studio, seven as a bright counter. The pages and the prefabs are the same in all of them; what changes is what the visitor is taken to have come for (the room, a teacher, the price of a month, whether it is open tonight), and so what the first screen leads with and how the prices are read: as a list with dotted leaders, as a few cards, or as sections side by side.
 
 ## Studio de yoga
 
@@ -195,3 +195,38 @@ Gentle exercise next door to a physiotherapy practice: warm printed paper and a 
 - schedule — plain
 - team — list
 - booking — split
+
+## Gym des enfants
+
+A gym for children: baby gym on Saturday mornings, acrobatics after school, a holiday week in July, where the one who books is a parent and the one who chooses is six. The long home page opens on one photograph of a child in mid-somersault behind the name, then the week's classes as a strip and the hall on a wide map; the passes are a few cards, one per age group, the coaches a list with their diplomas, and the trial class is a form beside its invitation. Sorbet is only fair at the counter and chosen anyway, because this page should look like the drawing on the hall's door.
+
+- direction — counter
+- palette — sorbet
+- / — marketing
+- /prices — marketing
+- /teachers — marketing
+- /try-a-class — split
+- hero — cover
+- schedule — strip
+- map — wide
+- menu — cards
+- team — list
+- booking — split
+
+## Entraînement médical
+
+A training room attached to a physiotherapy practice: machines, small groups after an injury, a subscription the health insurer partly refunds. The visitor has a prescription in hand and wants to know when it is open and what is covered, so the first screen sets the name beside this week's hours and the door, the prices are a list in rows from the top of their page with the refund on each line, the therapists a list with their qualifications, and the trial session is the long page with the form on it. Harbour is good at the counter: cool blue-grey and hairlines, which read as care rather than as a gym.
+
+- direction — counter
+- palette — harbour
+- / — split
+- /prices — carte
+- /teachers — marketing
+- /try-a-class — marketing
+- hero — split
+- site-footer — compact
+- schedule — plain
+- map — plain
+- menu — columns
+- team — list
+- booking — plain

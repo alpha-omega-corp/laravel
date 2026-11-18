@@ -1,6 +1,6 @@
 # artisan
 
-Twelve ways one maker is drawn: five hung on atelier's white walls, four set out on market's stall and three in studio's editorial calm. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (a wall of pieces, one piece, a sentence, the stall beside the way to it), how the pieces are read (plates, rows with the price at the end, one put forward, a price list in a narrow column) and who is being answered: somebody at the market with a phone, somebody weighing a commission for a month, a cook comparing blades, a family that has always bought from this house.
+Fifteen ways one maker is drawn: five hung on atelier's white walls, six set out on market's stall and four in studio's editorial calm. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (a wall of pieces, one piece, a sentence, the stall beside the way to it), how the pieces are read (plates, rows with the price at the end, one put forward, a price list in a narrow column) and who is being answered: somebody at the market with a phone, somebody weighing a commission for a month, a cook comparing blades, a family that has always bought from this house.
 
 ## L’étagère
 
@@ -201,3 +201,56 @@ A cabinetmaker, a saddler or a bespoke shoemaker for whom nearly everything is m
 - gallery — strip
 - quote — plain
 - map — wide
+
+## Bord de l’eau
+
+A potter or a jeweller of sea glass in a lakeside or seaside town, whose year is the summer: the first screen sets the workshop's open door beside the hours of the season and the map, read on a phone by somebody on holiday two streets away. The pieces are a board of glass panels, each with its price; the summer's markets and the evening openings are cards, because each is a reason to walk over; the workshop is the long page, its pictures one row that scrolls past like the shore. Lagoon's teal and coral are the water and the parasols, and its slow movement suits people with an afternoon free.
+
+- direction — market
+- palette — lagoon
+- / — split
+- /pieces — board
+- /workshop — marketing
+- /markets — board
+- /commission — marketing
+- events — cards
+- gallery — strip
+- map — plain
+- quote — split
+
+## Alliances
+
+A goldsmith who makes engagement rings and wedding bands to order, studied by a couple for weeks and visited by appointment: the cover is two hands and one ring, bled to the window's edges, with the name centred over the pages as on the inside of a box. The pieces page puts one ring forward at twice the size before the rest of the collection; the workshop is told like an article, from the melted gold to the last polish; the few evenings at the workshop are cards; and the commission is a letter, the invitation beside the form, since a ring is designed in a conversation. Plum's aubergine and antique gold are an evening dress, which is what the ring will be worn with.
+
+- direction — studio
+- palette — plum
+- / — poster
+- /pieces — marketing
+- /workshop — journal
+- /markets — marketing
+- /commission — journal
+- hero — cover
+- site-header — centred
+- site-footer — centred
+- catalogue — feature
+- events — cards
+- quote — split
+
+## Jouets de bois
+
+A maker of wooden toys — trains, puzzles, a rocking horse a year — whose buyers are parents and grandparents, found at the Christmas market and looked up again in November. The first screen is a sentence set large, what is on the bench this week, over a board of stickers that hold the pieces, the next market and the door; the toys are rows with the picture beside the words, the age and the price at the end; the making is a mosaic of the workshop, the markets run down a rule from the first fair to the last Advent weekend, and the commission sets its invitation beside the form for the name burnt into a toy box. Sorbet's peach and raspberry are playful on purpose: a toy is chosen on a Saturday.
+
+- direction — market
+- palette — sorbet
+- / — board
+- /pieces — board
+- /workshop — board
+- /markets — split
+- /commission — split
+- hero — statement
+- site-header — split
+- site-footer — compact
+- catalogue — list
+- gallery — mosaic
+- events — timeline
+- quote — split

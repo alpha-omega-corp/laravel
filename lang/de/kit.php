@@ -52,6 +52,8 @@ return [
     'pricing' => ['choose' => 'Wählen'],
     'donate' => ['give' => 'Spenden'],
     'courses' => ['full' => 'Ausgebucht', 'enrol' => 'Anmelden'],
+    'deals' => ['was' => 'statt', 'take' => 'Angebot nutzen'],
+    'delivery' => ['fee' => 'Lieferung', 'minimum' => 'Mindestbestellung', 'time' => 'Lieferzeit'],
 
     // The footer's line for who made the site: "Erstellt von apdigital.ch".
     'credit' => 'Erstellt von',

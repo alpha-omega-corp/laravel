@@ -11,7 +11,9 @@
     however far the site has been read. Below `lg` the column comes first and
     the site under it, as the rows used to stand.
 
-    A row of more than ten choices is folded under the one chosen. Given
+    A row of more than ten choices is folded under the one chosen, and drawn
+    open when it says `open` (the contact sheet's businesses, which are the
+    whole of its column). Given
     `rows` (the axes) and, on the business views, `arrangements`: one row
     a component of the page that can be arranged, folded under its own summary
     and opened when the address already overrides one.
@@ -27,7 +29,7 @@
     @foreach ($rows as $row)
         @if (count($row['items']) > $long)
             {{-- A long row (the forty-odd businesses, a dozen designs, twenty palettes) is folded under its current choice, or it would be the whole column. --}}
-            <details class="group px-3 py-2.5">
+            <details class="group px-3 py-2.5" @if (! empty($row['open'])) open @endif>
                 <summary class="flex cursor-pointer items-baseline gap-2 text-xs">
                     <span class="font-semibold tracking-wide text-ink-soft uppercase">{{ $row['heading'] }}</span>
                     <span class="min-w-0 truncate text-sm font-medium text-ink">{{ collect($row['items'])->firstWhere('current', true)['label'] ?? '' }}</span>

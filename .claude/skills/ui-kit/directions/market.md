@@ -25,6 +25,9 @@ footer.
 - nocturne — fair
 - clay — good
 - sorbet — good
+- locanda — best
+- basilico — good
+- forno — fair
 
 ## Suits
 

@@ -1,6 +1,6 @@
 # legal
 
-Twelve ways one legal office is drawn, seven on ledger's paper and five in studio's air. The pages and the prefabs are the same in all of them; what changes is what a visitor is handed first — the registers the firm is entered in, the price of the first meeting, the door and the hours, or the face of the person who would take the file — and how much of the firm is told as a letter rather than laid out as a list.
+Fifteen ways one legal office is drawn, nine on ledger's paper and six in studio's air. The pages and the prefabs are the same in all of them; what changes is what a visitor is handed first — the registers the firm is entered in, the price of the first meeting, the door and the hours, or the face of the person who would take the file — and how much of the firm is told as a letter rather than laid out as a list.
 
 ## Étude de la vieille ville
 
@@ -207,3 +207,56 @@ A private-client firm in a lakeside town: successions, property and families who
 - hero — cover
 - services — tiles
 - map — plain
+
+## Droit du travail
+
+A labour lawyer who acts for employees, read by somebody who was dismissed on Friday and has thirty days to object. Indigo on a washed page with the rust of a rivet, a palette only fair on ledger's paper and right for a practice that speaks plainly to people in work clothes. The opening is two halves, the words beside a photograph of the office door on one side and the deadline, the hours and the price of a first meeting on the other with their dotted leaders; the fields are the ruled list their page is for, each in the client's words. The lawyers are portraits on the long page, the questions everybody asks (the deadline, the work certificate, what the union pays) are set in two columns, and the meeting is asked for with no panel round the form, over a panorama of the streets around the office. The pages sit left of the name and the action right of it, and the footer is three lines.
+
+- direction — ledger
+- palette — denim
+- / — split
+- /practice — carte
+- /lawyers — marketing
+- /questions — marketing
+- /appointment — split
+- hero — split
+- site-header — split
+- site-footer — compact
+- services — rows
+- faq — columns
+- booking — plain
+- map — wide
+
+## Droit de l’art
+
+A small firm for artists, galleries, collectors and foundations: authenticity, loans to museums, an artist's estate, the contract with a gallery. Aubergine on a blush-white page with a little antique gold, a palette only fair on ledger's paper and right for clients who arrive from an opening. A photograph of a hanging lies behind the opening of the long home page, under the name centred like a letterhead, and the museums and foundations the firm acts for sit under it in one muted row of their marks; the fields are four tiles, since they are the whole offer. The lawyers are told in one measured column, each with the collections they know, the questions are many and set in two columns, and the first meeting is asked for in a letter. The footer is one centred column.
+
+- direction — ledger
+- palette — plum
+- / — marketing
+- /practice — marketing
+- /lawyers — journal
+- /questions — marketing
+- /appointment — journal
+- hero — cover
+- site-header — centred
+- site-footer — centred
+- services — tiles
+- credentials — logos
+- faq — columns
+
+## Droit rural
+
+A country lawyer whose clients farm: leases, a farm handed to one child and not to the other three, a neighbour's boundary, the zoning of a barn. They read on a Sunday evening after milking and want to see first that the lawyer knows a farm, so the words sit beside a photograph of one on a long home page. Terracotta and olive on warm paper, a palette that is good for a studio and right for a practice drawn from the same land; the fields open their page as studio's price list, each with the fee for a first meeting at the end of its leader, the lawyers are portraits on the long page, and the questions (the succession, the lease, the fee) are told in a column as a letter would answer them. The meeting is asked for beside its invitation over a panorama of the market town, and the footer is three lines.
+
+- direction — studio
+- palette — clay
+- / — marketing
+- /practice — carte
+- /lawyers — marketing
+- /questions — journal
+- /appointment — marketing
+- hero — split
+- site-footer — compact
+- booking — split
+- map — wide

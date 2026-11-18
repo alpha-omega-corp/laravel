@@ -1,6 +1,6 @@
 # software
 
-Fifteen ways one software product is drawn, seven as a launch page, five as a quiet studio and three as a spec sheet of the tool itself. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise alone, the promise beside the product, or a photograph of it at work), where the proof comes, how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the site argues: the newcomer and the suite, the app decided on a phone in an evening and the platform a committee studies for a week, the house that sells on price and the one that sells restraint.
+Eighteen ways one software product is drawn, eight as a launch page, six as a quiet studio and four as a spec sheet of the tool itself. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the promise alone, the promise beside the product, or a photograph of it at work), where the proof comes, how the plans are read (side by side, as rows on a board, as a price list in a narrow column) and how much the site argues: the newcomer and the suite, the app decided on a phone in an evening and the platform a committee studies for a week, the house that sells on price and the one that sells restraint.
 
 ## Page produit
 
@@ -261,5 +261,56 @@ The same spec sheet in the dark, for a technical product bought by engineers: an
 - testimonials — wall
 - process — row
 - pricing — rows
+- faq — open
+- booking — split
+
+## Logiciel métier
+
+The tool a profession cannot work without: practice software for accountants, notaries or care homes, sold to firms that are audited, whose buyer reads the certifications before the features and asks where the data sleeps. The promise stands beside a screen of the product on cool blue-grey with hairline rules, a palette only fair for a spec sheet and right for a page that must look like a register; the certifications come under it as ruled rows, each name beside its number, and one client's words carry the column. How to start is a long page down one rule, because migrating ten years of files is a road with unequal stages; the plans are rows that differ by the number of seats, the questions on hosting and leaving sit in two columns, and the demo form stands on its page with no panel round it.
+
+- direction — spec
+- palette — harbour
+- / — split
+- /how-it-works — marketing
+- /pricing — marketing
+- /demo — marketing
+- credentials — list
+- testimonials — lead
+- process — timeline
+- pricing — rows
+- faq — columns
+- booking — plain
+
+## Vie associative
+
+The membership, dues and calendar tool for clubs and associations, bought by a volunteer treasurer on a Sunday evening who has never bought software before and is afraid of the word. Peach paper and a raspberry link in a rounded face, a palette only fair for a launch page and right for one that has to look like a Saturday, not a sales call. The promise stands beside the product's screen; how to start is one row of three equal steps on a long page; the plans stand on a board, each a row with its price at the end, because they differ only by the number of members; a wall of short words from other treasurers says it is not hard; and every question is open. The demo is a long page with the form bare on it, and the footer is one centred column.
+
+- direction — launch
+- palette — sorbet
+- / — split
+- /how-it-works — marketing
+- /pricing — board
+- /demo — marketing
+- hero — split
+- site-footer — centred
+- testimonials — wall
+- process — row
+- pricing — rows
+- faq — open
+- booking — plain
+
+## Appli de calme
+
+A meditation and sleep app sold by subscription, which sells the opposite of a feature list: the first screen is one sentence set large and nothing else, the way the app opens on a breath. Teal water and a coral sun, slow and easy in its movement, on a quiet studio's page. How it works is told like a magazine, the narrow column broken once by a band of the app's screens; the plans are a price list in one narrow column, month and year and the family; and the users' words are one voice carried across the column rather than a crowd. The demo page is for employers who want it for a team, a long page with the invitation beside the form.
+
+- direction — studio
+- palette — lagoon
+- / — poster
+- /how-it-works — journal
+- /pricing — carte
+- /demo — marketing
+- hero — statement
+- testimonials — lead
+- process — row
 - faq — open
 - booking — split

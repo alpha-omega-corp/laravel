@@ -1,6 +1,6 @@
 # landscaper
 
-Twelve ways one garden firm is drawn, five on the trail, four at the market and three in the yard. The pages and the prefabs are the same in all of them; what changes is which firm it is (the village paysagiste, the pond builder, the dry-stone mason, the designer, the nursery, the tree surgeon, the group that holds contracts for property managers) and so what the first screen leads with: a garden in this month's light, the plants, a figure, a sentence or the way to the yard. The gardens are read as a story told through a year, as panels on a board, as photographs beside their facts or as a ruled record, and the visit is either one short screen away or at the end of a long page the visitor has been walked down.
+Fifteen ways one garden firm is drawn, six on the trail, five at the market and four in the yard. The pages and the prefabs are the same in all of them; what changes is which firm it is (the village paysagiste, the pond builder, the dry-stone mason, the designer, the orchard planter, the nursery, the playground builder, the tree surgeon, the irrigation fitter, the group that holds contracts for property managers) and so what the first screen leads with: a garden in this month's light, the plants, a figure, a sentence or the way to the yard. The gardens are read as a story told through a year, as panels on a board, as photographs beside their facts or as a ruled record, and the visit is either one short screen away or at the end of a long page the visitor has been walked down.
 
 ## Jardins de saison
 
@@ -190,3 +190,57 @@ A group of forty gardeners holding upkeep contracts for property managers, co-ow
 - projects — index
 - faq — columns
 - map — wide
+
+## Vergers hautes-tiges
+
+A firm that plants and prunes standard fruit trees: old orchards brought back by farmers whom the canton pays for them, communes replanting a meadow, owners of one pear tree older than their house. The first screen sets the name beside an orchard in blossom on one side and the yard and the pruning season on the other, and one farmer's sentence carries the home page under it. Deep green on warm paper with borders that look drawn, a palette that is good on the trail and right for a firm that still writes its labels by hand; each orchard planted is set across the page with its photograph beside its facts (the commune, the number of trees, the varieties grafted), the questions (the subsidy, winter pruning, the grafts) are told in one column as a letter would answer them, and the visit is asked for at the end of the long page with no panel round the form, the yard on the map with none round it either.
+
+- direction — trail
+- palette — orchard
+- / — split
+- /gardens — split
+- /questions — journal
+- /quote — marketing
+- hero — split
+- testimonials — lead
+- projects — rows
+- quote — plain
+- map — plain
+
+## Cours d’école
+
+A firm that builds natural playgrounds and school gardens: willow huts, sand and water, a vegetable bed for each class, ordered by communes and kindergartens and argued over by parents' associations. Peach paper, raspberry and a cool blue in a rounded face with stickers for panels, a palette that is good at the market and right for a page the children will be shown too. Home is a board seen at once under the words centred over a wide photograph of a playground at break time: what the firm does as four large icons, the teachers' and parents' short words on a wall, the yard as a panorama. The playgrounds made are another board, the many questions a commune asks before its budget vote (the norms, falls, upkeep, the cost) are set in two columns on the long page, and the figure is asked for beside its invitation; the name is centred over the pages like the sign over a school gate.
+
+- direction — market
+- palette — sorbet
+- / — board
+- /gardens — board
+- /questions — marketing
+- /quote — marketing
+- hero — centred
+- site-header — centred
+- services — tiles
+- testimonials — wall
+- faq — columns
+- quote — split
+- map — wide
+
+## Arrosage et drainage
+
+The technical firm of the trade: automatic watering, drainage, robot mowers and the pumps of garden ponds, installed and then serviced under contract for facility managers and for owners whose lawn died in a dry July. No photograph opens the page: the promise is set alone, large, in a mono face on near-black with one blue, pinned dark like the controller in the garage, a palette that is good in the yard and right for a firm that sells the system rather than the plants. What the firm does is ruled as a list read down, the installations are a ruled record with the photographs dropped, each with its zones and its litres, and the questions about winterising and the guarantee are set in two columns under an opening that gives the service line and the yard. The visit is asked for with no panel round the form, the map is on the page with none round it, the pages sit left of the name and the action right of it, and the footer is three lines.
+
+- direction — yard
+- palette — graphite
+- scheme — dark
+- / — marketing
+- /gardens — split
+- /questions — split
+- /quote — split
+- hero — statement
+- site-header — split
+- site-footer — compact
+- services — rows
+- projects — index
+- faq — columns
+- quote — plain
+- map — plain

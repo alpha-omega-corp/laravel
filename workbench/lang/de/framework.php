@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 return [
     'title' => 'Framework',
-    'intro' => 'Neun unabhängige Projekte, jedes die ganze Website eines Kleinbetriebs oder Backoffice, durchlaufen über ihre eigene Navigation. Keines ist gebaut wie das andere: Jedes Projekt erklärt seine eigenen Abschnitte, und so hat das Restaurant eine Speisekarte und Öffnungszeiten, der Hof einen Laden, Anlässe und Markttage, der Salon einen Katalog dessen, was er geschnitten hat. Jeder Abschnitt trägt das Layout, das zu seiner Arbeit passt — eine Theke ist eine Konsole, eine Prospektseite nicht —, wobei Palette und Stufe dem Layout folgen. Alle drei bleiben über die Leisten überschreibbar, und erst eine solche Wahl steht in der URL. Hell und Dunkel bleiben beim Umschalter in der Navigationsleiste.',
+    'intro' => 'Zwölf unabhängige Projekte, jedes die ganze Website eines Kleinbetriebs oder Backoffice, durchlaufen über ihre eigene Navigation. Keines ist gebaut wie das andere: Jedes Projekt erklärt seine eigenen Abschnitte, und so hat das Restaurant eine Speisekarte und Öffnungszeiten, der Hof einen Laden, Anlässe und Markttage, der Salon einen Katalog dessen, was er geschnitten hat. Jeder Abschnitt trägt das Layout, das zu seiner Arbeit passt — eine Theke ist eine Konsole, eine Prospektseite nicht —, wobei Palette und Stufe dem Layout folgen. Alle drei bleiben über die Leisten überschreibbar, und erst eine solche Wahl steht in der URL. Hell und Dunkel bleiben beim Umschalter in der Navigationsleiste.',
 
     'fitting' => 'Passend',
+    'view' => 'Ansicht',
     'projects' => 'Projekte',
     'palettes' => 'Paletten',
     'layouts' => 'Layouts',
@@ -25,6 +26,15 @@ return [
         'close' => 'Schließen',
         'tab' => 'Prompt',
         'tab_intro' => 'Der Prompt, der diese Site in deployer neu erstellt: jedes Feld des Hallucinator-Formulars, so wie diese Ansicht das Design zeichnet. Kopieren und im Hallucinator unter „From the framework“ einfügen.',
+    ],
+    // Claude's shots: the pictures deployer keeps of this project.
+    'shots' => [
+        'title' => 'Claude\'s shots',
+        'intro' => 'Die Bilder, die Claude von dieser Arbeit gemacht und in deployer abgelegt hat, so wie seine Konsole sie unter demselben Namen zeigt: jedes mit seiner Notiz und der Seite, die es zeigt, die neuesten zuerst.',
+        'empty' => 'Noch kein Bild. Ein Bild, das mit den Werkzeugen von deployer (take_progress_picture, save_progress_picture) für dieses Projekt aufgenommen oder gespeichert wird, erscheint hier, sobald es abgelegt ist.',
+        'count' => 'Bilder',
+        'open' => 'Die gezeigte Seite öffnen',
+        'example' => 'Ein Vorbild',
     ],
     // The record of the run that made the business views: what was asked, decided and seen.
     'record' => [
@@ -72,6 +82,7 @@ return [
         'pages' => 'Seiten',
         'views' => 'Ansichten',
         'kinds' => 'Geschäftsarten',
+        'in_all' => 'insgesamt',
         'sheet' => 'Kontaktbogen',
         'sheet_intro' => 'Jede Seite jedes Designs eines Geschäfts, dann seine Startseite in jeder Palette, die seine Richtungen empfehlen: die Seite selbst, klein, jede ein Link zur Ansicht mit ihren Achsen.',
         'open' => 'Die Seite allein',
@@ -134,6 +145,18 @@ return [
         'logistics' => [
             'label' => 'Logistik',
             'summary' => 'Ein regionaler Transporteur: die Touren des Tages, die Leistungen, die zwei Abfahrten und die Abholung.',
+        ],
+        'hotel' => [
+            'label' => 'Hotellerie',
+            'summary' => 'Eine Bergpension: das Haus, die Zimmer, die Saisonpreise, die Touren ab der Haustür, die Buchung und die Zimmerübersicht des Abends.',
+        ],
+        'garage' => [
+            'label' => 'Garage',
+            'summary' => 'Eine Autowerkstatt: die Werkstatt, ihre Festpreise, die Occasionen, die Übersicht der Hebebühnen und ein Terminbildschirm.',
+        ],
+        'theatre' => [
+            'label' => 'Theater',
+            'summary' => 'Ein kleines Theater: die Saison, die Billettkasse, die Abonnemente, die Künstlerinnen und Künstler, die Kassenabrechnung und Gruppenreservationen.',
         ],
     ],
 

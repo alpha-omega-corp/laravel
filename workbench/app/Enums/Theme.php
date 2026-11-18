@@ -34,6 +34,9 @@ enum Theme: string
     case Denim = 'denim';
     case Sorbet = 'sorbet';
     case Marble = 'marble';
+    case Locanda = 'locanda';
+    case Forno = 'forno';
+    case Basilico = 'basilico';
 
     public static function default(): self
     {

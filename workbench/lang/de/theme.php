@@ -38,6 +38,9 @@ return [
         'denim' => 'Indigo auf gewaschener Seite mit Nietenrost, eine breite, eng gesetzte Grotesk, abgesteppte Flächen.',
         'sorbet' => 'Pfirsichpapier, Himbeere und ein kühles Blau, eine runde Schrift, Aufkleber als Flächen.',
         'marble' => 'Weißer Marmor, fast schwarze Tinte und eine schwarze Pille für die Aktion, blaue Links, violette Abzeichen, eine schwere, eng gesetzte Schrift.',
+        'locanda' => 'Terrakotta auf Mehlweiß, ein Mozzarella-Butter-Akzent und ein Espresso-Dunkel, Flächen, die sich abheben: die Karte einer Pizzeria.',
+        'forno' => 'Aschepapier und Ruß am Tag, Holzkohle und glühende Glut in der Nacht, eine schwere Schildmaler-Grotesk, knappe Ecken.',
+        'basilico' => 'Mehl, Tomate und Basilikum: eine cremefarbene Seite, ein Tomatenrot, ein Basilikumblatt-Akzent, eine freundliche Serif und Pillen-Knöpfe.',
 
         'system' => 'Dem Betriebssystem folgen, auch wenn es seine Meinung ändert.',
         'light' => 'Die helle Hälfte jeder Palette festhalten, was das System auch sagt.',

@@ -38,6 +38,9 @@ return [
         'denim' => 'Indaco su pagina slavata con ruggine di rivetto, un grottesco largo e serrato, pannelli impunturati.',
         'sorbet' => 'Carta pesca, lampone e un blu fresco, un carattere tondo, adesivi al posto dei pannelli.',
         'marble' => 'Marmo bianco, inchiostro quasi nero e una pillola nera per l’azione, link blu, badge viola, un carattere pesante e stretto.',
+        'locanda' => 'Terracotta su bianco farina, un evidenziatore color burro di mozzarella e uno scuro espresso, pannelli che si sollevano: il menù di una pizzeria.',
+        'forno' => 'Carta di cenere e fuliggine di giorno, carbone e brace viva di notte, un grottesco pesante da insegna dipinta, angoli stretti.',
+        'basilico' => 'Farina, pomodoro e basilico: una pagina crema, un rosso pomodoro, un evidenziatore foglia di basilico, un serif cordiale e bottoni a pillola.',
 
         'system' => 'Seguire il sistema operativo, anche quando cambia idea.',
         'light' => 'Fissare la metà chiara di ogni tavolozza, checché dica il sistema.',

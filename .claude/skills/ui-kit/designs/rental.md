@@ -1,6 +1,6 @@
 # rental
 
-Twelve ways one rental house is drawn, four as a plain counter, four outdoors in season and four as a working yard. The pages and the prefabs are the same in all of them; what changes is what leaves the yard (a van, a digger, a pair of skis, a boat, a marquee) and so which fact the first screen leads with: the hours and the door, the stock, the price of a day or the opening of the season, and how the stock and the rates are read, in rows beside the hours, as tiles on a board or led by one object drawn large.
+Fourteen ways one rental house is drawn, four as a plain counter, five outdoors in season and five as a working yard. The pages and the prefabs are the same in all of them; what changes is what leaves the yard (a van, a digger, a pair of skis, a boat, a marquee, a pack donkey, a floor sander) and so which fact the first screen leads with: the hours and the door, the stock, the price of a day or the opening of the season, and how the stock and the rates are read, in rows beside the hours, as tiles on a board or led by one object drawn large.
 
 ## Comptoir de ville
 
@@ -197,3 +197,41 @@ The family firm in its third generation: machines, vans and trailers from the sa
 - schedule — strip
 - map — wide
 - pricing — rows
+
+## Ânes de bât
+
+Pack donkeys hired for a day's walk or a week on the paths of the Jura, by families who want the children to walk without complaining and the picnic carried on somebody else's back. The first screen sets the name beside a donkey on a path in May, with the season's days and the farm's gate on the other half; the donkeys are a page led by the one every child asks for, drawn large, the others under it each with name, age, temper and what it carries. Deep green on warm paper with borders that look drawn, a palette that is good on the trail and right for a farm that writes its prices on slate; the rates are told as a story, why a week costs what it does and what the farm packs, with every answer open (the age of the children, the paths, rain), and the dates are asked for beside their invitation at the end of the long page, over a panorama of the paths around the farm. The name is centred over the pages.
+
+- direction — trail
+- palette — orchard
+- / — split
+- /fleet — split
+- /rates — journal
+- /book — marketing
+- hero — split
+- site-header — centred
+- schedule — plain
+- listings — feature
+- faq — open
+- booking — split
+- map — wide
+
+## Location d’outils
+
+The hire corner of a hardware store in the industrial zone: floor sanders, wallpaper strippers, core drills and a tile saw by the half day, for tradesmen with an account and owners redoing one room over a weekend. Indigo on a washed page with the rust of a rivet and panels edged in stitching, a palette that is good in the yard and right for tools hired to be used rather than admired. No photograph opens the page: the promise is set alone, large, on the long home page, with the counter's hours as plain lines; the tools are slabs on a board, each with its weight and its day rate beside its photograph, and the rates are a board too, the half day, the day and the weekend each across its row, the deposit and the insurance answered in two columns. The dates are asked for with no panel round the form, under an opening that gives the counter's hours beside the gate; the pages sit left of the name and the action right of it, and the footer is three lines.
+
+- direction — yard
+- palette — denim
+- / — marketing
+- /fleet — board
+- /rates — board
+- /book — split
+- hero — statement
+- site-header — split
+- site-footer — compact
+- schedule — plain
+- listings — rows
+- pricing — rows
+- faq — columns
+- booking — plain
+- map — plain

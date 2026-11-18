@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Route;
 use Workbench\App\Framework\Picture;
 use Workbench\App\Framework\Record;
+use Workbench\App\Framework\Shots;
 
 Route::view('/', 'home')->name('home');
 
@@ -62,6 +63,19 @@ Route::get('/framework/record/{run}/{file}', function (string $run, string $file
 
     return response()->file($path, ['Content-Type' => 'image/webp', 'Cache-Control' => 'public, max-age=86400']);
 })->name('framework.record.picture');
+
+/*
+ * Claude's shots: the pictures deployer keeps of this project, read from its own
+ * folder by Workbench\App\Framework\Shots, each image served from there.
+ */
+Route::view('/framework/shots', 'framework.shots')->name('framework.shots');
+Route::get('/framework/shots/{file}', function (string $file) {
+    $path = Shots::path($file);
+
+    abort_if($path === null, 404);
+
+    return response()->file($path, ['Content-Type' => Shots::type($file), 'Cache-Control' => 'public, max-age=86400']);
+})->name('framework.shots.picture');
 
 // The photograph a demo business has not got: the kit's own frame, as an image, captioned with what belongs there.
 Route::get('/framework/picture', fn () => response(

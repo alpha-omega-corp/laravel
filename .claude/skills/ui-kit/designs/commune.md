@@ -1,6 +1,6 @@
 # commune
 
-Twelve ways one public body is drawn, seven as the notice board and five as the register. The pages and the prefabs are the same in all of them; what changes is which question the first screen answers — whether the counter is open, what is on this week, or who decides — and how the formalities are read: as one list with the counter held beside it, as tiles on a board, or down a long page somebody studies before taking a morning off.
+Fifteen ways one public body is drawn, nine as the notice board and six as the register. The pages and the prefabs are the same in all of them; what changes is which question the first screen answers — whether the counter is open, what is on this week, or who decides — and how the formalities are read: as one list with the counter held beside it, as tiles on a board, or down a long page somebody studies before taking a morning off.
 
 ## Maison de commune
 
@@ -217,3 +217,59 @@ A burgher corporation: an old house with forests, a cellar and a seal, seen by f
 - events — cards
 - team — list
 - jobs — cards
+
+## Contrôle des habitants
+
+The office every newcomer passes through in their first week: arrivals and departures, residence permits, the dog tax. Its visitors have just moved, often from another country, and read the page in a second language, so the first screen sets the opening words beside this week's counter hours and the door, the formalities are ruled rows read down with every answer already open, and the staff of each counter a list with what each one handles. Denim is good on civic and reads as an office rather than a village notice: for the residents' registry of a town of twenty thousand where a fifth of the people change every few years.
+
+- direction — civic
+- palette — denim
+- / — split
+- /services — marketing
+- /agenda — carte
+- /council — marketing
+- /jobs — split
+- site-header — split
+- schedule — plain
+- map — plain
+- services — rows
+- faq — open
+- team — list
+
+## Service jeunesse
+
+The commune's youth and leisure service: holiday camps, the youth centre, the pool's season, the after-school club. The home page is a board whose tiles are the next registration deadline, the office's hours and the door; the activities are tiles read at a glance, the summer's dates cards a child can point at, and the open posts — monitors, lifeguards, the snack bar — cards as well, because most of them go to students. Sorbet is good on civic and makes a public service look like the poster on the school's door, for parents who register three children between two meetings and teenagers looking for a summer job.
+
+- direction — civic
+- palette — sorbet
+- / — board
+- /services — marketing
+- /agenda — board
+- /council — board
+- /jobs — marketing
+- hero — centred
+- site-footer — compact
+- services — tiles
+- faq — columns
+- events — cards
+- jobs — cards
+
+## Grand Conseil
+
+A parliament rather than an office: a city council or a cantonal Grand Council, whose site publishes the sittings, the motions and the members who vote them. The first screen is the opening words beside the gallery's opening hours and the door of the chamber, the session's sittings run down a rule told in one column like minutes, and the members are a long list of names with their group and their district. Denim is only fair on ledger and right here, the blue of a parliament's binders: for journalists, students and the citizen who wants to know when the vote is and how to sit in the gallery.
+
+- direction — ledger
+- palette — denim
+- / — split
+- /services — marketing
+- /agenda — journal
+- /council — marketing
+- /jobs — carte
+- site-header — centred
+- site-footer — compact
+- schedule — plain
+- map — plain
+- services — rows
+- faq — columns
+- events — timeline
+- team — list

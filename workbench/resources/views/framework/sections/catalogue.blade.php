@@ -4,8 +4,9 @@
      * one button that acts. Unlike the price list, every item here is equal and
      * independently takeable, which is exactly what a grid says.
      *
-     * `capacity` is optional and only the school uses it — a course that is
-     * full is still on the shelf, and the bar is what says so.
+     * `capacity` is optional and only the school and the theatre use it — a
+     * course or a show that is full is still on the shelf, and the bar is what
+     * says so.
      *
      * @var array<string, mixed> $data
      * @var array<string, mixed> $site

@@ -1,6 +1,6 @@
 # florist
 
-Twelve ways one florist is drawn: five as a studio where the flowers are the loud part, four as a shop with a counter, three as a stall in the sun. The pages and the prefabs are the same in all of them; what changes is what the visitor is taken to have come for (a bouquet on the way home, the flowers of a wedding studied for a week, a wreath ordered the same morning, a bunch at the market's price), and so what the first screen leads with and how the bouquets are read: as a price list held from the top of its page, as tiles led by the bouquet of the day, or as rows with the price at the end.
+Fourteen ways one florist is drawn: five as a studio where the flowers are the loud part, five as a shop with a counter, four as a stall in the sun. The pages and the prefabs are the same in all of them; what changes is what the visitor is taken to have come for (a bouquet on the way home, the flowers of a wedding studied for a week, a wreath ordered the same morning, a bunch at the market's price), and so what the first screen leads with and how the bouquets are read: as a price list held from the top of its page, as tiles led by the bouquet of the day, or as rows with the price at the end.
 
 ## Maison de fleurs
 
@@ -176,3 +176,37 @@ A field where people cut their own flowers and pay by the stem: no photograph on
 - catalogue — list
 - booking — split
 - site-footer — centred
+
+## Fleurs séchées
+
+A grower who dries what she grows — statice, lavender, grasses, everlasting flowers — and sells them as bunches and wreaths at Christmas markets and craft fairs all year. The long home page opens on the promise centred over a photograph of bunches hanging from the barn's beams, then the stall's days as a strip and the barn on a wide map; the bunches are a list read by name with the price at the end, the work passes as one row of pictures, and the wreath workshops and wedding orders are one long page with the form beside its invitation. Clay is good on the market and is the colour of the flowers once dry: terracotta, straw and olive.
+
+- direction — market
+- palette — clay
+- / — marketing
+- /bouquets — marketing
+- /our-work — marketing
+- /occasions — marketing
+- hero — centred
+- schedule — strip
+- map — wide
+- catalogue — list
+- gallery — strip
+- booking — split
+
+## Plantes d’intérieur
+
+A plant shop more than a florist: ferns, figs and palms for flats and offices, repotting on Saturdays, and a cut bouquet on the counter for whoever forgot a birthday. The first screen sets the name beside the shop's hours and the door, the plants are a price list from the top of their page led by the plant of the month at twice the size, the work is offices and shop windows planted and kept green, and the occasions page is the long one, the request for an office's plants beside its invitation and the shop on a wide map. Lagoon is good at the counter, pale water and leaf green, for a shop people look up when the third plant on their windowsill has died.
+
+- direction — counter
+- palette — lagoon
+- / — split
+- /bouquets — carte
+- /our-work — marketing
+- /occasions — marketing
+- hero — split
+- schedule — plain
+- catalogue — feature
+- gallery — mosaic
+- booking — split
+- map — wide

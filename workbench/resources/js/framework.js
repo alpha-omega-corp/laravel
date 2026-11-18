@@ -10,7 +10,8 @@
  *   was dragged to stays too, and the page in it is replaced in its history
  *   rather than added to it, so Back steps through the tab's views.
  *
- * Between the business views' grid of every design and the inspection of one,
+ * Between two kinds of view (the projects and the business types, the grid of
+ * every design and the inspection of one, the contact sheet and the record)
  * the parts differ, so the whole main column (`data-framework-main`) is
  * swapped instead, and the window goes back to the top of the tab.
  *
@@ -27,12 +28,20 @@ const MAIN = '[data-framework-main]';
 let latest = 0;
 
 /*
- * Which tab a path is: its first two segments (`/framework`, `/framework/businesses`).
- * A business, a design and a page are segments after them, so two views of one tab
- * have different paths and still swap in place.
+ * Which tab a path is. Every view of the framework (the projects, the business
+ * types, the contact sheet, the record) is one tab, chosen from the first row
+ * of the side column, so all of them are `/framework`. The page drawn alone
+ * (`/framework/site`), a placeholder picture and a picture of the record or of
+ * Claude's shots are not views: they keep their own paths and are followed as they always were.
  */
 function tab(pathname) {
-    return pathname.split('/').slice(0, 3).join('/');
+    const segments = pathname.split('/');
+
+    if (segments[1] === 'framework' && !['site', 'picture'].includes(segments[2]) && !(['record', 'shots'].includes(segments[2]) && segments.length > 3)) {
+        return '/framework';
+    }
+
+    return segments.slice(0, 3).join('/');
 }
 
 /** A link this tab can draw in place: same page, same tab, followed with no modifier and in this window. */
@@ -136,12 +145,12 @@ async function go(url, push) {
         }
 
         main.replaceWith(freshMain);
-        root.querySelector('[data-framework-part="links"]')?.replaceWith(next.querySelector('[data-framework-part="links"]'));
 
         const controls = root.querySelector(CONTROLS);
         const freshControls = next.querySelector(CONTROLS);
 
         if (controls && freshControls) {
+            controls.setAttribute('aria-label', freshControls.getAttribute('aria-label') ?? '');
             controls.innerHTML = freshControls.innerHTML;
             controls.scrollTop = 0;
         }
@@ -190,6 +199,11 @@ async function go(url, push) {
     }
 
     keepTab(root);
+
+    // A part that is a whole new view (the contact sheet of another business) is read from its top.
+    if (root.querySelector('[data-framework-top]') && root.getBoundingClientRect().top < 0) {
+        root.scrollIntoView({ block: 'start' });
+    }
 
     document.title = doc.title;
 

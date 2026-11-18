@@ -220,9 +220,9 @@ Components without a slot render fixed demo markup — edit it after inserting.
 ## Re-theme before using kit markup in this app
 
 Kit markup carries Tailwind's default palette and `dark:` variants. This application themes
-itself with its own tokens and nineteen `[data-palette]` blocks in `resources/css/themes.css` —
+itself with its own tokens and twenty-two `[data-palette]` blocks in `resources/css/themes.css` —
 orchard, sandstone, harbour, graphite, blossom, fresh, vellum, marigold, lagoon, nocturne,
-ember, concrete, quill, alpine, clay, plum, denim and sorbet — switched at runtime from the picker in the navigation bar, and it uses no `dark:` variants at all. Dropping kit classes in
+ember, concrete, quill, alpine, clay, plum, denim, sorbet, marble, locanda, forno and basilico — switched at runtime from the picker in the navigation bar, and it uses no `dark:` variants at all. Dropping kit classes in
 unchanged breaks every one of them at once.
 
 | kit class | use instead |

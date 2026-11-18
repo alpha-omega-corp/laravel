@@ -1,6 +1,6 @@
 # club
 
-Twelve ways one sports club is drawn, across the three looks it may take: the notice board of an association, the ground in its landscape, and the village stall with a lot going on. The pages and the prefabs are the same in all of them; what changes is who the first screen speaks to (the parent choosing a group, the supporter looking for Saturday's kick-off, the newcomer after a trial session) and how the trainings and the fixtures are read: as one list with its places left, as cards, on a board, or as a season told in order.
+Fourteen ways one sports club is drawn, across the three looks it may take: the notice board of an association, the ground in its landscape, and the village stall with a lot going on. The pages and the prefabs are the same in all of them; what changes is who the first screen speaks to (the parent choosing a group, the supporter looking for Saturday's kick-off, the newcomer after a trial session) and how the trainings and the fixtures are read: as one list with its places left, as cards, on a board, or as a season told in order.
 
 ## Panneau du club
 
@@ -212,3 +212,41 @@ A gymnastics or multi-sport society with no league table: adults and children wh
 - courses — cards
 - gallery — strip
 - booking — split
+
+## Course d’orientation
+
+An orienteering and trail-running club whose ground is a forest it maps itself: the cover is one clearing at dawn with the words centred over it and the meeting point as a panorama of the paths at its foot. The trainings stand beside the way to the car park where each one starts, the season's races are cards because each is a day out in another forest, the club is told as a story, the people a list with the course each sets and the pictures a mosaic of runners in the undergrowth, and the trial is a bare form at the end of a long page. Orchard's deep green and drawn borders look like the map itself; for families who want an outdoor sport for all ages and have never held a compass.
+
+- direction — trail
+- palette — orchard
+- / — poster
+- /trainings — split
+- /fixtures — marketing
+- /club — journal
+- /join — marketing
+- hero — centred
+- events — cards
+- team — list
+- gallery — mosaic
+- booking — plain
+- map — wide
+
+## Dojo
+
+A judo and ju-jitsu club in a sports hall, with children's groups by belt and age and adults in the evening: the first screen is one sentence set large, who can start and when, beside the way to the hall; the timetable is the list its page is for, each group with its day, its age, its belt, its price and the places left; the gradings and tournaments run down a rule, the senseis and the committee are rows on a board with the federation marks as a list, and the trial session is a form beside its invitation. Denim's indigo and stitching are the judogi, sturdy and plain, for parents who want discipline explained before they sign.
+
+- direction — civic
+- palette — denim
+- / — split
+- /trainings — carte
+- /fixtures — marketing
+- /club — board
+- /join — split
+- hero — statement
+- site-header — split
+- site-footer — compact
+- credentials — list
+- events — timeline
+- team — list
+- booking — split
+- map — plain

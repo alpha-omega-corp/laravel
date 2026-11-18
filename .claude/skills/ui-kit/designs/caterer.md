@@ -1,6 +1,6 @@
 # caterer
 
-Twelve ways one caterer is drawn, across the three looks it may take: by lamplight for the house that sells an evening, in editorial calm for the kitchen that sells its plates, and in the open for the one that cooks the season. The pages and the prefabs are the same in all twelve; what changes is who is asking (a couple with a year ahead, an office with a date on Friday, a family with eighty guests and no hall) and so what each page leads with: a photograph, a price a head, somebody else's word, or the form.
+Fourteen ways one caterer is drawn, across the three looks it may take: by lamplight for the house that sells an evening, in editorial calm for the kitchen that sells its plates, and in the open for the one that cooks the season. The pages and the prefabs are the same in all fourteen; what changes is who is asking (a couple with a year ahead, an office with a date on Friday, a family with eighty guests and no hall) and so what each page leads with: a photograph, a price a head, somebody else's word, or the form.
 
 ## Table du soir
 
@@ -200,3 +200,39 @@ A kitchen that brings its fire: the spit, the paella pans and the wood oven set 
 - menu — cards
 - testimonials — lead
 - quote — split
+
+## Cuisine végétale
+
+A vegetarian caterer that cooks the vegetables of three farms nearby, for seminars in the country, festivals and weddings that want no meat on the table: the words centred over a wide photograph of a long table of dishes, then the hosts' words in a wall, short and many. The formulas are cards, each with its dishes and its price a head, the receptions a board of glass tiles with the pictures as one row that scrolls, every answer about allergies, gluten and quantities printed open, and the form beside its invitation. Clay's terracotta and olive on warm paper are crates of squash and earthenware dishes; for hosts who have to convince a table of sceptics.
+
+- direction — market
+- palette — clay
+- / — marketing
+- /menus — marketing
+- /events — board
+- /questions — marketing
+- /quote — split
+- hero — centred
+- testimonials — wall
+- menu — cards
+- gallery — strip
+- faq — open
+- quote — split
+
+## Soirée de gala
+
+A caterer for galas, award evenings and the receptions of theatres and foundations, hired by an events office that has a guest list of three hundred and a reputation to keep: the cover is a hall laid for the evening with the name centred over it, and one host's word set large under it. The formulas stand beside their photograph, the seated dinner, the walking dinner, the champagne reception, side by side to be compared; the evenings are the long page with the pictures in a mosaic, the questions about staff, cloakroom and timing are an article read to the end, and the request is a bare form under a column on how an evening is planned. Plum is rated best under this look, and its aubergine and antique gold are exactly the dress code.
+
+- direction — hearth
+- palette — plum
+- / — poster
+- /menus — split
+- /events — marketing
+- /questions — journal
+- /quote — journal
+- hero — centred
+- site-header — centred
+- testimonials — lead
+- menu — columns
+- gallery — mosaic
+- quote — plain

@@ -1,6 +1,6 @@
 # construction
 
-Twelve ways one builder is drawn, seven on the yard and five at the counter. The pages and the prefabs are the same in all of them; what changes is who is expected to arrive (a commune with a tender, a family with a plot, an architect, a mason looking for a job) and so what the first screen leads with: the figures, the hoarding, the record, the phone or the price. The work is read as slabs on a board, as cards down a long page or as a ruled record, and the quote is either one field away or at the end of a road the visitor has been shown.
+Fifteen ways one builder is drawn, eight on the yard and seven at the counter. The pages and the prefabs are the same in all of them; what changes is who is expected to arrive (a commune with a tender, a family with a plot, an architect, a mason looking for a job) and so what the first screen leads with: the figures, the hoarding, the record, the phone or the price. The work is read as slabs on a board, as cards down a long page or as a ruled record, and the quote is either one field away or at the end of a road the visitor has been shown.
 
 ## Entreprise générale
 
@@ -213,3 +213,59 @@ A small firm that sells on craft: fair-faced concrete, polished floors, stairs c
 - process — timeline
 - quote — plain
 - map — plain
+
+## Ossature bois
+
+A timber-frame builder whose houses and extensions are cut in its own hall and stood up on site in a week. The first screen sets the name beside the hall with a wall panel on the trestles and three figures under it — square metres a year, days on site, tonnes of carbon kept — then the trades as tiles and the labels a client's bank asks for as rows. The work is a board of slabs, the method a short row of equal steps beside its opening because prefabrication is the argument, and the quote is the long page with the form beside its invitation and the hall on a wide map, since clients are invited to watch a house being made. Denim is good on the yard and cooler than its hazard band: an engineer's blue for a builder that sells precision rather than muscle.
+
+- direction — yard
+- palette — denim
+- / — split
+- /projects — board
+- /how-we-work — split
+- /careers — marketing
+- /quote — marketing
+- hero — split
+- services — tiles
+- credentials — list
+- process — row
+- jobs — cards
+- quote — split
+- map — wide
+
+## Isolation et façades
+
+A renovation firm that insulates: façades, roofs, windows and heat pumps for owners of houses built in the seventies, most of them with a subsidy form in hand. The opening sets the promise beside a scaffolded façade, the labels and approvals that make the subsidy payable follow as one row of marks, and the jobs done are a ruled list from the top of their page, each with the kilowatt-hours it saved. The method is a timeline beside its opening because the subsidy has stages of its own — the audit, the application, the works, the payment — and the quote is a form beside its invitation with the map plain next to it. Harbour's cool blue-grey reads like an energy certificate, for owners who compare three estimates and a government table.
+
+- direction — counter
+- palette — harbour
+- / — marketing
+- /projects — carte
+- /how-we-work — split
+- /careers — split
+- /quote — split
+- hero — split
+- credentials — logos
+- services — rows
+- projects — index
+- process — timeline
+- quote — split
+- map — plain
+
+## Terre et paille
+
+A small builder in natural materials: straw-bale walls, earth plaster, lime and timber, for families who chose the material before they chose the firm. They come from far, so the first screen is a photograph of a wall being plastered behind the name, over a board where the trades are a few tiles; the jobs done are a board of their own, each house with its one figure. The method is a row of equal steps on a long page, since a straw wall is built in the dry season and in that order, the careers page is a plain list of the apprenticeships it offers, and the quote is the long page that shows the way to the workshop on a wide map. Clay is good at the counter and is the material itself: terracotta and olive for walls made of earth.
+
+- direction — counter
+- palette — clay
+- / — board
+- /projects — board
+- /how-we-work — marketing
+- /careers — carte
+- /quote — marketing
+- hero — cover
+- site-footer — centred
+- services — tiles
+- process — row
+- quote — split
+- map — wide

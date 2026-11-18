@@ -1,6 +1,6 @@
 # agency
 
-Thirteen ways one agency is drawn, across the four looks it may take: a product's front page for the agency that sells a result, white walls for the one whose work is looked at, a calm magazine for the one that is read, and a spec sheet for the one that reports in figures. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — a promise, one piece of work, a sentence or a price — and how the work and the services are read: on a board, down a long page, as a ruled index or as a price list.
+Sixteen ways one agency is drawn, across the four looks it may take: a product's front page for the agency that sells a result, white walls for the one whose work is looked at, a calm magazine for the one that is read, and a spec sheet for the one that reports in figures. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with — a promise, one piece of work, a sentence or a price — and how the work and the services are read: on a board, down a long page, as a ruled index or as a price list.
 
 ## Agence web
 
@@ -219,4 +219,62 @@ An agency that reports in figures and sells what moved: conversion, time on site
 - credentials — logos
 - testimonials — wall
 - process — row
+- quote — split
+
+## Salle des machines
+
+A development house that builds what other agencies design — shops, booking engines, the internal tools of a mid-sized firm — read by a technical director who opens the source of the page before the work. The first screen is one sentence set large on near-black, what it builds and in what, with no photograph; the record is a ruled index of client, stack, year and the one figure that moved, the services are tiles of what it does itself, and the road from the brief to the launch runs down a rule with its sprints unequal. The engineers are a board of faces, because a buyer of code wants to know who will answer at night, and the brief is a bare form at the foot of a long page. Graphite's mono face is wrong for most agencies and exactly right for this one: it reads as the tools its client already uses.
+
+- direction — spec
+- palette — graphite
+- / — marketing
+- /work — marketing
+- /services — board
+- /team — board
+- /brief — marketing
+- hero — statement
+- site-header — split
+- site-footer — compact
+- projects — index
+- services — tiles
+- process — timeline
+- credentials — list
+- testimonials — lead
+- quote — plain
+
+## Relations presse
+
+A press and communication office for museums, festivals and publishers, three people and a long address book: one photograph of an opening night with the name centred over it, the name centred again over the pages like a letterhead, and nothing else to scroll to. The campaigns are a price list's narrow column — the exhibition, the season, the coverage it won — the services are the direction's carte too, read as an offer rather than browsed, and the people and the brief are each one column of prose, since a curator chooses the person who will ring the journalists. Plum's aubergine and gold are the evening of a vernissage, a little theatrical, as the clients are.
+
+- direction — studio
+- palette — plum
+- / — poster
+- /work — carte
+- /services — carte
+- /team — journal
+- /brief — journal
+- hero — centred
+- site-header — centred
+- site-footer — centred
+- projects — index
+- credentials — logos
+- testimonials — lead
+- team — list
+- quote — split
+
+## Étiquettes
+
+A packaging and label studio whose clients are winemakers, cheesemakers, breweries and farm shops: one bottle on the bench as the first screen, with the name low on it, then the work as plates on a wall, each label with the product it sells. The services are read down one column as rows with what each costs, the steps from the first tasting to the print run join in one row, and the two founders are a list with a line each, since a producer hires them after a lunch. Clay's terracotta and olive on warm paper are only fair on white walls, and chosen anyway: the work ends up on kraft paper and glass, not on a gallery wall.
+
+- direction — atelier
+- palette — clay
+- / — poster
+- /work — board
+- /services — journal
+- /team — marketing
+- /brief — journal
+- hero — cover
+- services — rows
+- process — row
+- team — list
 - quote — split

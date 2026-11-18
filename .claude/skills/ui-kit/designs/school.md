@@ -1,6 +1,6 @@
 # school
 
-Twelve ways one school is drawn, across the three looks it may take: five notice boards, four studios and three counters. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the door, the season, a room or one sentence), how the courses are read (dated rows from the top of their page, or a card each), and whether the teachers are notices on a board, a story or a list of people with something to say.
+Fifteen ways one school is drawn, across the three looks it may take: six notice boards, five studios and four counters. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (the door, the season, a room or one sentence), how the courses are read (dated rows from the top of their page, or a card each), and whether the teachers are notices on a board, a story or a list of people with something to say.
 
 ## École du quartier
 
@@ -202,3 +202,56 @@ Evening classes for adults, French for newcomers, bookkeeping or a language scho
 - courses — cards
 - faq — columns
 - booking — split
+
+## Formation continue
+
+A training centre for adults: evening and Saturday courses in bookkeeping, welding, a forklift licence or a first-aid certificate, paid for by an employer or a personal training account, chosen by somebody who is changing trade at forty and reads every line before signing. The first screen sets what the centre teaches beside where it is and when the office answers, and the courses read as dated rows from the top of their page, each with its certificate, its hours and the places left. The trainers are rows of people, a portrait beside the trade each comes from, because an adult wants to know who has done the job; the questions on funding are many and sit in two columns beside the opening; the enrolment form stands beside its invitation. Indigo with a rivet of rust, sturdy and plain-spoken, and the footer is three lines.
+
+- direction — civic
+- palette — denim
+- / — split
+- /courses — carte
+- /teachers — marketing
+- /questions — split
+- /enrol — split
+- hero — split
+- site-footer — compact
+- team — list
+- faq — columns
+- booking — split
+- map — plain
+
+## École de danse
+
+A ballet school with a gala every June: children from four, the barre for adults on Tuesday evenings, and parents who choose the school they will drive to twice a week for ten years. The first screen is one photograph of the studio with the name low on it and the door and the term's start along its foot, under a header that centres the name over the pages like a programme. Aubergine and antique gold, a little theatrical, as a stage curtain is. The classes are a price list by age in a narrow column; the teachers are a story, each a row with a portrait beside where she danced; the questions on shoes, tights and the gala read down one long page with every answer open; and the enrolment asks on a long page too, the invitation beside the form.
+
+- direction — studio
+- palette — plum
+- / — poster
+- /courses — carte
+- /teachers — journal
+- /questions — marketing
+- /enrol — marketing
+- hero — cover
+- site-header — centred
+- team — list
+- faq — open
+- booking — split
+- map — plain
+
+## Permis bateau
+
+A school on the quay that teaches the boat licence: two evenings of theory and a morning at the helm, for people who bought a boat before they could steer one or want to rent one in August. The photograph of the harbour lies behind the words across the opening, and the next sessions follow as dated rows from the top of their page, each with its exam date and the seats left. Teal water and a coral sun, the only counter that smells of the sea. The instructors are rows, a portrait beside the boats each has skippered; the few questions everybody asks (the exam, the medical, the age) are all open on a long page; the form stands on its page with no panel round it; and the map is a panorama of the quays, because the school is a pontoon and not a street number.
+
+- direction — counter
+- palette — lagoon
+- / — marketing
+- /courses — carte
+- /teachers — marketing
+- /questions — marketing
+- /enrol — split
+- hero — cover
+- team — list
+- faq — open
+- booking — plain
+- map — wide

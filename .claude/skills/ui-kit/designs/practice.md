@@ -1,6 +1,6 @@
 # practice
 
-Twelve ways one practice is drawn, seven as a calm studio and five at the counter. They differ by what the patient is anxious about and how they arrive: whether they came to choose a person or to get a slot, whether a doctor sent them with a prescription or they are deciding alone and reading for a week first, whether the practice is one therapist's room, a neighbourhood cabinet of five or a walk-in group, in town or the only one in its valley, for adults after work or for children brought by a parent. The four pages and the five prefabs are the same in all twelve; what changes is whether the first screen leads with a face, a sentence, the hours or the form.
+Fourteen ways one practice is drawn, eight as a calm studio and six at the counter. They differ by what the patient is anxious about and how they arrive: whether they came to choose a person or to get a slot, whether a doctor sent them with a prescription or they are deciding alone and reading for a week first, whether the practice is one therapist's room, a neighbourhood cabinet of five or a walk-in group, in town or the only one in its valley, for adults after work or for children brought by a parent. The four pages and the five prefabs are the same in all fourteen; what changes is whether the first screen leads with a face, a sentence, the hours or the form.
 
 ## Cabinet de quartier
 
@@ -190,3 +190,39 @@ A practice for children, a speech therapist, a paediatric physiotherapist and an
 - site-footer — centred
 - faq — open
 - booking — split
+
+## Médecine du voyage
+
+A travel clinic of two doctors and a nurse: the vaccines, the malaria tablets and the yellow-fever certificate, booked by people who have just bought a ticket and need the first injection four weeks before they fly. Green and orange on a tinted page, a palette that is good at the counter and right for a page that should feel like the start of the trip rather than a waiting room. The words are centred over a wide photograph on a long home page with the week across it as a strip; the doctors are portraits on the long page, the first visit opens on the hours and the door beside the name with the many questions (which vaccines for which country, what they cost, whether insurance pays) set in two columns under them, and the appointment is the form beside its invitation, the map on the page with no panel round it. The pages sit left of the name and the action right of it.
+
+- direction — counter
+- palette — fresh
+- / — marketing
+- /team — marketing
+- /first-visit — split
+- /appointment — split
+- hero — centred
+- site-header — split
+- schedule — strip
+- faq — columns
+- booking — split
+- map — plain
+
+## Consultation mémoire
+
+A memory clinic, a geriatrician, a neuropsychologist and a nurse, read first not by the patient but by a daughter or a son who has noticed that their father repeats himself and does not know how to bring him. Warm paper with a burnt-sienna accent and a serif display face, a palette that is good for a studio and right for a page that has to be read slowly and kindly. Home is the long page, the words beside a photograph of the consulting room under the name centred like a letterhead; the team is told person by person in a magazine's column, each a portrait beside what they will ask, and the first visit is a letter too, every answer open (what to bring, how long it takes, whether the patient has to agree). The appointment is one quiet screen, the hours as plain lines, the form on the page with no panel round it and a panorama of the streets around the door, since the visit is often the patient's first into town in a while. The footer is one centred column.
+
+- direction — studio
+- palette — sandstone
+- / — marketing
+- /team — journal
+- /first-visit — journal
+- /appointment — poster
+- hero — split
+- site-header — centred
+- site-footer — centred
+- schedule — plain
+- team — list
+- faq — open
+- booking — plain
+- map — wide

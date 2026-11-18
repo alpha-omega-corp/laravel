@@ -1,6 +1,6 @@
 # band
 
-Twelve ways one act is drawn, by who plays and who reads: the quintet that fills cellars every weekend and the dance band hired for weddings, the club's house ensemble and the act that started last year, the choir with a season and the village band a century old, the cabaret on tour, and, on white walls, the ensemble whose sleeves are half the work, the small label, the ensemble a programmer studies for a week, the turntable collective and the soloist in recital. The pages and the prefabs are the same in all twelve; what changes is which audience the first screen answers, the one that comes to hear or the one that hires, and how the dates and the records are read: down a rule, as cards, as rows or as plates on a wall.
+Fourteen ways one act is drawn, by who plays and who reads: the quintet that fills cellars every weekend and the dance band hired for weddings, the club's house ensemble and the act that started last year, the choir with a season and the village band a century old, the cabaret on tour, and, on white walls, the ensemble whose sleeves are half the work, the small label, the ensemble a programmer studies for a week, the turntable collective, the soloist in recital, the pocket opera on tour and the folk group with its linocut sleeves. The pages and the prefabs are the same in all fourteen; what changes is which audience the first screen answers, the one that comes to hear or the one that hires, and how the dates and the records are read: down a rule, as cards, as rows or as plates on a wall.
 
 ## Soir de concert
 
@@ -211,3 +211,39 @@ A soloist, a pianist or a cellist, engaged by concert societies on the strength 
 - catalogue — list
 - site-header — centred
 - site-footer — centred
+
+## Opéra de poche
+
+A small opera company of six singers and a piano that tours village halls and castle courtyards with one production a year, read by the programmers of small seasons and by the public who will sit on folding chairs: the cover is the poster of this year's production, the name centred over it like the title on a playbill. The tour is a board, each evening a card with its hall and its town; the recording of the production leads the table at twice the size, beside the libretto and the programme; the company is told as a story, the rehearsals and the costumes in a mosaic; and a season that wants the production reads the conditions at length before the form beside its invitation. Plum's aubergine and antique gold are a velvet curtain, only fair on white walls and theatrical on purpose.
+
+- direction — atelier
+- palette — plum
+- / — poster
+- /shows — board
+- /music — board
+- /band — journal
+- /booking — marketing
+- hero — centred
+- events — cards
+- catalogue — feature
+- gallery — mosaic
+- booking — split
+
+## Veillée
+
+A folk group that plays barn dances, trad festivals and the bal of every village fête, whose records come in sleeves the fiddler prints from linocuts: home is the long page under a photograph of a barn full of dancers, then the season down a rule, read in order from the first spring bal to the harvest festival. The records are rows, each with its sleeve, its tunes and its price, the players a list of who plays what, the road a row of pictures that scrolls, and an organiser writes at the end of a column that says what a bal needs: a floor, a caller, two hours. Clay's terracotta and olive on warm paper are the hand-printed sleeve and the hay, only fair on white walls and the right one for a band nobody would hang in a gallery.
+
+- direction — atelier
+- palette — clay
+- / — marketing
+- /shows — journal
+- /music — marketing
+- /band — marketing
+- /booking — journal
+- hero — cover
+- events — timeline
+- catalogue — list
+- team — list
+- gallery — strip
+- booking — split
+- site-footer — compact

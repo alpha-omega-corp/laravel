@@ -1,6 +1,6 @@
 # transport
 
-Twelve ways one transport firm is drawn: five as a working yard, four as a counter that gets to the point, three as a service booked from a phone. The pages and the prefabs are the same in all of them; what changes is what is carried and who is asking (a household once in ten years, a dispatcher every week, a traveller at the kerb), and so what the first screen leads with: the fleet and its figures, the price list, or one promise and one button.
+Fourteen ways one transport firm is drawn: six as a working yard, four as a counter that gets to the point, four as a service booked from a phone. The pages and the prefabs are the same in all of them; what changes is what is carried and who is asking (a household once in ten years, a dispatcher every week, a traveller at the kerb or on the quay, a site manager with a load nobody else will take), and so what the first screen leads with: the fleet and its figures, the price list, or one promise and one button.
 
 ## Dépôt
 
@@ -188,3 +188,38 @@ The newcomer that moves students and young couples and is booked online in the e
 - faq — columns
 - jobs — cards
 - site-footer — centred
+
+## Convoi exceptionnel
+
+Heavy haulage and abnormal loads: a transformer on a low-loader at night, a boat across three départements, a crane's ballast with two escort cars ahead of it. The visitor is a site manager or a buyer who has a load, a date and a permit to obtain, and wants to know whether this firm has moved the like. The photograph of a convoy lies behind the name across the opening, the licences and the authorisations read as ruled rows with their numbers, and what is carried runs down as rows, each with its limits. Indigo with the rust of a rivet, panels stitched twice, sturdy and plain-spoken. The rates are slabs on one board because every load is priced alone; the careers page sets the escort drivers' cards beside the depot; the quote stands beside its invitation; and the questions on permits sit in two columns.
+
+- direction — yard
+- palette — denim
+- / — marketing
+- /rates — board
+- /careers — split
+- /quote — split
+- hero — cover
+- services — rows
+- credentials — list
+- faq — columns
+- jobs — cards
+- quote — split
+
+## Navette des îles
+
+A water taxi and ferry to the islands, booked from a phone on the quay or the night before: foot passengers, bicycles, a wedding party, a builder's van on the barge on Thursdays. The photograph of the boat leaving the harbour lies behind the one promise, crossings every hour, and what it carries are four large tiles, people, bikes, luggage, freight. Teal water and a coral sun, as the crossing looks in July. The fares are rows on a board, each with its price at the end; the questions on weather, dogs and the last boat back are all open; the seasonal deckhands and skippers are cards on a board; and the request for a charter is a long page with the form bare on it, under a header that centres the name over the pages like the sign on the ticket office.
+
+- direction — launch
+- palette — lagoon
+- / — marketing
+- /rates — board
+- /careers — board
+- /quote — marketing
+- hero — cover
+- site-header — centred
+- services — tiles
+- pricing — rows
+- faq — open
+- jobs — cards
+- quote — plain

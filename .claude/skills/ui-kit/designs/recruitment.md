@@ -1,6 +1,6 @@
 # recruitment
 
-Twelve ways one recruitment firm is drawn: five as launch's promise, four on ledger's paper and three at counter's desk. The pages and the prefabs are the same in all of them; what changes is which of its two visitors the first screen speaks to — the candidate who wants the open positions or the employer who wants to know how a search runs and what it costs — and whether the firm is looked up on a phone at a factory gate or studied for a week by a board before anybody calls.
+Fourteen ways one recruitment firm is drawn: five as launch's promise, five on ledger's paper and four at counter's desk. The pages and the prefabs are the same in all of them; what changes is which of its two visitors the first screen speaks to — the candidate who wants the open positions or the employer who wants to know how a search runs and what it costs — and whether the firm is looked up on a phone at a factory gate or studied for a week by a board before anybody calls.
 
 ## Agence régionale
 
@@ -211,3 +211,44 @@ Seasonal placement for hotels, mountain restaurants and the vineyards: the same 
 - site-footer — centred
 - testimonials — lead
 - services — tiles
+
+## Jobs étudiants
+
+The university's job desk for students: tutoring, babysitting, exam invigilation, a summer sorting parcels, read on a phone between two lectures by somebody who needs four hundred francs by the end of the month. Green and orange on a tinted page, a palette that is good at the counter and right for a desk that should look like the board in the cafeteria rather than an agency. The words are centred over a photograph of students at work on a long home page, the short words of those already placed on a wall under it and the campus as a panorama at its foot; the positions are a board of cards, each with its hours and its pay, and the employers' page sets the four things the desk does as tiles and its three steps joined in a row. The consultants are portraits on the long page, the conversation is asked for with no panel round the form under the desk's two halves, and the pages sit left of the name with the action right of it.
+
+- direction — counter
+- palette — fresh
+- / — marketing
+- /jobs — board
+- /employers — marketing
+- /consultants — marketing
+- /contact — split
+- hero — centred
+- site-header — split
+- testimonials — wall
+- jobs — cards
+- services — tiles
+- process — row
+- booking — plain
+- map — wide
+
+## Seconde carrière
+
+Outplacement and interim management for managers past fifty: the director whose post went in a merger, and the company that wants him placed well. Both read the site, the director at home in the evening and slowly, so home is a letter in one column, the words beside a portrait of a consultant at a first meeting and one placed director's sentence set large in it. Warm paper with a burnt-sienna accent and a serif display face, a palette that is good on ledger's paper and right for a firm that sells being unhurried. The mandates open are a short list on the long page kept narrow, the employers' page is a letter with what the firm does ruled as a register and the road from the first meeting to the new post down one rule, and the consultants are told person by person. The conversation is asked for beside its invitation, the office is on the map with no panel round it, the name is centred over the pages like a letterhead, and the footer is one centred column.
+
+- direction — ledger
+- palette — sandstone
+- / — journal
+- /jobs — marketing
+- /employers — journal
+- /consultants — journal
+- /contact — marketing
+- hero — split
+- site-header — centred
+- site-footer — centred
+- testimonials — lead
+- services — rows
+- process — timeline
+- team — list
+- booking — split
+- map — plain

@@ -1,6 +1,6 @@
 # architect
 
-Twelve ways one practice is drawn, seven hung on atelier's white walls and five in studio's editorial calm. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (a wall of plates, one photograph, a sentence or a face), how the record is read (plates, rows beside their facts, an index without pictures, a list in a narrow column) and who is being reassured: a family, a jury, a committee or a neighbour.
+Fifteen ways one practice is drawn, eight hung on atelier's white walls and seven in studio's editorial calm. The pages and the prefabs are the same in all of them; what changes is what the first screen leads with (a wall of plates, one photograph, a sentence or a face), how the record is read (plates, rows beside their facts, an index without pictures, a list in a narrow column) and who is being reassured: a family, a jury, a committee or a neighbour.
 
 ## Murs blancs
 
@@ -206,3 +206,57 @@ A landscape studio in water colours: the cover is one garden with the words cent
 - team — list
 - credentials — logos
 - map — wide
+
+## Terre et bois
+
+A practice that builds in timber, straw and rammed earth, chosen by families who want a low house and have read about it for a year: the cover is one wall of earth in the evening sun with the words centred over it, and the work is a wall of plates, each house with its surface and its material. The method is the long page, because the clay is dug on the plot and the walls dry for a season, its stages down one rule; the partners are told as a story with the people as a list, and the contact page reads as a letter, the invitation beside the form and the map a panorama of the valley. Clay's terracotta and olive are only fair on white walls and are the material itself here.
+
+- direction — atelier
+- palette — clay
+- / — poster
+- /projects — board
+- /approach — marketing
+- /studio — journal
+- /contact — journal
+- hero — centred
+- site-footer — centred
+- process — timeline
+- team — list
+- quote — split
+- map — wide
+
+## Intérieurs
+
+An interior architect who draws hotels, restaurants and boutiques, hired by an owner who wants a room people photograph: the cover is one lobby at dusk and the name, nothing else to scroll to, and the name centred over the pages as on a hotel's card. The work is a few large rooms in rows, the photograph beside the address and the number of keys, the clients a muted row of their marks; the method is told like an article and the studio is a second poster, because the client is buying one person's eye. Plum's aubergine and antique gold are a bar at seven in the evening, and the request is a bare form on a magazine page.
+
+- direction — studio
+- palette — plum
+- / — poster
+- /projects — marketing
+- /approach — journal
+- /studio — poster
+- /contact — journal
+- hero — cover
+- site-header — centred
+- projects — rows
+- credentials — logos
+- quote — plain
+
+## Patrimoine
+
+A restoration practice that works on churches, castles, old town halls and listed farms, read by a commune's council, a parish board and the heritage office before any of them writes: the first screen is one sentence set large, what it restores and under whose supervision, and the home is a restoration told at length under it. The record is an index, ruled rows of the monument, the commune, the year and the work done, in the list's own column; the method runs down a rule because a survey precedes everything and the subsidies take a year; the registers and the accreditations are a list read by number, and the people a list with what each knows. Sandstone's printed paper and serif are the archive the practice works from.
+
+- direction — studio
+- palette — sandstone
+- / — journal
+- /projects — carte
+- /approach — journal
+- /studio — marketing
+- /contact — marketing
+- hero — statement
+- site-footer — compact
+- projects — index
+- process — timeline
+- credentials — list
+- team — list
+- map — plain

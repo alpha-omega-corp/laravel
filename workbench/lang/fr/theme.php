@@ -38,6 +38,9 @@ return [
         'denim' => 'Indigo sur page délavée et rouille de rivet, une grotesque large serrée, des panneaux surpiqués.',
         'sorbet' => 'Papier pêche, framboise et bleu frais, une face ronde, des autocollants en guise de panneaux.',
         'marble' => 'Marbre blanc, encre presque noire et une pastille noire pour l’action, liens bleus, badges violets, une face lourde et serrée.',
+        'locanda' => 'Terracotta sur blanc farine, un surligné beurre de mozzarella et un sombre espresso, des panneaux qui se soulèvent : la carte d’une pizzeria.',
+        'forno' => 'Papier de cendre et suie le jour, charbon et braise vive la nuit, une grotesque lourde d’enseigne peinte, des angles serrés.',
+        'basilico' => 'Farine, tomate et basilic : une page crème, un rouge tomate, un surligné feuille de basilic, une serif amicale et des boutons en pilule.',
 
         'system' => 'Suivre le système, et le suivre encore quand il change d’avis.',
         'light' => 'Fixer la moitié claire de chaque palette, quoi que dise le système.',
